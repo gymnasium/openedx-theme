@@ -1,9 +1,9 @@
 #!/bin/bash
 
 cd ~  
-git clone https://github.com/gymnasium/configuration 
+git clone https://github.com/appsembler/configuration 
 cd configuration 
-git checkout hawthorn.staging 
+git checkout appsembler/gymnasium/hawthorn/master
 sudo pip install -r requirements.txt 
 cd playbooks  
 
