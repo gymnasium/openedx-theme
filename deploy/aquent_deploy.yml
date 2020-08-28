@@ -4,7 +4,7 @@
 - name: Update theme
   hosts: all
   become: True
-  gather_facts: True
+  gather_facts: False
   vars_files: 
   - roles/common_vars/defaults/main.yml
   - roles/supervisor/defaults/main.yml
