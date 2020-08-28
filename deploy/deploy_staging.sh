@@ -4,7 +4,7 @@ cd ~
 git clone https://github.com/appsembler/configuration 
 cd configuration 
 git checkout appsembler/hawthorn/master 
-sudo pip install -r requirements.txt 
+sudo pip3 install -r requirements.txt 
 cd playbooks  
 
 #link edx_ansible roles and libraries
