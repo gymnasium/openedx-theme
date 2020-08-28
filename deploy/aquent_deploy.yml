@@ -14,7 +14,7 @@
   tasks:        
     - name: checkout comprehensive theme
       git:
-        dest: "/edx/vars/edxapp/themes/gymnasium"
+        dest: "/edx/var/edxapp/themes/gymnasium"
         repo: "https://github.com/gymnasium/openedx-theme"
         version: "{{ THEME_BRANCH }}"
         accept_hostkey: yes 
