@@ -1,0 +1,70 @@
+---
+# tmp hack to deploy aquent theme to staging
+
+- name: Update theme
+  hosts: all
+  become: True
+  gather_facts: True
+  vars_files: 
+  - roles/common_vars/defaults/main.yml
+  - roles/supervisor/defaults/main.yml
+  - roles/edxapp/defaults/main.yml
+  vars:
+    THEME_BRANCH: "hawthorn/staging"
+  tasks:        
+    - name: checkout comprehensive theme
+      git_2_0_1:
+        dest: "/edx/vars/edxapp/themes/gymnasium"
+        repo: "https://github.com/gymnasium/openedx-theme"
+        version: "{{ THEME_BRANCH }}"
+        accept_hostkey: yes 
+      become_user: "{{ edxapp_user }}"
+      register: edxapp_theme_checkout
+      tags:
+        - install
+        - install:code
+
+    - name: Remove and recreate the staticfiles directory so nothing stale can exist
+      file:
+          path: "{{ edxapp_staticfile_dir }}"
+          state: "{{ item }}"
+          owner: "{{ edxapp_user }}"
+          group: "{{ common_web_group }}"
+          mode:  "0755"
+      when: celery_worker is not defined and not devstack
+      with_items: ['absent', 'directory']
+      tags:
+        - gather_static_assets
+        - assets
+
+# Gather assets using paver if possible
+    - name: "gather {{ item }} static assets with paver"
+      command: "{{ COMMON_BIN_DIR }}/edxapp-update-assets"
+      when: celery_worker is not defined and not devstack and item != "lms-preview"
+      tags:
+        - gather_static_assets
+        - assets
+
+    - name: restart LMS and CMS
+      supervisorctl:
+        name: "all"
+        supervisorctl_path: "{{ supervisor_ctl }}"
+        config: "{{ supervisor_cfg }}"
+        state: restarted
+      become_user: "{{ supervisor_service_user }}"
+      when: celery_worker is not defined and not disable_edx_services
+      tags:
+        - manage
+
+    - name: ensure edxapp has started
+      supervisorctl:
+        name: "all"
+        supervisorctl_path: "{{ supervisor_ctl }}"
+        config: "{{ supervisor_cfg }}"
+        state: started
+      become_user: "{{ supervisor_service_user }}"
+      when: celery_worker is not defined and not disable_edx_services
+      tags:
+        - manage
+
+
