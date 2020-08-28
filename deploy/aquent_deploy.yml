@@ -13,7 +13,7 @@
     THEME_BRANCH: "hawthorn/staging"
   tasks:        
     - name: checkout comprehensive theme
-      git_2_0_1:
+      git:
         dest: "/edx/vars/edxapp/themes/gymnasium"
         repo: "https://github.com/gymnasium/openedx-theme"
         version: "{{ THEME_BRANCH }}"
