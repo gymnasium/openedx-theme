@@ -37,7 +37,7 @@
         - gather_static_assets
         - assets
 
-# Gather assets using paver if possible
+    # Gather assets using paver if possible
     - name: "gather static assets with paver"
       command: "{{ COMMON_BIN_DIR }}/edxapp-update-assets"
       when: celery_worker is not defined and not devstack
@@ -47,12 +47,13 @@
 
     - name: restart LMS and CMS
       supervisorctl:
-        name: "all"
+        name: "{{ item }}"
         supervisorctl_path: "{{ supervisor_ctl }}"
         config: "{{ supervisor_cfg }}"
         state: restarted
       become_user: "{{ supervisor_service_user }}"
       when: celery_worker is not defined and not disable_edx_services
+      with_items: ['lms', 'cms']
       tags:
         - manage
 
