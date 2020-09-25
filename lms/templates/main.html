@@ -96,6 +96,7 @@ from pipeline_mako import render_require_js_path_overrides
     <%static:css group='${self.attr.main_css}'/>
   % endif
 
+  <!-- local css file for debug purposes -->
   <link rel="stylesheet" href="http://localhost:8000/test.css" type="text/css" media="all" />
 
   % if disable_courseware_js or uses_pattern_library:
