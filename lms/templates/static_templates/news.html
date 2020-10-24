@@ -1,0 +1,25 @@
+<%! from django.utils.translation import ugettext as _ %>
+<%inherit file="../main.html" />
+
+<%block name="pagetitle">${_("News &amp; Events")}</%block>
+<div class="container ">
+	<div class="r">
+		<div class="col-md-12 ">
+      <div class="white-panel">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>News &amp; Events</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-9">
+            <small></small>
+          </div>
+          <div class="col-md-3">
+            <%include file="theme-upcoming-content.html" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

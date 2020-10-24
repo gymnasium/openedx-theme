@@ -1,0 +1,169 @@
+<%page expression_filter="h"/>
+<%!
+from django.utils.translation import ugettext as _
+from openedx.core.djangolib.markup import HTML
+%>
+
+<%namespace name="gymcms" file="./util/gymcms.mako" />
+<%namespace name='static' file='static_content.html'/>
+<h2 class="hd hd-2 problem-header">
+  ${ problem['name'] }
+</h2>
+<div class="problem-progress"></div>
+
+${gymcms.render('final-exam-modal-top')}
+
+<div class="problem" aria-relevant="all">
+  <div aria-live="polite">
+    ${ HTML(problem['html']) }
+  </div>
+
+  <div class="action">
+    <input type="hidden" name="problem_id" value="${ problem['name'] }" />
+    % if demand_hint_possible:
+    <div class="problem-hint" aria-live="polite"></div>
+    % endif
+    % if check_button:
+    <button class="gym-button natural check ${ check_button }" id="check-button" data-checking="${ check_button_checking }" data-value="${ check_button }"><span class="check-label">${ check_button }</span><span class="sr"> ${_("your answer")}</span></button>
+    % endif
+    % if demand_hint_possible:
+    <button class="gym-button natural hint-button" data-value="${_('Hint')}">${_('Hint')}</button>
+    % endif
+    % if reset_button:
+    <button class="gym-button natural reset" data-value="${_('Reset')}">${_('Reset')}<span class="sr"> ${_("your answer")}</span></button>
+    % endif
+    % if save_button:
+    <button class="gym-button natural save" data-value="${_('Save')}">${_('Save')}<span class="sr"> ${_("your answer")}</span></button>
+    % endif
+    % if answer_available:
+    <button class="gym-button natural show"><span class='sr'>${_('Toggle Answer Visibility')}</span><span class="show-label">${_('Show Answer')}</span></button>
+    % endif
+    % if attempts_allowed :
+    <div class="submission_feedback" aria-live="polite">
+      ${_("You have used {num_used} of {num_total} submissions").format(num_used=attempts_used, num_total=attempts_allowed)}
+
+      <span class="hidden attempts_used">${attempts_used}</span>
+      <span class="hidden attempts_total">${attempts_allowed}</span>
+    </div>
+    % endif
+  </div>
+</div>
+
+${gymcms.render('final-exam-modal')}
+
+<script>
+  $(function(){
+    Prism.highlightAll();
+  });
+
+  $(function(){
+
+    const COURSE_TYPES = {
+      FULL_COURSE: 'FULL_COURSE',
+      GYM_SHORT: 'GYM_SHORT',
+    };
+
+    const COURSE_ID = parseInt($('#__course_number__').text(), 10);
+    const COURSE_TYPE = COURSE_ID >= 100 ? COURSE_TYPES.FULL_COURSE : COURSE_TYPES.GYM_SHORT;
+    let PASSING_SCORE = 85;
+
+    if (COURSE_TYPE === COURSE_TYPES.FULL_COURSE) {
+      // full courses have a passing grade of 85
+      PASSING_SCORE = 85;
+    } else {
+      // gym shorts have a passing grade of 80
+      PASSING_SCORE = 80;
+    }
+
+    if ($('.problem-header').text().trim() === "Final Exam") {
+      var progress_status_check = setInterval(check_status, 200); 
+    } else {
+      return;
+    }
+
+    function check_status(){
+      var status = $('[data-progress_status]').attr('data-progress_status').trim();
+
+
+      var progress_string = $('.problem-progress').text().trim();
+      var slash = progress_string.indexOf("/");
+
+      if (status === 'done' || slash >= 0 || progress_string.indexOf("possible") >= 0)
+      {
+        clearInterval(progress_status_check);
+        show_problem_progress();
+      }
+    }
+  
+    function scrollToResultsMessage() {
+      $('#course_passed_message')[0].scrollIntoView();
+    }
+
+    $('#check-button').click(function() {
+      scrollToResultsMessage();
+    });
+
+    var show_problem_progress = function(){
+
+      var progress_string = $('.problem-progress').text().trim();
+      var slash = progress_string.indexOf("/");
+
+      if (progress_string.indexOf("possible") >= 0 )
+      {
+        return;
+      }
+      var slash = progress_string.indexOf("/");
+      var correct = progress_string.substring(1,slash);
+      var out_of = progress_string.substring(slash+1);
+      var out_of = out_of.substring(0, out_of.indexOf(" "))
+
+      var score = correct / out_of * 100; //score out of 100
+
+      $('.exam-score-container').text(score);
+
+      var attempts_used = $('.attempts_used').text();
+      var attempts_total = $('.attempts_total').text();
+      var attempts_remaining = attempts_total - attempts_used;
+
+
+      if (progress_string.length > 0) {
+        //Gymnasium.RecordExamGrade =  function(email, COURSE_ID, grade, callback)
+        % if (user.is_authenticated()):
+          var email = "${user.email}";
+          
+          if (email && COURSE_ID && score) {
+            // Gymnasium.RecordExamGrade(email, COURSE_ID, score);
+          }
+        %endif
+
+        //we have a score
+        if (score >= PASSING_SCORE) {
+          //we passed! show passing div
+          $(".passed_modal").removeClass('hidden');
+          $(".try_again_modal").addClass('hidden');
+          $(".failed_modal").addClass('hidden');
+
+          //generate the certificate through the API
+          $.ajax({
+            type:     'POST',
+            url:      '/request_certificate',
+            data:     {'course_id': $$course_id},
+            success:  function(data) {
+            }
+          });
+        } else {
+          //we failed :( see if we have another attempt
+          if (attempts_remaining > 0) {
+            $(".passed_modal").addClass('hidden');
+            $(".try_again_modal." + COURSE_TYPE).removeClass('hidden');
+            $(".failed_modal").addClass('hidden');
+          } else {
+            $(".passed_modal").addClass('hidden');
+            $(".try_again_modal." + COURSE_TYPE).addClass('hidden');
+            $(".failed_modal").removeClass('hidden');
+          }
+        }
+      }
+    }
+  });
+</script>

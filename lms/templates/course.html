@@ -1,0 +1,27 @@
+<%namespace name='static' file='static_content.html'/>
+<%!
+from django.utils.translation import ugettext as _
+from django.core.urlresolvers import reverse
+from courseware.courses import get_course_about_section
+%>
+<%page args="course" />
+
+<%
+# this template gets rendered on the home page to represent a featured course
+%>
+
+<article id="${course.id | h}" class="gym-course">
+  <a href="${reverse('about_course', args=[course.id.to_deprecated_string()])}">
+  <div class="course-inner-wrapper">
+      <section class="info text-center">
+        <figure class="cover-image">
+          <img class="img-responsive" src="${course.course_image_url}" alt="${course.display_number_with_default | h} ${course.display_name_with_default} Cover Image" />
+        </figure>
+      </section>
+
+      <header class="course-preview">
+        <h2>${course.display_name_with_default}</h2>
+      </header>
+    </div>
+  </a>
+</article>

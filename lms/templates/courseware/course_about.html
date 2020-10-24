@@ -1,0 +1,191 @@
+<%namespace name='static' file='../static_content.html'/>
+<%namespace name="gymcms" file="../util/gymcms.mako" />
+<%!
+from django.utils.translation import ugettext as _
+from django.core.urlresolvers import reverse
+from courseware.courses import get_course_about_section
+from django.conf import settings
+from edxmako.shortcuts import marketing_link
+%>
+
+<%inherit file="../main.html" />
+<%block name="headextra">
+  ## OG (Open Graph) title and description added below to give social media info to display
+  ## (https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content#tags)
+
+  %if course.display_number_with_default:
+    ${gymcms.render('courses/meta/gym-' + course.display_number_with_default + '-meta')}
+  %else:
+    <meta property="og:title" content="${course.display_name_with_default_escaped} - Gymnasium" />
+    <meta property="og:image" content="http://gymnasium.github.io/static-site-content/artwork/production/courses/gym-${course.display_number_with_default | h}-social.png" />
+  % endif
+</%block>
+
+<%block name="js_extra">
+
+  <script type="text/javascript">
+    (function() {
+      $(".register").click(function(event) {
+        $("#class_enroll_form").submit();
+        event.preventDefault();
+      });
+
+
+      ## making the conditional around this entire JS block for sanity
+      %if settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
+        <%
+          perms_error = _('The currently logged-in user account does not have permission to enroll in this course. '
+                          'You may need to {start_logout_tag}log out{end_tag} then try the register button again. '
+                          'Please visit the {start_help_tag}help page{end_tag} for a possible solution.').format(
+                            start_help_tag="<a href='{url}'>".format(url=marketing_link('FAQ')), end_tag='</a>',
+                            start_logout_tag="<a href='{url}'>".format(url=reverse('logout'))
+                            )
+        %>
+      $('#class_enroll_form').on('ajax:complete', function(event, xhr) {
+        if(xhr.status == 200) {
+          location.href = "${reverse('dashboard')}";
+        } else if (xhr.status == 403) {
+          location.href = "${reverse('course-specific-register', args=[course.id.to_deprecated_string()])}?course_id=${course.id | u}&enrollment_action=enroll";
+        } else if (xhr.status == 400) { //This means the user did not have permission
+          $('#register_error').html("${perms_error}").css("display", "block");
+        } else {
+          $('#register_error').html(
+              (xhr.responseText ? xhr.responseText : "${_("An error occurred. Please try again later.")}")
+          ).css("display", "block");
+        }
+      });
+
+      %else:
+
+      $('#class_enroll_form').on('ajax:complete', function(event, xhr) {
+        if(xhr.status == 200) {
+          if (xhr.responseText == "") {
+            
+            % if user.is_authenticated():
+              var fname = "${user.profile.name}".split(" ")[0];
+              var lname = "${user.profile.name}".split(" ")[1];
+              var email = "${user.email}";
+              var courseId = "${course.display_number_with_default}";
+
+              Gymnasium.RecordCourseEnrollment(fname, lname, email, courseId, function(){
+                location.href = "${reverse('dashboard')}";
+              });
+
+              //log the event in Intercom
+              var metadata = {
+                "course_id" : "${course.display_number_with_default}",
+                "course_name" : "${course.display_name_with_default}",
+                "email": "${user.email}",
+                "name": "${user.profile.name}",
+                "username": "${user.username}",
+              };
+              Intercom('trackEvent', 'GYM${course.display_number_with_default}-enroll', metadata);
+            %endif  
+          }
+          else {
+            location.href = xhr.responseText;
+          }
+
+        } else if (xhr.status == 403) {
+            location.href = "${reverse('register_user')}?course_id=${course.id | u}&enrollment_action=enroll";
+        } else {
+          $('#register_error').html(
+              (xhr.responseText ? xhr.responseText : "${_("An error occurred. Please try again later.")}")
+          ).css("display", "block");
+        }
+      });
+
+      %endif
+
+    })(this)
+
+    $(function(){
+      Gymnasium.setBackgroundColorOfElementFromImage('.hero-banner', '#course-image');
+    });
+  </script>
+
+  <script src="${static.url('js/course_info.js')}"></script>
+</%block>
+
+<%block name="pagetitle">${course.display_name_with_default_escaped}</%block>
+
+<main class="course container-fluid">
+  <div class="course-info container">
+    <section class="hero-banner row">
+      <header class="col-md-12 ">
+        <img src="${course_image_urls['large']}" alt="" class="image-responsive center-block row" id="course-image" />
+        <div class="row">
+          <h1 class="col-md-12">${course.display_name_with_default_escaped}</h1>
+        </div>
+      </header>
+    </section>
+    <div class="course-metabar row">
+      <div class="meta level col-md-5">
+        <span>
+          <strong>
+            % if course.display_number_with_default and course.display_number_with_default.startswith("0"):
+              ${_("Gym Short")}
+            % else:
+              ${_("Full Course")}
+            % endif
+          </strong>
+        </span>
+      </div>
+      <div class="action col-md-2">
+        <span class="text-center">
+          %if user.is_authenticated() and registered:
+            %if show_courseware_link:
+              <a href="${course_target}" class="gym-button get-started text-center">
+                <b>${_("Go to Class")}</b>
+              </a>
+            %endif
+          % elif invitation_only and not can_enroll:
+            <span class="register disabled">${_("Enrollment in this course is by invitation only")}</span>
+          ## Shib courses need the enrollment button to be displayed even when can_enroll is False,
+          ## because AnonymousUsers cause can_enroll for shib courses to be False, but we need them to be able to click
+          ## so that they can register and become a real user that can enroll.
+          % elif not is_shib_course and not can_enroll:
+            <span class="register disabled">${_("Enrollment is Closed")}</span>
+          %else:
+            <a href="#" class="gym-button register">
+              <b>${_("Get Started")}</b>
+            </a>
+            <div id="register_error"></div>
+          %endif
+        </span>
+      </div>
+      <div class="meta time col-md-5">
+        % if staff_access and studio_url is not None:
+          <div class="wrap-instructor-info studio-view pull-right">
+            <a class="instructor-info-action gym-button" href="${studio_url}">${_("View About Page in studio")}</a>
+          </div>
+        % endif
+        <time><!-- length of course will go here one day --></time>
+      </div>
+    </div>
+    <article class="course-overview row">
+      ${get_course_about_section(request, course, "overview")}
+    </article>
+  </div>
+</main>
+
+
+## Need to put this hidden form on the page so that the registration button works.
+## Since it's no harm to display a hidden form, we display it with the most permissive conditional
+## which is when the student is not registered.
+%if active_reg_button or is_shib_course:
+  <div style="display: none;">
+    <form id="class_enroll_form" method="post" data-remote="true" action="${reverse('change_enrollment')}">
+      <fieldset class="enroll_fieldset">
+        <legend class="sr">${_("Enroll")}</legend>
+        <input name="course_id" type="hidden" value="${course.id | h}">
+        <input name="enrollment_action" type="hidden" value="enroll">
+      </fieldset>
+      <div class="submit">
+        <input name="submit" type="submit" value="${_('enroll')}">
+      </div>
+    </form>
+  </div>
+%endif
+
+<%include file="../video_modal.html" />

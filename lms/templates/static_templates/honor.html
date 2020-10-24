@@ -1,0 +1,23 @@
+<%! from django.utils.translation import ugettext as _ %>
+<%inherit file="../main.html" />
+<%namespace name="gymcms" file="../util/gymcms.mako" />
+
+<%block name="pagetitle">${_("Privacy Policy")}</%block>
+<div class="container ">
+	<div class="row">
+		<div class="col-md-12 ">
+      <div class="white-panel">
+        <div class="row">
+          <div class="col-md-9">
+            ## include privacy policy from git repo
+            ${gymcms.render('privacy-policy')}
+          </div>
+
+          <div class="col-md-3">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
