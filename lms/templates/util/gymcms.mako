@@ -7,9 +7,9 @@
     # based on which environment we're in
     if templateUrl:
       # fullUrl = 'https://staging.thegymcms.com/static/' + templateUrl
-      if settings.APPSEMBLER_FEATURES.get('ENVIRONMENT', 'staging') == "staging":
+      if 1==1:  # settings. APPSEMBLER_FEATURES.get('ENVIRONMENT', 'staging') == "staging":
         fullUrl = 'https://staging.thegymcms.com/static/' + templateUrl
-      elif settings.APPSEMBLER_FEATURES.get('ENVIRONMENT', '') == "production":
+      elif 0==1: # settings. APPSEMBLER_FEATURES.get('ENVIRONMENT', '') == "production":
         fullUrl = 'https://thegymcms.com/static/' + templateUrl
 
       
