@@ -1,4 +1,9 @@
 ## mako
-<%page expression_filter="h" args="online_help_token"/>
-<%namespace name='static' file='static_content.html'/>
-<%include file="${static.get_template_path(relative_path='header/header.html')}"  args="online_help_token=online_help_token"  />
+<%! from django.core.urlresolvers import reverse %>
+<%namespace name='static' file='/static_content.html'/>
+<%inherit file="/navigation.html"/>
+
+## TODO: this will eventually be moved to the Sass
+<%block name="navigation_logo">
+  <img class="gymnasium-logo" src="${static.url('images/gymnasiumLogo.png')}" alt="Home Page" />
+</%block>
