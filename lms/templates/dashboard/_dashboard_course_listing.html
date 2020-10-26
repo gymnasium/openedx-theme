@@ -1,4 +1,4 @@
-<%page args="course_overview, enrollment, show_courseware_link, cert_status, can_unenroll, credit_status, show_email_settings, course_mode_info, show_refund_option, is_paid_course, is_course_blocked, verification_status, course_requirements, dashboard_index, share_settings, course_program_info" expression_filter="h"/>
+<%page args="course_overview, enrollment, entitlement, entitlement_session, course_card_index, is_unfulfilled_entitlement, is_fulfilled_entitlement, entitlement_available_sessions, entitlement_expiration_date, entitlement_expired_at, show_courseware_link, cert_status, can_refund_entitlement, can_unenroll, credit_status, show_email_settings, course_mode_info, is_paid_course, is_course_blocked, verification_status, course_requirements, dashboard_index, share_settings, related_programs, display_course_modes_on_dashboard, show_consent_link, enterprise_customer_name, resume_button_url" expression_filter="h"/>
 
 <%!
 import urllib
@@ -122,14 +122,11 @@ from student.helpers import (
           % endif
         </div>
         <ul class="col-md-9 dashboard-listing-links">
-          % if cert_status and cert_status['show_download_url']:
-            <li>
-              <li class="action action-certificate">
-              <a href="${cert_status['download_url']}"
-                title="${_('View your ')}${credential_type}">
-                ${_("My {cert_name_short}").format(cert_name_short=credential_type)}</a></li>
-            </li>
+
+          % if cert_status:
+            <%include file='_dashboard_certificate_information.html' args='cert_status=cert_status,course_overview=course_overview, enrollment=enrollment, reverify_link=reverify_link'/>
           % endif
+        
           
           ## Translators: The course's name will be added to the end of this sentence.
           % if not is_course_blocked:
