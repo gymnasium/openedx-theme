@@ -3,14 +3,19 @@
 <%namespace name='static' file='/static_content.html'/>
 <%def name="online_help_token()"><% return "courseware" %></%def>
 <%!
-from django.utils.translation import ugettext as _
+import waffle
+
 from django.conf import settings
+from django.urls import reverse
+from django.utils.translation import ugettext as _
 
 from edxnotes.helpers import is_feature_enabled as is_edxnotes_enabled
-from openedx.core.djangolib.markup import HTML
 from openedx.core.djangolib.js_utils import js_escaped_string
+from openedx.core.djangolib.markup import HTML
 from openedx.core.lib.courses import course_image_url
+from openedx.features.course_experience import course_home_page_title, COURSE_OUTLINE_PAGE_FLAG
 %>
+
 <%
   include_special_exams = settings.FEATURES.get('ENABLE_SPECIAL_EXAMS', False) and (course.enable_proctored_exams or course.enable_timed_exams)
 %>
@@ -21,9 +26,9 @@ from openedx.core.lib.courses import course_image_url
 <%block name="bodyclass">view-in-course view-courseware courseware ${course.css_class or ''}</%block>
 
 <%block name="title">
-  <title>
-    ${static.get_page_title_breadcrumbs(course_name())}
-  </title>
+<title data-base-title="${static.get_page_title_breadcrumbs(section_title, course_name())}">
+  ${static.get_page_title_breadcrumbs(sequence_title, section_title, course_name())}
+</title>
 </%block>
 
 <%block name="header_extras">
@@ -34,15 +39,7 @@ from openedx.core.lib.courses import course_image_url
 </script>
 % endfor
 
-% if settings.FEATURES.get('ENABLE_COURSEWARE_SEARCH'):
-    % for template_name in ["course_search_item", "course_search_results", "search_loading", "search_error"]:
-        <script type="text/template" id="${template_name}-tpl">
-            <%static:include path="search/${template_name}.underscore" />
-        </script>
-    % endfor
-% endif
-
-% if include_special_exams:
+% if include_special_exams is not UNDEFINED and include_special_exams:
   % for template_name in ["proctored-exam-status"]:
     <script type="text/template" id="${template_name}-tpl">
         <%static:include path="courseware/${template_name}.underscore" />
@@ -66,7 +63,11 @@ from openedx.core.lib.courses import course_image_url
     <%static:css group='style-student-notes'/>
   % endif
 
-  <%include file="../discussion/_js_head_dependencies.html" />
+  <script type="text/javascript" src="${static.url('js/jquery.autocomplete.js')}"></script>
+  <script type="text/javascript" src="${static.url('js/src/tooltip_manager.js')}"></script>
+
+  <link href="${static.url('css/vendor/jquery.autocomplete.css')}" rel="stylesheet" type="text/css">
+
   
   ${HTML(fragment.head_html())}
 </%block>
@@ -79,11 +80,15 @@ from openedx.core.lib.courses import course_image_url
   <script type="text/javascript" src="${static.url('js/vendor/codemirror-compressed.js')}"></script>
 
   <%static:js group='courseware'/>
-  <%static:js group='discussion'/>
+  <%include file="/mathjax_include.html" args="disable_fast_preview=True"/>
+  
   % if settings.FEATURES.get('ENABLE_COURSEWARE_SEARCH'):
-    <%static:require_module module_name="js/search/course/course_search_factory" class_name="CourseSearchFactory">
+    <%static:require_module module_name="course_search/js/course_search_factory" class_name="CourseSearchFactory">
         var courseId = $('.courseware-results').data('courseId');
-        CourseSearchFactory(courseId);
+        CourseSearchFactory({
+            courseId: courseId,
+            searchHeader: $('.search-bar')
+        });
     </%static:require_module>
   % endif
 
@@ -91,7 +96,6 @@ from openedx.core.lib.courses import course_image_url
     CoursewareFactory();
   </%static:require_module>
 
-  <%include file="../discussion/_js_body_dependencies.html" />
   % if staff_access:
   	<%include file="xqa_interface.html"/>
   % endif
@@ -100,7 +104,19 @@ from openedx.core.lib.courses import course_image_url
     var $$course_id = "${course.id | n, js_escaped_string}";
   </script>
 
+
+  % if not request.user.is_authenticated:
+      <script type="text/javascript">
+        // Disable discussions
+        $('.xblock-student_view-discussion button.discussion-show').attr('disabled', true);
+
+        // Insert message informing user discussions are only available to logged in users.
+        $('.discussion-module')
+      </script>
+  % endif
+
 ${HTML(fragment.foot_html())}
+
 
 </%block>
 
@@ -112,7 +128,11 @@ ${HTML(fragment.foot_html())}
   <%include file="/courseware/course_navigation.html" args="active_page='courseware'" />
 % endif
 
-<div class="container">
+<div class="container"
+  % if getattr(course, 'language'):
+    lang="${course.language}"
+  % endif
+  >
   <div class="row">
     <div class="course-wrapper">
 
@@ -123,7 +143,7 @@ ${HTML(fragment.foot_html())}
 
                   <div class="courseware-bookmarks-button" data-bookmarks-api-url="${bookmarks_api_url}">
                       <button type="gym-button" class="bookmarks-list-button is-inactive" aria-pressed="false">
-                          ${_('Bookmarks')}
+                          ${_('Bookmarks')}~~~!
                       </button>
                   </div>
 
