@@ -871,7 +871,8 @@ a.gym-button:link,
 
 	a, 
 	a:link, 
-	a:visited
+	a:visited,
+	a b
 	{
 		color:white;
 		font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
@@ -883,7 +884,8 @@ a.gym-button:link,
 
   b {
     font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-    letter-spacing: .025em;
+		letter-spacing: .025em;
+		color: white;
   }
 }
 
