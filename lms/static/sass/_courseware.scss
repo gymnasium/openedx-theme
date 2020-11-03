@@ -737,3 +737,9 @@ html
 		 }
 	 }
 }
+
+/* make the links under "materials" inline elements instead of block elements */
+.handouts a,
+.handouts dl dd a {
+    display: inline;
+}

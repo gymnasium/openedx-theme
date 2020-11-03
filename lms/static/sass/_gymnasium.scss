@@ -389,6 +389,7 @@ body.view-in-course
   div.container,
   div.container>div
 	{
+		padding: 0;
 		border:0;
 		background:transparent;
 		box-shadow:none;
@@ -621,7 +622,7 @@ body.view-in-course
 	{
 		height:76px;
 		margin-top:-10px;
-    margin-left:5px;
+    margin-left:0px;
 	}
 
 	.navbar-brand
@@ -636,6 +637,9 @@ body.view-in-course
 
 	.navbar-default
 	{
+		padding-left: 0;
+		padding-right: 0;
+		padding-top: 5px;
 		background-color:$gym-dark-grey;
 		border-color:transparent;
 		border:none;
