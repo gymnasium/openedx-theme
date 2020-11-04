@@ -1,0 +1,1340 @@
+// Import the core Sass file - at the top so that
+// we can override rules as needed
+
+
+/****************************************************************************************************
+*   Stanford Theming File
+*
+*   Contains all the theme color definitions for the Stanford Open Source MOOC Project
+*
+****************************************************************************************************/
+
+//-----------------
+//  Color variables (from Stanford palette unless noted)
+//-----------------
+
+//----------------
+// Should be moved to standalone SASS (probably)
+//----------------
+
+$baseline: 20px;
+
+/* colors */
+
+
+//Gymnasium Theme Colors
+$gym-grey-dark: #262626;
+$gym-dark-color: #262626;
+$gym-light-color: #FFFFFF;
+
+$gym-orange: #f89820;
+$gym-orange-light: #f8971d;
+$gym-orange-light: rgba(248,151,32,0.9);
+
+$gym-dark-grey: #222222;
+$gym-dark-gray: $gym-dark-grey;
+
+$gym-medium-grey: #444444;
+$gym-medium-gray: $gym-medium-grey;
+
+$gym-light-grey: #999999;
+$gym-light-gray: $gym-light-grey;
+
+$gym-white: #ebebeb;
+
+$gym-textblock-color:rgba(45,45,45,0.70);
+
+$gym-button-background-hover:#a6a6a6;
+$gym-button-background-active:#939393;
+$gym-button-background-focus: $gym-button-background-active;
+//End Gym theme colors
+
+//Main Color Variables
+$main-color: #F89720;
+$dark-color: $gym-orange; //#ea281f; //Link Color
+$light-color: #f4e00c; //Selected Header BG Color, ie. calendar        ***Custom, not from palette***
+$bg-color: #f7fe81; //Selected Content BG Color, ie. calendar          ***Custom, not from palette***
+
+
+//Main BG Color Variables
+$main-bg:  #f22537;
+$main-bg-60: $gym-light-grey; //Main Border/HR Color
+$main-bg-25: lighten($main-bg, 25%);
+
+//Secondary Color Variables
+$secondary: #b5a4b7;
+$secondary-50: lighten($secondary, 9%);
+$secondary-25: lighten($secondary, 20%); //Important Heading BG Color
+
+//Gray Color Variables
+$gray: #3f3f3f; //Main Text Color
+$gray-75: lighten($gray, 18.25%); //Lighter Text Color
+
+$gray-3: #e9e9e9; //Block/Course BG Color
+$gray-2: #f2f2f2;
+$gray-1: #fbfbfb; //Main BG Color
+$white: $gray-1;
+
+$black: #2e2e2e;
+$black-80: #585858;
+
+$theme-sans-font: "brandon-grotesque";
+$sans-serif: $theme-sans-font;
+$body-font-family: $sans-serif;
+
+$theme-serif-font: 'Helvetica Neue';
+$serif: $theme-serif-font;
+p
+{
+	font: $serif;
+}
+
+//-----------------
+//  Theme Element Assignments
+//-----------------
+$body-bg: $gray-1;
+$container-bg: transparent;
+$login-register-bg: $gray-1;
+$content-wrapper-bg: $gray-1;
+$header-image: none;
+$header-bg:  $gym-grey-dark;//transparentize(lighten($secondary, 18.5%), .25);
+
+$courseware-header-image: none;
+$courseware-header-bg: transparentize(lighten($secondary, 18.5%), .25);
+$footer-bg: $secondary-25;
+$courseware-footer-border: 1px solid $main-bg-60;
+$courseware-footer-shadow: box-shadow(2px 1px 0 rgba(0, 0, 0, .1));
+$courseware-footer-margin: 50px;
+
+$faded-hr-image-1: linear-gradient($main-bg-60 0%, $main-bg-60);
+$faded-hr-image-2: linear-gradient($main-bg-60 0%, $main-bg-60);
+$faded-hr-image-3: linear-gradient($main-bg-60 0%, $main-bg-60);
+$faded-hr-image-4: linear-gradient($main-bg-60 0%, $main-bg-60);
+$faded-hr-image-5: linear-gradient($main-bg-60 0%, $main-bg-60);
+$faded-hr-image-6: linear-gradient($main-bg-60 0%, $main-bg-60);
+
+$base-font-color: $black;
+$lighter-base-font-color: $black-80;
+$very-light-text: $gray-1;
+
+$link-color: $dark-color;
+$link-color-d1: $dark-color;
+$link-hover: $light-color;
+$site-status-color: $bg-color;
+
+$header-graphic-super-color: $dark-color;
+$header-graphic-sub-color: $lighter-base-font-color;
+
+$header-link-color: $gym-light-color;
+$header-link-hover: $gym-dark-color;
+
+$button-color: $main-color;
+$button-archive-color: $gray-3;
+
+$shadow-color: $gray;
+
+// actions
+$button-bg-image: none;
+$button-bg-color: $gray-3;
+$button-bg-hover-color: $gray-1;
+
+// actions - primary
+$action-primary-bg: $main-color;
+$action-primary-fg: $gray-2;
+$action-primary-shadow: none;
+
+// focused - hover/active pseudo states
+$action-primary-focused-bg: $dark-color;
+$action-primary-focused-fg: $gray-1;
+
+// current or active navigation item
+$action-primary-active-bg: $dark-color;
+$action-primary-active-fg: $gray-1;
+$action-primary-active-shadow: none;
+$action-primary-active-focused-fg: $gray-2;
+$action-primary-active-focused-shadow: none;
+
+// disabled
+$action-primary-disabled-bg: $gray-75;
+$action-prmary-disabled-fg: $gray-1;
+
+// actions - secondary
+$action-secondary-bg: $secondary;
+$action-secondary-fg: $gray;
+$action-secondary-shadow: none;
+
+// focused - hover/active pseudo states
+$action-secondary-focused-bg: $secondary-50;
+$action-secondary-focused-fg: $gray;
+
+// current or active navigation item
+$action-secondary-active-bg: $secondary-50;
+$action-secondary-active-fg: $gray;
+$action-secondary-active-shadow: none;
+$action-secondary-active-focused-fg: $gray-75;
+$action-secondary-active-focused-shadow: none;
+
+// disabled
+$action-secondary-disabled-bg: $gray-3;
+$action-secondary-disabled-fg: $gray;
+
+//
+$border-color-1: $main-bg-60;
+$border-color-2: $main-bg-60;
+$border-color-3: $main-bg-60;
+$outer-border-color: $main-bg-60;
+
+$sidebar-color: $gray-1;
+
+$homepage__header--gradient__color--alpha: $secondary-25;
+$homepage__header--gradient__color--bravo: $secondary-25;
+$homepage__header--background: $secondary-25;
+$dashboard-profile-header-image: none;
+$dashboard-profile-header-color: $secondary-25;
+$dashboard-profile-color: $gray-3;
+$dot-color: $main-bg-60;
+
+$course-bg-color: $gray-3;
+$course-bg-image: none;
+$account-content-wrapper-bg: $gray-1;
+
+$course-profile-bg: $gray-1;
+$course-header-bg: transparentize($gray-1, .1);
+
+$sidebar-chapter-bg-top: transparentize($gray-1, .3);
+$sidebar-chapter-bg-bottom: transparentize($gray-1, .9);
+$sidebar-chapter-bg: $gray-2;
+$sidebar-active-image: $gray-3;
+
+$form-bg-color: $gray-1;
+$modal-bg-color: $gray-1;
+
+//TOP HEADER IMAGE MARGIN
+$header_image_margin: 0px;
+
+//FOOTER MARGIN
+$footer_margin: ($baseline/4) 0;
+
+//-----------------
+//  CSS BG Images
+//-----------------
+// $homepage-bg-image: url('../images/marketing-campaign/homepage_graphic.png');
+
+/* negate a silly style rule inherited from the platform */
+html
+{
+  .container>div,
+  .home .container.grey.div
+  {
+    border-radius: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
+button,
+html button,
+html body button
+{
+	box-shadow:none;
+	text-shadow:none;
+}
+
+.content-wrapper .container,
+.container
+{
+  border:none;
+  background:transparent;
+  padding-top:0;
+  padding-bottom:0;
+}
+
+div#content,
+div.content-wrapper,
+div#content.content-wrapper,
+#main.content-wrapper
+{
+  max-width: none;
+  margin:auto;
+  padding:0;
+}
+
+.home>header
+{
+	background-position-y:-25px;
+  .container
+  {
+    height:100%;
+
+    .row
+    {
+      height:100%;
+
+      .marketing-image-container
+      {
+        height:100%;
+      }
+    }
+  }
+}
+
+$login-banner-image: none;
+$register-banner-image: none;
+
+//-----------------
+//  Mixin Styles
+//-----------------
+@mixin login_register_h1_style {
+    clip: auto !important;
+    height: 50px;
+    width: 550px;
+    top: 0;
+}
+
+@mixin footer_references_style {
+    margin: 0 !important;
+    text-align: right;
+}
+
+/* individual page styles */
+@import 'about';
+@import 'account_settings';
+@import 'assessment';
+@import 'bookmarks';
+@import 'catalog';
+@import 'courseware';
+@import 'dashboard';
+@import 'home';
+@import 'register';
+@import 'tertiary_navigation';
+@import 'system_status';
+@import 'urls';
+@import 'find_work';
+
+@import 'prism'; //used for prism.js syntax highlighting
+
+p
+{
+		font-size: 1.2em/1.6em;
+}
+
+.break-word {
+	word-break: break-all;
+}
+
+body, 
+body.login,
+body.register,
+.register
+{
+	a:link,
+	a:visited,
+	a:link:visited,
+	a:active,
+	a:link:active,
+	p a,
+	p a:link,
+	p a:visited,
+	a.gymlink,
+	a.gymlink:link,
+	a.gymlink:visited
+	{		
+		color: $gym-orange;
+		font-family:$theme-serif-font;
+		border-bottom:none;
+	}
+
+	a:hover,
+	a:focus,
+	a:visited:hover,
+	a:link:hover,
+	a:link:visited:hover,
+	a:active:hover,
+	a:link:active:hover,
+	.hboard .my-courses .course .info>hgroup h3 a:hover,
+	.dashboard .my-courses .course .info>hgroup h3 a:focus,
+	.dashboard .my-courses .course .info>hgroup h3 span:hover,
+	.dashboard .my-courses .course .info>hgroup h3 span:focus,
+	p a:link:hover,
+	p a:hover,
+	a.gymlink:hover,
+	a.gymlink:link:hover,
+	a.gymlink:visited:hover
+	{
+		border-bottom:1px solid $gym-orange;
+		color:$gym-orange;
+		text-decoration:none;
+	}
+}
+
+.container
+{
+	min-width:0px !important;
+}
+
+body,
+body.view-in-course
+{
+  div.window-wrap
+  {
+    min-width:inherit;
+  }
+}
+
+#primary-nav, #secondary-nav, .wrapper-footer
+{
+	.container,
+  .container>div,
+  div.container,
+  div.container>div
+	{
+		padding: 0;
+		border:0;
+		background:transparent;
+		box-shadow:none;
+
+    /* mocking the bootstrap style rule for consistency throughout page */
+    max-width: 1180px;
+	}
+
+	footer
+	{
+		.copyright
+		{
+			text-align:center;
+			margin-top:1em;
+		}
+	}
+}
+
+.white-panel,
+.container.white-panel
+{
+	background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  padding: 2.2em;
+  padding-top: 1em;
+  font: 1.2em/1.5 "Helvetica Neue", Helvetica, sans-serif;
+	margin-top:20px;
+	margin-bottom:20px;
+
+	ul
+	{
+		padding-left: 0;
+	}
+	a
+	{
+		font-family:'Helvetica Neue', Helvetica, sans-serif;
+	}
+
+	h2
+	{
+		font:900 1em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+	}
+
+	h3 {
+    font: bold 1.2em/1.4 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+    color: #222;
+    letter-spacing: .02em;
+    word-spacing: .04em;
+    margin-top: 1em;
+	}
+}
+
+
+
+.right-gutter
+{
+	border-right:15px solid $gym-white;
+}
+
+#primary-nav
+{
+  height:50px;
+
+  .gym-nav-icon-container
+  {
+    padding-top:13px;
+  }
+  .gym-nav-icon-container:hover
+  {
+    background-color:transparent;
+  }
+
+  .navbar
+  {
+    height:50px;
+    border:0; 
+    margin:0;
+  }
+
+	.navbar-nav > li > a
+	{
+		padding-top:14px;
+		padding-bottom:14px;
+	}
+
+	.nav li a
+	{
+		background-color:transparent;
+		color:$gym-orange;
+
+		.caret
+		{
+			color:$gym-orange;
+		}
+	}
+
+	.nav li a:hover
+	{
+		//odd specificity to overwrite bootstrap defaults
+		background-color:transparent;
+		color:$gym-white;
+		border-bottom:none;
+
+		.caret
+		{
+			color:$gym-white;
+		}
+	}
+
+	.nav li.dropdown.open
+	{
+		background-color:white;
+		a
+		{
+			color:$gym-orange;
+		}
+		a:hover .caret
+		{
+			color:$gym-orange;
+		}
+
+		.dropdown-menu
+		{
+			border:none;
+			a:hover{
+				color:$gym-dark-grey;
+			}
+		}
+
+		.logged-in-username {
+			color: #f89820;
+		}
+	}
+
+	.navbar-right
+	{
+		li>a
+		{
+			font: normal 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+		}
+	}
+
+	#dropdown
+	{
+		display:inline-block;
+		color:$gym-orange;
+		border:none;
+	}
+
+	#dropdown:hover, #dropdown:hover span, #dropdown:hover span.caret
+	{
+			color:$gym-orange;
+	}
+
+	#dropdown:hover #dropdown:link:hover
+	{
+			color:$gym-orange;
+			border:none;
+	}
+
+	#dropdown-menu
+	{
+		display:none;
+
+		li
+		{
+			display: inline;
+
+			a
+			{
+				color:white;
+			}
+
+			a:hover, anchor:link:hover
+			{
+				color:$gym-orange;
+				text-decoration: none;
+			}
+		}
+
+	}
+
+	#dropdown-menu::before {
+		display: inline-block;
+		width: 0;
+		height: 0;
+		content: " ";
+		line-height: 0;
+		background: #000;
+		padding: 0 .2em;
+		vertical-align: middle;
+		border-top: .25em dashed transparent;
+		border-left: .25em solid #f89820;
+		border-bottom: .25em dashed transparent;
+		margin-left: -.8em;
+	}
+
+}
+
+#secondary-nav
+{
+	height:70px;
+	background-color:$gym-dark-grey;
+
+  >.container
+  {
+    padding-top:10px;
+  }
+
+	a
+	{
+		font-size:1.2em;
+		color:$gym-white;
+    font-family: brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+		
+		&.gym-button
+		{
+			color:white;
+		}
+	}
+
+	a:hover
+	{
+		color:$gym-orange;
+		border-bottom: none;
+	}
+
+	.gymnasium-logo
+	{
+		height:76px;
+		margin-top:-10px;
+    margin-left:0px;
+	}
+
+	.navbar-brand
+	{
+		padding:0px;
+	}
+
+	.navbar-brand:hover, .navbar-brand:active, .navbar-brand:link
+	{
+		background:transparent;
+	}
+
+	.navbar-default
+	{
+		padding-left: 0;
+		padding-right: 0;
+		padding-top: 5px;
+		background-color:$gym-dark-grey;
+		border-color:transparent;
+		border:none;
+    margin-bottom:0;
+    z-index:100;
+	}
+}
+
+/* global theme styles */
+
+
+.caret
+{
+	color:$gym-light-grey;
+}
+
+
+body header.global.slim
+{
+	border-bottom:none ;
+}
+
+header.global,
+{
+
+	margin:0px;
+	box-shadow:none;
+	border:none;
+	width:inherit;
+	height:120px;
+	background-color:$gym-dark-grey;
+
+	.container, .container.grey
+	{
+		min-width: inherit;
+	}
+
+
+	nav 
+	{
+		.nav-courseware
+		{
+			padding-top:3px;
+		}
+
+		.logo
+		{
+			clear:left;
+			margin-top:30px;
+		}
+
+		//odd amount of specificity required to get around built in style rules - MB
+		.cta.cta-register
+		{
+			color:$gym-white;
+			display:inline-block;
+			margin-top:-0.3em;
+
+			b
+			{
+					margin-top:4px;
+			}
+		}
+
+		.container
+		{
+			background:transparent;
+		}
+	}
+}
+
+.content-wrapper#content
+{
+	padding-bottom:1em;
+	background-color:$gym-white;
+}
+
+div.wrapper-footer
+{
+  margin-top:0;
+	background-color: $gym-dark-gray;
+	border-top: 10px solid $gym-orange-light;
+	color:white;
+	min-height:170px;
+
+	footer
+	{
+		.gymnasium-logo
+		{
+			height:50px;
+			margin-top:15px;
+      margin-left:5px;
+		}
+		.edx-logo
+		{
+			height:50px;
+		}
+
+		.footer-link-list
+		{
+			margin-top:30px;
+
+			li
+			{
+				border-right:1px solid $gym-medium-grey;
+				height:100%;
+        padding-right:8px;
+
+				a,
+				a:link
+				{
+					color:white;
+					font-family: $theme-sans-font;
+				}
+				a:hover
+				{
+					color:$gym-orange;
+				}
+			}
+			li:last-child
+			{
+				border-right:0px;
+			}
+		}
+		.built-on
+		{
+			margin-top:30px;
+			span
+			{
+				color:$gym-white;
+			}
+			img
+			{
+				margin-top:-15px;
+				vertical-align:text-top;
+			}
+		}
+
+		a:hover
+		{
+			text-decoration: none;
+			border:0px;
+		}
+	}
+}
+
+section
+{
+	padding:0px;
+}
+
+.black-background
+{
+	top:0px;
+	background-color:black;
+	z-index:0;
+}
+
+.gym-top-block
+{
+	z-index:1;
+	position:relative;
+}
+
+.gym-top-block
+{
+	.gym-nav-icon
+	{
+		background-position:center;
+		display:inline-block;
+	}
+
+	a
+	{
+		margin-left:0;
+		margin-right:0;
+		text-align:left;
+	}
+}
+
+.gym-button:link, .gym-button:visited
+{
+	color:white;
+	font-family: brandon-grotesque;
+}
+
+body 
+{
+	input[type="submit"]:active:not(:disabled), 
+	input[type="submit"]:focus:not(:disabled), 
+	input[type="button"]:active:not(:disabled), 
+	input[type="button"]:focus:not(:disabled), 
+	button:active:not(:disabled), 
+	button:focus:not(:disabled), 
+	.button:active:not(:disabled), 
+	.button:focus:not(:disabled)
+	.gym-button:focus
+	{
+		box-shadow:none;
+	}
+}
+
+.gym-button,
+a.gym-button,
+a.gym-button:link,
+.account-settings-sections .section .account-settings-section-body .u-field .field .u-field-link,
+.xmodule_display.xmodule_CapaModule div.problem .action .save,
+.xmodule_display.xmodule_CapaModule div.problem .action .save:not(:disabled),
+.login .form-actions button[type="submit"], .register .form-actions button[type="submit"].gym-button,
+.courseware-bookmarks-button .bookmarks-list-button,
+{
+	box-shadow:none;
+	text-shadow:none;
+	background-image:none;
+
+	display:inline-block;
+	width:100%;
+
+	padding: 1em;
+	margin: auto;
+	text-align:center;
+	cursor:pointer;
+
+	border: 0;
+  border-radius: .125em;
+  
+	background-color:$gym-orange;
+	color:white;
+	font-weight:bold;
+	font-size: 1em;
+  text-align: center;
+	font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+
+	a, 
+	a:link, 
+	a:visited,
+	a b
+	{
+		color:white;
+		font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+	}
+	a:hover
+	{
+		text-decoration: none;
+	}
+
+  b {
+    font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+		letter-spacing: .025em;
+		color: white;
+  }
+}
+
+body
+{
+	#secondary-nav a.gym-button:hover,
+	.gym-button:hover,
+	.gym-button:active,
+	.gym-button:active:hover,
+	a.gym-button:hover,
+	a.gym-button:hover,
+	a.gym-button:active,
+	a.gym-button:active:hover,
+	a:visited.gym-button:hover,
+	a:link.gym-button:hover,
+	a:link:visited.gym-button:hover,
+	input[type="submit"]:hover:not(:disabled),
+	input[type="button"]:hover:not(:disabled),
+	button:hover:not(:disabled),
+	button:hover:not(:disabled),
+	.account-settings-sections .section .account-settings-section-body .u-field .field .u-field-link:hover,
+	.xmodule_display.xmodule_CapaModule div.problem .action .save:hover,
+	.xmodule_display.xmodule_CapaModule div.problem .action .save:hover:not(:disabled),
+	.login .form-actions button[type="submit"], .register .form-actions button[type="submit"].gym-button:hover,
+	.courseware-bookmarks-button .bookmarks-list-button:hover
+	{
+		background-color:$gym-button-background-hover;
+		color:white;
+		background-image:none;
+		box-shadow: none;
+		text-decoration:none;
+		font-weight:bold;
+		border:none;
+		color:white;
+		font-family:brandon-grotesque;
+
+		a,
+		a:link,
+		a:link:hover,
+		a:link:visited,
+		a:link:visited:hover,
+		{
+			text-decoration:none;
+			color:white;
+
+			b
+			{
+				color:white;
+			}
+		}
+	}
+
+	.courseware-bookmarks-button {
+		.bookmarks-list-button {
+			padding-top:0.5em;
+			padding-bottom:0.5em;
+    }
+  }
+
+	.xmodule_display.xmodule_CapaModule div.problem .action .save:not(:disabled)
+	{
+		width:auto;
+	}
+}
+.gym-button:focus,
+.gym-button:active
+{
+	background:$gym-button-background-active;
+}
+
+.gym-button b
+{
+	font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+	letter-spacing: .025em;
+	vertical-align: bottom;
+}
+
+.gym-button.natural
+{
+	width:auto;
+}
+
+.gym-link
+{
+	color: #f89820;
+}
+
+.gym-link:hover
+{
+	border-bottom: 1px solid #f89820;
+}
+
+.gym-link:focus,
+.gym-link:active
+{
+	border-bottom-color: #444;
+}
+
+.modal
+{
+	position: fixed;
+	top: 0; left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+}
+
+.dialog
+{
+	position: relative;
+	top: 10%;
+	width: 37em;
+	background: #fff;
+	padding: 1.2em;
+	border: 1.2em solid #444;
+	border-radius: .125em;
+	margin: auto;
+}
+
+.dialog legend
+{
+	width: 100%;
+	text-align: center;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	border-bottom: 1px solid #ebebeb;
+	margin-bottom: 1.2em;
+}
+
+.dialog legend b
+{
+	font: 900 1.6em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+	color: #222;
+	letter-spacing: .06em;
+	word-spacing: .05em;
+	text-transform: uppercase;
+}
+
+.dialog .error
+{
+	background: #f2dede;
+	padding: 1em;
+	border: 1px solid #d9534f;
+	border-radius: .12em;
+	margin-bottom: 1.2em;
+
+  font-size: 1em;
+	color: #d9534f;
+  font-weight: bold;
+
+}
+
+.dialog p
+{
+	font: .9em/1.4 "Helvetica Neue", Helvetica, sans-serif;
+	color: #444;
+	letter-spacing: .01em;
+}
+
+.dialog fieldset
+{
+	padding: 0;
+	border: 0;
+	margin: 0;
+}
+
+.dialog ul
+{
+	list-style: none;
+	padding-left: 0;
+}
+
+.dialog li,
+.dialog ul li,
+.dialog ul li:last-child
+{
+	border-bottom: .15em solid $gym-orange;
+	margin-bottom: 1.2em;
+	box-sizing: border-box;
+}
+
+.dialog form label,
+.dialog form input
+{
+	display: block;
+}
+
+.dialog form label
+{
+	font: 1.1em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+	color: #222;
+	letter-spacing: .03em;
+	word-spacing: .05em;
+	text-transform: uppercase;
+}
+
+.dialog form input
+{
+  background:none;
+  border: none;
+  box-shadow:none;
+
+	font: 1em/1 "Helvetica Neue", Helvetica, sans-serif;
+	width: 100%;
+	padding-top: .6em;
+	padding-bottom: .6em;
+	border: 0;
+	margin-top: .3em;
+  box-sizing: border-box;
+}
+
+.dialog form input[type="checkbox"]
+{
+  display:inline;
+}
+
+.dialog .message
+{
+	padding-right: 1.2em;
+	padding-bottom: 1.2em;
+	padding-left: 1.2em;
+	border-bottom: 1px solid #ebebeb;
+	margin-bottom: 1.2em;
+}
+
+.dialog ul + .message
+{
+	padding-bottom: 0;
+	border-bottom: 0;
+}
+
+.dialog form button
+{
+	margin-top: 1.2em;
+}
+
+.close-modal-content
+{
+	width: auto;
+	padding: .3em 1em;
+	border: 0;
+	border-radius: 0 0 .125em .125em;
+	margin-top: -1.2em;
+}
+
+.close-modal b
+{
+	font: bold .8em/1.3 "Helvetica Neue", Helvetica, sans-serif;
+	letter-spacing: .1em;
+	word-spacing: normal;
+	text-transform: uppercase;
+  padding: 0.7em 1.5em;
+  border-radius: 0 0 .27em .27em;
+}
+
+.close-modal
+{
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:-1.2em;
+}
+
+
+.gym-icon
+{
+	width:35px;
+	height:25px;
+	display:inline-block;
+	background-repeat:no-repeat;
+	vertical-align:middle;
+	background-position-x:center;
+
+	filter: gray; /* IE6-9 */
+  	filter: grayscale(1); /* Firefox 35+ */
+    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+}
+
+.gym-icon:hover
+{
+	filter: none;
+    -webkit-filter: grayscale(0);
+    background-color:transparent;
+}
+
+.aquent-icon
+{
+	@extend .gym-icon;
+	background-image:$aquent-icon-image;
+
+}
+
+.vitamin-t-icon
+{
+	@extend .gym-icon;
+	background-image:$vitamin-t-icon-image;
+}
+
+html
+{
+	body
+	{
+		div.info-wrapper section.updates h1,
+		h1,h2,h3,h4,h5,h6
+		{
+			text-align:left;
+			text-transform:uppercase;
+			font-family:brandon-grotesque;
+		}
+
+		h1, h2
+		{
+			font-weight:900;
+		}
+
+		h3,h4,h5,h6
+		{
+			font-weight:bold;
+		}
+	}
+}
+
+h1
+{
+	font: 900 2.4em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+	letter-spacing: .04em;
+	word-spacing: .05em;
+	text-transform: uppercase;
+}
+
+h2
+{
+	font: 900 1em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+  letter-spacing: .06em;
+  word-spacing: .04em;
+  text-transform: uppercase;
+}
+
+code, code *
+{
+	font-family: monospace, serif;
+}
+
+
+/* password reset page */
+.view-passwordreset 
+{
+  .introduction header
+  {
+    background-image:none;
+  }
+
+  div.container,
+  footer.container {
+    padding:0;
+  }
+}
+
+.cookiebanner
+{
+	span
+	{
+		color:$gym-white;
+	}
+	a
+	{
+		color:$gym-orange;
+	}
+
+	a:hover, a:link:hover
+	{
+		color:$gym-light-grey;
+	}
+}
+
+.login-register div.status,
+div.status,
+.status,
+{
+  padding: 1.8em;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: none;
+
+  .message-title {
+    font: bold 2em/1.25 "brandon-grotesque", "Helvetia Neue", Helvetica, sans-serif;
+    color: #fff!important;
+    text-transform: capitalize;
+    margin-top: 0;
+    margin-bottom: .625em;
+  }
+
+  .message-copy {
+    color: #fff!important;  
+	}
+
+	div.status p.message-copy {
+		color: #222222 !important;
+	}
+
+  a {
+    color: white !important;
+    border-bottom: 1px solid white !important;
+  }
+
+  a:hover,
+  a:focus {
+    border-bottom: 1px solid #fff !important;
+  }
+
+  ul {
+    margin-top: 1.4em;
+  }
+
+  li {
+    font: bold 1em/1.5 "Helvetica Neue", Helvetica, sans-serif;
+    letter-spacing: .01em;
+    color: #fff;
+    margin-top: 1em;
+  }
+
+  &.submission-success {
+    background: #1c7f1f;
+  }
+
+  &.submission-error {
+    background: #d43f3a;
+  }
+}
+
+.login-register div.form-field label.error,
+div.form-field label.error {
+  display: inline-block;
+  color: #fff;
+  padding: .5em;
+  background: #d43f3a;
+  border-radius: 2px;
+}
+
+.login-register div.form-field input.error,
+div.form-field input.error {
+  border: 2px solid #d43f3a;
+}
+
+/* fix for course image size from gymcms */
+main.course .hero-banner img {
+	max-width: 100%;
+}

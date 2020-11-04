@@ -1,0 +1,21 @@
+<!-- OLD is below --> 
+<li class="course-item" data-course-id="<%- content.number %>">          
+    <article class="row">
+        <figure class="col-md-4">
+            <a href="<%- content.number %>">
+                <img class="img-responsive" src="<%- image_url %>" alt="<%- content.display_name %> Cover Image" />
+            </a>
+            <figcaption>
+                <a href="/courses/<%- course %>/about" class="gym-button"><b>Learn More</b></a>
+            </figcaption>
+        </figure>
+        <div class="col-md-8 course-description">
+            <header>
+                <h1><%- content.display_name %></h1>
+            </header>
+            <p>
+                <%- content.short_description %>
+            </p>
+        </div>
+    </article>
+</li>

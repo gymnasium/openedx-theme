@@ -1,0 +1,395 @@
+section.container.dashboard
+{
+	background-color:$gym-white;
+}
+
+#main.content-wrapper
+{
+  background: transparent;
+}
+
+#dashboard-main
+{
+  background:white;
+}
+
+.view-dashboard .course-title
+{
+ 	margin-bottom: 1.6em;
+}
+
+#course-content
+{
+  margin:0;
+  max-width: 855px;
+}
+
+.message.message-status
+{
+	border-bottom:none;
+	background:transparent;
+	padding:0;
+
+	ul
+	{
+		list-style: none;
+		padding:0;
+		
+		a
+		{
+			padding:0;
+		}
+	}
+}
+
+#dashboard-main.course-content {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    margin: 0 auto;
+
+		.my-courses, .profile-sidebar
+		{
+			padding:2em;
+
+			h1
+			{
+				font: 900 1.8em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+		    color: $gym-dark-gray;
+		    letter-spacing: .02em;
+		    word-spacing: .02em;
+		    text-transform: uppercase;
+			}
+		}
+		.my-courses
+		{
+			border-bottom: 0;
+    	border-right: 1px dashed #ccc;
+
+			.hero h1
+			{
+				font-size: 2.4em;
+    		letter-spacing: .04em;
+
+			}
+
+			h1
+			{
+				font: 900 1.8em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+		    color: $gym-dark-gray;
+		    letter-spacing: .02em;
+		    word-spacing: .02em;
+		    text-transform: uppercase;
+			}
+		}
+
+		.profile-sidebar
+		{
+			ul
+			{
+				margin:0;
+				padding:0;
+			}
+
+			header
+			{
+				margin-top:0;
+			}
+			h1
+			{
+				font-weight: bold;
+    		text-transform: capitalize;
+			}
+
+			h2
+			{
+				font: 900 1em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+				color: $gym-dark-gray;
+				letter-spacing: .06em;
+				word-spacing: .04em;
+				text-transform: uppercase;
+				margin-bottom: 1em;
+			}
+
+			.profile
+			{
+				padding: 1.2em 0;
+				border-top: 1px solid #ddd;
+				border-bottom: 1px solid #ddd;
+			}
+
+			.user-info
+			{
+				ul
+				{
+					list-style:none;
+				}
+
+				.data, .status, .proivder, .control
+				{
+					font: .96em/1.2 "Helvetica Neue", Helvetica, sans-serif;
+				}
+
+				.title
+				{
+				    display: block;
+				    font: bold 1.2em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+				    color: #222;
+				    letter-spacing: .04em;
+				    word-spacing: .04em;
+				    margin-top: 1em;
+				    margin-bottom: .5em;
+				}
+
+				.controls--account.password-reset
+				{
+					margin-top:2em;
+				}
+
+				.status
+				{
+					width: 6.77966%;
+			    display: inline-block;
+			    color: $gym-dark-gray;
+				}
+
+				.provider
+				{
+			    width: 66.57627%;
+			    display: inline-block;
+				}
+
+				.control
+				{
+			    width: 15.25424%;
+			    display: inline-block;
+			    text-align: right;
+				}
+
+				.copy
+				{
+					border: 0;
+					clip: rect(1px 1px 1px 1px);
+					height: 1px;
+					margin: -1px;
+					overflow: hidden;
+					padding: 0;
+					position: absolute;
+					width: 1px;
+				}
+			}
+		}
+
+		h1,h2,h3,h4,h5,h6
+		{
+			text-align: left;
+			margin:0;
+			padding:0;
+		}
+}
+
+
+
+/*** fixing a bug introduced by layering bootstrap on top of edx ***/
+body * .modal
+{
+	bottom:auto;
+  width:100%;
+  background-color:transparent;
+
+	h1,h2,h3,h4,h5,h6
+	{
+		text-align:left;
+		font-size:16pt;
+		color:$gym-dark-grey;
+	}
+	color:$gym-dark-grey;
+
+	input,
+	textarea
+	{
+		font-size:14px;
+	}
+}
+
+.modal .inner-wrapper .close-modal, .leanModal_box .inner-wrapper .close-modal
+{
+	z-index:20;
+}
+
+.dashboard-search-bar
+{
+	border:0px;
+	border-radius:0;
+	color:$gym-white;
+
+	padding:10px;
+
+	.search-field
+	{
+		box-shadow: none;
+		border-radius:0;
+	}
+
+	label
+	{
+		color:$gym-white;
+	}
+}
+
+
+.view-dashboard .course-item header
+{
+	background-color: #777;
+
+
+	h1
+	{
+		color:$gym-white;
+		margin-top:0.5em;
+	}
+
+}
+
+#dashboard-main.course-content .my-courses .course-item h1
+{
+  color:$gym-white;
+}
+
+.my-courses
+{
+	.grade-value
+	{
+		color:$gym-white;
+		font-weight:bold;
+	}
+
+	.courses-listing,
+	.listing-courses
+	{
+		list-style:none;
+		padding:0;
+		margin:0;
+	}
+
+
+	.course-item
+	{
+		margin-top:1.2em;
+
+		header
+		{
+			margin:0;
+			padding:2em;
+			overflow:hidden;
+
+			img
+			{
+
+			}
+			p
+			{
+				color:$gym-white;
+			}
+		}
+
+		.course-options
+		{
+			background: #444;
+			padding: 1em 1.5em;
+			overflow: hidden;
+			list-style: none;
+
+			li
+			{
+				display: inline;
+		    font-size: .96em;
+		    margin-right: 1.8em;
+			}
+
+			.dashboard-listing-links
+			{
+				padding:0;
+				margin:0;
+				margin-top:0.8em;
+			}
+		}
+	}
+}
+
+.beta article
+{
+	position: relative;
+	overflow: hidden;
+}
+
+.beta article::before
+{
+	position: absolute;
+	top: -1.2em;
+	left: 1.4em;
+	content: "Beta";
+	font: 900 1em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	background: rgba(34, 34, 34, .4);
+	padding: 2.4em 100% 1.2em;
+	margin-left: -100%;
+	transform: translate(-1em, .4em) rotate(-45deg);
+	z-index: 10;
+}
+
+
+/*** style rules for dashboard search / underscore template interface ***/
+.find-courses {
+	#discovery-message
+	{
+		margin-top:-0.5em;
+		padding-left:0;
+		display:none;
+	}
+
+	.discovery-input 
+	{
+		box-shadow: none;
+
+		&:focus
+		{
+			border-color:$gym-orange;
+			box-shadow: none;
+		}
+	}
+	.discovery-submit
+	{
+		background: $gym-orange;
+		border-color: $gym-orange;
+
+
+		&:hover,
+		&:focus{
+			background:$gym-button-background-hover;
+			border: 2px solid$gym-button-background-hover;
+			box-shadow: none;
+		}
+	}
+
+	.wrapper-search-context
+	{
+		.wrapper-search-input
+		{
+			width:inherit;
+		}
+	}
+
+	.search-facets,
+	.search-facets.phone-menu 
+	{
+		display:none;
+	}
+
+	.courses-container
+	{
+		
+	}
+}

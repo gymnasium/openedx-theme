@@ -1,0 +1,40 @@
+<%! from django.utils.translation import ugettext as _ %>
+<%inherit file="../main.html" />
+<%namespace name="gymcms" file="../util/gymcms.mako" />
+
+<%block name="pagetitle">${_("Career Skills")}</%block>
+
+<%block name="headextra">
+  ${gymcms.render('hub-pages/meta/career-skills-collection-meta')}
+</%block>
+
+<div class="container">
+	<div class="row">
+    <div class="col-md-12">
+      ${gymcms.render('career-skills-top')}
+    </div>
+  </div>
+
+  <br /><br />
+  <section id="jobs">
+    <div class="section-content">
+      <div class="row">
+        <div class="col-md-12">
+          <header>
+            <h2 class="all-caps">Career Skills</h2>
+            <hr />
+          </header>
+        </div>
+        <div class="col-md-12">
+          <%include file='../jobs/job_table.html' />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="row">
+    <div class="col-md-12">
+      ${gymcms.render('career-skills-bottom')}
+    </div>
+	</div>
+</div>

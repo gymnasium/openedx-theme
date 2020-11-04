@@ -1,0 +1,79 @@
+/** 
+	NOTE:
+	
+	Relative URLs must be split out into separate files at each tier of the 
+	Theme that uses SASS because _gymnasium.scss is used by lms-main-v1.scss, 
+	lms-main-v2.scss, AND /discussion/lms-discussion-main.scss.  
+
+	Notice that the relative urls in the _urls.scss file on the /sass level
+	are different from the ones in /sass/discussion (there's an extra `../`
+	on the /sass/discussion urls).
+
+	This is not a great fix, but it is working.
+
+	Love,
+	Mike 
+**/
+
+//-----------------
+//  Font Assignment
+//-----------------
+
+/* --- regular --- */
+
+@font-face {
+	font-family: brandon-grotesque;
+	src: url("../fonts/brandon_reg-webfont.woff") format("woff"),
+	url("../fonts/brandon_reg-webfont.woff2") format("woff2");
+	font-style: normal;
+	font-weight: normal;
+	}
+
+@font-face {
+	font-family: brandon-grotesque;
+	src: url("../fonts/brandon_reg_it-webfont.woff") format("woff"),
+	url("../fonts/brandon_reg_it-webfont.woff2") format("woff2");
+	font-style: italic;
+	font-weight: normal;
+	}
+
+/* --- bold --- */
+
+@font-face {
+	font-family: brandon-grotesque;
+	src: url("../fonts/brandon_bld-webfont.woff") format("woff"),
+	url("../fonts/brandon_bld-webfont.woff2") format("woff2");
+	font-style: normal;
+	font-weight: bold;
+	}
+
+@font-face {
+	font-family: brandon-grotesque;
+	src: url("../fonts/brandon_bld_it-webfont.woff") format("woff"),
+	url("../fonts/brandon_bld_it-webfont.woff2") format("woff2");
+	font-style: italic;
+	font-weight: bold;
+	}
+
+/* --- black --- */
+
+@font-face {
+	font-family: brandon-grotesque;
+	src: url("../fonts/brandon_blk-webfont.woff") format("woff"),
+	url("../fonts/brandon_blk-webfont.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 900;
+	}
+
+@font-face {
+	font-family: brandon-grotesque;
+	src: url("../fonts/brandon_blk_it-webfont.woff") format("woff"),
+	url("../fonts/brandon_blk_it-webfont.woff2") format("woff2");
+	font-style: italic;
+	font-weight: 900;
+	}
+
+
+$video-thumb-url: '../images/gymnasiumLogo.png';
+$aquent-icon-image: url('../images/aquent-icon.png');
+$vitamin-t-icon-image: url('../images/vitamin-t-icon.png');

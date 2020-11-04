@@ -1,0 +1,28 @@
+<%namespace name='static' file='static_content.html'/>
+<%!
+from django.utils.translation import ugettext as _
+from django.core.urlresolvers import reverse
+from courseware.courses import get_course_about_section
+%>
+<%page args="course" />
+
+<li class="course-item" data-course-id="${course.display_number_with_default | h}">
+  <article class="row">
+    <figure class="col-md-4">
+      <a href="${reverse('about_course', args=[course.id.to_deprecated_string()])}">
+        <img class="img-responsive" src="${course.course_image_url}" alt="${course.display_number_with_default | h} ${course.display_name_with_default} Cover Image" />
+      </a>
+      <figcaption>
+        <a href="${reverse('about_course', args=[course.id.to_deprecated_string()])}" class="gym-button"><b>Learn More</b></a>
+      </figcaption>
+    </figure>
+    <div class="col-md-8 course-description">
+      <header>
+        <h1>${course.display_name_with_default}</h1>
+      </header>
+      <p>
+        ${course.short_description}
+      </p>
+    </div>
+  </article>
+</li>
