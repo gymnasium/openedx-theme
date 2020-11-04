@@ -1,8 +1,26 @@
 .sequence-nav,
 .sequence-bottom,
+div.xmodule_display.xmodule_SequenceModule .sequence-nav,
+div.xmodule_display.xmodule_SequenceModule .sequence-bottom 
 {
 	/* This rule HIDES the third-tier top and bottom navigation for courses! */
 	display:none;
+}
+
+.xblock.xblock-student_view.xblock-student_view-problem.xmodule_display.xmodule_CapaModule.xblock-initialized main {
+	/* on problem.html, hide the messaging we import from the CMS until one of the elements within is shown */
+	display: contents;
+}
+
+div.xmodule_display.xmodule_CapaModule {
+	div.problem {
+		padding-top: 0;
+	}
+
+	span.status,
+	span.status.correct {
+		display: none;
+	}
 }
 
 body.view-in-course
