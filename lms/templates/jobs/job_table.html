@@ -2,8 +2,11 @@
     <%
       market = None
       if user.is_authenticated():
-        # grab market from user profile
-        market = user.profile.market
+        try:
+          # grab market from user profile
+          market = user.profile.market
+        except Exception as e:
+            market = None
       endif
     %>
   
