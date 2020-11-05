@@ -10,6 +10,10 @@ from openedx.core.djangolib.markup import HTML
   ${ problem['name'] }
 </h2>
 <div class="problem-progress" id="${ id }-problem-progress"></div>
+<div class="hidden">
+  <span id="attempts-used">${attempts_used}</span> of
+  <span id="attempts-allowed">${attempts_allowed}</span> attempts
+</div>
 
 ${gymcms.render('final-exam-modal-top')}
 
@@ -191,10 +195,11 @@ ${gymcms.render('final-exam-modal')}
 
       $('.exam-score-container').text(score);
 
-      var attempts_used = $('.attempts_used').text();
-      var attempts_total = $('.attempts_total').text();
+      var attempts_used = Number($('#attempts-used').text());
+      var attempts_total = Number($('#attempts-allowed').text());
       var attempts_remaining = attempts_total - attempts_used;
 
+      debugger;
 
       //Gymnasium.RecordExamGrade =  function(email, COURSE_ID, grade, callback)
       % if (user.is_authenticated()):
