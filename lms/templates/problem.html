@@ -1,15 +1,15 @@
 <%page expression_filter="h"/>
 <%!
-from django.utils.translation import ugettext as _
+from django.utils.translation import ungettext, ugettext as _
 from openedx.core.djangolib.markup import HTML
 %>
 
 <%namespace name="gymcms" file="./util/gymcms.mako" />
 <%namespace name='static' file='static_content.html'/>
-<h2 class="hd hd-2 problem-header">
+<h3 class="hd hd-3 problem-header" id="${ short_id }-problem-title" aria-describedby="${ id }-problem-progress" tabindex="-1">
   ${ problem['name'] }
 </h2>
-<div class="problem-progress"></div>
+<div class="problem-progress" id="${ id }-problem-progress"></div>
 
 ${gymcms.render('final-exam-modal-top')}
 
@@ -21,32 +21,113 @@ ${gymcms.render('final-exam-modal-top')}
   <div class="action">
     <input type="hidden" name="problem_id" value="${ problem['name'] }" />
     % if demand_hint_possible:
-    <div class="problem-hint" aria-live="polite"></div>
+      <div class="problem-hint">
+        <%include file="problem_notifications.html" args="
+         notification_name='hint',
+         notification_type='problem-hint',
+         notification_icon='fa-question',
+         notification_message=''"
+       />
+      </div>
     % endif
-    % if check_button:
-    <button class="gym-button natural check ${ check_button }" id="check-button" data-checking="${ check_button_checking }" data-value="${ check_button }"><span class="check-label">${ check_button }</span><span class="sr"> ${_("your answer")}</span></button>
-    % endif
-    % if demand_hint_possible:
-    <button class="gym-button natural hint-button" data-value="${_('Hint')}">${_('Hint')}</button>
-    % endif
-    % if reset_button:
-    <button class="gym-button natural reset" data-value="${_('Reset')}">${_('Reset')}<span class="sr"> ${_("your answer")}</span></button>
-    % endif
-    % if save_button:
-    <button class="gym-button natural save" data-value="${_('Save')}">${_('Save')}<span class="sr"> ${_("your answer")}</span></button>
-    % endif
-    % if answer_available:
-    <button class="gym-button natural show"><span class='sr'>${_('Toggle Answer Visibility')}</span><span class="show-label">${_('Show Answer')}</span></button>
-    % endif
-    % if attempts_allowed :
-    <div class="submission_feedback" aria-live="polite">
-      ${_("You have used {num_used} of {num_total} submissions").format(num_used=attempts_used, num_total=attempts_allowed)}
 
-      <span class="hidden attempts_used">${attempts_used}</span>
-      <span class="hidden attempts_total">${attempts_allowed}</span>
+    <div class="submit-attempt-container">
+      <button type="button" class="submit btn-brand" data-submitting="${ submit_button_submitting }" data-value="${ submit_button }" data-should-enable-submit-button="${ should_enable_submit_button }" aria-describedby="submission_feedback_${short_id}" ${'' if should_enable_submit_button else 'disabled'}>
+          <span class="submit-label">${ submit_button }</span>
+      </button>
+      <div class="submission-feedback" id="submission_feedback_${short_id}">
+        % if attempts_allowed:
+          ${ungettext("You have used {num_used} of {num_total} attempt", "You have used {num_used} of {num_total} attempts", attempts_allowed).format(num_used=attempts_used, num_total=attempts_allowed)}
+        % endif
+        <span class="sr">${_("Some problems have options such as save, reset, hints, or show answer. These options follow the Submit button.")}</span>
+      </div>
     </div>
-    % endif
+    <div class="problem-action-buttons-wrapper">
+      % if demand_hint_possible:
+      <span class="problem-action-button-wrapper">
+          <button type="button" class="hint-button problem-action-btn btn-default btn-small" data-value="${_('Hint')}" ${'' if should_enable_next_hint else 'disabled'}><span class="icon fa fa-question" aria-hidden="true"></span>${_('Hint')}</button>
+      </span>
+      % endif
+      % if save_button:
+      <span class="problem-action-button-wrapper">
+          <button type="button" class="save problem-action-btn btn-default btn-small" data-value="${_('Save')}">
+              <span class="icon fa fa-floppy-o" aria-hidden="true"></span>
+              <span aria-hidden="true">${_('Save')}</span>
+              <span class="sr">${_("Save your answer")}</span>
+          </button>
+      </span>
+      % endif
+      % if reset_button:
+      <span class="problem-action-button-wrapper">
+          <button type="button" class="reset problem-action-btn btn-default btn-small" data-value="${_('Reset')}"><span class="icon fa fa-refresh" aria-hidden="true"></span><span aria-hidden="true">${_('Reset')}</span><span class="sr">${_("Reset your answer")}</span></button>
+      </span>
+      % endif
+      % if answer_available:
+      <span class="problem-action-button-wrapper">
+          <button type="button" class="show problem-action-btn btn-default btn-small" aria-describedby="${ short_id }-problem-title"><span class="icon fa fa-info-circle" aria-hidden="true"></span><span class="show-label">${_('Show Answer')}</span></button>
+      </span>
+      % endif
+    </div>
   </div>
+
+  <%include file="problem_notifications.html" args="
+      notification_type='warning',
+      notification_icon='fa-exclamation-circle',
+      notification_name='gentle-alert',
+      notification_message=''"
+    />
+    % if answer_notification_type:
+        % if 'correct' == answer_notification_type:
+            <%include file="problem_notifications.html" args="
+                notification_type='success',
+                notification_icon='fa-check',
+                notification_name='submit',
+                is_hidden=False,
+                notification_message=answer_notification_message"
+            />
+        % endif
+        % if 'incorrect' == answer_notification_type:
+            <%include file="problem_notifications.html" args="
+                notification_type='error',
+                notification_icon='fa-close',
+                notification_name='submit',
+                is_hidden=False,
+                notification_message=answer_notification_message"
+            />
+        % endif
+        % if 'partially-correct' == answer_notification_type:
+            <%include file="problem_notifications.html" args="
+                notification_type='success',
+                notification_icon='fa-asterisk',
+                notification_name='submit',
+                is_hidden=False,
+                notification_message=answer_notification_message"
+            />
+        % endif
+        % if 'submitted' == answer_notification_type:
+            <%include file="problem_notifications.html" args="
+                notification_type='general',
+                notification_icon='fa-info-circle',
+                notification_name='submit',
+                is_hidden=False,
+                notification_message=answer_notification_message"
+            />
+        % endif
+    % endif
+    <%include file="problem_notifications.html" args="
+      notification_type='warning',
+      notification_icon='fa-save',
+      notification_name='save',
+      notification_message=save_message,
+      is_hidden=not has_saved_answers"
+    />
+    <%include file="problem_notifications.html" args="
+      notification_type='general',
+      notification_icon='fa-info-circle',
+      notification_name='show-answer',
+      notification_message=_('Answers are displayed within the problem'),
+      is_hidden=True"
+    />
 </div>
 
 ${gymcms.render('final-exam-modal')}
@@ -76,20 +157,15 @@ ${gymcms.render('final-exam-modal')}
     }
 
     if ($('.problem-header').text().trim() === "Final Exam") {
-      var progress_status_check = setInterval(check_status, 200); 
+      var progress_status_check = setInterval(check_status, 200);
     } else {
       return;
     }
 
     function check_status(){
-      var status = $('[data-progress_status]').attr('data-progress_status').trim();
+      var attempts = Number($('[data-attempts-used]').attr('data-attempts-used'));
 
-
-      var progress_string = $('.problem-progress').text().trim();
-      var slash = progress_string.indexOf("/");
-
-      if (status === 'done' || slash >= 0 || progress_string.indexOf("possible") >= 0)
-      {
+      if (attempts > 0) {
         clearInterval(progress_status_check);
         show_problem_progress();
       }
@@ -104,20 +180,14 @@ ${gymcms.render('final-exam-modal')}
     });
 
     var show_problem_progress = function(){
+      const correct = Number($('[data-attempts-used]').attr('data-problem-score'));
+      const outOf = Number($('[data-attempts-used]').attr('data-problem-total-possible'));
 
-      var progress_string = $('.problem-progress').text().trim();
-      var slash = progress_string.indexOf("/");
-
-      if (progress_string.indexOf("possible") >= 0 )
-      {
-        return;
+      if (!correct || !outOf) {
+        return
       }
-      var slash = progress_string.indexOf("/");
-      var correct = progress_string.substring(1,slash);
-      var out_of = progress_string.substring(slash+1);
-      var out_of = out_of.substring(0, out_of.indexOf(" "))
-
-      var score = correct / out_of * 100; //score out of 100
+      
+      const score = correct / outOf * 100; //score out of 100
 
       $('.exam-score-container').text(score);
 
@@ -126,42 +196,40 @@ ${gymcms.render('final-exam-modal')}
       var attempts_remaining = attempts_total - attempts_used;
 
 
-      if (progress_string.length > 0) {
-        //Gymnasium.RecordExamGrade =  function(email, COURSE_ID, grade, callback)
-        % if (user.is_authenticated()):
-          var email = "${user.email}";
-          
-          if (email && COURSE_ID && score) {
-            // Gymnasium.RecordExamGrade(email, COURSE_ID, score);
-          }
-        %endif
+      //Gymnasium.RecordExamGrade =  function(email, COURSE_ID, grade, callback)
+      % if (user.is_authenticated()):
+        var email = "${user.email}";
+        
+        if (email && COURSE_ID && score) {
+          // Gymnasium.RecordExamGrade(email, COURSE_ID, score);
+        }
+      %endif
 
-        //we have a score
-        if (score >= PASSING_SCORE) {
-          //we passed! show passing div
-          $(".passed_modal").removeClass('hidden');
-          $(".try_again_modal").addClass('hidden');
+      //we have a score
+      if (score >= PASSING_SCORE) {
+        //we passed! show passing div
+        $(".passed_modal").removeClass('hidden');
+        $(".try_again_modal").addClass('hidden');
+        $(".failed_modal").addClass('hidden');
+
+        //generate the certificate through the API
+        $.ajax({
+          type:     'POST',
+          url:      '/request_certificate',
+          data:     {'course_id': $$course_id},
+          success:  function(data) {
+          }
+        });
+      } else {
+        //we failed :( see if we have another attempt
+        if (attempts_remaining > 0) {
+          $(".passed_modal").addClass('hidden');
+          $(".try_again_modal." + COURSE_TYPE).removeClass('hidden');
           $(".failed_modal").addClass('hidden');
-
-          //generate the certificate through the API
-          $.ajax({
-            type:     'POST',
-            url:      '/request_certificate',
-            data:     {'course_id': $$course_id},
-            success:  function(data) {
-            }
-          });
         } else {
-          //we failed :( see if we have another attempt
-          if (attempts_remaining > 0) {
-            $(".passed_modal").addClass('hidden');
-            $(".try_again_modal." + COURSE_TYPE).removeClass('hidden');
-            $(".failed_modal").addClass('hidden');
-          } else {
-            $(".passed_modal").addClass('hidden');
-            $(".try_again_modal." + COURSE_TYPE).addClass('hidden');
-            $(".failed_modal").removeClass('hidden');
-          }
+          $(".passed_modal").addClass('hidden');
+          $(".try_again_modal." + COURSE_TYPE).addClass('hidden');
+          $(".failed_modal").removeClass('hidden');
         }
       }
     }
