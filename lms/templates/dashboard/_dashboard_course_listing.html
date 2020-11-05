@@ -121,13 +121,7 @@ from student.helpers import (
             % endif
           % endif
         </div>
-        <ul class="col-md-9 dashboard-listing-links">
-
-          % if cert_status:
-            <%include file='_dashboard_certificate_information.html' args='cert_status=cert_status,course_overview=course_overview, enrollment=enrollment, reverify_link=reverify_link'/>
-          % endif
-        
-          
+        <ul class="col-md-9 dashboard-listing-links">          
           ## Translators: The course's name will be added to the end of this sentence.
           % if not is_course_blocked:
             <li>
