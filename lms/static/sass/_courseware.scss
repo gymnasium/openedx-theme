@@ -98,6 +98,10 @@ body.view-in-course
 	{
 		max-width: inherit;
 		display:block;
+
+		.bookmark-button-wrapper {
+			text-align: right;
+		}
 	}
 
 	#course-content.course-content{
@@ -473,6 +477,7 @@ nav.progress.wrapper-course-material
 		a
 		{
 			color:$gym-orange;
+			display: inline;
 		}
 
 		a:hover

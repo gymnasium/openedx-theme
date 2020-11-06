@@ -404,6 +404,10 @@ body.view-in-course
 		{
 			text-align:center;
 			margin-top:1em;
+
+			a {
+				color: $gym-orange !important;
+			}
 		}
 	}
 }
