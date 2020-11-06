@@ -99,6 +99,7 @@
 
 			b
 			{
+				color: $gym-orange;
 				text-decoration:none;
 			}
 		}
@@ -114,6 +115,9 @@
 			color:$gym-orange;
 			border:none;
 			text-decoration:none;
+			b {
+				color:$gym-orange;
+			}	
 		}
 	}
 }
