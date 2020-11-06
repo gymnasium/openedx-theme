@@ -45,7 +45,7 @@ else:
   % else:
     <div class="message message-status ${status_css_class} is-shown">
       % if cert_status['status'] != 'unavailable':
-        <p class="message-copy">${_("Your final grade:")}
+        <p class="message-copy">${_("Final grade:")}
           <span class="grade-value">${"{0:.0f}%".format(float(cert_status['grade'])*100)}</span>.
         </p>
       % endif
