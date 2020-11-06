@@ -78,7 +78,7 @@
 		{
 			padding-left:0px;
 			border-bottom:none;
-			color:$gym-medium-gray;
+			color: currentColor !important;
 
 			b
 			{
@@ -92,14 +92,15 @@
 
 		a:hover,
 		a:focus:hover{
-			color:$gym-orange;
+			color: currentColor !important;
 			border:none;
 			background:none;
 			text-decoration:none;
 
 			b
 			{
-				color: $gym-orange;
+				color: currentColor !important;
+				border-bottom: 1px solid currentColor !important;
 				text-decoration:none;
 			}
 		}
@@ -116,7 +117,8 @@
 			border:none;
 			text-decoration:none;
 			b {
-				color:$gym-orange;
+				color:currentColor !important;
+				border-bottom: 2px solid currentColor !important;
 			}	
 		}
 	}
