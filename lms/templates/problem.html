@@ -36,8 +36,8 @@ ${gymcms.render('final-exam-modal-top')}
     % endif
 
     <div class="submit-attempt-container">
-      <button type="button" class="submit btn-brand" data-submitting="${ submit_button_submitting }" data-value="${ submit_button }" data-should-enable-submit-button="${ should_enable_submit_button }" aria-describedby="submission_feedback_${short_id}" ${'' if should_enable_submit_button else 'disabled'}>
-          <span class="submit-label">${ submit_button }</span>
+      <button type="button" class="submit gym-button natural" data-submitting="${ submit_button_submitting }" data-value="${ submit_button }" data-should-enable-submit-button="${ should_enable_submit_button }" aria-describedby="submission_feedback_${short_id}" ${'' if should_enable_submit_button else 'disabled'}>
+          <b class="submit-label">${ submit_button }</b>
       </button>
       <div class="submission-feedback" id="submission_feedback_${short_id}">
         % if attempts_allowed:
@@ -49,13 +49,12 @@ ${gymcms.render('final-exam-modal-top')}
     <div class="problem-action-buttons-wrapper">
       % if demand_hint_possible:
       <span class="problem-action-button-wrapper">
-          <button type="button" class="hint-button problem-action-btn btn-default btn-small" data-value="${_('Hint')}" ${'' if should_enable_next_hint else 'disabled'}><span class="icon fa fa-question" aria-hidden="true"></span>${_('Hint')}</button>
+          <button type="button" class="hint-button gym-button natural" data-value="${_('Hint')}" ${'' if should_enable_next_hint else 'disabled'}><span class="icon fa fa-question" aria-hidden="true"></span>${_('Hint')}</button>
       </span>
       % endif
       % if save_button:
       <span class="problem-action-button-wrapper">
-          <button type="button" class="save problem-action-btn btn-default btn-small" data-value="${_('Save')}">
-              <span class="icon fa fa-floppy-o" aria-hidden="true"></span>
+          <button type="button" class="save gym-button natural" data-value="${_('Save')}">
               <span aria-hidden="true">${_('Save')}</span>
               <span class="sr">${_("Save your answer")}</span>
           </button>
@@ -63,12 +62,12 @@ ${gymcms.render('final-exam-modal-top')}
       % endif
       % if reset_button:
       <span class="problem-action-button-wrapper">
-          <button type="button" class="reset problem-action-btn btn-default btn-small" data-value="${_('Reset')}"><span class="icon fa fa-refresh" aria-hidden="true"></span><span aria-hidden="true">${_('Reset')}</span><span class="sr">${_("Reset your answer")}</span></button>
+          <button type="button" class="reset gym-button natural" data-value="${_('Reset')}"><span class="icon fa fa-refresh" aria-hidden="true"></span><span aria-hidden="true">${_('Reset')}</span><span class="sr">${_("Reset your answer")}</span></button>
       </span>
       % endif
       % if answer_available:
       <span class="problem-action-button-wrapper">
-          <button type="button" class="show problem-action-btn btn-default btn-small" aria-describedby="${ short_id }-problem-title"><span class="icon fa fa-info-circle" aria-hidden="true"></span><span class="show-label">${_('Show Answer')}</span></button>
+          <button type="button" class="show gym-button natural" aria-describedby="${ short_id }-problem-title"><span class="icon fa fa-info-circle" aria-hidden="true"></span><span class="show-label">${_('Show Answer')}</span></button>
       </span>
       % endif
     </div>
@@ -199,7 +198,6 @@ ${gymcms.render('final-exam-modal')}
       var attempts_total = Number($('#attempts-allowed').text());
       var attempts_remaining = attempts_total - attempts_used;
 
-      debugger;
 
       //Gymnasium.RecordExamGrade =  function(email, COURSE_ID, grade, callback)
       % if (user.is_authenticated()):
