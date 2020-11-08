@@ -218,7 +218,7 @@ ${gymcms.render('final-exam-modal')}
         //generate the certificate through the API
         $.ajax({
           type:     'POST',
-          url:      '/request_certificate',
+          url:      '/accredible/request_certificate',
           data:     {'course_id': $$course_id},
           success:  function(data) {
           }
