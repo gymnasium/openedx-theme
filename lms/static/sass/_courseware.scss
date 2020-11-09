@@ -15,6 +15,13 @@ div.xmodule_display.xmodule_SequenceModule .sequence-bottom
 div.xmodule_display.xmodule_CapaModule {
 	div.problem {
 		padding-top: 0;
+
+		.notification.notification-save,
+		.notification.notification-show-answer,
+		.notification.notification-gentle-alert {
+			float: none;
+		}
+
 	}
 
 	span.status,
