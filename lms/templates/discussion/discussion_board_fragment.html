@@ -32,14 +32,14 @@ from openedx.core.djangolib.markup import HTML
                 </nav>
             </div>
             <div class="page-header-secondary">
+                ## Search box
+                <div class="forum-search"></div>
                 ## Add Post button
                 % if has_permission(user, 'create_thread', course.id):
                 <div class="forum-actions">
-                    <button class="btn btn-outline-primary btn-small new-post-btn">${_("Add a Post")}</button>
+                    <button class="gym-button btn btn-outline-primary btn-small new-post-btn"><b>${_("Add a Post")}<b/></button>
                 </div>
                 % endif
-                ## Search box
-                <div class="forum-search"></div>
             </div>
         </header>
         <div class="page-content"

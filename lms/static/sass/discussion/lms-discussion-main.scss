@@ -17,3 +17,49 @@
 
 @import 'urls';
 @import '../gymnasium';
+
+#discussion-container {
+  span.forum-nav-browse-menu,
+  .view-discussion-home .helpgrid-row th.row-title,
+  .view-discussion-home .helpgrid-row .row-item-full, .view-discussion-home .helpgrid-row td.row-item,
+  span.label.label-settings,
+  ul.forum-nav-browse-menu li,
+  ul.forum-nav-browse menu li.forum-nav-browse-menu-item,
+  ul.forum-nav-browse menu li.forum-nav-browse-menu-item span
+  {
+    font-size: 14px;
+  }
+
+  .view-discussion-home h2.home-title {
+    font-size: 30px;
+  }
+
+  header.page-header,
+  header.page-header.has-secondary {
+    padding-top: 0;
+    margin-top: 2rem;
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+
+  .forum-search {
+    .search-input {
+      width: 184px;  
+    }
+    .search-button {
+      border: 1px solid;
+      border-left: none;
+      border: 1px solid $gym-orange;
+      background-color:$gym-orange;
+      color:white;
+      font-weight:bold;
+      font-size: 1em;
+      text-align: center;
+      font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+    }
+  }
+
+  .forum-actions {
+    margin-left: 10px;
+  }
+}
