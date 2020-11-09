@@ -89,16 +89,17 @@
   .forum-nav-thread-votes-count,
   .forum-nav-thread-comments-count,
   .reply-body textarea,
+  .response-body,
   .wmd-preview-container .wmd-preview,
   .wmd-preview-container .wmd-preview-label {
     font-weight: normal;
   }
 
+  a.username,
   .actions-dropdown .action-list-item,
   .forum-nav-filter-main-control,
   .forum-nav-sort,
-  .posted-details
-   {
+  .posted-details {
     font-size: 12px;
   }
 
@@ -109,7 +110,7 @@
   }
   
   .btn-link.action-button.action-follow,
-  .btn-link.action-button.action-follow icon
+  .btn-link.action-button.action-follow icon,
   .discussion-post,
   .discussion-post .post-body,
   .discussion-post .post-context,
@@ -126,6 +127,7 @@
   .icon,
   input,
   .response-count,
+  .response-body,
   textarea,
   .wmd-preview-container,
   .wmd-preview-label {
