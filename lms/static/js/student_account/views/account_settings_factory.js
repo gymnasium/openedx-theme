@@ -170,23 +170,23 @@
                                 options: fieldsData.language.options,
                                 persistChanges: true
                             })
-                        },
-                        countryFieldView,
-                        {
-                            view: new AccountSettingsFieldViews.TimeZoneFieldView({
-                                model: userPreferencesModel,
-                                required: true,
-                                title: gettext('Time Zone'),
-                                valueAttribute: 'time_zone',
-                                helpMessage: gettext('Select the time zone for displaying course dates. If you do not specify a time zone, course dates, including assignment deadlines, will be displayed in your browser\'s local time zone.'), // eslint-disable-line max-len
-                                groupOptions: [{
-                                    groupTitle: gettext('All Time Zones'),
-                                    selectOptions: fieldsData.time_zone.options,
-                                    nullValueOptionLabel: gettext('Default (Local Time Zone)')
-                                }],
-                                persistChanges: true
-                            })
-                        }
+                        }//,
+                        //countryFieldView,
+                        // {
+                        //     view: new AccountSettingsFieldViews.TimeZoneFieldView({
+                        //         model: userPreferencesModel,
+                        //         required: true,
+                        //         title: gettext('Time Zone'),
+                        //         valueAttribute: 'time_zone',
+                        //         helpMessage: gettext('Select the time zone for displaying course dates. If you do not specify a time zone, course dates, including assignment deadlines, will be displayed in your browser\'s local time zone.'), // eslint-disable-line max-len
+                        //         groupOptions: [{
+                        //             groupTitle: gettext('All Time Zones'),
+                        //             selectOptions: fieldsData.time_zone.options,
+                        //             nullValueOptionLabel: gettext('Default (Local Time Zone)')
+                        //         }],
+                        //         persistChanges: true
+                        //     })
+                        // }
                     ]
                 },
                 // {
@@ -262,34 +262,35 @@
                 }
             }
 
-
+            // uncomment this section to add social media inputs back to the account setting page - MB
             // Add the social link fields
-            socialFields = {
-                title: gettext('Social Media Links'),
-                subtitle: gettext('Optionally, link your personal accounts to the social media icons on your edX profile.'),  // eslint-disable-line max-len
-                fields: []
-            };
+            // socialFields = {
+            //     title: gettext('Social Media Links'),
+            //     subtitle: gettext('Optionally, link your personal accounts to the social media icons on your edX profile.'),  // eslint-disable-line max-len
+            //     fields: []
+            // };
 
-            for (var socialPlatform in socialPlatforms) {  // eslint-disable-line guard-for-in, no-restricted-syntax, vars-on-top, max-len
-                platformData = socialPlatforms[socialPlatform];
-                socialFields.fields.push(
-                    {
-                        view: new AccountSettingsFieldViews.SocialLinkTextFieldView({
-                            model: userAccountModel,
-                            title: gettext(platformData.display_name + ' Link'),
-                            valueAttribute: 'social_links',
-                            helpMessage: gettext(
-                                'Enter your ' + platformData.display_name + ' username or the URL to your ' +
-                                platformData.display_name + ' page. Delete the URL to remove the link.'
-                            ),
-                            platform: socialPlatform,
-                            persistChanges: true,
-                            placeholder: platformData.example
-                        })
-                    }
-                );
-            }
-            aboutSectionsData.push(socialFields);
+            // for (var socialPlatform in socialPlatforms) {  // eslint-disable-line guard-for-in, no-restricted-syntax, vars-on-top, max-len
+            //     platformData = socialPlatforms[socialPlatform];
+            //     socialFields.fields.push(
+            //         {
+            //             view: new AccountSettingsFieldViews.SocialLinkTextFieldView({
+            //                 model: userAccountModel,
+            //                 title: gettext(platformData.display_name + ' Link'),
+            //                 valueAttribute: 'social_links',
+            //                 helpMessage: gettext(
+            //                     'Enter your ' + platformData.display_name + ' username or the URL to your ' +
+            //                     platformData.display_name + ' page. Delete the URL to remove the link.'
+            //                 ),
+            //                 platform: socialPlatform,
+            //                 persistChanges: true,
+            //                 placeholder: platformData.example
+            //             })
+            //         }
+            //     );
+            // }
+            
+            // aboutSectionsData.push(socialFields);
 
             // Add account deletion fields
             if (displayAccountDeletion) {
@@ -312,9 +313,9 @@
             userFields = _.find(aboutSectionsData, function(section) {
                 return section.title === gettext('Basic Account Information');
             }).fields;
-            timeZoneDropdownField = getUserField(userFields, 'time_zone');
-            countryDropdownField = getUserField(userFields, 'country');
-            timeZoneDropdownField.listenToCountryView(countryDropdownField);
+            // timeZoneDropdownField = getUserField(userFields, 'time_zone');
+            // countryDropdownField = getUserField(userFields, 'country');
+            // timeZoneDropdownField.listenToCountryView(countryDropdownField);
 
             accountsSectionData = [
                 {
