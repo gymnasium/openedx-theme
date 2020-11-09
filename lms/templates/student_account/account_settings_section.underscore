@@ -1,6 +1,5 @@
 <% _.each(sections, function(section) { %>
     <div class="section">
-        <h1>Gymnasty</h1>
         <% if (section.subtitle) { %>
             <p id="header-subtitle-<%- activeTabName %>" class="account-settings-header-subtitle"><%- section.subtitle %></p>
         <% } %>
