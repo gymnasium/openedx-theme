@@ -151,7 +151,7 @@ from student.helpers import (
 
           % if not is_course_blocked:
             <li>
-              <a href="#unenroll-modal" class="" rel="leanModal" data-course-id="${course_overview.id | h}" data-course-number="${course_overview.number | h}"
+              <a href="#unenroll-modal" class="btn" rel="leanModal" data-course-id="${course_overview.id | h}" data-course-number="${course_overview.number | h}"
                 onclick="
                   document.getElementById('track-info').innerHTML='${_("Are you sure you want to unenroll from")}';
                   document.getElementById('refund-info').innerHTML='';
@@ -162,7 +162,7 @@ from student.helpers import (
                 ${_('Unenroll')}
               </a>
               % else:
-              <a class="disable-look-unregister" data-course-id="${course_overview.id | h}" data-course-number="${course_overview.number | h}" onclick="document.getElementById('track-info').innerHTML='${_("Are you sure you want to unenroll from")}'; document.getElementById('refund-info').innerHTML=''">
+              <a class="disable-look-unregister btn" data-course-id="${course_overview.id | h}" data-course-number="${course_overview.number | h}" onclick="document.getElementById('track-info').innerHTML='${_("Are you sure you want to unenroll from")}'; document.getElementById('refund-info').innerHTML=''">
                 ${_('Unenroll')}
               </a>
             </li> 
