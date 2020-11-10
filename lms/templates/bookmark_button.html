@@ -1,11 +1,19 @@
-<%! from django.utils.translation import ugettext as _ %>
-<%page args="bookmark_id, is_bookmarked" />
+<%page expression_filter="h" args="bookmark_id, is_bookmarked" />
+
+<%!
+from django.urls import reverse
+from django.utils.translation import ugettext as _
+%>
 
 <div class="bookmark-button-wrapper">
-  <button class="bookmark-button gym-button natural ${"bookmarked" if is_bookmarked else ""}"
+  <button
+    class="bookmark-button gym-button natural ${"bookmarked" if is_bookmarked else ""}"
     aria-pressed="${"true" if is_bookmarked else "false"}"
-    data-bookmark-id="${bookmark_id}">
-     <span class="sr bookmark-sr">${_("Click to remove") if is_bookmarked else _("Click to add")}</span>
-      <b>${_("Bookmark")}</b>
+    data-bookmark-id="${bookmark_id}"
+    data-bookmarks-api-url="${reverse('bookmarks')}"
+  >
+     <b>
+      <span class="bookmark-text">${_("Bookmarked") if is_bookmarked else _("Bookmark")}</span>
+    </b>
     </button>
 </div>
