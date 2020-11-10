@@ -138,7 +138,7 @@ ${HTML(fragment.foot_html())}
           <div class="wrapper-course-modes">
 
               <div class="courseware-bookmarks-button" data-bookmarks-api-url="${bookmarks_api_url}">
-                  <button type="gym-button" class="bookmarks-list-button is-inactive" aria-pressed="false">
+                  <a type="button" aria-pressed="false" class="bookmarks-list-button" href="${reverse('openedx.course_bookmarks.home', args=[course.id])}">
                       ${_('Bookmarks')}
                   </button>
               </div>
