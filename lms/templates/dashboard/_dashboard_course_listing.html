@@ -137,21 +137,21 @@ from student.helpers import (
           %>          
           % if cert_status['status'] == 'downloadable' and enrollment.mode in CourseMode.NON_VERIFIED_MODES:
               <li class="action action-certificate">
-                <a class="btn" href="${cert_status['download_url']}"
+                <a href="${cert_status['download_url']}"
                    title="${_('This link will open/download a PDF document')}">
                   ${_("My {cert_name_short}").format(cert_name_short=cert_name_short,)}
                 </a>
               </li>
             % elif cert_status['status'] == 'downloadable' and enrollment.mode == 'verified' and cert_status['mode'] == 'honor':
               <li class="action">
-                <a class="btn" href="${cert_status['download_url']}"
+                <a href="${cert_status['download_url']}"
                    title="${_('This link will open/download a PDF document')}">
                   ${_("Your {cert_name_short}").format(cert_name_short=cert_name_short)}
                 </a>
               </li>
             % elif cert_status['status'] == 'downloadable' and enrollment.mode in CourseMode.VERIFIED_MODES:
               <li class="action">
-                <a class="btn" href="${cert_status['download_url']}"
+                <a href="${cert_status['download_url']}"
                    title="${_('This link will open/download a PDF document of your verified {cert_name_long}.').format(cert_name_long=cert_name_long)}">
                   ${_("Your ID Verified {cert_name_short}").format(cert_name_short=cert_name_short)}
                 </a>
