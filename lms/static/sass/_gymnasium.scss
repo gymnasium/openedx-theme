@@ -934,8 +934,7 @@ body
 		a:link,
 		a:link:hover,
 		a:link:visited,
-		a:link:visited:hover,
-		{
+		a:link:visited:hover {
 			text-decoration:none;
 			color:white;
 
@@ -958,9 +957,11 @@ body
 		width:auto;
 	}
 }
+
 .gym-button:focus,
 .gym-button:active
 {
+	text-decoration: none !important;
 	background:$gym-button-background-active;
 }
 
