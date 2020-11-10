@@ -346,14 +346,12 @@ body.register,
 	}
 
 	a:hover,
-	a:focus,
 	a:visited:hover,
 	a:link:hover,
 	a:link:visited:hover,
 	a:active:hover,
 	a:link:active:hover,
 	.hboard .my-courses .course .info>hgroup h3 a:hover,
-	.dashboard .my-courses .course .info>hgroup h3 a:focus,
 	.dashboard .my-courses .course .info>hgroup h3 span:hover,
 	.dashboard .my-courses .course .info>hgroup h3 span:focus,
 	p a:link:hover,
@@ -365,6 +363,11 @@ body.register,
 		border-bottom:1px solid $gym-orange;
 		color:$gym-orange;
 		text-decoration:none;
+	}
+
+	a:focus,
+	.dashboard .my-courses .course .info>hgroup h3 a:focus {
+		border-bottom: 0 none;
 	}
 }
 
