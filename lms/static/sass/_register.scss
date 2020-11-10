@@ -4,6 +4,47 @@
   background: transparent;
 }
 
+.login-register {
+  max-width: none;
+}
+
+#login,
+#register {
+  padding: 0 1.8em 2.2em;
+  margin-top: 1.6em;
+}
+
+.login-providers h1 + button.login-provider {
+  margin: 1.4em 0 1em;
+}
+
+.login-providers .section-title + button.login-provider {
+  margin-top: 0.6em;
+}
+
+main li:not([class]) > a:not([class]):active,
+main label a:not([class]):hover,
+main label a:not([class]):focus,
+main label a:not([class]):active {
+  text-decoration: none;
+  border-bottom-width: 2px !important;
+  margin-bottom: -0.125rem;
+}
+
+
+.login-form {
+  a.forgot-password {
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+      border-bottom-width: 2px !important;
+      margin-bottom: -0.125rem;
+    }
+  }
+}
+
+
 .login-register
 {
   h1 {
@@ -76,6 +117,9 @@
   .logistration-bottom 
   {
     padding-bottom:2em;
+    padding-left: 1.8em;
+    padding-right: 1.8em;
+    margin-top: 1.2em;
 
     h2 
     {
@@ -83,18 +127,78 @@
       padding: 0.75em 0;
       font-size:2.2em;
       letter-spacing: 0.01em;
+      text-align: left;
+      padding: 0 0 0.4em;
+
+      .text  {
+        text-transform: uppercase;
+      }
     }
   }
 
   .logistration-button 
   {
+    text-transform: capitalize;
     padding: 1em;
     font-size: 1.5em;
     font-weight: 900;
   }
+
   form {
     background:white;
   }
+
+  .note {
+    font-weight: bold;
+    color: #222;
+  }
+  
+  .toggle-form {
+    font-size: 14px;
+  }
+
+  .login-remember {
+    line-height: 1.15;
+  }
+
+  .checkbox-remember {
+    margin: 1.2em 0 0.6em;
+  }
+
+  .checkbox-terms_of_service {
+    margin: 1em 0;
+  }
+
+  .form-field {
+    margin-top: 0.6em;
+    margin-bottom: 1.4em;
+  }
+
+  .form-field label,
+  .form-field input {
+    margin-bottom: 0.6em;
+  }
+
+  .form-field label.focus-out {
+    position: static;
+    padding-top: 0;
+    padding-left: 0;
+    opacity: 1;
+    z-index: auto;
+  }
+
+  .form-field .tip {
+    display: inline-block;
+  }
+
+  .form-field label[for="register-terms_of_service"] {
+    margin: 0;
+  }
+
+}
+
+#register .form-field input {
+  margin-bottom: 0;
 }
 
 .register.container, .login.container
