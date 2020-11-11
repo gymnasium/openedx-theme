@@ -198,6 +198,14 @@ main label a:not([class]):active {
     margin: 0;
   }
 
+  .status.account-activation,
+  .status.account-activation.success,
+  .status.account-activation.success,
+  .financial-assistance-wrapper .financial-assistance-form .status.account-activation.success {
+    background-color: $gym-orange !important;
+    border-color: $gym-orange;
+    color: $gym-white;
+  }
 }
 
 #register .form-field input {
