@@ -3,10 +3,10 @@
       market = None
       if user.is_authenticated():
         # grab market from user profile
-        market = user.profile.market
+        market = user.extrainfo.market
       endif
     %>
- <iframe src="${settings.APPSEMBLER_FEATURES['JOBS_MODULE_BASE_URL']}/${market}"
+  <iframe src="${settings.APPSEMBLER_FEATURES['JOBS_MODULE_BASE_URL']}/${market}"
     id="jobs-microservice-frame"
     class="gymnasium-resizable-iframe gymnasium-jobs-microservice-iframe"
     style="width: 1px;min-width: 100%;border:0;"
