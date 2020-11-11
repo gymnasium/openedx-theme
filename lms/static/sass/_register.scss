@@ -11,7 +11,6 @@
 #login,
 #register {
   padding: 0 1.8em 2.2em;
-  margin-top: 1.6em;
 }
 
 .login-providers h1 + button.login-provider {
@@ -177,6 +176,10 @@ main label a:not([class]):active {
   .form-field label,
   .form-field input {
     margin-bottom: 0.6em;
+  }
+  
+  .form-field input + .tip-input {
+    margin-top: 0.6em;
   }
 
   .form-field label.focus-out {
