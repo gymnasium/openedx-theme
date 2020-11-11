@@ -25,7 +25,7 @@ from openedx.features.course_experience import course_home_page_title, COURSE_OU
 
 <%block name="title">
 <title data-base-title="${static.get_page_title_breadcrumbs(section_title, course_name())}">
-  ${static.get_page_title_breadcrumbs(sequence_title, section_title, course_name())}
+  ${static.get_page_title_breadcrumbs(sequence_title, course_name())}
 </title>
 </%block>
 
@@ -135,15 +135,15 @@ ${HTML(fragment.foot_html())}
 
       <div class="col-sm-3 no-right-pad">
         <div class="course-index">
-          <div class="wrapper-course-modes">
-
+          <!-- 
+            <div class="wrapper-course-modes">
               <div class="courseware-bookmarks-button" data-bookmarks-api-url="${bookmarks_api_url}">
                   <a type="button" aria-pressed="false" class="bookmarks-list-button" href="${reverse('openedx.course_bookmarks.home', args=[course.id])}">
                       ${_('Bookmarks')}
                   </button>
               </div>
-
-          </div>
+            </div> 
+          -->
 
           <div class="accordion">
             <nav class="course-navigation" aria-label="${_('Course')}">

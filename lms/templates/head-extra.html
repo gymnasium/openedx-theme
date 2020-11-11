@@ -33,7 +33,7 @@ from django.conf import settings
 
 ## inject some global variables from configurations
 <script>
-  var CLOUDWALL_ENV = 'cw-rc' //$ {settings .APPSEMBLER_FEATURES['CLOUDWALL_SERVER_PATH']}";
+  var CLOUDWALL_ENV = "${settings.APPSEMBLER_FEATURES['CLOUDWALL_SERVER_PATH']}";
 </script>
 
 <script src="${static.url('js/gymnasium.js')}"> </script>

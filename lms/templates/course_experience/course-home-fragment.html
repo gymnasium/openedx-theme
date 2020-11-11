@@ -72,7 +72,7 @@ from openedx.features.portfolio_project import INCLUDE_PORTFOLIO_UPSELL_MODAL
                         % if has_visited_course:
                             <span data-action-type="resume">${_("Resume Course")}</span>
                         % else:
-                            <span data-action-type="start">${_("Start el Course")}</span>
+                            <span data-action-type="start">${_("Start Course")}</span>
                         % endif
                     </a>
                 % endif
@@ -121,7 +121,7 @@ from openedx.features.portfolio_project import INCLUDE_PORTFOLIO_UPSELL_MODAL
                     </div>
                 </div>
             % endif
-            % if course_tools:
+            % if course_tools and False:
                 <div class="section section-tools">
                     <h3 class="hd-6 section-title">${_("Course Tools")}</h3>
                     <ul class="list-unstyled">

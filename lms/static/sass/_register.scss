@@ -11,7 +11,6 @@
 #login,
 #register {
   padding: 0 1.8em 2.2em;
-  margin-top: 1.6em;
 }
 
 .login-providers h1 + button.login-provider {
@@ -178,6 +177,10 @@ main label a:not([class]):active {
   .form-field input {
     margin-bottom: 0.6em;
   }
+  
+  .form-field input + .tip-input {
+    margin-top: 0.6em;
+  }
 
   .form-field label.focus-out {
     position: static;
@@ -195,6 +198,14 @@ main label a:not([class]):active {
     margin: 0;
   }
 
+  .status.account-activation,
+  .status.account-activation.success,
+  .status.account-activation.success,
+  .financial-assistance-wrapper .financial-assistance-form .status.account-activation.success {
+    background-color: $gym-orange !important;
+    border-color: $gym-orange;
+    color: $gym-white;
+  }
 }
 
 #register .form-field input {

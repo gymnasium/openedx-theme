@@ -1,6 +1,4 @@
-<div class="status submission-error hidden" aria-live="polite">
-    <h4 class="message-title"><%- gettext("We couldn't create your account.") %></h4>
-    <ul class="message-copy"></ul>
+<div class="js-form-feedback" aria-live="assertive" tabindex="-1">
 </div>
 
 <form id="register" class="register-form course-content" autocomplete="off" tabindex="-1" style="background:white;">
