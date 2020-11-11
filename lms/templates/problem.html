@@ -211,8 +211,8 @@ ${gymcms.render('final-exam-modal')}
 
       //we have a score
       if (score >= passingScore) {
-        //we passed! show passing div
-        $(".passed_modal").removeClass('hidden');
+        //we passed! show passing div for the type of course they took
+        $(".passed_modal." + courseType).removeClass('hidden');
         $(".try_again_modal").addClass('hidden');
         $(".failed_modal").addClass('hidden');
 
@@ -232,7 +232,7 @@ ${gymcms.render('final-exam-modal')}
           $(".failed_modal").addClass('hidden');
         } else {
           $(".passed_modal").addClass('hidden');
-          $(".try_again_modal." + courseType).addClass('hidden');
+          $(".try_again_modal").addClass('hidden');
           $(".failed_modal").removeClass('hidden');
         }
       }
