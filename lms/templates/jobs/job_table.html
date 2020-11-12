@@ -25,7 +25,7 @@
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
             if (latitude && longitude) {
-              const baseUrl = "$ {settings.APPSEMBLER_FEATURES['JOBS_MODULE_BASE_URL']}table";
+              const baseUrl = "${settings.APPSEMBLER_FEATURES['JOBS_MODULE_BASE_URL']}table";
               const microserviceUrl = baseUrl + "/" + latitude + "/" + longitude;
 
               $('.gymnasium-jobs-microservice-iframe').attr('src', microserviceUrl);

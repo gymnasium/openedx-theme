@@ -1,4 +1,4 @@
-% if false: # settings.APPSEMBLER_FEATURES['JOBS_MODULE_BASE_URL']:
+% if settings.APPSEMBLER_FEATURES['JOBS_MODULE_BASE_URL']:
     <%
       market = None
       if user.is_authenticated():
@@ -9,7 +9,7 @@
             market = None
       endif
     %>
- <iframe src="$ {settings.APPSEMBLER_FEATURES['JOBS_MODULE_BASE_URL']}/${market}"
+  <iframe src="${settings.APPSEMBLER_FEATURES['JOBS_MODULE_BASE_URL']}/${market}"
     id="jobs-microservice-frame"
     class="gymnasium-resizable-iframe gymnasium-jobs-microservice-iframe"
     style="width: 1px;min-width: 100%;border:0;"
@@ -24,7 +24,7 @@
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
             if (latitude && longitude) {
-              const baseUrl = "$ {settings.APPSEMBLER_FEATURES['JOBS_MODULE_BASE_URL']}";
+              const baseUrl = "${settings.APPSEMBLER_FEATURES['JOBS_MODULE_BASE_URL']}";
               const microserviceUrl = baseUrl + "home/" + latitude + "/" + longitude;
               $('.gymnasium-jobs-microservice-iframe').attr('src', microserviceUrl);
             }
