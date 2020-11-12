@@ -1,0 +1,195 @@
+{% load i18n %}
+{% load ace %}
+
+{% get_current_language as LANGUAGE_CODE %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+
+{# This is preview text that is visible in the inbox view of many email clients but not visible in the actual #}
+{# email itself. #}
+
+<div lang="{{ LANGUAGE_CODE|default:"en" }}" style="
+    display:none;
+    font-size:1px;
+    line-height:1px;
+    max-height:0px;
+    max-width:0px;
+    opacity:0;
+    overflow:hidden;
+    visibility:hidden;
+">
+    {% block preview_text %}{% endblock %}
+</div>
+
+{% for image_src in channel.tracker_image_sources %}
+    <img src="{image_src}" alt="" role="presentation" aria-hidden="true" />
+{% endfor %}
+
+{% google_analytics_tracking_pixel %}
+
+<div
+    bgcolor="#ebebeb"
+    lang="{{ LANGUAGE_CODE|default:"en" }}"
+    dir="{{ LANGUAGE_BIDI|yesno:"rtl,ltr" }}"
+    style="width: 100%; font-family: sans-serif; font-size: 100%; background-color: #ebebeb; padding: 0; margin: 0; -webkit-text-size-adjust: 100%;"
+>
+    <!-- Hack for outlook 2010, which wants to render everything in Times New Roman -->
+    <!--[if mso]>
+    <style type="text/css">
+    body, table, td {font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;}
+    </style>
+    <![endif]-->
+
+    <!--[if (gte mso 9)|(IE)]>
+    <table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+    <td>
+    <![endif]-->
+
+    <!-- CONTENT -->
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#ebebeb" style="background-color: #ebebeb; border-spacing: 0;" role="presentation">
+  <tr>
+    <td align="center" valign="top" style="padding: 0;">
+      <table role="banner" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#222222" style="background-color: #222222; border-spacing: 0;">
+        <tr>
+          <td width="600" align="center" style="padding: 0;">
+            <table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0;" role="presentation">
+              <tr>
+                <td align="center" valign="middle" style="padding: 23px 16px 19px;">
+                  <a href="https://thegymnasium.com" title="Gymnasium Homepage" target="_blank" style="display: inline-block; color: #fffffe; text-decoration: none; outline: 0; cursor: pointer;">
+                    <img alt="Gymnasium" width="188" height="22" src="https://thegymcms.com/img/email/brand/gymnasium-logo.gif" style="display: block; font-family: 'Helvetica Neue', Helvetica, Arial, 'Droid Sans', sans-serif; font-weight: 400; font-size: 26px; color: #fffffe; letter-spacing: 3px; text-transform: uppercase; max-width: 100%; height: auto; border: 0; -ms-interpolation-mode: bicubic;">
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="em-dash-hidden" align="center" valign="middle" style="padding: 0;">
+                  <div style="display: none !important; font-family: sans-serif; font-size: 1px; line-height: 1px; color: #222222; text-align: center; max-height: 0; max-width: 0; padding: 0; margin: 0; opacity: 0; overflow: hidden; mso-hide: all;">&nbsp;&#8212;&nbsp;</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <table role="main" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#fffffe" style="background-color: #fffffe; border-spacing: 0;">
+        <tr>
+          <td width="5%" style="padding: 0;"></td>
+          <td width="540" align="left" valign="top" style="padding: 0 0 21px;">
+            <p class="lead-in" style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Droid Sans', sans-serif; font-weight: normal; font-size: 21px; line-height: 29px; color: #222222; padding: 0; margin: 0;">
+                {% block content %}{% endblock %}
+            </p>
+            <p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Droid Sans', sans-serif; font-weight: normal; font-size: 16px; line-height: 22px; color: #222222; padding: 0; margin: 0;">
+                Happy learning!
+            </p>
+            <div class="leading-3" style="font-family: monospace, monospace; font-size: 3px; line-height: 3px; padding: 0; margin: 0;"><br></div>
+            <p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Droid Sans', sans-serif; font-weight: normal; font-size: 16px; line-height: 22px; color: #222222; padding: 0; margin: 0;">
+                &#8212; The Gymnasium Team
+            </p>
+          </td>
+          <td width="5%" style="padding: 0;"></td>
+        </tr>
+      </table>
+      <table role="contentinfo" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#222222" style="border-spacing: 0;">
+        <tr>
+          <td width="600" align="center" valign="top" style="padding: 0 0 23px;">
+            <table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0;" role="presentation">
+              <tr>
+                <td align="center" valign="middle" style="padding: 23px 16px 15px;">
+                  <a href="https://thegymnasium.com" title="Gymnasium Homepage" target="_blank" style="display: inline-block; color: #fffffe; text-decoration: none; outline: 0; cursor: pointer;">
+                    <img alt="Gymnasium" width="188" height="22" src="https://thegymcms.com/img/email/brand/gymnasium-logo.gif" style="display: block; font-family: 'Helvetica Neue', Helvetica, Arial, 'Droid Sans', sans-serif; font-weight: 400; font-size: 26px; color: #fffffe; letter-spacing: 3px; text-transform: uppercase; max-width: 100%; height: auto; border: 0; -ms-interpolation-mode: bicubic;">
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle" style="padding: 0 16px 9px;">
+                  <p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Droid Sans', sans-serif; font-size: 12px; line-height: 18px; color: #b0b0b0; padding: 0; margin: 0;">Design a career you love with free online courses.</p>
+                </td>
+              </tr>
+            </table>
+            <table align="center" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0;" role="presentation">
+              <tr>
+                <td width="10%" style="padding: 0;"></td>
+                <td width="384" align="center" valign="middle" style="padding: 0 16px;">
+                  <table class="social" align="center" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0;" role="presentation">
+                    <tr>
+                      <td width="21" align="center" valign="middle" style="padding: 15px 12px;">
+                        <a title="Twitter" target="_blank" href="https://twitter.com/AquentGymnasium" style="display: inline-block; color: #fffffe; text-decoration: none; cursor: pointer;">
+                          <img alt="Twitter" src="https://thegymcms.com/img/email/social/twitter-icon.gif" width="21" height="18" style="border: 0; -ms-interpolation-mode: bicubic;">
+                        </a>
+                      </td>
+                      <td width="22" align="center" valign="middle" style="padding: 15px 12px;">
+                        <a title="Facebook" target="_blank" href="https://www.facebook.com/aquentgymnasium/" style="display: inline-block; color: #fffffe; text-decoration: none; cursor: pointer;">
+                          <img alt="Facebook" src="https://thegymcms.com/img/email/social/facebook-icon.gif" width="22" height="22" style="border: 0; -ms-interpolation-mode: bicubic;">
+                        </a>
+                      </td>
+                      <td width="22" align="center" valign="middle" style="padding: 15px 12px;">
+                        <a title="Instagram" target="_blank" href="https://www.instagram.com/aquent_gymnasium/" style="display: inline-block; color: #fffffe; text-decoration: none; cursor: pointer;">
+                          <img alt="Instagram" src="https://thegymcms.com/img/email/social/instagram-icon.gif" width="22" height="22" style="border: 0; -ms-interpolation-mode: bicubic;">
+                        </a>
+                      </td>
+                      <td width="11" align="center" valign="middle" style="padding: 15px 12px;">
+                        <a title="YouTube" target="_blank" href="https://www.youtube.com/channel/UCsAAa0dL-ZJpq4gN1zEcXYw" style="display: inline-block; color: #fffffe; text-decoration: none; cursor: pointer;">
+                          <img alt="YouTube" src="https://thegymcms.com/img/email/social/youtube-play-icon.gif" width="20" height="14" style="border: 0; -ms-interpolation-mode: bicubic;">
+                        </a>
+                      </td>
+                      <td width="22" align="center" valign="middle" style="padding: 15px 12px;">
+                        <a title="LinkedIn" target="_blank" href="https://www.linkedin.com/school/gymnasium/" style="display: inline-block; color: #fffffe; text-decoration: none; cursor: pointer;">
+                          <img alt="LinkedIn" src="https://thegymcms.com/img/email/social/linkedin-icon.gif" width="22" height="22" style="border: 0; -ms-interpolation-mode: bicubic;">
+                        </a>
+                      </td>
+                      <td width="22" align="center" valign="middle" style="padding: 15px 12px;">
+                        <a title="Medium" target="_blank" href="https://medium.com/gymnasium" style="display: inline-block; color: #fffffe; text-decoration: none; cursor: pointer;">
+                          <img alt="Medium" src="https://thegymcms.com/img/email/social/medium-icon.gif" width="22" height="17" style="border: 0; -ms-interpolation-mode: bicubic;">
+                        </a>
+                      </td>
+                      <td width="22" align="center" valign="middle" style="padding: 15px 12px;">
+                        <a title="GitHub" target="_blank" href="https://github.com/gymnasium" style="display: inline-block; color: #fffffe; text-decoration: none; cursor: pointer;">
+                          <img alt="GitHub" src="https://thegymcms.com/img/email/social/github-icon.gif" width="22" height="22" style="border: 0; -ms-interpolation-mode: bicubic;">
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="leading-8" style="font-family: Courier, monospace; font-size: 8px; line-height: 8px; padding: 0; margin: 0;"><br></div>
+                  <address class="vcard" style="font-style: normal; line-height: 16px; margin: 0; padding: 0;">
+                    <b class="all-caps org" style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Droid Sans', sans-serif; font-weight: bolder; font-size: 12px; line-height: 16px; color: #b0b0b0; letter-spacing: 1px; text-transform: uppercase; padding: 0; margin: 0;">Aquent Gymnasium</b>
+                    <div class="leading-13" style="font-family: Courier, monospace; font-size: 13px; line-height: 13px; padding: 0; margin: 0;"><br></div>
+                    <a target="_blank" href="https://thegymnasium.com" style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Droid Sans', sans-serif; font-size: 12px; line-height: 18px; color: #f8971d !important; text-decoration: underline !important;"><span style="color: #f8971d;">thegymnasium.com</span></a>
+                    <div class="leading-9" style="font-family: Courier, monospace; font-size: 9px; line-height: 9px; padding: 0; margin: 0;"><br></div>
+                    <div class="adr" style="color: #b0b0b0; padding: 0; margin: 0;">
+                    <div class="street-address" style="padding: 0; margin: 0;"><a href="" style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Droid Sans', sans-serif; font-size: 12px; line-height: 18px; color: #b0b0b0 !important; text-decoration: none !important; cursor: text; padding: 0; margin: 0;"><span style="color: #b0b0b0; text-decoration: none;">501 Boylston Street, 3rd Floor</span></a></div>
+                    <a href="" style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Droid Sans', sans-serif; font-size: 12px; line-height: 18px; color: #b0b0b0 !important; text-decoration: none !important; cursor: text;"><span style="color: #b0b0b0; text-decoration: none;"><span class="locality">Boston</span>, <span class="region">MA</span> <span class="postal-code">02116</span></span></a>
+                    </div>
+                  </address>
+                  <div class="leading-19" style="font-family: Courier, monospace; font-size: 19px; line-height: 19px; padding: 0; margin: 0;"><br></div>
+                  <a class="view-online" href="https://example.com/dashboard?utm_content=25a32c94-2193-4712-a420-9f044acb4eaf&amp;utm_medium=email&amp;utm_source=student&amp;utm_campaign=passwordreset" data-saferedirecturl="https://www.google.com/url?q=https://example.com/dashboard?utm_content%3D25a32c94-2193-4712-a420-9f044acb4eaf%26utm_medium%3Demail%26utm_source%3Dstudent%26utm_campaign%3Dpasswordreset&amp;source=gmail&amp;ust=1605272963283000&amp;usg=AFQjCNER6Whsyo30UiVxHFiYfVgBlTvAzQ" target="_blank" style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Droid Sans', sans-serif; font-size: 12px; line-height: 18px; color: #f8971d !important; text-decoration: underline !important;"><span style="color: #f8971d;">Log In</span></a>
+                </td>
+                <td width="10%" style="padding: 0;"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <table cellspacing="0" cellpadding="0" border="0" bgcolor="#ebebeb" style="background-color: #ebebeb; border-spacing: 0;" role="presentation">
+        <tr>
+          <td align="center" valign="top" style="padding: 0;">
+            <table class="bug-fix-portrait" width="360" cellspacing="0" cellpadding="0" border="0" style="border-spacing: 0;" role="presentation">
+              <tr>
+                <td style="padding: 0;"></td>
+              </tr>
+             </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+    <!--[if (gte mso 9)|(IE)]>
+    </td>
+    </tr>
+    </table>
+    <![endif]-->
+
+</div>
+
+{# Debug info that is not user-visible #}
+<span id="ace-message-id" style="display:none;">{{ message.log_id }}</span>
+<span id="template-revision" style="display:none;">{{ template_revision }}</span>

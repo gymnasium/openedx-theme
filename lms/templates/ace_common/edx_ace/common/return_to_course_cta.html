@@ -1,0 +1,37 @@
+{% load i18n %}
+{% load ace %}
+
+<table class="cta" width="100%" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#fffffe" style="background-color: #fffffe; border-spacing: 0;" role="presentation">
+    <tr>
+        <td width="100%" align="center" valign="top" style="padding: 25px 0;">
+        <table border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0;" role="presentation">
+            <tr>
+            <td class="cta-btn" align="center" valign="top" bgcolor="#f8971d" style="background-color: #f8971d; padding: 0; border: 2px solid #222222; border-radius: 3px;">
+                <a
+                    {% if course_cta_url %}
+                        href="{% with_link_tracking course_cta_url %}"
+                    {% else %}
+                        {% if course_ids|length > 1 %}
+                            href="{% with_link_tracking dashboard_url %}"
+                        {% else %}
+                            href="{% with_link_tracking course_url %}"
+                        {% endif %}
+                    {% endif %}
+                    target="_blank"
+                    style="display: inline-block; color: #222222; text-decoration: none; outline: 0; cursor: pointer;"
+                >
+                    <span class="chunky-nbsp;" style="font-size: 15px; line-height: 15px; font-family: Courier, monospace;">&nbsp;</span>
+                        <div style="line-height: 16px; margin: 0 32px;">
+                        <b style="font-weight: bolder; font-size: 20px; line-height: 26px; font-family: 'Helvetica Neue', Helvetica, Arial, 'Droid Sans', sans-serif; color: #222222; vertical-align: middle;">
+                            <font color="#222222"><b>{{ course_cta_text }}</b></font>
+                        </b>
+                        </div>
+                    <span class="chunky-nbsp;" style="font-size: 21px; line-height: 21px; font-family: Courier, monospace;">&nbsp;</span>
+                </a>
+            </td>
+            </tr>
+        </table>
+        </td>
+    </tr>
+</table>
+
