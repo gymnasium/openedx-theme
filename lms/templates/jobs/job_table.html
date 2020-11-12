@@ -4,7 +4,7 @@
       if user.is_authenticated():
         try:
           # grab market from user profile
-          market = user.profile.market
+          market = user.extrainfo.market
         except Exception as e:
             market = None
       endif
@@ -32,7 +32,7 @@
             }
           },
         );
-      }
+      }it
     </script>
   % endif
 % endif
