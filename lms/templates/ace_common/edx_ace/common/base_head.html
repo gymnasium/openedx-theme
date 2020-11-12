@@ -1,0 +1,18 @@
+{% load i18n %}
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+{% get_current_language as LANGUAGE_CODE %}
+<title lang="{{ LANGUAGE_CODE|default:"en" }}">
+  {% block title %}
+  {% trans "Gymnasium Email" %}
+  {% endblock %}
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<style type="text/css">
+  body {width: 100%; font-family: sans-serif; font-size: 100%; background-color: #ebebeb; padding: 0; margin: 0; -webkit-text-size-adjust: 100%;}
+  a {color: #f8971d; text-decoration: underline;}
+  a [x-apple-data-detectors]{color: inherit !important; text-decoration: none !important; font-size: inherit !important; font-family: inherit !important; font-weight: inherit !important; line-height: inherit !important;}
+  table {border-spacing: 0;}
+  table td {padding: 0;}
+</style>
