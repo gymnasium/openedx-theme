@@ -2,8 +2,11 @@
     <%
       market = None
       if user.is_authenticated():
-        # grab market from user profile
-        market = user.extrainfo.market
+        try:
+          # grab market from user profile
+          market = user.extrainfo.market
+        except Exception as e:
+            market = None
       endif
     %>
   <iframe src="${settings.APPSEMBLER_FEATURES['JOBS_MODULE_BASE_URL']}/${market}"
