@@ -3,6 +3,56 @@
 {% load i18n %}
 {% load static %}
 {% block content %}
+<div class="leading-21" style="font-family: monospace, monospace; font-size: 21px; line-height: 21px; padding: 0; margin: 0;"><br></div>
+          <h2 style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Droid Sans', sans-serif; font-weight: bold; font-size: 24px; color: #222222; line-height: 28px; padding: 0; margin: 0;">Password Reset</h2>
+          <div class="leading-21" style="font-family: monospace, monospace; font-size: 21px; line-height: 21px; padding: 0; margin: 0;"><br></div>
+          <p class="lead-in" style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Droid Sans', sans-serif; font-weight: normal; font-size: 21px; line-height: 29px; color: #222222; padding: 0; margin: 0;">
+          You&#8217;re receiving this email because you requested a password reset for your Gymnasium account.
+          </p>
+          <div class="leading-19" style="font-family: monospace, monospace; font-size: 19px; line-height: 19px; padding: 0; margin: 0;"><br></div>
+          
+          {% if failed %}
+                <p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Droid Sans', sans-serif; font-weight: normal; font-size: 16px; line-height: 22px; color: #222222; padding: 0; margin: 0;">
+                    <em style="font-style: italic;">However, there is currently no user account associated with your email address: {{ email_address }}.</em>
+                    <br />
+                </p>
+
+                <p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Droid Sans', sans-serif; font-weight: normal; font-size: 16px; line-height: 22px; color: #222222; padding: 0; margin: 0;">
+                    <em style="font-style: italic;">If you did not request this change, you can ignore this email.</em>
+                    <br />
+                </p>
+            {% else %}
+                <p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Droid Sans', sans-serif; font-weight: normal; font-size: 16px; line-height: 22px; color: #222222; padding: 0; margin: 0;">
+                    <em style="font-style: italic;">If you didn't request this change, you can disregard this email - we have not yet reset your password.</em>
+                    <br />
+                </p>
+
+                {% trans "Change my Password" as course_cta_text %}
+
+                {% include "ace_common/edx_ace/common/return_to_course_cta.html" with course_cta_text=course_cta_text course_cta_url=reset_link %}
+            {% endif %}
+          <table class="cta" width="100%" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="#fffffe" style="background-color: #fffffe; border-spacing: 0;" role="presentation">
+            <tr>
+              <td width="100%" align="center" valign="top" style="padding: 25px 0;">
+                <table border="0" cellspacing="0" cellpadding="0" style="border-spacing: 0;" role="presentation">
+                  <tr>
+                    <td class="cta-btn" align="center" valign="top" bgcolor="#f8971d" style="background-color: #f8971d; padding: 0; border: 2px solid #222222; border-radius: 3px;">
+                      <a href="https://courses.gymna.si/password_reset_confirm/6-5li-6b5f807315dfa9cf3176/?utm_content=25a32c94-2193-4712-a420-9f044acb4eaf&amp;utm_medium=email&amp;utm_source=student&amp;utm_campaign=passwordreset" data-saferedirecturl="https://www.google.com/url?q=https://courses.gymna.si/password_reset_confirm/6-5li-6b5f807315dfa9cf3176/?utm_content%3D25a32c94-2193-4712-a420-9f044acb4eaf%26utm_medium%3Demail%26utm_source%3Dstudent%26utm_campaign%3Dpasswordreset&amp;source=gmail&amp;ust=1605272963283000&amp;usg=AFQjCNGkiDd2sCL76JO3OXzY1tEjAA4T2Q" target="_blank" style="display: inline-block; color: #222222; text-decoration: none; outline: 0; cursor: pointer;">
+                        <span class="chunky-nbsp;" style="font-size: 15px; line-height: 15px; font-family: Courier, monospace;">&nbsp;</span>
+                           <div style="line-height: 16px; margin: 0 32px;">
+                            <b style="font-weight: bolder; font-size: 20px; line-height: 26px; font-family: 'Helvetica Neue', Helvetica, Arial, 'Droid Sans', sans-serif; color: #222222; vertical-align: middle;">Change My Password</b>
+                          </div>
+                        <span class="chunky-nbsp;" style="font-size: 21px; line-height: 21px; font-family: Courier, monospace;">&nbsp;</span>
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+          <p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Droid Sans', sans-serif; font-weight: normal; font-size: 16px; line-height: 22px; color: #222222; padding: 0; margin: 0;">Happy learning!</p>
+          <div class="leading-3" style="font-family: monospace, monospace; font-size: 3px; line-height: 3px; padding: 0; margin: 0;"><br></div>
+          <p style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Droid Sans', sans-serif; font-weight: normal; font-size: 16px; line-height: 22px; color: #222222; padding: 0; margin: 0;">&#8212; The Gymnasium Team</p>
 <table width="100%" align="left" border="0" cellpadding="0" cellspacing="0" role="presentation">
     <tr>
         <td>
@@ -10,7 +60,7 @@
                 {% trans "Password Reset" %}
             </h1>
             <p style="color: rgba(0,0,0,.75);">
-                {% blocktrans %}You're receiving this e-mail because you requested a password reset for your user account at {{ platform_name }}.{% endblocktrans %}
+                {% blocktrans %}You're receiving this email because you requested a password reset for your user account at {{ platform_name }}.{% endblocktrans %}
                 <br />
             </p>
 
@@ -21,12 +71,12 @@
                 </p>
 
                 <p style="color: rgba(0,0,0,.75);">
-                    {% trans "If you did not request this change, you can ignore this email." %}
+                    If you didn't request this change, you can ignore this email.
                     <br />
                 </p>
             {% else %}
                 <p style="color: rgba(0,0,0,.75);">
-                    {% trans "If you didn't request this change, you can disregard this email - we have not yet reset your password." %}
+                    If you didn't request this change, you can disregard this email.
                     <br />
                 </p>
 
