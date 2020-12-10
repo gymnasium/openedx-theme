@@ -670,4 +670,7 @@ t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
 document,'script','//connect.facebook.net/en_US/fbevents.js');
 <!-- End Facebook Pixel Code -->
 
+// replace account deletion text
+$(".account-deletion-details p").eq(1).html('If you require your account on this site to be deleted, please submit a request via email to <a href="mailto:help@thegymnasium.com?subject=Account Deletion request  on https://courses.gymna.si">help@thegymnasium.com</a>. Please submit your request from the email address linked to your user account, and in the email body, include any other profile details you wish to share to enable us to verify your identity, as well as clearly stating that you wish for your account to be deleted. We will endeavor to action your request within 30 days, and intend to further automate this process in the future for a more immediate response. There is no way to undo this request once it has been actioned, and should only be undertaken if absolutely necessary.')
+
 var Gymnasium = new Gymnasium();
