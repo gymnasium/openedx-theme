@@ -220,6 +220,7 @@ ${gymcms.render('final-exam-modal')}
         $.ajax({
           type:     'POST',
           url:      '/accredible/request_certificate',
+          async:     false,
           data:     {'course_id': $$course_id},
           success:  function(data) {
           }
