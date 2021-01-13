@@ -253,15 +253,13 @@ ${gymcms.render('final-exam-modal')}
 
 
     if ($('.problem-header').text().trim() === "Final Exam") {
-      // set interval on initial page load
-      progress_status_check = setInterval(check_status, 200);
-      
       let observer = new MutationObserver(mutationRecords => {
         // reset interval if we detect a grade change
         console.log(mutationRecords);
         if (typeof progress_status_check !== 'undefined'){
           clearInterval(progress_status_check);
         }
+        // set interval on initial page load
         progress_status_check = setInterval(check_status, 200);
       });
 
