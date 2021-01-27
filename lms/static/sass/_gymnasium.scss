@@ -459,7 +459,14 @@ body.view-in-course
 
 #primary-nav
 {
-  height:50px;
+  height: 3.571em; // 50px @ 14px base px
+
+  a.gym-button {
+    padding-top: 0.857em; // 12px @ 14px base px
+    padding-bottom: 0.857em; // 12px @ 14px base px
+    position: relative;
+    top: 0.214em; // 3px @ 14px base px
+  }
 
   .gym-nav-icon-container
   {
@@ -472,8 +479,8 @@ body.view-in-course
 
   .navbar
   {
-    height:50px;
-    border:0; 
+    height: 3.571em; // 50px @ 14px base px
+    border:0;
     margin:0;
   }
 
