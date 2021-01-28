@@ -316,7 +316,8 @@ body * .modal
 				margin-top:0.8em;
 
 				li a.btn:hover {
-					border: none !important;
+          border-color: transparent;
+          text-decoration: underline;
 				}
 			}
 		}
