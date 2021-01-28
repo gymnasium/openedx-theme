@@ -459,35 +459,30 @@ body.view-in-course
 
 #primary-nav
 {
-  height: 3.571em; // 50px @ 14px base px
+  height: 4.286em; // 60px @ 14px base px
 
   a.gym-button {
-    padding-top: 0.857em; // 12px @ 14px base px
-    padding-bottom: 0.857em; // 12px @ 14px base px
     position: relative;
     top: 0.214em; // 3px @ 14px base px
   }
 
-  .gym-nav-icon-container
-  {
+  .gym-nav-icon-container {
     padding-top:13px;
-  }
-  .gym-nav-icon-container:hover
-  {
-    background-color:transparent;
+
+    &:hover {
+      background-color:transparent;
+    }
   }
 
-  .navbar
-  {
-    height: 3.571em; // 50px @ 14px base px
+  .navbar {
+    height: 4.286em; // 60px @ 14px base px
     border:0;
     margin:0;
   }
 
-	.navbar-nav > li > a
-	{
-		padding-top:14px;
-		padding-bottom:14px;
+	.navbar-nav a {
+		padding-top: 1.143em;
+		padding-bottom: 1.143em;
 	}
 
 	.nav li a
@@ -606,7 +601,7 @@ body.view-in-course
 
 #secondary-nav
 {
-	height:70px;
+	height: 60px;
 	background-color:$gym-dark-grey;
 
   >.container
@@ -632,16 +627,18 @@ body.view-in-course
 		border-bottom: none;
 	}
 
-	.gymnasium-logo
-	{
-		height:60px;
-		margin-top: 0px;
-    margin-left: 28px;
+	.gymnasium-logo {
+    position: relative;
+    top: 1.143em;
+
+    @include media-breakpoint-up(md) {
+      top: 1.143em;
+    }
 	}
 
-	.navbar-brand
-	{
-		padding:0px;
+	.navbar-brand {
+    margin-left: 15px;
+		padding: 0;
 	}
 
 	.navbar-brand:hover, .navbar-brand:active, .navbar-brand:link
