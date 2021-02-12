@@ -9,6 +9,9 @@
 // Load the RTL version of the edX Pattern Library
 $pattern-library-path: '../edx-pattern-library' !default;
 
+@import 'functions';
+@import 'mixins';
+
 @import 'edx-pattern-library/pattern-library/sass/edx-pattern-library-ltr';
 
 // Load the shared build
