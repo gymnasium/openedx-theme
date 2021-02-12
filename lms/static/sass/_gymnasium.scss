@@ -385,22 +385,20 @@ body.view-in-course
   }
 }
 
-#primary-nav, #secondary-nav, .wrapper-footer
-{
+// Hacky override of default LMS styles
+#primary-nav, #secondary-nav, .wrapper-footer {
 	.container,
   .container>div,
   div.container,
   div.container>div
 	{
-		padding: 0;
-		border:0;
-		background:transparent;
-		box-shadow:none;
-
-    /* mocking the bootstrap style rule for consistency throughout page */
     max-width: 1180px;
+    padding-top: 0;
+    padding-bottom: 0;
 	}
+}
 
+.wrapper-footer {
 	footer
 	{
 		.copyright
@@ -457,13 +455,17 @@ body.view-in-course
 	border-right:15px solid $gym-white;
 }
 
+.navbar-toggle {
+  margin-top: 16px;
+}
+
 #primary-nav
 {
-  height: 4.286em; // 60px @ 14px base px
+  height: 66px;
 
   a.gym-button {
     position: relative;
-    top: 0.214em; // 3px @ 14px base px
+    top: 6px;
   }
 
   .gym-nav-icon-container {
@@ -475,7 +477,6 @@ body.view-in-course
   }
 
   .navbar {
-    height: 4.286em; // 60px @ 14px base px
     border:0;
     margin:0;
   }
@@ -599,9 +600,8 @@ body.view-in-course
 
 }
 
-#secondary-nav
-{
-	height: 60px;
+#secondary-nav {
+	height: 66px;
 	background-color:$gym-dark-grey;
 
   >.container
@@ -627,36 +627,40 @@ body.view-in-course
 		border-bottom: none;
 	}
 
-	.gymnasium-logo {
-    position: relative;
-    top: 1.143em;
+	.navbar-brand {
+    display: block;
+    height: auto;
+		padding:0;
+    margin-top: 21px;
 
-    @include media-breakpoint-up(md) {
-      top: 1.143em;
+    &:hover, &:active, &:link {
+      background:transparent;
     }
 	}
 
-	.navbar-brand {
-    margin-left: 15px;
-		padding: 0;
-	}
-
-	.navbar-brand:hover, .navbar-brand:active, .navbar-brand:link
-	{
-		background:transparent;
-	}
-
-	.navbar-default
-	{
+	.navbar-default {
 		padding-left: 0;
 		padding-right: 0;
-		padding-top: 5px;
 		background-color:$gym-dark-grey;
 		border-color:transparent;
 		border:none;
     margin-bottom:0;
     z-index:100;
 	}
+}
+
+@include media-breakpoint-down(sm) {
+  .navbar-default {
+    .navbar-collapse, .navbar-form {
+      margin-top: 9px;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .navbar-right {
+    margin-top: 6px;
+  }
 }
 
 /* global theme styles */
@@ -680,7 +684,6 @@ header.global,
 	box-shadow:none;
 	border:none;
 	width:inherit;
-	height:120px;
 	background-color:$gym-dark-grey;
 
 	.container, .container.grey
