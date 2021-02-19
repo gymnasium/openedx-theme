@@ -1,7 +1,6 @@
 // Import the core Sass file - at the top so that
 // we can override rules as needed
 
-
 /****************************************************************************************************
 *   Stanford Theming File
 *
@@ -21,15 +20,14 @@ $baseline: 20px;
 
 /* colors */
 
-
 //Gymnasium Theme Colors
 $gym-grey-dark: #262626;
 $gym-dark-color: #262626;
-$gym-light-color: #FFFFFF;
+$gym-light-color: #ffffff;
 
 $gym-orange: #f89820;
 $gym-orange-light: #f8971d;
-$gym-orange-light: rgba(248,151,32,0.9);
+$gym-orange-light: rgba(248, 151, 32, 0.9);
 
 $gym-dark-grey: #222222;
 $gym-dark-gray: $gym-dark-grey;
@@ -42,22 +40,21 @@ $gym-light-gray: $gym-light-grey;
 
 $gym-white: #ebebeb;
 
-$gym-textblock-color:rgba(45,45,45,0.70);
+$gym-textblock-color: rgba(45, 45, 45, 0.7);
 
-$gym-button-background-hover:#a6a6a6;
-$gym-button-background-active:#939393;
+$gym-button-background-hover: #a6a6a6;
+$gym-button-background-active: #939393;
 $gym-button-background-focus: $gym-button-background-active;
 //End Gym theme colors
 
 //Main Color Variables
-$main-color: #F89720;
+$main-color: #f89720;
 $dark-color: $gym-orange; //#ea281f; //Link Color
 $light-color: #f4e00c; //Selected Header BG Color, ie. calendar        ***Custom, not from palette***
 $bg-color: #f7fe81; //Selected Content BG Color, ie. calendar          ***Custom, not from palette***
 
-
 //Main BG Color Variables
-$main-bg:  #f22537;
+$main-bg: #f22537;
 $main-bg-60: $gym-light-grey; //Main Border/HR Color
 $main-bg-25: lighten($main-bg, 25%);
 
@@ -82,11 +79,10 @@ $theme-sans-font: "brandon-grotesque";
 $sans-serif: $theme-sans-font;
 $body-font-family: $sans-serif;
 
-$theme-serif-font: 'Helvetica Neue';
+$theme-serif-font: "Helvetica Neue";
 $serif: $theme-serif-font;
-p
-{
-	font: $serif;
+p {
+  font: $serif;
 }
 
 //-----------------
@@ -97,13 +93,13 @@ $container-bg: transparent;
 $login-register-bg: $gray-1;
 $content-wrapper-bg: $gray-1;
 $header-image: none;
-$header-bg:  $gym-grey-dark;//transparentize(lighten($secondary, 18.5%), .25);
+$header-bg: $gym-grey-dark; //transparentize(lighten($secondary, 18.5%), .25);
 
 $courseware-header-image: none;
-$courseware-header-bg: transparentize(lighten($secondary, 18.5%), .25);
+$courseware-header-bg: transparentize(lighten($secondary, 18.5%), 0.25);
 $footer-bg: $secondary-25;
 $courseware-footer-border: 1px solid $main-bg-60;
-$courseware-footer-shadow: box-shadow(2px 1px 0 rgba(0, 0, 0, .1));
+$courseware-footer-shadow: box-shadow(2px 1px 0 rgba(0, 0, 0, 0.1));
 $courseware-footer-margin: 50px;
 
 $faded-hr-image-1: linear-gradient($main-bg-60 0%, $main-bg-60);
@@ -199,10 +195,10 @@ $course-bg-image: none;
 $account-content-wrapper-bg: $gray-1;
 
 $course-profile-bg: $gray-1;
-$course-header-bg: transparentize($gray-1, .1);
+$course-header-bg: transparentize($gray-1, 0.1);
 
-$sidebar-chapter-bg-top: transparentize($gray-1, .3);
-$sidebar-chapter-bg-bottom: transparentize($gray-1, .9);
+$sidebar-chapter-bg-top: transparentize($gray-1, 0.3);
+$sidebar-chapter-bg-bottom: transparentize($gray-1, 0.9);
 $sidebar-chapter-bg: $gray-2;
 $sidebar-active-image: $gray-3;
 
@@ -221,11 +217,9 @@ $footer_margin: ($baseline/4) 0;
 // $homepage-bg-image: url('../images/marketing-campaign/homepage_graphic.png');
 
 /* negate a silly style rule inherited from the platform */
-html
-{
-  .container>div,
-  .home .container.grey.div
-  {
+html {
+  .container > div,
+  .home .container.grey.div {
     border-radius: 0;
     border: 0;
     background: transparent;
@@ -235,45 +229,38 @@ html
 
 button,
 html button,
-html body button
-{
-	box-shadow:none;
-	text-shadow:none;
+html body button {
+  box-shadow: none;
+  text-shadow: none;
 }
 
 .content-wrapper .container,
-.container
-{
-  border:none;
-  background:transparent;
-  padding-top:0;
-  padding-bottom:0;
+.container {
+  border: none;
+  background: transparent;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 div#content,
 div.content-wrapper,
 div#content.content-wrapper,
-#main.content-wrapper
-{
+#main.content-wrapper {
   max-width: none;
-  margin:auto;
-  padding:0;
+  margin: auto;
+  padding: 0;
 }
 
-.home>header
-{
-	background-position-y:-25px;
-  .container
-  {
-    height:100%;
+.home > header {
+  background-position-y: -25px;
+  .container {
+    height: 100%;
 
-    .row
-    {
-      height:100%;
+    .row {
+      height: 100%;
 
-      .marketing-image-container
-      {
-        height:100%;
+      .marketing-image-container {
+        height: 100%;
       }
     }
   }
@@ -286,367 +273,346 @@ $register-banner-image: none;
 //  Mixin Styles
 //-----------------
 @mixin login_register_h1_style {
-    clip: auto !important;
-    height: 50px;
-    width: 550px;
-    top: 0;
+  clip: auto !important;
+  height: 50px;
+  width: 550px;
+  top: 0;
 }
 
 @mixin footer_references_style {
-    margin: 0 !important;
-    text-align: right;
+  margin: 0 !important;
+  text-align: right;
 }
 
 /* individual page styles */
-@import 'about';
-@import 'account_settings';
-@import 'assessment';
-@import 'bookmarks';
-@import 'catalog';
-@import 'courseware';
-@import 'dashboard';
-@import 'home';
-@import 'register';
-@import 'tertiary_navigation';
-@import 'system_status';
-@import 'urls';
-@import 'find_work';
+@import "about";
+@import "account_settings";
+@import "assessment";
+@import "bookmarks";
+@import "catalog";
+@import "courseware";
+@import "dashboard";
+@import "home";
+@import "register";
+@import "tertiary_navigation";
+@import "system_status";
+@import "urls";
+@import "find_work";
 
-@import 'prism'; //used for prism.js syntax highlighting
+@import "prism"; //used for prism.js syntax highlighting
 
-p
-{
-		font-size: 1.2em/1.6em;
+p {
+  font-size: 1.2em/1.6em;
 }
 
 .break-word {
-	word-break: break-all;
-}
-
-body, 
-body.login,
-body.register,
-.register
-{
-	a:link,
-	a:visited,
-	a:link:visited,
-	a:active,
-	a:link:active,
-	p a,
-	p a:link,
-	p a:visited,
-	a.gymlink,
-	a.gymlink:link,
-	a.gymlink:visited
-	{		
-		color: $gym-orange;
-		font-family:$theme-serif-font;
-		border-bottom:none;
-	}
-
-	a:hover,
-	a:visited:hover,
-	a:link:hover,
-	a:link:visited:hover,
-	a:active:hover,
-	a:link:active:hover,
-	.hboard .my-courses .course .info>hgroup h3 a:hover,
-	.dashboard .my-courses .course .info>hgroup h3 span:hover,
-	.dashboard .my-courses .course .info>hgroup h3 span:focus,
-	p a:link:hover,
-	p a:hover,
-	a.gymlink:hover,
-	a.gymlink:link:hover,
-	a.gymlink:visited:hover
-	{
-		border-bottom:1px solid $gym-orange;
-		color:$gym-orange;
-		text-decoration:none;
-	}
-
-	a:focus,
-	.dashboard .my-courses .course .info>hgroup h3 a:focus {
-		border-bottom: 0 none;
-	}
-}
-
-.container
-{
-	min-width:0px !important;
+  word-break: break-all;
 }
 
 body,
-body.view-in-course
-{
-  div.window-wrap
-  {
-    min-width:inherit;
+body.login,
+body.register,
+.register {
+  a:link,
+  a:visited,
+  a:link:visited,
+  a:active,
+  a:link:active,
+  p a,
+  p a:link,
+  p a:visited,
+  a.gymlink,
+  a.gymlink:link,
+  a.gymlink:visited {
+    color: $gym-orange;
+    font-family: $theme-serif-font;
+    border-bottom: none;
+  }
+
+  a:hover,
+  a:visited:hover,
+  a:link:hover,
+  a:link:visited:hover,
+  a:active:hover,
+  a:link:active:hover,
+  .hboard .my-courses .course .info > hgroup h3 a:hover,
+  .dashboard .my-courses .course .info > hgroup h3 span:hover,
+  .dashboard .my-courses .course .info > hgroup h3 span:focus,
+  p a:link:hover,
+  p a:hover,
+  a.gymlink:hover,
+  a.gymlink:link:hover,
+  a.gymlink:visited:hover {
+    border-bottom: 1px solid $gym-orange;
+    color: $gym-orange;
+    text-decoration: none;
+  }
+
+  a:focus,
+  .dashboard .my-courses .course .info > hgroup h3 a:focus {
+    border-bottom: 0 none;
   }
 }
 
-// Hacky override of default LMS styles
-#primary-nav, #secondary-nav, .wrapper-footer {
-	.container,
-  .container>div,
-  div.container,
-  div.container>div
-	{
-    max-width: 1180px;
-    padding-top: 0;
-    padding-bottom: 0;
-	}
+.container {
+  min-width: 0px !important;
 }
 
-.wrapper-footer {
-	footer
-	{
-		.copyright
-		{
-			text-align:center;
-			margin-top:1em;
+body,
+body.view-in-course {
+  div.window-wrap {
+    min-width: inherit;
+  }
+}
 
-			a {
-				color: $gym-orange !important;
-			}
-		}
-	}
+#primary-nav,
+#secondary-nav,
+.wrapper-footer {
+  .container,
+  .container > div,
+  div.container,
+  div.container > div {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+
+    /* mocking the bootstrap style rule for consistency throughout page */
+    max-width: 1180px;
+  }
+
+  footer {
+    .copyright {
+      text-align: center;
+      margin-top: 1em;
+
+      a {
+        color: $gym-orange !important;
+      }
+    }
+  }
 }
 
 .white-panel,
-.container.white-panel
-{
-	background-color: white;
+.container.white-panel {
+  background-color: white;
   border: 1px solid #ccc;
   border-radius: 2px;
   padding: 2.2em;
   padding-top: 1em;
   font: 1.2em/1.5 "Helvetica Neue", Helvetica, sans-serif;
-	margin-top:20px;
-	margin-bottom:20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 
-	ul
-	{
-		padding-left: 0;
-	}
-	a
-	{
-		font-family:'Helvetica Neue', Helvetica, sans-serif;
-	}
+  ul {
+    padding-left: 0;
+  }
+  a {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+  }
 
-	h2
-	{
-		font:900 1em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-	}
+  h2 {
+    font: 900 1em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+  }
 
-	h3 {
+  h3 {
     font: bold 1.2em/1.4 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
     color: #222;
-    letter-spacing: .02em;
-    word-spacing: .04em;
+    letter-spacing: 0.02em;
+    word-spacing: 0.04em;
     margin-top: 1em;
-	}
+  }
 }
 
-
-
-.right-gutter
-{
-	border-right:15px solid $gym-white;
+.right-gutter {
+  border-right: 15px solid $gym-white;
 }
 
-.navbar-toggle {
-  margin-top: 16px;
-}
-
-#primary-nav
-{
-  height: 66px;
+#primary-nav {
+  height: 50px;
 
   a.gym-button {
+    top: 4px;
+  }
+
+  .gym-nav-icon-container {
+    padding-top: 13px;
+  }
+  .gym-nav-icon-container:hover {
+    background-color: transparent;
+  }
+
+  .navbar {
+    height: 50px;
+    border: 0;
+    margin: 0;
+  }
+
+  .navbar-nav > li > a {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .nav li a {
+    background-color: transparent;
+    color: $gym-orange;
+
+    .caret {
+      color: $gym-orange;
+    }
+  }
+
+  .nav li a:hover {
+    //odd specificity to overwrite bootstrap defaults
+    background-color: transparent;
+    color: $gym-white;
+    border-bottom: none;
+
+    .caret {
+      color: $gym-white;
+    }
+  }
+
+  .nav li.dropdown.open {
+    background-color: white;
+    a {
+      color: $gym-orange;
+    }
+    a:hover .caret {
+      color: $gym-orange;
+    }
+
+    .dropdown-menu {
+      border: none;
+      a:hover {
+        color: $gym-dark-grey;
+      }
+    }
+
+    .logged-in-username {
+      color: #f89820;
+    }
+  }
+
+  .navbar-right {
+    li > a {
+      font: normal 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+    }
+  }
+
+  #dropdown {
+    display: inline-block;
+    color: $gym-orange;
+    border: none;
+  }
+
+  #dropdown:hover,
+  #dropdown:hover span,
+  #dropdown:hover span.caret {
+    color: $gym-orange;
+  }
+
+  #dropdown:hover #dropdown:link:hover {
+    color: $gym-orange;
+    border: none;
+  }
+
+  #dropdown-menu {
+    display: none;
+
+    li {
+      display: inline;
+
+      a {
+        color: white;
+      }
+
+      a:hover,
+      anchor:link:hover {
+        color: $gym-orange;
+        text-decoration: none;
+      }
+    }
+  }
+
+  #dropdown-menu::before {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    content: " ";
+    line-height: 0;
+    background: #000;
+    padding: 0 0.2em;
+    vertical-align: middle;
+    border-top: 0.25em dashed transparent;
+    border-left: 0.25em solid #f89820;
+    border-bottom: 0.25em dashed transparent;
+    margin-left: -0.8em;
+  }
+}
+
+#secondary-nav {
+  height: 70px;
+  background-color: $gym-dark-grey;
+
+  > .container {
+    padding-top: 10px;
+  }
+
+  a {
+    font-size: 1.2em;
+    color: $gym-white;
+    font-family: brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+
+    &.gym-button {
+      color: white;
+    }
+  }
+
+  a:hover {
+    color: $gym-orange;
+    border-bottom: none;
+  }
+
+  .gymnasium-logo {
+    height: 60px;
+    margin-top: 0px;
+    margin-left: 28px;
+  }
+
+  .navbar-brand {
+    padding: 0px;
+  }
+
+  .navbar-brand:hover,
+  .navbar-brand:active,
+  .navbar-brand:link {
+    background: transparent;
+  }
+
+  .navbar-default {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 5px;
+    background-color: $gym-dark-grey;
+    border-color: transparent;
+    border: none;
+    margin-bottom: 0;
+    z-index: 100;
+  }
+
+  .navbar-right {
     position: relative;
     top: 6px;
   }
 
-  .gym-nav-icon-container {
-    padding-top:13px;
+  .navbar-toggle {
+    margin-top: 15px;
 
-    &:hover {
-      background-color:transparent;
+    &:hover, &:focus {
+      border: 1px solid white;
     }
   }
-
-  .navbar {
-    border:0;
-    margin:0;
-  }
-
-	.navbar-nav a {
-		padding-top: 1.143em;
-		padding-bottom: 1.143em;
-	}
-
-	.nav li a
-	{
-		background-color:transparent;
-		color:$gym-orange;
-
-		.caret
-		{
-			color:$gym-orange;
-		}
-	}
-
-	.nav li a:hover
-	{
-		//odd specificity to overwrite bootstrap defaults
-		background-color:transparent;
-		color:$gym-white;
-		border-bottom:none;
-
-		.caret
-		{
-			color:$gym-white;
-		}
-	}
-
-	.nav li.dropdown.open
-	{
-		background-color:white;
-		a
-		{
-			color:$gym-orange;
-		}
-		a:hover .caret
-		{
-			color:$gym-orange;
-		}
-
-		.dropdown-menu
-		{
-			border:none;
-			a:hover{
-				color:$gym-dark-grey;
-			}
-		}
-
-		.logged-in-username {
-			color: #f89820;
-		}
-	}
-
-	.navbar-right
-	{
-		li>a
-		{
-			font: normal 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-		}
-	}
-
-	#dropdown
-	{
-		display:inline-block;
-		color:$gym-orange;
-		border:none;
-	}
-
-	#dropdown:hover, #dropdown:hover span, #dropdown:hover span.caret
-	{
-			color:$gym-orange;
-	}
-
-	#dropdown:hover #dropdown:link:hover
-	{
-			color:$gym-orange;
-			border:none;
-	}
-
-	#dropdown-menu
-	{
-		display:none;
-
-		li
-		{
-			display: inline;
-
-			a
-			{
-				color:white;
-			}
-
-			a:hover, anchor:link:hover
-			{
-				color:$gym-orange;
-				text-decoration: none;
-			}
-		}
-
-	}
-
-	#dropdown-menu::before {
-		display: inline-block;
-		width: 0;
-		height: 0;
-		content: " ";
-		line-height: 0;
-		background: #000;
-		padding: 0 .2em;
-		vertical-align: middle;
-		border-top: .25em dashed transparent;
-		border-left: .25em solid #f89820;
-		border-bottom: .25em dashed transparent;
-		margin-left: -.8em;
-	}
-
-}
-
-#secondary-nav {
-	height: 66px;
-	background-color:$gym-dark-grey;
-
-  >.container
-  {
-    padding-top:10px;
-  }
-
-	a
-	{
-		font-size:1.2em;
-		color:$gym-white;
-    font-family: brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-		
-		&.gym-button
-		{
-			color:white;
-		}
-	}
-
-	a:hover
-	{
-		color:$gym-orange;
-		border-bottom: none;
-	}
-
-	.navbar-brand {
-    display: block;
-    height: auto;
-		padding:0;
-    margin-top: 21px;
-
-    &:hover, &:active, &:link {
-      background:transparent;
-    }
-	}
-
-	.navbar-default {
-		padding-left: 0;
-		padding-right: 0;
-		background-color:$gym-dark-grey;
-		border-color:transparent;
-		border:none;
-    margin-bottom:0;
-    z-index:100;
-	}
 }
 
 @include media-breakpoint-down(sm) {
@@ -665,195 +631,160 @@ body.view-in-course
 
 /* global theme styles */
 
-
-.caret
-{
-	color:$gym-light-grey;
+.caret {
+  color: $gym-light-grey;
 }
 
-
-body header.global.slim
-{
-	border-bottom:none ;
+body header.global.slim {
+  border-bottom: none;
 }
 
-header.global,
-{
+header.global {
+  margin: 0px;
+  box-shadow: none;
+  border: none;
+  width: inherit;
+  height: 120px;
+  background-color: $gym-dark-grey;
 
-	margin:0px;
-	box-shadow:none;
-	border:none;
-	width:inherit;
-	background-color:$gym-dark-grey;
+  .container,
+  .container.grey {
+    min-width: inherit;
+  }
 
-	.container, .container.grey
-	{
-		min-width: inherit;
-	}
+  nav {
+    .nav-courseware {
+      padding-top: 3px;
+    }
 
+    .logo {
+      clear: left;
+      margin-top: 30px;
+    }
 
-	nav 
-	{
-		.nav-courseware
-		{
-			padding-top:3px;
-		}
+    //odd amount of specificity required to get around built in style rules - MB
+    .cta.cta-register {
+      color: $gym-white;
+      display: inline-block;
+      margin-top: -0.3em;
 
-		.logo
-		{
-			clear:left;
-			margin-top:30px;
-		}
+      b {
+        margin-top: 4px;
+      }
+    }
 
-		//odd amount of specificity required to get around built in style rules - MB
-		.cta.cta-register
-		{
-			color:$gym-white;
-			display:inline-block;
-			margin-top:-0.3em;
-
-			b
-			{
-					margin-top:4px;
-			}
-		}
-
-		.container
-		{
-			background:transparent;
-		}
-	}
+    .container {
+      background: transparent;
+    }
+  }
 }
 
-.content-wrapper#content
-{
-	padding-bottom:1em;
-	background-color:$gym-white;
+.content-wrapper#content {
+  padding-bottom: 1em;
+  background-color: $gym-white;
 }
 
-div.wrapper-footer
-{
-  margin-top:0;
-	background-color: $gym-dark-gray;
-	border-top: 10px solid $gym-orange-light;
-	color:white;
-	min-height:170px;
+div.wrapper-footer {
+  margin-top: 0;
+  background-color: $gym-dark-gray;
+  border-top: 10px solid $gym-orange-light;
+  color: white;
+  min-height: 170px;
 
-	footer
-	{
-		.gymnasium-logo
-		{
-			height:50px;
-			margin-top:15px;
-      margin-left:5px;
-		}
-		.edx-logo
-		{
-			height:50px;
-		}
+  footer {
+    .gymnasium-logo {
+      height: 50px;
+      margin-top: 15px;
+      margin-left: 5px;
+    }
+    .edx-logo {
+      height: 50px;
+    }
 
-		.footer-link-list
-		{
-			margin-top:30px;
+    .footer-link-list {
+      margin-top: 30px;
 
-			li
-			{
-				border-right:1px solid $gym-medium-grey;
-				height:100%;
-        padding-right:8px;
+      li {
+        border-right: 1px solid $gym-medium-grey;
+        height: 100%;
+        padding-right: 8px;
 
-				a,
-				a:link
-				{
-					color:white;
-					font-family: $theme-sans-font;
-				}
-				a:hover
-				{
-					color:$gym-orange;
-				}
-			}
-			li:last-child
-			{
-				border-right:0px;
-			}
-		}
-		.built-on
-		{
-			margin-top:30px;
-			span
-			{
-				color:$gym-white;
-			}
-			img
-			{
-				margin-top:-15px;
-				vertical-align:text-top;
-			}
-		}
+        a,
+        a:link {
+          color: white;
+          font-family: $theme-sans-font;
+        }
+        a:hover {
+          color: $gym-orange;
+        }
+      }
+      li:last-child {
+        border-right: 0px;
+      }
+    }
+    .built-on {
+      margin-top: 30px;
+      span {
+        color: $gym-white;
+      }
+      img {
+        margin-top: -15px;
+        vertical-align: text-top;
+      }
+    }
 
-		a:hover
-		{
-			text-decoration: none;
-			border:0px;
-		}
-	}
+    a:hover {
+      text-decoration: none;
+      border: 0px;
+    }
+  }
 }
 
-section
-{
-	padding:0px;
+section {
+  padding: 0px;
 }
 
-.black-background
-{
-	top:0px;
-	background-color:black;
-	z-index:0;
+.black-background {
+  top: 0px;
+  background-color: black;
+  z-index: 0;
 }
 
-.gym-top-block
-{
-	z-index:1;
-	position:relative;
+.gym-top-block {
+  z-index: 1;
+  position: relative;
 }
 
-.gym-top-block
-{
-	.gym-nav-icon
-	{
-		background-position:center;
-		display:inline-block;
-	}
+.gym-top-block {
+  .gym-nav-icon {
+    background-position: center;
+    display: inline-block;
+  }
 
-	a
-	{
-		margin-left:0;
-		margin-right:0;
-		text-align:left;
-	}
+  a {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+  }
 }
 
-.gym-button:link, .gym-button:visited
-{
-	color:white;
-	font-family: brandon-grotesque;
+.gym-button:link,
+.gym-button:visited {
+  color: white;
+  font-family: brandon-grotesque;
 }
 
-body 
-{
-	input[type="submit"]:active:not(:disabled), 
-	input[type="submit"]:focus:not(:disabled), 
-	input[type="button"]:active:not(:disabled), 
-	input[type="button"]:focus:not(:disabled), 
-	button:active:not(:disabled), 
-	button:focus:not(:disabled), 
-	.button:active:not(:disabled), 
-	.button:focus:not(:disabled)
-	.gym-button:focus
-	{
-		box-shadow:none;
-	}
+body {
+  input[type="submit"]:active:not(:disabled),
+  input[type="submit"]:focus:not(:disabled),
+  input[type="button"]:active:not(:disabled),
+  input[type="button"]:focus:not(:disabled),
+  button:active:not(:disabled),
+  button:focus:not(:disabled),
+  .button:active:not(:disabled),
+  .button:focus:not(:disabled) .gym-button:focus {
+    box-shadow: none;
+  }
 }
 
 .gym-button,
@@ -862,428 +793,387 @@ a.gym-button:link,
 .account-settings-sections .section .account-settings-section-body .u-field .field .u-field-link,
 .xmodule_display.xmodule_CapaModule div.problem .action .save,
 .xmodule_display.xmodule_CapaModule div.problem .action .save:not(:disabled),
-.login .form-actions button[type="submit"], .register .form-actions button[type="submit"].gym-button,
-.courseware-bookmarks-button .bookmarks-list-button,
-{
-	box-shadow:none;
-	text-shadow:none;
-	background-image:none;
+.login .form-actions button[type="submit"],
+.register .form-actions button[type="submit"].gym-button,
+.courseware-bookmarks-button .bookmarks-list-button {
+  box-shadow: none;
+  text-shadow: none;
+  background-image: none;
 
-	display:inline-block;
-	width:100%;
+  display: inline-block;
+  width: 100%;
 
-	padding: 1em;
-	margin: auto;
-	text-align:center;
-	cursor:pointer;
-
-	border: 0;
-  border-radius: .125em;
-  
-	background-color:$gym-orange;
-	color:white;
-	font-weight:bold;
-	font-size: 1em;
+  padding: 1em;
+  margin: auto;
   text-align: center;
-	font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+  cursor: pointer;
 
-	a, 
-	a:link, 
-	a:visited,
-	a b
-	{
-		color:white;
-		font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-	}
-	a:hover
-	{
-		text-decoration: none;
-	}
+  border: 0;
+  border-radius: 0.125em;
+
+  background-color: $gym-orange;
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+  text-align: center;
+  font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+
+  a,
+  a:link,
+  a:visited,
+  a b {
+    color: white;
+    font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+  }
+  a:hover {
+    text-decoration: none;
+  }
 
   b {
     font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-		letter-spacing: .025em;
-		color: white;
+    letter-spacing: 0.025em;
+    color: white;
   }
 }
 
-body
-{
-	#secondary-nav a.gym-button:hover,
-	.gym-button:hover,
-	.gym-button:active,
-	.gym-button:active:hover,
-	a.gym-button:hover,
-	a.gym-button:hover,
-	a.gym-button:active,
-	a.gym-button:active:hover,
-	a:visited.gym-button:hover,
-	a:link.gym-button:hover,
-	a:link:visited.gym-button:hover,
-	input[type="submit"]:hover:not(:disabled),
-	input[type="button"]:hover:not(:disabled),
-	button:hover:not(:disabled),
-	button:hover:not(:disabled),
-	.account-settings-sections .section .account-settings-section-body .u-field .field .u-field-link:hover,
-	.xmodule_display.xmodule_CapaModule div.problem .action .save:hover,
-	.xmodule_display.xmodule_CapaModule div.problem .action .save:hover:not(:disabled),
-	.login .form-actions button[type="submit"], .register .form-actions button[type="submit"].gym-button:hover,
-	.courseware-bookmarks-button .bookmarks-list-button:hover
-	{
-		background-color:$gym-button-background-hover;
-		color:white;
-		background-image:none;
-		box-shadow: none;
-		text-decoration:none;
-		font-weight:bold;
-		border:none;
-		color:white;
-		font-family:brandon-grotesque;
+body {
+  #secondary-nav a.gym-button:hover,
+  .gym-button:hover,
+  .gym-button:active,
+  .gym-button:active:hover,
+  a.gym-button:hover,
+  a.gym-button:hover,
+  a.gym-button:active,
+  a.gym-button:active:hover,
+  a:visited.gym-button:hover,
+  a:link.gym-button:hover,
+  a:link:visited.gym-button:hover,
+  input[type="submit"]:hover:not(:disabled),
+  input[type="button"]:hover:not(:disabled),
+  button:hover:not(:disabled),
+  button:hover:not(:disabled),
+  .account-settings-sections .section .account-settings-section-body .u-field .field .u-field-link:hover,
+  .xmodule_display.xmodule_CapaModule div.problem .action .save:hover,
+  .xmodule_display.xmodule_CapaModule div.problem .action .save:hover:not(:disabled),
+  .login .form-actions button[type="submit"],
+  .register .form-actions button[type="submit"].gym-button:hover,
+  .courseware-bookmarks-button .bookmarks-list-button:hover {
+    background-color: $gym-button-background-hover;
+    color: white;
+    background-image: none;
+    box-shadow: none;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    color: white;
+    font-family: brandon-grotesque;
 
-		a,
-		a:link,
-		a:link:hover,
-		a:link:visited,
-		a:link:visited:hover {
-			text-decoration:none;
-			color:white;
+    a,
+    a:link,
+    a:link:hover,
+    a:link:visited,
+    a:link:visited:hover {
+      text-decoration: none;
+      color: white;
 
-			b
-			{
-				color:white;
-			}
-		}
-	}
-
-	.courseware-bookmarks-button {
-		.bookmarks-list-button {
-			padding-top:0.5em;
-			padding-bottom:0.5em;
+      b {
+        color: white;
+      }
     }
   }
 
-	.xmodule_display.xmodule_CapaModule div.problem .action .save:not(:disabled)
-	{
-		width:auto;
-	}
+  .courseware-bookmarks-button {
+    .bookmarks-list-button {
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+    }
+  }
+
+  .xmodule_display.xmodule_CapaModule div.problem .action .save:not(:disabled) {
+    width: auto;
+  }
 }
 
 .gym-button:focus,
-.gym-button:active
-{
-	text-decoration: none !important;
-	background:$gym-button-background-active;
+.gym-button:active {
+  text-decoration: none !important;
+  background: $gym-button-background-active;
 }
 
-.gym-button b
-{
-	font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-	letter-spacing: .025em;
-	vertical-align: bottom;
+.gym-button b {
+  font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+  letter-spacing: 0.025em;
+  vertical-align: bottom;
 }
 
-.gym-button.natural
-{
-	width:auto;
+.gym-button.natural {
+  width: auto;
 }
 
-.gym-link
-{
-	color: #f89820;
+.gym-link {
+  color: #f89820;
 }
 
-.gym-link:hover
-{
-	border-bottom: 1px solid #f89820;
+.gym-link:hover {
+  border-bottom: 1px solid #f89820;
 }
 
 .gym-link:focus,
-.gym-link:active
-{
-	border-bottom-color: #444;
+.gym-link:active {
+  border-bottom-color: #444;
 }
 
-.modal
-{
-	position: fixed;
-	top: 0; left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 100;
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
 }
 
-.dialog
-{
-	position: relative;
-	top: 10%;
-	width: 37em;
-	background: #fff;
-	padding: 1.2em;
-	border: 1.2em solid #444;
-	border-radius: .125em;
-	margin: auto;
+.dialog {
+  position: relative;
+  top: 10%;
+  width: 37em;
+  background: #fff;
+  padding: 1.2em;
+  border: 1.2em solid #444;
+  border-radius: 0.125em;
+  margin: auto;
 }
 
-.dialog legend
-{
-	width: 100%;
-	text-align: center;
-	padding-top: 1em;
-	padding-bottom: 1em;
-	border-bottom: 1px solid #ebebeb;
-	margin-bottom: 1.2em;
+.dialog legend {
+  width: 100%;
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #ebebeb;
+  margin-bottom: 1.2em;
 }
 
-.dialog legend b
-{
-	font: 900 1.6em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-	color: #222;
-	letter-spacing: .06em;
-	word-spacing: .05em;
-	text-transform: uppercase;
+.dialog legend b {
+  font: 900 1.6em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+  color: #222;
+  letter-spacing: 0.06em;
+  word-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-.dialog .error
-{
-	background: #f2dede;
-	padding: 1em;
-	border: 1px solid #d9534f;
-	border-radius: .12em;
-	margin-bottom: 1.2em;
+.dialog .error {
+  background: #f2dede;
+  padding: 1em;
+  border: 1px solid #d9534f;
+  border-radius: 0.12em;
+  margin-bottom: 1.2em;
 
   font-size: 1em;
-	color: #d9534f;
+  color: #d9534f;
   font-weight: bold;
-
 }
 
-.dialog p
-{
-	font: .9em/1.4 "Helvetica Neue", Helvetica, sans-serif;
-	color: #444;
-	letter-spacing: .01em;
+.dialog p {
+  font: 0.9em/1.4 "Helvetica Neue", Helvetica, sans-serif;
+  color: #444;
+  letter-spacing: 0.01em;
 }
 
-.dialog fieldset
-{
-	padding: 0;
-	border: 0;
-	margin: 0;
+.dialog fieldset {
+  padding: 0;
+  border: 0;
+  margin: 0;
 }
 
-.dialog ul
-{
-	list-style: none;
-	padding-left: 0;
+.dialog ul {
+  list-style: none;
+  padding-left: 0;
 }
 
 .dialog li,
 .dialog ul li,
-.dialog ul li:last-child
-{
-	border-bottom: .15em solid $gym-orange;
-	margin-bottom: 1.2em;
-	box-sizing: border-box;
-}
-
-.dialog form label,
-.dialog form input
-{
-	display: block;
-}
-
-.dialog form label
-{
-	font: 1.1em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-	color: #222;
-	letter-spacing: .03em;
-	word-spacing: .05em;
-	text-transform: uppercase;
-}
-
-.dialog form input
-{
-  background:none;
-  border: none;
-  box-shadow:none;
-
-	font: 1em/1 "Helvetica Neue", Helvetica, sans-serif;
-	width: 100%;
-	padding-top: .6em;
-	padding-bottom: .6em;
-	border: 0;
-	margin-top: .3em;
+.dialog ul li:last-child {
+  border-bottom: 0.15em solid $gym-orange;
+  margin-bottom: 1.2em;
   box-sizing: border-box;
 }
 
-.dialog form input[type="checkbox"]
-{
-  display:inline;
+.dialog form label,
+.dialog form input {
+  display: block;
 }
 
-.dialog .message
-{
-	padding-right: 1.2em;
-	padding-bottom: 1.2em;
-	padding-left: 1.2em;
-	border-bottom: 1px solid #ebebeb;
-	margin-bottom: 1.2em;
-}
-
-.dialog ul + .message
-{
-	padding-bottom: 0;
-	border-bottom: 0;
-}
-
-.dialog form button
-{
-	margin-top: 1.2em;
-}
-
-.close-modal-content
-{
-	width: auto;
-	padding: .3em 1em;
-	border: 0;
-	border-radius: 0 0 .125em .125em;
-	margin-top: -1.2em;
-}
-
-.close-modal b
-{
-	font: bold .8em/1.3 "Helvetica Neue", Helvetica, sans-serif;
-	letter-spacing: .1em;
-	word-spacing: normal;
-	text-transform: uppercase;
-  padding: 0.7em 1.5em;
-  border-radius: 0 0 .27em .27em;
-}
-
-.close-modal
-{
-  display:block;
-  margin-left:auto;
-  margin-right:auto;
-  margin-top:-1.2em;
-}
-
-
-.gym-icon
-{
-	width:35px;
-	height:25px;
-	display:inline-block;
-	background-repeat:no-repeat;
-	vertical-align:middle;
-	background-position-x:center;
-
-	filter: gray; /* IE6-9 */
-  	filter: grayscale(1); /* Firefox 35+ */
-    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
-}
-
-.gym-icon:hover
-{
-	filter: none;
-    -webkit-filter: grayscale(0);
-    background-color:transparent;
-}
-
-.aquent-icon
-{
-	@extend .gym-icon;
-	background-image:$aquent-icon-image;
-
-}
-
-.vitamin-t-icon
-{
-	@extend .gym-icon;
-	background-image:$vitamin-t-icon-image;
-}
-
-html
-{
-	body
-	{
-		div.info-wrapper section.updates h1,
-		h1,h2,h3,h4,h5,h6
-		{
-			text-align:left;
-			text-transform:uppercase;
-			font-family:brandon-grotesque;
-		}
-
-		h1, h2
-		{
-			font-weight:900;
-		}
-
-		h3,h4,h5,h6
-		{
-			font-weight:bold;
-		}
-	}
-}
-
-h1
-{
-	font: 900 2.4em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-	letter-spacing: .04em;
-	word-spacing: .05em;
-	text-transform: uppercase;
-}
-
-h2
-{
-	font: 900 1em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-  letter-spacing: .06em;
-  word-spacing: .04em;
+.dialog form label {
+  font: 1.1em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+  color: #222;
+  letter-spacing: 0.03em;
+  word-spacing: 0.05em;
   text-transform: uppercase;
 }
 
-code, code *
-{
-	font-family: monospace, serif;
+.dialog form input {
+  background: none;
+  border: none;
+  box-shadow: none;
+
+  font: 1em/1 "Helvetica Neue", Helvetica, sans-serif;
+  width: 100%;
+  padding-top: 0.6em;
+  padding-bottom: 0.6em;
+  border: 0;
+  margin-top: 0.3em;
+  box-sizing: border-box;
 }
 
+.dialog form input[type="checkbox"] {
+  display: inline;
+}
+
+.dialog .message {
+  padding-right: 1.2em;
+  padding-bottom: 1.2em;
+  padding-left: 1.2em;
+  border-bottom: 1px solid #ebebeb;
+  margin-bottom: 1.2em;
+}
+
+.dialog ul + .message {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.dialog form button {
+  margin-top: 1.2em;
+}
+
+.close-modal-content {
+  width: auto;
+  padding: 0.3em 1em;
+  border: 0;
+  border-radius: 0 0 0.125em 0.125em;
+  margin-top: -1.2em;
+}
+
+.close-modal b {
+  font: bold 0.8em/1.3 "Helvetica Neue", Helvetica, sans-serif;
+  letter-spacing: 0.1em;
+  word-spacing: normal;
+  text-transform: uppercase;
+  padding: 0.7em 1.5em;
+  border-radius: 0 0 0.27em 0.27em;
+}
+
+.close-modal {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -1.2em;
+}
+
+.gym-icon {
+  width: 35px;
+  height: 25px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  background-position-x: center;
+
+  filter: gray; /* IE6-9 */
+  filter: grayscale(1); /* Firefox 35+ */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+}
+
+.gym-icon:hover {
+  filter: none;
+  -webkit-filter: grayscale(0);
+  background-color: transparent;
+}
+
+.aquent-icon {
+  @extend .gym-icon;
+  background-image: $aquent-icon-image;
+}
+
+.vitamin-t-icon {
+  @extend .gym-icon;
+  background-image: $vitamin-t-icon-image;
+}
+
+html {
+  body {
+    div.info-wrapper section.updates h1,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      text-align: left;
+      text-transform: uppercase;
+      font-family: brandon-grotesque;
+    }
+
+    h1,
+    h2 {
+      font-weight: 900;
+    }
+
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: bold;
+    }
+  }
+}
+
+h1 {
+  font: 900 2.4em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+  letter-spacing: 0.04em;
+  word-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+h2 {
+  font: 900 1em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+  letter-spacing: 0.06em;
+  word-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+code,
+code * {
+  font-family: monospace, serif;
+}
 
 /* password reset page */
-.view-passwordreset 
-{
-  .introduction header
-  {
-    background-image:none;
+.view-passwordreset {
+  .introduction header {
+    background-image: none;
   }
 
   div.container,
   footer.container {
-    padding:0;
+    padding: 0;
   }
 }
 
-.cookiebanner
-{
-	span
-	{
-		color:$gym-white;
-	}
-	a
-	{
-		color:$gym-orange;
-	}
+.cookiebanner {
+  span {
+    color: $gym-white;
+  }
+  a {
+    color: $gym-orange;
+  }
 
-	a:hover, a:link:hover
-	{
-		color:$gym-light-grey;
-	}
+  a:hover,
+  a:link:hover {
+    color: $gym-light-grey;
+  }
 }
 
 .login-register div.status,
 div.status,
-.status,
-{
+.status {
   padding: 1.8em;
   border: 0;
   border-radius: 2px;
@@ -1291,19 +1181,19 @@ div.status,
 
   .message-title {
     font: bold 2em/1.25 "brandon-grotesque", "Helvetia Neue", Helvetica, sans-serif;
-    color: #fff!important;
+    color: #fff !important;
     text-transform: capitalize;
     margin-top: 0;
-    margin-bottom: .625em;
+    margin-bottom: 0.625em;
   }
 
   .message-copy {
-    color: #fff!important;  
-	}
+    color: #fff !important;
+  }
 
-	div.status p.message-copy {
-		color: #222222 !important;
-	}
+  div.status p.message-copy {
+    color: #222222 !important;
+  }
 
   a {
     color: white !important;
@@ -1321,7 +1211,7 @@ div.status,
 
   li {
     font: bold 1em/1.5 "Helvetica Neue", Helvetica, sans-serif;
-    letter-spacing: .01em;
+    letter-spacing: 0.01em;
     color: #fff;
     margin-top: 1em;
   }
@@ -1339,7 +1229,7 @@ div.status,
 div.form-field label.error {
   display: inline-block;
   color: #fff;
-  padding: .5em;
+  padding: 0.5em;
   background: #d43f3a;
   border-radius: 2px;
 }
@@ -1351,5 +1241,5 @@ div.form-field input.error {
 
 /* fix for course image size from gymcms */
 main.course .hero-banner img {
-	max-width: 100%;
+  max-width: 100%;
 }
