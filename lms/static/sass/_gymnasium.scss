@@ -365,6 +365,7 @@ body.view-in-course {
   }
 }
 
+// Hacky override of default LMS styles
 #primary-nav,
 #secondary-nav,
 .wrapper-footer {
@@ -372,15 +373,13 @@ body.view-in-course {
   .container > div,
   div.container,
   div.container > div {
-    padding: 0;
-    border: 0;
-    background: transparent;
-    box-shadow: none;
-
-    /* mocking the bootstrap style rule for consistency throughout page */
     max-width: 1180px;
+    padding-top: 0;
+    padding-bottom: 0;
   }
+}
 
+.wrapper-footer {
   footer {
     .copyright {
       text-align: center;
@@ -428,29 +427,34 @@ body.view-in-course {
   border-right: 15px solid $gym-white;
 }
 
+.navbar-toggle {
+  margin-top: 16px;
+}
+
 #primary-nav {
-  height: 50px;
+  height: 66px;
 
   a.gym-button {
+    position: relative;
     top: 4px;
   }
 
   .gym-nav-icon-container {
     padding-top: 13px;
-  }
-  .gym-nav-icon-container:hover {
-    background-color: transparent;
+
+    &:hover {
+      background-color: transparent;
+    }
   }
 
   .navbar {
-    height: 50px;
     border: 0;
     margin: 0;
   }
 
-  .navbar-nav > li > a {
-    padding-top: 14px;
-    padding-bottom: 14px;
+  .navbar-nav a {
+    padding-top: 1.143em;
+    padding-bottom: 1.143em;
   }
 
   .nav li a {
@@ -552,7 +556,7 @@ body.view-in-course {
 }
 
 #secondary-nav {
-  height: 70px;
+  height: 66px;
   background-color: $gym-dark-grey;
 
   > .container {
@@ -574,26 +578,22 @@ body.view-in-course {
     border-bottom: none;
   }
 
-  .gymnasium-logo {
-    height: 60px;
-    margin-top: 0px;
-    margin-left: 28px;
-  }
-
   .navbar-brand {
-    padding: 0px;
-  }
+    display: block;
+    height: auto;
+    padding: 0;
+    margin-top: 21px;
 
-  .navbar-brand:hover,
-  .navbar-brand:active,
-  .navbar-brand:link {
-    background: transparent;
+    &:hover,
+    &:active,
+    &:link {
+      background: transparent;
+    }
   }
 
   .navbar-default {
     padding-left: 0;
     padding-right: 0;
-    padding-top: 5px;
     background-color: $gym-dark-grey;
     border-color: transparent;
     border: none;
@@ -609,7 +609,8 @@ body.view-in-course {
   .navbar-toggle {
     margin-top: 15px;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       border: 1px solid white;
     }
   }
@@ -617,7 +618,8 @@ body.view-in-course {
 
 @include media-breakpoint-down(sm) {
   .navbar-default {
-    .navbar-collapse, .navbar-form {
+    .navbar-collapse,
+    .navbar-form {
       margin-top: 9px;
     }
   }
@@ -644,7 +646,6 @@ header.global {
   box-shadow: none;
   border: none;
   width: inherit;
-  height: 120px;
   background-color: $gym-dark-grey;
 
   .container,
