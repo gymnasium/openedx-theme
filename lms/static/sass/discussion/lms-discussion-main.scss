@@ -135,9 +135,15 @@
   }
 }
 
+// Prevents jitter effect pre-hover
 .has-breadcrumbs .breadcrumbs .all-topics {
   color: inherit;
+  font-size: 14px;
+  font-family: 'brandon-grotesque';
+  font-weight: bold;
+  border: 1px solid transparent;
 
+  // Prevents "All Topics" button becoming invisible
   &:hover {
     color: inherit;
   }

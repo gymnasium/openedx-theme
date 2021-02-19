@@ -62,6 +62,7 @@ Gymnasium.prototype.LoadJobsForMarket = function(selected_market, limit, page, c
   //page is for pagination, by default we return page 0.
   page = typeof page == 'undefined' ? 0 : page ;
 
+  // TODO: switch to loading these dynamically. See @https://github.com/gymnasium/tracker/issues/141
   var markets = [{
     name:"Atlanta",
     id: 23,
