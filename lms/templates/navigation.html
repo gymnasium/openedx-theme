@@ -38,99 +38,90 @@ site_status_msg = get_site_status_msg(course_id)
 </%block>
 
   <header class="global" aria-label="${_('Global Navigation')}">
-    <nav id="primary-nav" class="black-background container-fluid">
-      <div class="container">
-        <div class="row">
-          <div class="navbar">
-            <div class="nav navbar navbar-nav navbar-left">
-              % if not user.is_authenticated():
-                  % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
-                    <a class="gym-button" href="/register"><b>${_("Sign Up")}</b></a>
-                  % endif
-                % endif
-            </div>
-            <div class="collapse navbar-collapse">
-              <ul class="nav navbar-nav navbar-right">
+    <nav id="utility-nav" class="utility-nav black-background">
+      <div class="navbar">
+        <div class="nav navbar navbar-nav navbar-left">
+          % if not user.is_authenticated():
+              % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
+                <a class="gym-button" href="/register"><b>${_("Sign Up")}</b></a>
+              % endif
+            % endif
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
 
-                % if user.is_authenticated():
+            % if user.is_authenticated():
 
-                  <li>
-                    <a href="#" id="dropdown" class="logged-in-username">
-                      ${user.username} <span class="caret"></span>
-                    </a>
-                    <ul class="" id="dropdown-menu">
-                      <li><a href="${reverse('logout')}" role="menuitem">${_("Log Out")}</a></li>
-                    </ul>
-                  </li>
+              <li>
+                <a href="#" id="dropdown" class="logged-in-username">
+                  ${user.username} <span class="caret"></span>
+                </a>
+                <ul class="" id="dropdown-menu">
+                  <li><a href="${reverse('logout')}" role="menuitem">${_("Log Out")}</a></li>
+                </ul>
+              </li>
 
-                % endif
+            % endif
 
-                <li><a href="http://www.aquent.com" target="_blank" alt="Aquent" class="gym-nav-icon-container"> <i class="gym-nav-icon aquent-icon"></i></a></li>
-                <li><a href="http://www.vitamintalent.com" target="_blank" alt="Vitamin T" class="gym-nav-icon-container"> <i class="gym-nav-icon vitamin-t-icon"></i></a></li>
+            <li><a href="http://www.aquent.com" target="_blank" alt="Aquent" class="gym-nav-icon-container"> <i class="gym-nav-icon aquent-icon"></i></a></li>
+            <li><a href="http://www.vitamintalent.com" target="_blank" alt="Vitamin T" class="gym-nav-icon-container"> <i class="gym-nav-icon vitamin-t-icon"></i></a></li>
 
-              </ul>
+          </ul>
 
-            </div>
-          </div>
         </div>
       </div>
     </nav>
 
-    <nav id="secondary-nav" class="container-fluid">
+    <nav id="main-nav" class="main-nav">
+      <div class="navbar navbar-default">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-items">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="${marketing_link('ROOT')}">
+            <%block name="navigation_logo">
+                <img src="${static.url(branding.get_logo_url())}" alt="Gymnasium"/>
+            </%block>
+          </a>
+        </div>
 
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 navbar navbar-default">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#secondary-nav-items">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="${marketing_link('ROOT')}">
-                <%block name="navigation_logo">
-                    <img src="${static.url(branding.get_logo_url())}" alt="Gymnasium"/>
-                </%block>
-              </a>
-            </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="main-nav-items">
+          <ul class="nav navbar-nav navbar-right">
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="secondary-nav-items">
-              <ul class="nav navbar-nav navbar-right">
+            <li><a href="/courses">Courses</a></li>
+            <li><a href="/jobs">Jobs</a></li>
+            <li><a href="/about">About</a></li>
 
-                <li><a href="/courses">Courses</a></li>
-                <li><a href="/jobs">Jobs</a></li>
-                <li><a href="/about">About</a></li>
+            % if user.is_authenticated():
 
-                % if user.is_authenticated():
-
-                  <%block name="navigation_global_links_authenticated">
-                    % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
-                      <li class="nav-global-01">
-                        <a href="/dashboard">${_('Dashboard')}</a>
-                      </li>
-                      <li class="visible-xs">
-                        <a href="/logout">Log out</a>
-                      </li>
-                    % endif
-                  </%block>
-
-                % else:
-                  <li>
-                    % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
-                        % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
-                        <a class="cta cta-login" href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}"><b>${_("Log In")}</b></a>
-                        % else:
-                        <a class="gym-button" href="/login${login_query()}"><b>${_("Log In")}</b></a>
-                        % endif
-                    % endif
+              <%block name="navigation_global_links_authenticated">
+                % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
+                  <li class="nav-global-01">
+                    <a href="/dashboard">${_('Dashboard')}</a>
+                  </li>
+                  <li class="visible-xs">
+                    <a href="/logout">Log out</a>
                   </li>
                 % endif
-              </ul>
-            </div><!-- /.navbar-collapse -->
-          </div>
-        </div>
+              </%block>
+
+            % else:
+              <li>
+                % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
+                    % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
+                    <a class="cta cta-login" href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}"><b>${_("Log In")}</b></a>
+                    % else:
+                    <a class="gym-button" href="/login${login_query()}"><b>${_("Log In")}</b></a>
+                    % endif
+                % endif
+              </li>
+            % endif
+          </ul>
+        </div><!-- /.navbar-collapse -->
       </div>
     </nav>
 

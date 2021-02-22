@@ -365,17 +365,15 @@ body.view-in-course {
   }
 }
 
-// Hacky override of default LMS styles
-#primary-nav,
-#secondary-nav,
-.wrapper-footer {
-  .container,
-  .container > div,
-  div.container,
-  div.container > div {
-    max-width: 1180px;
-    padding-top: 0;
-    padding-bottom: 0;
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+}
+
+@include media-breakpoint-up(md) {
+  .container {
+    width: 100%;
   }
 }
 
@@ -427,7 +425,14 @@ body.view-in-course {
   border-right: 15px solid $gym-white;
 }
 
-#primary-nav {
+// Navigation
+
+// Sets max width for utility nav + main nav
+.navbar-default {
+  max-width: 1180px;
+}
+
+.utility-nav {
   height: 66px;
 
   a.gym-button {
@@ -445,7 +450,8 @@ body.view-in-course {
 
   .navbar {
     border: 0;
-    margin: 0;
+    margin: 0 auto;
+    padding: 0 15px;
   }
 
   .navbar-nav a {
@@ -551,13 +557,9 @@ body.view-in-course {
   }
 }
 
-#secondary-nav {
+.main-nav {
   height: 66px;
   background-color: $gym-dark-grey;
-
-  > .container {
-    padding-top: 10px;
-  }
 
   a {
     font-size: 1.2em;
@@ -588,13 +590,15 @@ body.view-in-course {
   }
 
   .navbar-default {
-    padding-left: 0;
-    padding-right: 0;
     background-color: $gym-dark-grey;
-    border-color: transparent;
-    border: none;
-    margin-bottom: 0;
+    border: 0;
+    margin: 0 auto;
+    padding: 0;
     z-index: 100;
+  }
+
+  .navbar-header {
+    margin: 0 15px;
   }
 
   .navbar-right {
@@ -604,6 +608,7 @@ body.view-in-course {
 
   .navbar-toggle {
     margin-top: 15px;
+    margin-right: 0;
 
     &:hover,
     &:focus {
@@ -618,6 +623,11 @@ body.view-in-course {
     .navbar-form {
       margin-top: 9px;
     }
+  }
+
+  .navbar-nav {
+    padding: 0;
+    margin: 0 auto;
   }
 }
 
@@ -834,7 +844,7 @@ a.gym-button:link,
 }
 
 body {
-  #secondary-nav a.gym-button:hover,
+  #main-nav a.gym-button:hover,
   .gym-button:hover,
   .gym-button:active,
   .gym-button:active:hover,
