@@ -428,8 +428,24 @@ body.view-in-course {
 // Navigation
 
 // Sets max width for utility nav + main nav
-.navbar-default {
+.navbar-nav {
   max-width: 1180px;
+
+  li > a {
+    font: normal 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+    color: $gym-white !important;
+
+    &:hover {
+      color: $gym-orange;
+      border-bottom: none;
+    }
+  }
+
+  a {
+    &.gym-button {
+      color: white;
+    }
+  }
 }
 
 .utility-nav {
@@ -500,81 +516,60 @@ body.view-in-course {
     }
   }
 
-  .navbar-right {
-    li > a {
-      font: normal 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-    }
-  }
+  // #dropdown {
+  //   display: inline-block;
+  //   color: $gym-orange;
+  //   border: none;
+  // }
 
-  #dropdown {
-    display: inline-block;
-    color: $gym-orange;
-    border: none;
-  }
+  // #dropdown:hover,
+  // #dropdown:hover span,
+  // #dropdown:hover span.caret {
+  //   color: $gym-orange;
+  // }
 
-  #dropdown:hover,
-  #dropdown:hover span,
-  #dropdown:hover span.caret {
-    color: $gym-orange;
-  }
+  // #dropdown:hover #dropdown:link:hover {
+  //   color: $gym-orange;
+  //   border: none;
+  // }
 
-  #dropdown:hover #dropdown:link:hover {
-    color: $gym-orange;
-    border: none;
-  }
+  // #dropdown-menu {
+  //   display: none;
 
-  #dropdown-menu {
-    display: none;
+  //   li {
+  //     display: inline;
 
-    li {
-      display: inline;
+  //     a {
+  //       color: white;
+  //     }
 
-      a {
-        color: white;
-      }
+  //     a:hover,
+  //     anchor:link:hover {
+  //       color: $gym-orange;
+  //       text-decoration: none;
+  //     }
+  //   }
+  // }
 
-      a:hover,
-      anchor:link:hover {
-        color: $gym-orange;
-        text-decoration: none;
-      }
-    }
-  }
-
-  #dropdown-menu::before {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    content: " ";
-    line-height: 0;
-    background: #000;
-    padding: 0 0.2em;
-    vertical-align: middle;
-    border-top: 0.25em dashed transparent;
-    border-left: 0.25em solid #f89820;
-    border-bottom: 0.25em dashed transparent;
-    margin-left: -0.8em;
-  }
+  // #dropdown-menu::before {
+  //   display: inline-block;
+  //   width: 0;
+  //   height: 0;
+  //   content: " ";
+  //   line-height: 0;
+  //   background: #000;
+  //   padding: 0 0.2em;
+  //   vertical-align: middle;
+  //   border-top: 0.25em dashed transparent;
+  //   border-left: 0.25em solid #f89820;
+  //   border-bottom: 0.25em dashed transparent;
+  //   margin-left: -0.8em;
+  // }
 }
 
 .main-nav {
   height: 66px;
   background-color: $gym-dark-grey;
-
-  a {
-    font-size: 1.2em;
-    color: $gym-white;
-    font-family: brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-
-    &.gym-button {
-      color: white;
-    }
-  }
-
-  a:hover {
-    color: $gym-orange;
-    border-bottom: none;
-  }
 
   .navbar-brand {
     display: block;
@@ -604,6 +599,7 @@ body.view-in-course {
   .navbar-right {
     position: relative;
     top: 6px;
+    margin-right: 0;
   }
 
   .navbar-toggle {
