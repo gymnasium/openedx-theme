@@ -428,7 +428,7 @@ body.view-in-course {
 // Navigation
 
 // Sets max width for utility nav + main nav
-.navbar-nav {
+.navbar {
   max-width: 1180px;
 
   li > a {
@@ -516,55 +516,55 @@ body.view-in-course {
     }
   }
 
-  // #dropdown {
-  //   display: inline-block;
-  //   color: $gym-orange;
-  //   border: none;
-  // }
+  #dropdown {
+    display: inline-block;
+    color: $gym-orange;
+    border: none;
+  }
 
-  // #dropdown:hover,
-  // #dropdown:hover span,
-  // #dropdown:hover span.caret {
-  //   color: $gym-orange;
-  // }
+  #dropdown:hover,
+  #dropdown:hover span,
+  #dropdown:hover span.caret {
+    color: $gym-orange;
+  }
 
-  // #dropdown:hover #dropdown:link:hover {
-  //   color: $gym-orange;
-  //   border: none;
-  // }
+  #dropdown:hover #dropdown:link:hover {
+    color: $gym-orange;
+    border: none;
+  }
 
-  // #dropdown-menu {
-  //   display: none;
+  #dropdown-menu {
+    display: none;
 
-  //   li {
-  //     display: inline;
+    li {
+      display: inline;
 
-  //     a {
-  //       color: white;
-  //     }
+      a {
+        color: white;
+      }
 
-  //     a:hover,
-  //     anchor:link:hover {
-  //       color: $gym-orange;
-  //       text-decoration: none;
-  //     }
-  //   }
-  // }
+      a:hover,
+      anchor:link:hover {
+        color: $gym-orange;
+        text-decoration: none;
+      }
+    }
+  }
 
-  // #dropdown-menu::before {
-  //   display: inline-block;
-  //   width: 0;
-  //   height: 0;
-  //   content: " ";
-  //   line-height: 0;
-  //   background: #000;
-  //   padding: 0 0.2em;
-  //   vertical-align: middle;
-  //   border-top: 0.25em dashed transparent;
-  //   border-left: 0.25em solid #f89820;
-  //   border-bottom: 0.25em dashed transparent;
-  //   margin-left: -0.8em;
-  // }
+  #dropdown-menu::before {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    content: " ";
+    line-height: 0;
+    background: #000;
+    padding: 0 0.2em;
+    vertical-align: middle;
+    border-top: 0.25em dashed transparent;
+    border-left: 0.25em solid #f89820;
+    border-bottom: 0.25em dashed transparent;
+    margin-left: -0.8em;
+  }
 }
 
 .main-nav {
