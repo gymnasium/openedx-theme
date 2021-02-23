@@ -53,18 +53,18 @@ site_status_msg = get_site_status_msg(course_id)
             % if user.is_authenticated():
 
               <li>
-                <a href="#" id="dropdown" class="logged-in-username">
+                <a href="#" id="dropdown" class="dropdown logged-in-username">
                   ${user.username} <span class="caret"></span>
                 </a>
-                <ul class="" id="dropdown-menu">
+                <ul class="" id="dropdown-menu" class="dropdown-menu">
                   <li><a href="${reverse('logout')}" role="menuitem">${_("Log Out")}</a></li>
                 </ul>
               </li>
 
             % endif
 
-            <li><a href="http://www.aquent.com" target="_blank" alt="Aquent" class="gym-nav-icon-container"> <i class="gym-nav-icon aquent-icon"></i></a></li>
-            <li><a href="http://www.vitamintalent.com" target="_blank" alt="Vitamin T" class="gym-nav-icon-container"> <i class="gym-nav-icon vitamin-t-icon"></i></a></li>
+            <li><a href="https://aquent.com" target="_blank" alt="Aquent" class="gym-nav-icon-container"> <i class="gym-nav-icon aquent-icon"></i></a></li>
+            <li><a href="https://vitamintalent.com" target="_blank" alt="Vitamin T" class="gym-nav-icon-container"> <i class="gym-nav-icon vitamin-t-icon"></i></a></li>
 
           </ul>
 

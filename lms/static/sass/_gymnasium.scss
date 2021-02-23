@@ -431,9 +431,9 @@ body.view-in-course {
 .navbar {
   max-width: 1180px;
 
-  li > a {
+  > li > a {
     font: normal 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-    color: $gym-white !important;
+    color: $gym-white;
 
     &:hover {
       color: $gym-orange;
@@ -520,6 +520,8 @@ body.view-in-course {
     display: inline-block;
     color: $gym-orange;
     border: none;
+    background: none;
+    margin-top: 3px;
   }
 
   #dropdown:hover,
@@ -541,10 +543,11 @@ body.view-in-course {
 
       a {
         color: white;
+        font-size: 14px;
       }
 
       a:hover,
-      anchor:link:hover {
+      a:link:hover {
         color: $gym-orange;
         text-decoration: none;
       }
