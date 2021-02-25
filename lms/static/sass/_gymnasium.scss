@@ -431,22 +431,26 @@ body.view-in-course {
 .navbar {
   max-width: 1180px;
 
-  > li > a {
-    font: normal 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-    color: $gym-white;
-
-    &:hover {
-      color: $gym-orange;
-      border-bottom: none;
+  .navbar-nav {
+    > li > a {
+      font: normal 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+      color: $gym-white;
+  
+      &:hover {
+        color: $gym-orange;
+        border-bottom: none;
+      }
     }
-  }
-
-  a {
-    &.gym-button {
-      color: white;
+  
+    a {
+      &.gym-button {
+        color: white;
+      }
     }
   }
 }
+
+
 
 .utility-nav {
   height: 66px;
@@ -521,7 +525,7 @@ body.view-in-course {
     color: $gym-orange;
     border: none;
     background: none;
-    margin-top: 3px;
+    margin-top: 5px;
   }
 
   #dropdown:hover,
