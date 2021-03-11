@@ -3,6 +3,7 @@
 <%namespace name='static' file='/static_content.html'/>
 <%
 from django.conf import settings
+cw_env = getattr(settings, 'APPSEMBLER_FEATURES["CLOUDWALL_SERVER_PATH"]', 'cw-rc')
 %>
 
 <meta property="og:description" content="Gymnasium offers free online courses on web development, design, user experience, and content creation." />
@@ -33,7 +34,7 @@ from django.conf import settings
 
 ## inject some global variables from configurations
 <script>
-  var CW_ENV = "${settings.APPSEMBLER_FEATURES['CLOUDWALL_SERVER_PATH']}";
+  var CW_ENV = "${cw_env}";
 </script>
 
 <script src="${static.url('js/gymnasium.js')}"> </script>
