@@ -9,7 +9,6 @@
 ## rollout has been completed, this default can be switched to v2.
 <%! main_css = "style-main-v1" %>
 
-
 <%namespace name='static' file='static_content.html'/>
 <% online_help_token = self.online_help_token() if hasattr(self, 'online_help_token') else None %>
 <%!
@@ -22,15 +21,17 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
 from openedx.core.djangolib.js_utils import dump_js_escaped_json, js_escaped_string
 from openedx.core.release import RELEASE_LINE
 from pipeline_mako import render_require_js_path_overrides
+from django.conf import settings
+cw_env = settings.APPSEMBLER_FEATURES['CLOUDWALL_SERVER_PATH']
 
 %>
 <!DOCTYPE html>
-<!--[if lte IE 9]><html class="ie ie9 lte9" lang="${LANGUAGE_CODE}"><![endif]-->
-<!--[if !IE]><!--><html lang="${LANGUAGE_CODE}"><!--<![endif]-->
+<!--[if lte IE 9]><html class="ie ie9 lte9" lang="${LANGUAGE_CODE}" data-cwenv="${cw_env}"><![endif]-->
+<!--[if !IE]><!--><html lang="${LANGUAGE_CODE}" data-cwenv="${cw_env}"><!--<![endif]-->
 <head dir="${static.dir_rtl()}">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
 ## Define a couple of helper functions to make life easier when
 ## embedding theme conditionals into templates. All inheriting
@@ -38,21 +39,19 @@ from pipeline_mako import render_require_js_path_overrides
 ## into non-inheriting templates via the %namespace tag.
 
 ## this needs to be here to prevent the title from mysteriously appearing in the body, in one case
-<%def name="pagetitle()" />
+  <%def name="pagetitle()" />
   <%block name="title">
-      <title>
-       ${static.get_page_title_breadcrumbs(self.pagetitle())}
-      </title>
+    <title>${static.get_page_title_breadcrumbs(self.pagetitle())}</title>
   </%block>
 
   % if not allow_iframing:
-      <script type="text/javascript">
-        /* immediately break out of an iframe if coming from the marketing website */
-        (function(window) {
-          if (window.location !== window.top.location) {
-            window.top.location = window.location;
-          }
-        })(this);
+    <script type="text/javascript">
+      /* immediately break out of an iframe if coming from the marketing website */
+      (function(window) {
+        if (window.location !== window.top.location) {
+          window.top.location = window.location;
+        }
+      })(this);
       </script>
   % endif
 
