@@ -2,7 +2,7 @@
   <%
     import urllib2
     from django.conf import settings
-    edx_env = getattr(settings, 'APPSEMBLER_FEATURES["ENVIRONMENT"]', 'staging')
+    edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
 
     # turn the partial url passed in into a fully GET-able url
     # based on which environment we're in

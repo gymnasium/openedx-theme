@@ -1,6 +1,6 @@
 <%
 from django.conf import settings
-jobs_module_base_url = getattr(settings, 'APPSEMBLER_FEATURES["JOBS_MODULE_BASE_URL"]', 'https://gym-jobs-microservice-staging.herokuapp.com/')
+jobs_module_base_url = settings.APPSEMBLER_FEATURES['JOBS_MODULE_BASE_URL']
 %>
 % if jobs_module_base_url:
   <%
