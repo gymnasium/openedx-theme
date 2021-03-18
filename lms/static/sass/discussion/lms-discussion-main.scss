@@ -6,27 +6,27 @@
 
 // Load the LTR version of the edX Pattern Library
 // $pattern-library-path: '../../edx-pattern-library' !default;
-@import 'edx-pattern-library/pattern-library/sass/edx-pattern-library-ltr';
+@import "edx-pattern-library/pattern-library/sass/edx-pattern-library-ltr";
 
 // Configure LTR variables
-@import 'base/variables-ltr';
+@import "base/variables-ltr";
 
 // Load the shared build
 
-@import '../discussion/_build.scss';
+@import "../discussion/_build.scss";
 
-@import 'urls';
-@import '../gymnasium';
+@import "urls";
+@import "../gymnasium";
 
 #discussion-container {
   span.forum-nav-browse-menu,
   .view-discussion-home .helpgrid-row th.row-title,
-  .view-discussion-home .helpgrid-row .row-item-full, .view-discussion-home .helpgrid-row td.row-item,
+  .view-discussion-home .helpgrid-row .row-item-full,
+  .view-discussion-home .helpgrid-row td.row-item,
   span.label.label-settings,
   ul.forum-nav-browse-menu li,
   ul.forum-nav-browse menu li.forum-nav-browse-menu-item,
-  ul.forum-nav-browse menu li.forum-nav-browse-menu-item span
-  {
+  ul.forum-nav-browse menu li.forum-nav-browse-menu-item span {
     font-size: 14px;
   }
 
@@ -44,37 +44,38 @@
   }
 
   .forum-search .search-input {
-      width: 184px;  
+    width: 184px;
   }
 
   .forum-nav-browse-filter-input {
-    font-weight: 12px !important
+    font-weight: 12px !important;
   }
 
   .forum-search .search-button,
   .discussion-submit-post {
-      border: 1px solid;
-      border-left: none;
-      border: 1px solid $gym-orange;
-      background-color:$gym-orange;
-      color:white;
-      font-weight:bold;
-      font-size: 1em;
-      text-align: center;
-      font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+    border: 1px solid;
+    border-left: none;
+    border: 1px solid $gym-orange;
+    background-color: $gym-orange;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;
+    font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica,
+      sans-serif;
 
-      &:hover {
-        border: 1px solid $gym-button-background-hover;
-        background-color: $gym-button-background-hover;
-        border-color: $gym-button-background-hover;
-      }
+    &:hover {
+      border: 1px solid $gym-button-background-hover;
+      background-color: $gym-button-background-hover;
+      border-color: $gym-button-background-hover;
+    }
 
-      &:active, 
-      &:focus {
-        border: 1px solid $gym-button-background-hover;
-        background-color: $gym-button-background-active;
-        border-color: $gym-button-background-active;
-      }
+    &:active,
+    &:focus {
+      border: 1px solid $gym-button-background-hover;
+      background-color: $gym-button-background-active;
+      border-color: $gym-button-background-active;
+    }
   }
 
   .forum-actions {
@@ -104,11 +105,11 @@
   }
 
   .actions-dropdown .action-list-item:hover {
-      border: none;
-      font-weight: bold;
-      color: $gym-orange;
+    border: none;
+    font-weight: bold;
+    color: $gym-orange;
   }
-  
+
   .btn-link.action-button.action-follow,
   .btn-link.action-button.action-follow icon,
   .discussion-post,
@@ -139,7 +140,7 @@
 .has-breadcrumbs .breadcrumbs .all-topics {
   color: inherit;
   font-size: 14px;
-  font-family: 'brandon-grotesque';
+  font-family: "brandon-grotesque";
   font-weight: bold;
   border: 1px solid transparent;
 

@@ -1,108 +1,93 @@
-div.xmodule_display.xmodule_CapaModule
-{
-  div.problem
-  {
+div.xmodule_display.xmodule_CapaModule {
+  div.problem {
     div span.incorrect,
     div span.incomplete,
     div span.ui-icon-close,
     div span.correct,
-    div span.ui-icon-check,
-    {
-      background:none;
+    div span.ui-icon-check {
+      background: none;
     }
 
-    .action
-    {
-      .gym-button
-      {
+    .action {
+      .gym-button {
         margin-left: 0;
         height: 3em;
         display: inline-block;
         align-items: inherit;
         vertical-align: top;
 
-        &.save
-        {
-          margin-right:10px;
+        &.save {
+          margin-right: 10px;
         }
 
-        &.show
-        {
-          display:inline-block !important; /* damn it all, edX */
+        &.show {
+          display: inline-block !important; /* damn it all, edX */
         }
 
-        &:focus
-        {
-          box-shadow:none;
+        &:focus {
+          box-shadow: none;
         }
       }
 
-      span
-      {
-        display:inline-block;
+      span {
+        display: inline-block;
       }
     }
 
-    div span.unanswered
-    {
-      display:none;
+    div span.unanswered {
+      display: none;
       visibility: hidden;
     }
 
     div span.incorrect:before,
     div span.incomplete:before,
-    div span.ui-icon-close:before
-    {
-      font: 900 2.4em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+    div span.ui-icon-close:before {
+      font: 900 2.4em/1 brandon-grotesque, "Helvetica Neue", Helvetica,
+        sans-serif;
       content: "×";
       color: #f33;
     }
 
     div span.correct:before,
-    div span.ui-icon-check:before
-    {
-      font: 900 1.4em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+    div span.ui-icon-check:before {
+      font: 900 1.4em/1 brandon-grotesque, "Helvetica Neue", Helvetica,
+        sans-serif;
       content: "✔";
       color: #3c3;
-      display:block;
+      display: block;
       margin-left: -1em;
       margin-top: 0.4em;
     }
 
     .choicegroup,
-    .choicetextgroup
-    {
-      label
-      {
-        margin-bottom:0;
+    .choicetextgroup {
+      label {
+        margin-bottom: 0;
       }
-      
+
       label.choicegroup_incorrect,
       label.choicetextgroup_incorrect,
       section.choicetextgroup_incorrect,
       label.choicegroup_correct,
       label.choicetextgroup_correct,
-      section.choicetextgroup_correct
-      {
-        border:none;
+      section.choicetextgroup_correct {
+        border: none;
 
-        &:hover
-        {
-          border:none;
+        &:hover {
+          border: none;
         }
 
-        &:after
-        {
-          display:none;
+        &:after {
+          display: none;
         }
       }
 
       label.choicegroup_incorrect:before,
       label.choicetextgroup_incorrect:before,
-      section.choicetextgroup_incorrect:before
-      {
+      section.choicetextgroup_incorrect:before {
         position: absolute;
-        font: 900 2.4em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+        font: 900 2.4em/1 brandon-grotesque, "Helvetica Neue", Helvetica,
+          sans-serif;
         content: "×";
         color: #f33;
         margin-top: -0.2em;
@@ -111,146 +96,128 @@ div.xmodule_display.xmodule_CapaModule
 
       label.choicegroup_correct:before,
       label.choicetextgroup_correct:before,
-      section.choicetextgroup_correct:before
-      {
+      section.choicetextgroup_correct:before {
         //display:none;
         position: absolute;
-        font: 900 1.4em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+        font: 900 1.4em/1 brandon-grotesque, "Helvetica Neue", Helvetica,
+          sans-serif;
         content: "✔";
         color: #3c3;
         margin-top: 0.1em;
         margin-left: -2.3em;
       }
-
     }
 
-    p
-    {
-      margin-bottom:0;
-      font-size:16px;
+    p {
+      margin-bottom: 0;
+      font-size: 16px;
     }
 
     fieldset,
     .choicegroup,
-    .choicetextgroup
-    {
-      input[type="radio"], input[type="checkbox"]
-      {
+    .choicetextgroup {
+      input[type="radio"],
+      input[type="checkbox"] {
         position: relative;
         left: -1em;
         font-size: 1.8em;
         margin-right: -0.8em;
-        top:-3px;
+        top: -3px;
       }
-      fieldset
-      {
+      fieldset {
         padding-left: 0;
         border: none;
         margin-bottom: 1.2em;
-        width:100%;
+        width: 100%;
 
         label,
         label.choicegroup_correct,
-        label:hover
-        {
-          border:none;
+        label:hover {
+          border: none;
         }
       }
     }
 
-    label
-    {
+    label {
       display: block;
       font: 1em/1.5 "Helvetica Neue", Helvetica, sans-serif;
       color: #444;
       margin-top: 0;
       margin-left: 1.6em;
-      width:100%;
+      width: 100%;
     }
 
-    pre
-    {
+    pre {
       padding: 1em;
 
-      code
-      {
-        font-size:1em;
-        font-family:monospace;
+      code {
+        font-size: 1em;
+        font-family: monospace;
 
-        span
-        {
-          font-size:1em;
-          font-family:monospace;
+        span {
+          font-size: 1em;
+          font-family: monospace;
         }
       }
     }
 
-    code
-    {
-      padding:5px;
-      font-size:0.85em;
+    code {
+      padding: 5px;
+      font-size: 0.85em;
     }
 
-    .solution-span>span
-    {
+    .solution-span > span {
       background: #ebebeb;
       padding: 1.8em;
       border: 1px solid #ccc;
       border-radius: 2px;
 
-      p:first-child
-      {
-        font: 900 1em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+      p:first-child {
+        font: 900 1em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica,
+          sans-serif;
         color: #222;
-        letter-spacing: .02em;
-        word-spacing: .02em;
+        letter-spacing: 0.02em;
+        word-spacing: 0.02em;
         text-transform: uppercase;
         margin-top: 0;
         margin-bottom: 1em;
       }
 
-      p
-      {
+      p {
         font: 1em/1.5 "Helvetica Neue", Helvetica, sans-serif;
         color: #444;
-        margin-top: .84em;
+        margin-top: 0.84em;
         margin-left: 0;
       }
     }
-
   }
 
-  div.problem-progress
-  {
+  div.problem-progress {
     font: 1em/1.5 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
     text-transform: uppercase;
-    letter-spacing: .05em;
-    word-spacing: .02em;
-    color:$gym-dark-grey;
+    letter-spacing: 0.05em;
+    word-spacing: 0.02em;
+    color: $gym-dark-grey;
   }
-
 }
 
-div.xmodule_display.xmodule_CapaModule div.problem>div>strong
-{
+div.xmodule_display.xmodule_CapaModule div.problem > div > strong {
   display: block;
-  font: bold 1.2em/1.4 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+  font: bold 1.2em/1.4 brandon-grotesque, "Helvetica Neue", Helvetica,
+    sans-serif;
   color: #222;
-  letter-spacing: .02em;
-  word-spacing: .04em;
+  letter-spacing: 0.02em;
+  word-spacing: 0.04em;
   padding-top: 1.5em;
   padding-left: 0;
   border-top: 1px solid #ddd;
   margin-top: 1.5em;
 }
 
-
-div.xmodule_display.xmodule_CapaModule div.problem div
-{
+div.xmodule_display.xmodule_CapaModule div.problem div {
   span.incorrect,
   span.incomplete,
-  span.ui-icon-close
-  {
+  span.ui-icon-close {
     top: -1.55em;
     left: -1.7em;
   }

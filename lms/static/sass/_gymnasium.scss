@@ -416,7 +416,8 @@ body.view-in-course {
   }
 
   h3 {
-    font: bold 1.2em/1.4 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+    font: bold 1.2em/1.4 brandon-grotesque, "Helvetica Neue", Helvetica,
+      sans-serif;
     color: #222;
     letter-spacing: 0.02em;
     word-spacing: 0.04em;
@@ -427,7 +428,6 @@ body.view-in-course {
 .right-gutter {
   border-right: 15px solid $gym-white;
 }
-
 
 #primary-nav {
   position: relative;
@@ -498,7 +498,8 @@ body.view-in-course {
 
   .navbar-right {
     li > a {
-      font: normal 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+      font: normal 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica,
+        sans-serif;
     }
   }
 
@@ -610,7 +611,8 @@ body.view-in-course {
   .navbar-toggle {
     margin-top: 15px;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       border: 1px solid white;
     }
   }
@@ -618,7 +620,8 @@ body.view-in-course {
 
 @include media-breakpoint-down(sm) {
   .navbar-default {
-    .navbar-collapse, .navbar-form {
+    .navbar-collapse,
+    .navbar-form {
       margin: 9px auto 10px;
     }
   }
@@ -639,7 +642,6 @@ body.view-in-course {
 }
 
 @include media-breakpoint-up(md) {
-
   .navbar-collapse.collapse {
     padding-left: 0;
     padding-right: 0;
@@ -651,7 +653,8 @@ body.view-in-course {
     }
   }
 
-  #primary-nav, #secondary-nav {
+  #primary-nav,
+  #secondary-nav {
     .row {
       margin-left: auto;
       margin-right: auto;
@@ -668,13 +671,11 @@ body.view-in-course {
     .navbar-left {
       margin-left: 15px;
     }
-  
+
     .navbar-right {
       margin-right: 15px;
     }
   }
-
-
 }
 
 /* global theme styles */
@@ -838,7 +839,12 @@ body {
 .gym-button,
 a.gym-button,
 a.gym-button:link,
-.account-settings-sections .section .account-settings-section-body .u-field .field .u-field-link,
+.account-settings-sections
+  .section
+  .account-settings-section-body
+  .u-field
+  .field
+  .u-field-link,
 .xmodule_display.xmodule_CapaModule div.problem .action .save,
 .xmodule_display.xmodule_CapaModule div.problem .action .save:not(:disabled),
 .login .form-actions button[type="submit"],
@@ -871,14 +877,16 @@ a.gym-button:link,
   a:visited,
   a b {
     color: white;
-    font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+    font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica,
+      sans-serif;
   }
   a:hover {
     text-decoration: none;
   }
 
   b {
-    font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+    font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica,
+      sans-serif;
     letter-spacing: 0.025em;
     color: white;
   }
@@ -900,9 +908,17 @@ body {
   input[type="button"]:hover:not(:disabled),
   button:hover:not(:disabled),
   button:hover:not(:disabled),
-  .account-settings-sections .section .account-settings-section-body .u-field .field .u-field-link:hover,
+  .account-settings-sections
+    .section
+    .account-settings-section-body
+    .u-field
+    .field
+    .u-field-link:hover,
   .xmodule_display.xmodule_CapaModule div.problem .action .save:hover,
-  .xmodule_display.xmodule_CapaModule div.problem .action .save:hover:not(:disabled),
+  .xmodule_display.xmodule_CapaModule
+    div.problem
+    .action
+    .save:hover:not(:disabled),
   .login .form-actions button[type="submit"],
   .register .form-actions button[type="submit"].gym-button:hover,
   .courseware-bookmarks-button .bookmarks-list-button:hover {
@@ -1228,7 +1244,8 @@ div.status,
   box-shadow: none;
 
   .message-title {
-    font: bold 2em/1.25 "brandon-grotesque", "Helvetia Neue", Helvetica, sans-serif;
+    font: bold 2em/1.25 "brandon-grotesque", "Helvetia Neue", Helvetica,
+      sans-serif;
     color: #fff !important;
     text-transform: capitalize;
     margin-top: 0;

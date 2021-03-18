@@ -13,14 +13,13 @@
     margin: 0 auto;
     max-width: map-get($container-max-widths, xl);
 
-
     .logo-header {
       display: flex;
       align-items: center;
     }
 
     .logo.slim a {
-      height: $baseline*3/2;
+      height: $baseline * 3/2;
       margin-top: $baseline/5;
     }
 
@@ -49,7 +48,7 @@
       }
 
       .user-image-frame {
-        max-width: $baseline*2;
+        max-width: $baseline * 2;
         border-radius: $border-radius;
       }
 

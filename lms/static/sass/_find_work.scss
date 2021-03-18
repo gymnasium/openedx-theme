@@ -2,22 +2,24 @@
 
 /* find work header */
 
-#find-work { 
+#find-work {
   header {
-    margin-top: .875em;
-    margin-bottom: .2em;
-    
+    margin-top: 0.875em;
+    margin-bottom: 0.2em;
+
     h2 {
-      font: 900 1.7em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-      letter-spacing: .06em;
-      word-spacing: .04em;
+      font: 900 1.7em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica,
+        sans-serif;
+      letter-spacing: 0.06em;
+      word-spacing: 0.04em;
       text-transform: uppercase;
       margin-top: 0;
-      margin-bottom: .4em;
+      margin-bottom: 0.4em;
     }
 
     p {
-      font: normal 1.3em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+      font: normal 1.3em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica,
+        sans-serif;
       letter-spacing: 0.01em;
       margin-top: 0;
       margin-bottom: 0;
@@ -53,7 +55,7 @@
     margin: 1.2em 1em 0;
 
     a {
-      font-weight:bold;
+      font-weight: bold;
     }
   }
 
@@ -72,9 +74,9 @@
       position: relative;
       color: #f8971d;
       height: auto;
-      padding: .6em 1.2em .6em .6em;
+      padding: 0.6em 1.2em 0.6em 0.6em;
       overflow: hidden;
-      transition: .2s padding-left ease-in-out;
+      transition: 0.2s padding-left ease-in-out;
     }
 
     a:hover,
@@ -85,7 +87,8 @@
     a:hover:before {
       display: inline-block;
       position: absolute;
-      top: 0; bottom: 0;
+      top: 0;
+      bottom: 0;
       right: 0;
       font: 1em/1 monospace, monospace;
       color: #444;
@@ -115,12 +118,12 @@
   .job-market {
     display: block;
     font-style: normal;
-    font: bold .8125em/1.2 "Helvetica Neue", Helvetica, sans-serif;
-    letter-spacing: .02em;
-    margin-top: .325em;
-    margin-bottom: .25em;
+    font: bold 0.8125em/1.2 "Helvetica Neue", Helvetica, sans-serif;
+    letter-spacing: 0.02em;
+    margin-top: 0.325em;
+    margin-bottom: 0.25em;
   }
-  
+
   .view-all-jobs {
     padding: 0;
   }
@@ -169,7 +172,7 @@
   /* viewing jobs in */
   h3.viewing-jobs-in {
     font: bold 1em/1.3 "Helvetica Neue", Helvetica, sans-serif;
-    letter-spacing: .02em;
+    letter-spacing: 0.02em;
     text-transform: none;
     margin-top: 0;
   }
@@ -203,7 +206,7 @@
     }
 
     small {
-      font-size: .8125em;
+      font-size: 0.8125em;
     }
   }
 }

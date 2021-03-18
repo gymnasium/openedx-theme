@@ -7,7 +7,7 @@
 // in mind.
 // ------------------------------------
 
-@import 'vendor/bi-app/bi-app-ltr'; // set the layout for left to right languages
+@import "vendor/bi-app/bi-app-ltr"; // set the layout for left to right languages
 
 @mixin font-size($sizeValue: 16) {
   font-size: ($sizeValue/10) + rem;
@@ -48,21 +48,21 @@ $grid-breakpoints-lg: 992px !default;
   margin: 0 auto;
 }
 
-@mixin span($cols, $margin:'') {
+@mixin span($cols, $margin: "") {
   @include margin-left(calc(0.5 * #{$grid-gutter-width}));
   @include margin-right(calc(0.5 * #{$grid-gutter-width}));
 
   width: calc(#{cols($cols)} - #{$grid-gutter-width});
 
-  @if ($margin == 'before') {
+  @if ($margin == "before") {
     @include margin-right(0);
 
     width: calc(#{cols($cols)} - 0.5 * #{$grid-gutter-width});
-  } @else if ($margin == 'after') {
+  } @else if ($margin == "after") {
     @include margin-left(0);
 
     width: calc(#{cols($cols)} - 0.5 * #{$grid-gutter-width});
-  } @else if ($margin == 'none') {
+  } @else if ($margin == "none") {
     @include margin-left(0);
     @include margin-right(0);
 
@@ -93,11 +93,11 @@ $border-color-2: $gray-400 !default;
 $link-hover: #065683 !default; // wcag2a compliant
 
 // Blacks
-$black:     rgb(0, 0, 0) !default;
-$black-t0:  rgba($black, 0.125) !default;
-$black-t1:  rgba($black, 0.25) !default;
-$black-t2:  rgba($black, 0.5) !default;
-$black-t3:  rgba($black, 0.75) !default;
+$black: rgb(0, 0, 0) !default;
+$black-t0: rgba($black, 0.125) !default;
+$black-t1: rgba($black, 0.25) !default;
+$black-t2: rgba($black, 0.5) !default;
+$black-t3: rgba($black, 0.75) !default;
 
 // Shadows
 $shadow: rgba(0, 0, 0, 0.2) !default;
