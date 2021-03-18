@@ -428,16 +428,17 @@ body.view-in-course {
   border-right: 15px solid $gym-white;
 }
 
+
 #primary-nav {
+  position: relative;
+  z-index: 1000;
   height: 50px;
 
-  a.gym-button {
-    top: 4px;
+  .gym-button {
+    position: relative;
+    top: -1px;
   }
 
-  .gym-nav-icon-container {
-    padding-top: 13px;
-  }
   .gym-nav-icon-container:hover {
     background-color: transparent;
   }
@@ -449,8 +450,9 @@ body.view-in-course {
   }
 
   .navbar-nav > li > a {
-    padding-top: 14px;
-    padding-bottom: 14px;
+    padding: 10px;
+    margin-left: 4px;
+    margin-top: 2px;
   }
 
   .nav li a {
@@ -554,6 +556,8 @@ body.view-in-course {
 #secondary-nav {
   height: 70px;
   background-color: $gym-dark-grey;
+  position: relative;
+  z-index: 999;
 
   > .container {
     padding-top: 10px;
@@ -574,14 +578,11 @@ body.view-in-course {
     border-bottom: none;
   }
 
-  .gymnasium-logo {
-    height: 60px;
-    margin-top: 0px;
-    margin-left: 28px;
-  }
-
   .navbar-brand {
-    padding: 0px;
+    height: auto;
+    padding: 0;
+    margin-top: 1.75rem;
+    margin-left: 15px;
   }
 
   .navbar-brand:hover,
@@ -603,7 +604,7 @@ body.view-in-course {
 
   .navbar-right {
     position: relative;
-    top: 6px;
+    // top: 6px;
   }
 
   .navbar-toggle {
@@ -618,15 +619,62 @@ body.view-in-course {
 @include media-breakpoint-down(sm) {
   .navbar-default {
     .navbar-collapse, .navbar-form {
-      margin-top: 9px;
+      margin: 9px auto 10px;
+    }
+  }
+
+  #primary-nav .navbar-nav {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  #secondary-nav .navbar-nav {
+    li {
+      &:last-child {
+        margin-left: 15px;
+        margin-right: 15px;
+      }
     }
   }
 }
 
 @include media-breakpoint-up(md) {
-  .navbar-right {
-    margin-top: 6px;
+
+  .navbar-collapse.collapse {
+    padding-left: 0;
+    padding-right: 0;
   }
+
+  #secondary-nav {
+    .navbar-right {
+      margin-top: 3px;
+    }
+  }
+
+  #primary-nav, #secondary-nav {
+    .row {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .navbar {
+      border-radius: 0;
+      margin: 0;
+
+      &.collapse {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    .navbar-left {
+      margin-left: 15px;
+    }
+  
+    .navbar-right {
+      margin-right: 15px;
+    }
+  }
+
+
 }
 
 /* global theme styles */
