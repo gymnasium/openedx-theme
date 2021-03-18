@@ -23,7 +23,7 @@
 
     .nav-item {
       .nav-link {
-        padding: $baseline/2 $baseline*3/4 $baseline*13/20;
+        padding: $baseline/2 $baseline * 3/4 $baseline * 13/20;
         border-style: solid;
         border-width: 0 0 $baseline/5 0;
         border-bottom-color: transparent;
@@ -51,7 +51,7 @@
   display: flex;
   flex-wrap: wrap;
   border-bottom: 1px solid $border-color;
-  padding: $baseline $baseline*2;
+  padding: $baseline $baseline * 2;
 
   .page-header-search {
     @include margin-right($baseline);
@@ -70,10 +70,10 @@
   }
 
   .page-header-main {
-    flex-grow: 1;  // This column should consume all the available space
+    flex-grow: 1; // This column should consume all the available space
 
     .page-title {
-      margin-top: $baseline*0.4;
+      margin-top: $baseline * 0.4;
     }
   }
 
@@ -107,20 +107,20 @@
 }
 
 .page-content {
-  padding: $baseline*2;
+  padding: $baseline * 2;
 
   // Adjust styles for desktop sized screens
   @include media-breakpoint-up(md) {
     display: flex;
 
     .page-content-main {
-      flex-grow: 1;  // This column should consume all the available space
+      flex-grow: 1; // This column should consume all the available space
     }
 
     .page-content-secondary {
-      min-width: 350px;  // Note: setting width only is not obeyed
-      max-width: 350px;  // Note: setting width only is not obeyed
-      margin-left: $baseline*2;
+      min-width: 350px; // Note: setting width only is not obeyed
+      max-width: 350px; // Note: setting width only is not obeyed
+      margin-left: $baseline * 2;
     }
   }
 

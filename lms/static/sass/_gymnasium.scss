@@ -416,7 +416,8 @@ body.view-in-course {
   }
 
   h3 {
-    font: bold 1.2em/1.4 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+    font: bold 1.2em/1.4 brandon-grotesque, "Helvetica Neue", Helvetica,
+      sans-serif;
     color: #222;
     letter-spacing: 0.02em;
     word-spacing: 0.04em;
@@ -429,28 +430,22 @@ body.view-in-course {
 }
 
 #primary-nav {
-  height: 50px;
+  height: auto;
 
-  a.gym-button {
-    top: 4px;
-  }
-
-  .gym-nav-icon-container {
-    padding-top: 13px;
-  }
   .gym-nav-icon-container:hover {
     background-color: transparent;
   }
 
   .navbar {
-    height: 50px;
+    height: auto;
     border: 0;
     margin: 0;
   }
 
   .navbar-nav > li > a {
-    padding-top: 14px;
-    padding-bottom: 14px;
+    padding: 10px;
+    margin-left: 4px;
+    margin-top: 2px;
   }
 
   .nav li a {
@@ -496,7 +491,8 @@ body.view-in-course {
 
   .navbar-right {
     li > a {
-      font: normal 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+      font: normal 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica,
+        sans-serif;
     }
   }
 
@@ -554,6 +550,8 @@ body.view-in-course {
 #secondary-nav {
   height: 70px;
   background-color: $gym-dark-grey;
+  position: relative;
+  z-index: 999;
 
   > .container {
     padding-top: 10px;
@@ -574,14 +572,11 @@ body.view-in-course {
     border-bottom: none;
   }
 
-  .gymnasium-logo {
-    height: 60px;
-    margin-top: 0px;
-    margin-left: 28px;
-  }
-
   .navbar-brand {
-    padding: 0px;
+    height: auto;
+    padding: 0;
+    margin-top: 1.75rem;
+    margin-left: 15px;
   }
 
   .navbar-brand:hover,
@@ -603,13 +598,14 @@ body.view-in-course {
 
   .navbar-right {
     position: relative;
-    top: 6px;
+    // top: 6px;
   }
 
   .navbar-toggle {
     margin-top: 15px;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       border: 1px solid white;
     }
   }
@@ -617,15 +613,61 @@ body.view-in-course {
 
 @include media-breakpoint-down(sm) {
   .navbar-default {
-    .navbar-collapse, .navbar-form {
-      margin-top: 9px;
+    .navbar-collapse,
+    .navbar-form {
+      margin: 9px auto 10px;
+    }
+  }
+
+  #primary-nav .navbar-nav {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  #secondary-nav .navbar-nav {
+    li {
+      &:last-child {
+        margin-left: 15px;
+        margin-right: 15px;
+      }
     }
   }
 }
 
 @include media-breakpoint-up(md) {
-  .navbar-right {
-    margin-top: 6px;
+  .navbar-collapse.collapse {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #secondary-nav {
+    .navbar-right {
+      margin-top: 3px;
+    }
+  }
+
+  #primary-nav,
+  #secondary-nav {
+    .row {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .navbar {
+      border-radius: 0;
+      margin: 0;
+
+      &.collapse {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    .navbar-left {
+      margin-left: 15px;
+    }
+
+    .navbar-right {
+      margin-right: 15px;
+    }
   }
 }
 
@@ -790,7 +832,12 @@ body {
 .gym-button,
 a.gym-button,
 a.gym-button:link,
-.account-settings-sections .section .account-settings-section-body .u-field .field .u-field-link,
+.account-settings-sections
+  .section
+  .account-settings-section-body
+  .u-field
+  .field
+  .u-field-link,
 .xmodule_display.xmodule_CapaModule div.problem .action .save,
 .xmodule_display.xmodule_CapaModule div.problem .action .save:not(:disabled),
 .login .form-actions button[type="submit"],
@@ -823,14 +870,16 @@ a.gym-button:link,
   a:visited,
   a b {
     color: white;
-    font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+    font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica,
+      sans-serif;
   }
   a:hover {
     text-decoration: none;
   }
 
   b {
-    font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+    font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica,
+      sans-serif;
     letter-spacing: 0.025em;
     color: white;
   }
@@ -852,9 +901,17 @@ body {
   input[type="button"]:hover:not(:disabled),
   button:hover:not(:disabled),
   button:hover:not(:disabled),
-  .account-settings-sections .section .account-settings-section-body .u-field .field .u-field-link:hover,
+  .account-settings-sections
+    .section
+    .account-settings-section-body
+    .u-field
+    .field
+    .u-field-link:hover,
   .xmodule_display.xmodule_CapaModule div.problem .action .save:hover,
-  .xmodule_display.xmodule_CapaModule div.problem .action .save:hover:not(:disabled),
+  .xmodule_display.xmodule_CapaModule
+    div.problem
+    .action
+    .save:hover:not(:disabled),
   .login .form-actions button[type="submit"],
   .register .form-actions button[type="submit"].gym-button:hover,
   .courseware-bookmarks-button .bookmarks-list-button:hover {
@@ -1180,7 +1237,8 @@ div.status,
   box-shadow: none;
 
   .message-title {
-    font: bold 2em/1.25 "brandon-grotesque", "Helvetia Neue", Helvetica, sans-serif;
+    font: bold 2em/1.25 "brandon-grotesque", "Helvetia Neue", Helvetica,
+      sans-serif;
     color: #fff !important;
     text-transform: capitalize;
     margin-top: 0;

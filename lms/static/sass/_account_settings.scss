@@ -1,29 +1,23 @@
-.wrapper-account-settings
-{
-  background:transparent;
+.wrapper-account-settings {
+  background: transparent;
 
-  h2.header-title
-  {
-    display:none;
+  h2.header-title {
+    display: none;
   }
 
-  .account-settings-container
-  {
-    padding:0;
+  .account-settings-container {
+    padding: 0;
   }
 
-  .account-settings-sections 
-  {
+  .account-settings-sections {
     background: white;
-    margin:0;
+    margin: 0;
     padding: 2em 2.5em;
     border: 1px solid #cccccc;
 
-    .section:first-of-type
-    {
+    .section:first-of-type {
       margin: 0;
       padding: 0;
     }
-
   }
 }
