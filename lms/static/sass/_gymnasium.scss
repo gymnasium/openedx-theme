@@ -430,21 +430,14 @@ body.view-in-course {
 }
 
 #primary-nav {
-  position: relative;
-  z-index: 1000;
-  height: 50px;
-
-  .gym-button {
-    position: relative;
-    top: -1px;
-  }
+  height: auto;
 
   .gym-nav-icon-container:hover {
     background-color: transparent;
   }
 
   .navbar {
-    height: 50px;
+    height: auto;
     border: 0;
     margin: 0;
   }
