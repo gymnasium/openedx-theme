@@ -21,15 +21,13 @@ if course is not None:
 %>
 
 % if course: 
-<div class="container-fluid" id="course-title-header">
-    <img src="${course_image_url(course, 'course_image')}" hidden class="hidden" id="course-image" />
-    <div class="container">
-        <div class="row">
-        <h1 class="col-md-12"><span class="provider">${course.display_name_with_default}</span></h1>
-        <div class="hidden" style="display:none" id="__course_number__">${course.display_number_with_default}</div>
-        </div>
-    </div>
-</div>
+<header class="course-title" id="course-title-header">
+  <img src="${course_image_url(course, 'course_image')}" hidden class="hidden" id="course-image" />
+  <div class="container">
+    <h1><span class="provider">${course.display_name_with_default}</span></h1>
+    <div class="hidden" style="display:none" id="__course_number__">${course.display_number_with_default}</div>
+  </div>
+</header>
 % endif
 
 % if include_special_exams is not UNDEFINED and include_special_exams:

@@ -1,125 +1,111 @@
 .wrapper-course-material .course-material ol.course-tabs,
-.account-settings-container .wrapper-header ul.account-nav
-{
-	font-weight:normal;
-	padding:0;
-	margin-left:0;
+.account-settings-container .wrapper-header ul.account-nav {
+  font-weight: normal;
+  padding: 0;
+  margin-left: 0;
 }
 
-.account-settings-container .wrapper-header 
-{
-	border-bottom:none;
-	height:auto;
+.account-settings-container .wrapper-header {
+  border-bottom: none;
+  height: auto;
 
-	ul.account-nav
-	{
-		margin:0;
-		float:none;
-		padding:0.5em 1em;
+  ul.account-nav {
+    margin: 0;
+    float: none;
+    padding: 0.5em 1em;
 
-		li.account-nav-item
-		{
-			float:none;
-			display:inline-block;
+    li.account-nav-item {
+      float: none;
+      display: inline-block;
 
-			padding:10px 13px 12px 0;
+      padding: 10px 13px 12px 0;
 
-			button.account-nav-link
-			{
-				padding:0;
-				margin:0;
-				color: #555;
-				display: inline-block;
-				text-align: center;
-				font-size: 14px;
-				font-weight: bold;
-				text-decoration: none;
+      button.account-nav-link {
+        padding: 0;
+        margin: 0;
+        color: #555;
+        display: inline-block;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: none;
 
-				text-transform: uppercase;
-				letter-spacing: .05em;
-				border-bottom: 1px dashed transparent;
-				vertical-align: -.15em;
-				font-size:1.2em;
-			}
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-bottom: 1px dashed transparent;
+        vertical-align: -0.15em;
+        font-size: 1.2em;
+      }
 
-			/* 
+      /* 
 				NOTE TO SELF: 
 					the following rules use !important to override an !important
 					flag that was set in the platform stylesheets.  I apologize
 					in advance for whatever inconvenience this causes you in the 
 					future.  Love, Mike
 			*/
-			button.account-nav-link:hover,
-			button.account-nav-link.active:hover
-			{
-				color:$gym-orange;
-				border-color:$gym-orange !important;
-				border-width:1px !important;
-			}
+      button.account-nav-link:hover,
+      button.account-nav-link.active:hover {
+        color: $gym-orange;
+        border-color: $gym-orange !important;
+        border-width: 1px !important;
+      }
 
-			button.account-nav-link.active
-			{
-				color:$gym-orange;
-				border-color:transparent !important;
-				border-width: 1px !important;
-			}
-		}
-
-	}
+      button.account-nav-link.active {
+        color: $gym-orange;
+        border-color: transparent !important;
+        border-width: 1px !important;
+      }
+    }
+  }
 }
 
-.wrapper-course-material .course-material ol.course-tabs
-{
-	padding:0.5em 0;
-	li
-	{
-		a,
-		a:focus
-		{
-			padding-left:0px;
-			border-bottom:none;
-			color: currentColor !important;
+.wrapper-course-material .course-material ol.course-tabs {
+  padding: 0.5em 0;
+  li {
+    a,
+    a:focus {
+      padding-left: 0px;
+      border-bottom: none;
+      color: currentColor !important;
 
-			b
-			{
-				text-transform: uppercase;
-				letter-spacing: .05em;
-				border-bottom: 1px dashed transparent;
-				vertical-align: -.15em;
-				font-size:1.2em;
-			}
-		}
+      b {
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-bottom: 1px dashed transparent;
+        vertical-align: -0.15em;
+        font-size: 1.2em;
+      }
+    }
 
-		a:hover,
-		a:focus:hover{
-			color: currentColor !important;
-			border:none;
-			background:none;
-			text-decoration:none;
+    a:hover,
+    a:focus:hover {
+      color: currentColor !important;
+      border: none;
+      background: none;
+      text-decoration: none;
 
-			b
-			{
-				color: currentColor !important;
-				border-bottom: 1px solid currentColor !important;
-				text-decoration:none;
-			}
-		}
+      b {
+        color: currentColor !important;
+        border-bottom: 1px solid currentColor !important;
+        text-decoration: none;
+      }
+    }
 
-		a.active,
-		a.active:hover,
-		a.active:focus,
-		a.active:focus:hover
-		{
-			box-shadow: none;
-			text-shadow: none;
-			background: none;
-			color:$gym-orange;
-			border:none;
-			text-decoration:none;
-			b {
-				color:currentColor !important;
-				border-bottom: 2px solid currentColor !important;
-			}	
-		}
-	}
+    a.active,
+    a.active:hover,
+    a.active:focus,
+    a.active:focus:hover {
+      box-shadow: none;
+      text-shadow: none;
+      background: none;
+      color: $gym-orange;
+      border: none;
+      text-decoration: none;
+      b {
+        color: currentColor !important;
+        border-bottom: 2px solid currentColor !important;
+      }
+    }
+  }
 }

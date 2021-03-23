@@ -36,7 +36,12 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
 
 
 <section class="home">
-  ${gymcms.render('home/hero')}
+  ## Show a special hero to authenticated users
+  % if user.is_authenticated():
+    ${gymcms.render('home/hero-auth')}
+  % else:
+    ${gymcms.render('home/hero')}
+  %endif
 
   <section class="container-fluid subsection">
     <div class="container">

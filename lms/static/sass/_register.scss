@@ -1,6 +1,5 @@
 .login-register,
-#login-and-registration-container
-{
+#login-and-registration-container {
   background: transparent;
 }
 
@@ -30,7 +29,6 @@ main label a:not([class]):active {
   margin-bottom: -0.125rem;
 }
 
-
 .login-form {
   a.forgot-password {
     &:hover,
@@ -43,38 +41,36 @@ main label a:not([class]):active {
   }
 }
 
-
-.login-register
-{
+.login-register {
   h1 {
-    margin-top:0;
+    margin-top: 0;
   }
-  
-  div.section-title.lines h2
-  {
-    font: bold 1.8em/1.15 "brandon-grotesque", "Helvetia Neue", Helvetica, sans-serif;
+
+  div.section-title.lines h2 {
+    font: bold 1.8em/1.15 "brandon-grotesque", "Helvetia Neue", Helvetica,
+      sans-serif;
     font-family: "brandon-grotesque", "Helvetia Neue", Helvetica, sans-serif;
   }
 
   form {
-    background:white;
+    background: white;
   }
   /*** linkedin Login button styles ***/
 
   p.action-label {
-    font: normal 1.6em/1.4 "brandon-grotesque", "Helvetia Neue", Helvetica, sans-serif;
+    font: normal 1.6em/1.4 "brandon-grotesque", "Helvetia Neue", Helvetica,
+      sans-serif;
     margin-bottom: 1em;
   }
-  $linked-in-blue: #0077B5;
+  $linked-in-blue: #0077b5;
 
   button.gym-button.button-oa2-linkedin-oauth2.login-provider.login-oa2-linkedin-oauth2,
-  button.gym-button.button-oa2-linkedin-oauth2.login-provider.register-oa2-linkedin-oauth2
-  {
-    transform: scale(1.5,1.5);
+  button.gym-button.button-oa2-linkedin-oauth2.login-provider.register-oa2-linkedin-oauth2 {
+    transform: scale(1.5, 1.5);
     border-color: $linked-in-blue;
 
     .icon.fa.fa-linkedin {
-      border-radius:1px;
+      border-radius: 1px;
       margin: 0;
     }
 
@@ -83,60 +79,53 @@ main label a:not([class]):active {
     }
   }
 
-  .form-field
-  {
-    label
-    {
-      font-size:1.1em;
-      text-transform:uppercase;
-      font-family:"Brandon Grotesque", "Helvetica Neue", Helvetica, sans-serif;
+  .form-field {
+    label {
+      font-size: 1.1em;
+      text-transform: uppercase;
+      font-family: "Brandon Grotesque", "Helvetica Neue", Helvetica, sans-serif;
       font-weight: bold;
     }
 
-    input 
-    {
-      height:auto;
-      font-size:1em;
-      padding:1em;
+    input {
+      height: auto;
+      font-size: 1em;
+      padding: 1em;
       border: 1px solid #ccc;
       border-bottom: 2px solid $gym-orange;
       margin-bottom: 0.6em;
     }
 
-    .tip
-    {
+    .tip {
       color: #444;
     }
 
     .tip-input {
-        font: normal 1em/1.15 "Helvetia Neue", Helvetica, sans-serif;
+      font: normal 1em/1.15 "Helvetia Neue", Helvetica, sans-serif;
     }
   }
 
-  .logistration-bottom 
-  {
-    padding-bottom:2em;
+  .logistration-bottom {
+    padding-bottom: 2em;
     padding-left: 1.8em;
     padding-right: 1.8em;
     margin-top: 1.2em;
 
-    h2 
-    {
+    h2 {
       font-family: "Brandon Grotesque", "Helvetica Neue", Helvetica, sans-serif;
       padding: 0.75em 0;
-      font-size:2.2em;
+      font-size: 2.2em;
       letter-spacing: 0.01em;
       text-align: left;
       padding: 0 0 0.4em;
 
-      .text  {
+      .text {
         text-transform: uppercase;
       }
     }
   }
 
-  .logistration-button 
-  {
+  .logistration-button {
     text-transform: capitalize;
     padding: 1em;
     font-size: 1.5em;
@@ -144,14 +133,14 @@ main label a:not([class]):active {
   }
 
   form {
-    background:white;
+    background: white;
   }
 
   .note {
     font-weight: bold;
     color: #222;
   }
-  
+
   .toggle-form {
     font-size: 14px;
   }
@@ -177,7 +166,7 @@ main label a:not([class]):active {
   .form-field input {
     margin-bottom: 0.6em;
   }
-  
+
   .form-field input + .tip-input {
     margin-top: 0.6em;
   }
@@ -201,7 +190,9 @@ main label a:not([class]):active {
   .status.account-activation,
   .status.account-activation.success,
   .status.account-activation.success,
-  .financial-assistance-wrapper .financial-assistance-form .status.account-activation.success {
+  .financial-assistance-wrapper
+    .financial-assistance-form
+    .status.account-activation.success {
     background-color: $gym-orange !important;
     border-color: $gym-orange;
     color: $gym-white;
@@ -212,182 +203,158 @@ main label a:not([class]):active {
   margin-bottom: 0;
 }
 
-.register.container, .login.container
-{
-  background-color:white;
-  border:1px solid #ccc;
-  margin-top:1.8em;
+.register.container,
+.login.container {
+  background-color: white;
+  border: 1px solid #ccc;
+  margin-top: 1.8em;
   border-radius: 2px;
 
   #field-password .tip.tip-input {
     margin-top: -0.3em;
   }
 
-  .sign-up
-  {
-    border-right:1px dashed #ccc;
-    padding:1.6em;
+  .sign-up {
+    border-right: 1px dashed #ccc;
+    padding: 1.6em;
   }
 
-  .additional-information
-  {
-    padding:1.6em;
+  .additional-information {
+    padding: 1.6em;
   }
 
-  .instructions
-  {
+  .instructions {
     padding-bottom: 1.8em;
     border-bottom: 1px solid #ddd;
     margin-bottom: 1.8em;
 
-    p
-    {
+    p {
       font-family: brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
       font-size: 1.6em;
       line-height: 1.5;
-      letter-spacing: .01em;
-      word-spacing: .02em;
+      letter-spacing: 0.01em;
+      word-spacing: 0.02em;
     }
   }
 
-  h2
-  {
-      margin-bottom:1.2em;
-      font: 900 1em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+  h2 {
+    margin-bottom: 1.2em;
+    font: 900 1em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
   }
 
-  form
-  {
-    .field
-    {
-      .tip
-      {
-        font-size:1em;
+  form {
+    .field {
+      .tip {
+        font-size: 1em;
       }
     }
   }
 
-  #market
-  {
-    width:150px;
+  #market {
+    width: 150px;
   }
 
-  .err-message
-  {
-    display:none;
+  .err-message {
+    display: none;
   }
 
-  .err-message.is-shown
-  {
-    display:block;
+  .err-message.is-shown {
+    display: block;
   }
   .err-message {
-  background: #f2dede;
-  padding: 1.8em;
-  border: 1px solid #d9534f;
-  border-radius: .12em;
-  margin-bottom: 1em;
+    background: #f2dede;
+    padding: 1.8em;
+    border: 1px solid #d9534f;
+    border-radius: 0.12em;
+    margin-bottom: 1em;
   }
 
-.err-message h3 {
-  color: #d9534f;
-  margin-top: 0;
-  margin-bottom: -.2em;
+  .err-message h3 {
+    color: #d9534f;
+    margin-top: 0;
+    margin-bottom: -0.2em;
   }
 
-.err-message ul {
-  margin-top: 1.4em;
-  color:#d9534f;
+  .err-message ul {
+    margin-top: 1.4em;
+    color: #d9534f;
   }
 
-.err-message li {
-  font: bold 1em/1.5 "Helvetica Neue", Helvetica, sans-serif;
-  color: #d9534f;
-  letter-spacing: .01em;
-  margin-top: 1em;
+  .err-message li {
+    font: bold 1em/1.5 "Helvetica Neue", Helvetica, sans-serif;
+    color: #d9534f;
+    letter-spacing: 0.01em;
+    margin-top: 1em;
   }
 }
 
-.login 
-{
-  nav
-  {
-    a:hover
-    {
-      border-bottom:none;
+.login {
+  nav {
+    a:hover {
+      border-bottom: none;
     }
   }
-  
-  a:hover
-  {
+
+  a:hover {
     border-bottom: 1px solid $gym-orange;
   }
 }
 
 body,
 body.login,
-body.register,
-{
+body.register {
   ul.list-input,
-  ol.list-input
-  {
-    label
-    {
+  ol.list-input {
+    label {
       font: 1em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
       color: #222;
-      letter-spacing: .03em;
-      word-spacing: .05em;
+      letter-spacing: 0.03em;
+      word-spacing: 0.05em;
       text-transform: uppercase;
     }
 
-    input
-    {
+    input {
       font: 1em/1 "Helvetica Neue", Helvetica, sans-serif;
       width: 100%;
-      padding-top: .6em;
-      padding-bottom: .6em;
+      padding-top: 0.6em;
+      padding-bottom: 0.6em;
       border: 0;
-      border-bottom: .200em solid $gym-orange;
-      margin-top: .4em;
-      margin-bottom: .4em;
+      border-bottom: 0.2em solid $gym-orange;
+      margin-top: 0.4em;
+      margin-bottom: 0.4em;
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
       box-sizing: border-box;
-      box-shadow:none;
-      background:none;
+      box-shadow: none;
+      background: none;
     }
   }
 }
 
-
-body 
-{
-  ul.list-input, 
-  ol.list-input, 
-  &.login ul.list-input, 
-  &.login ol.list-input, 
-  &.register ul.list-input, 
+body {
+  ul.list-input,
+  ol.list-input,
+  &.login ul.list-input,
+  &.login ol.list-input,
+  &.register ul.list-input,
   &.register ol.list-input,
   .login form,
   .register form,
   .passwordreset form,
-  #forgot-password-modal #password-reset form    
-  { 
-    .field.is-focused
-    {
-      color:$gym-orange;
+  #forgot-password-modal #password-reset form {
+    .field.is-focused {
+      color: $gym-orange;
 
-      input, 
-      label, 
+      input,
+      label,
       span,
       span.tip,
-      .tip, 
-      {
-        color:$gym-orange;
+      .tip {
+        color: $gym-orange;
       }
 
-      input:focus{
-        outline-color:$gym-orange;
+      input:focus {
+        outline-color: $gym-orange;
       }
     }
   }

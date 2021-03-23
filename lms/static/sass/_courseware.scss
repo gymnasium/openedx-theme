@@ -1,776 +1,672 @@
 .sequence-nav,
 .sequence-bottom,
 div.xmodule_display.xmodule_SequenceModule .sequence-nav,
-div.xmodule_display.xmodule_SequenceModule .sequence-bottom 
-{
-	/* This rule HIDES the third-tier top and bottom navigation for courses! */
-	display:none;
+div.xmodule_display.xmodule_SequenceModule .sequence-bottom {
+  /* This rule HIDES the third-tier top and bottom navigation for courses! */
+  display: none;
 }
 
-.xblock.xblock-student_view.xblock-student_view-problem.xmodule_display.xmodule_CapaModule.xblock-initialized main {
-	/* on problem.html, hide the messaging we import from the CMS until one of the elements within is shown */
-	display: contents;
+.xblock.xblock-student_view.xblock-student_view-problem.xmodule_display.xmodule_CapaModule.xblock-initialized
+  main {
+  /* on problem.html, hide the messaging we import from the CMS until one of the elements within is shown */
+  display: contents;
 }
 
 div.xmodule_display.xmodule_CapaModule {
-	div.problem {
-		padding-top: 0;
+  div.problem {
+    padding-top: 0;
 
-		.notification.notification-submit,
-		.notification.notification-save,
-		.notification.notification-show-answer,
-		.notification.notification-gentle-alert {
-			float: none;
-		}
+    .notification.notification-submit,
+    .notification.notification-save,
+    .notification.notification-show-answer,
+    .notification.notification-gentle-alert {
+      float: none;
+    }
+  }
 
-	}
-
-	span.status,
-	span.status.correct {
-		display: none;
-	}
+  span.status,
+  span.status.correct {
+    display: none;
+  }
 }
 
-body.view-in-course
-{
-	.search-results {
+body.view-in-course {
+  .search-results {
     background: white;
     border: 1px solid #ccc;
     padding-bottom: 2em;
     margin: 0;
-	}
+  }
 
-  .wrapper-course-material
-  {
-    div.course-material
-    {
-      padding:0;
+  .wrapper-course-material {
+    div.course-material {
+      padding: 0;
     }
   }
-  div.wrapper-footer
-  {
-    margin-top:0;
+  div.wrapper-footer {
+    margin-top: 0;
   }
 
   .container,
-  div.container
-  {
+  div.container {
     max-width: 1180px;
     min-width: 760px;
-    padding-left:15px;
-    padding-right:15px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 
 body.courseware,
-body.view-in-course
-{
-	.path
-	{
-		display:none;
-	}
+body.view-in-course {
+  .path {
+    display: none;
+  }
 
-	header.global.slim
-	{
-		margin:0px;
-		padding:0px;
-		box-shadow:none;
-		border:none;
-		height:auto;
-		background-color:$gym-dark-grey;
-	}
+  header.global.slim {
+    margin: 0px;
+    padding: 0px;
+    box-shadow: none;
+    border: none;
+    height: auto;
+    background-color: $gym-dark-grey;
+  }
 
-	.wrapper-preview-menu
-	{
-		margin:0px auto 0;
-	}
+  .wrapper-preview-menu {
+    margin: 0px auto 0;
+  }
 
-	.content-wrapper#content
-	{
-		background-color:$gym-white;
-		padding-bottom:1em;
-	}
+  .content-wrapper#content {
+    background-color: $gym-white;
+    padding-bottom: 1em;
+  }
 }
 
-#content
-{
+#content {
   .course-content,
-	.forum-nav,
-	.discussion-column
-  {
-		background:white;
-		border: 1px solid #ccc;
+  .forum-nav,
+  .discussion-column {
+    background: white;
+    border: 1px solid #ccc;
     border-radius: 2px;
   }
-	.course-content
-	{
-		max-width: inherit;
-		display:block;
+  .course-content {
+    max-width: inherit;
+    display: block;
 
-		.bookmark-button-wrapper {
-			text-align: right;
-		}
-	}
+    .bookmark-button-wrapper {
+      text-align: right;
+    }
+  }
 
-	#course-content.course-content{
-		width:100%;
-	}
+  #course-content.course-content {
+    width: 100%;
+  }
 
-	.discussion-column
-	{
-		padding:20px;
+  .discussion-column {
+    padding: 20px;
 
-		div.response-count
-		{
-			margin-right:10px;
-		}
+    div.response-count {
+      margin-right: 10px;
+    }
 
-		span.label
-		{
-			color: $gym-dark-gray;
-		}
+    span.label {
+      color: $gym-dark-gray;
+    }
 
-		.home-header
-		{
-			span.label
-			{
-				display:none;
-			}
-		}
+    .home-header {
+      span.label {
+        display: none;
+      }
+    }
 
-		.forum-new-post-form,
-		.edit-post-form  
-		{
-			.post-topic-button:hover,
-			.post-topic-button:focus
-			{
-				border: 1px solid #aaa;
-			  background-image: -webkit-linear-gradient(top, #fcfcfc,#f6f6f6);
-				background-image: linear-gradient(to bottom,#fcfcfc,#f6f6f6);
-			}
-		}
-	}
+    .forum-new-post-form,
+    .edit-post-form {
+      .post-topic-button:hover,
+      .post-topic-button:focus {
+        border: 1px solid #aaa;
+        background-image: -webkit-linear-gradient(top, #fcfcfc, #f6f6f6);
+        background-image: linear-gradient(to bottom, #fcfcfc, #f6f6f6);
+      }
+    }
+  }
 }
-.container
-{
-	div.info-wrapper section.updates>ol>li h2,
-	div.info-wrapper section.updates>ol article h2,
-	div.info-wrapper section.updates section>li h2,
-	div.info-wrapper section.updates section article h2
-	{
-		background:none;
-		padding-left: 0;
-	}
+.container {
+  div.info-wrapper section.updates > ol > li h2,
+  div.info-wrapper section.updates > ol article h2,
+  div.info-wrapper section.updates section > li h2,
+  div.info-wrapper section.updates section article h2 {
+    background: none;
+    padding-left: 0;
+  }
 }
 
-.content-wrapper .wrapper-course-material .course-material
-{
-	max-width:inherit;
+.content-wrapper .wrapper-course-material .course-material {
+  max-width: inherit;
 }
 
-#course-title-header
-{
-	background-color:$gym-light-gray;
+#course-title-header {
+  background-color: $gym-light-gray;
 
-	div.row
-	{
-		background: transparent;
-		border: none;
-		box-shadow: none;
-		border-radius: 0;
-	}
+  div.row {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
 
-	h1
-	{
-		font-size:20pt;
-		margin:15px 0 15px 0;
-		span
-		{
-			color:white;
-			font-weight: 900;
-		}
-	}
+  h1 {
+    font-size: 20pt;
+    margin: 15px 0 15px 0;
+    span {
+      color: white;
+      font-weight: 900;
+    }
+  }
 }
-nav.progress.wrapper-course-material
-{
-	height:inherit; //fixes a bug with the .progress class colliding with bootstrap
+nav.progress.wrapper-course-material {
+  height: inherit; //fixes a bug with the .progress class colliding with bootstrap
 }
 
-.container div.course-wrapper
-{
-	border:none;
-	border-radius:0;
+.container div.course-wrapper {
+  border: none;
+  border-radius: 0;
 
-	.no-right-pad {
-		padding-right:0;
-	}
+  .no-right-pad {
+    padding-right: 0;
+  }
 
-	.no-left-pad {
-		padding-left: 0;
-	}
+  .no-left-pad {
+    padding-left: 0;
+  }
 
-	.courseware-search-bar
-	{
-		box-shadow:none;
-	}
+  .courseware-search-bar {
+    box-shadow: none;
+  }
 
-	.courseware-results-wrapper
-	{
-		width:inherit;
-		max-width: 75%;
-		margin:0;
-		padding:0;
-		border:none;
-	}
+  .courseware-results-wrapper {
+    width: inherit;
+    max-width: 75%;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
 
-	.course-index
-	{
-		color:$gym-white;
-		border-right:none;
-		background-color:$gym-medium-grey;
-		border-radius:0;
-		display:block;
+  .course-index {
+    color: $gym-white;
+    border-right: none;
+    background-color: $gym-medium-grey;
+    border-radius: 0;
+    display: block;
 
-		.course-search-input,
-		.search-field-wrapper
-		{
-			border-radius:0;
-		}
+    .course-search-input,
+    .search-field-wrapper {
+      border-radius: 0;
+    }
 
-		.search-bar .search-field
-		{
-			background:$gym-white;
-		}
+    .search-bar .search-field {
+      background: $gym-white;
+    }
 
-		.accordion
-		{
-			font-family:brandon-grotesque;
+    .accordion {
+      font-family: brandon-grotesque;
 
-			nav.course-navigation .group-heading.active .icon.fa
-			{
-				color:$gym-orange;
-			}
+      nav.course-navigation .group-heading.active .icon.fa {
+        color: $gym-orange;
+      }
 
-			background-color:$gym-medium-grey;
+      background-color: $gym-medium-grey;
 
-			.course-navigation
-			{
-				.group-heading,
-				{
-					font-family: brandon-grotesque;
-				}
-
-				.chapter-content-container
-				{
-					background-color:inherit;
-
-					.chapter-menu
-					{
-						padding-left:30px;
-						
-						.menu-item 
-						{
-							.accordion-nav
-							{
-								font-family:brandon-grotesque;
-								p,
-								h1,h2,h3,h4,h5,h6
-								{
-									font-family:brandon-grotesque;
-								}
-							}
-
-							&.active a
-							{
-								color: $gym-orange;
-							}
-
-							a
-							{
-								color:$gym-white;
-								border:none;
-							}
-
-							&.active a
-							a:hover,
-							a
-							{
-								background:inherit;	
-								border:none;
-							}
-
-							.subtitle
-							{
-								display:none;
-							}
-						}
-					}
-				}
-
-				.button-chapter.active
-				{
-					.group-heading
-					{
-						color:$gym-white;
-					}
-				}
-			}
-
-			p.subtitle
-			{
-				display:none;
-			}
-
-			ul.ui-accordion-content
-			{
-				a
-				{
-					p
-					{
-						color:$gym-white;
-					}
-				}
-
-				li.active,
-				li.active a,
-				li.active a p
-				{
-					color:$gym-orange;
-					font-weight:bold;
-				}
-			}
-
-			.chapter
-			{
-				color:$gym-white;
-				background:none;
-				box-shadow:none;
-        padding:0;
-
-        h3
-        {
-          line-height:1.3;
+      .course-navigation {
+        .group-heading {
+          font-family: brandon-grotesque;
         }
 
-				a
-				{
-          font-weight:900;
-          letter-spacing: .04em;
-          word-spacing: .04em;
+        .chapter-content-container {
+          background-color: inherit;
 
-					color:$gym-white;
-					background:none;
-					box-shadow:none;
-					text-shadow:none;
-					border:none;
-          margin-bottom:0.3em;
+          .chapter-menu {
+            padding-left: 30px;
 
-          p
-          {
-            font-size:1.2em;
+            .menu-item {
+              .accordion-nav {
+                font-family: brandon-grotesque;
+                p,
+                h1,
+                h2,
+                h3,
+                h4,
+                h5,
+                h6 {
+                  font-family: brandon-grotesque;
+                }
+              }
+
+              &.active a {
+                color: $gym-orange;
+              }
+
+              a {
+                color: $gym-white;
+                border: none;
+              }
+
+              &.active a a:hover,
+              a {
+                background: inherit;
+                border: none;
+              }
+
+              .subtitle {
+                display: none;
+              }
+            }
           }
-				}
+        }
 
-			}
+        .button-chapter.active {
+          .group-heading {
+            color: $gym-white;
+          }
+        }
+      }
 
-		}
-	}
+      p.subtitle {
+        display: none;
+      }
+
+      ul.ui-accordion-content {
+        a {
+          p {
+            color: $gym-white;
+          }
+        }
+
+        li.active,
+        li.active a,
+        li.active a p {
+          color: $gym-orange;
+          font-weight: bold;
+        }
+      }
+
+      .chapter {
+        color: $gym-white;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+
+        h3 {
+          line-height: 1.3;
+        }
+
+        a {
+          font-weight: 900;
+          letter-spacing: 0.04em;
+          word-spacing: 0.04em;
+
+          color: $gym-white;
+          background: none;
+          box-shadow: none;
+          text-shadow: none;
+          border: none;
+          margin-bottom: 0.3em;
+
+          p {
+            font-size: 1.2em;
+          }
+        }
+      }
+    }
+  }
 }
 
 /** strange specificity here to get past existing style rules, sadly **/
-.container div.info-wrapper
-{
-	border:none;
-	border-radius:2px;
-	margin-bottom:0px;
-	border: 1px solid #ccc;
-	font-family: "Helvetica Neue", Helvetica, sans-serif;
+.container div.info-wrapper {
+  border: none;
+  border-radius: 2px;
+  margin-bottom: 0px;
+  border: 1px solid #ccc;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
 
-	p {
+  p {
     font-family: "Helvetica Neue", Helvetica, sans-serif;
-	}
+  }
 
-	section.updates
-	{
-		font-size:12pt;
-		border-right:1px dashed #ccc;
-    background-color:$gym-light-color;
-
-		h1
-		{
-			font-size:36px;
-			font-weight:900;
-		}
-
-		section
-		{
-			margin-bottom:0;
-		}
-
-		ol, ul
-		{
-			padding-left:0;
-		}
-
-		ul
-		{
-			ul
-			{
-				list-style: circle;
-		    padding-left: 2.1em;
-		    margin-left: -.96em;
-			}
-		}
-
-		li
-		{
-			margin-top: .8em;
-		}
-
-		header.hero
-		{
-
-			p
-			{
-				font-family: brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-		    font-size: 1.6em;
-		    line-height: 1.5;
-		    letter-spacing: .01em;
-		    word-spacing: .02em;
-			}
-		}
-
-		article
-		{
-			border-bottom:none;
-			margin-bottom:0;
-
-			section
-			{
-				border-top: 1px solid #ddd;
-				margin-top: 1.8em;
-
-				h2
-				{
-					font: 900 1em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-			    color: #222;
-			    letter-spacing: .06em;
-			    word-spacing: .04em;
-			    text-transform: uppercase;
-			    margin-bottom: 1em;
-				}
-
-				h3
-				{
-					font: bold 1.2em/1.4 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-					color: #222;
-					letter-spacing: .02em;
-					word-spacing: .04em;
-					margin-top: 1em;
-					text-transform:capitalize;
-				}
-			}
-		}
-
-	}
-
-	section.handouts
-	{
-		font-size:12pt;
-		border-radius:0;
-		padding:0px 20px;
-		border-left:none;
+  section.updates {
+    font-size: 12pt;
+    border-right: 1px dashed #ccc;
     background-color: $gym-light-color;
 
-		a
-		{
-			color:$gym-orange;
-			display: inline;
-		}
+    h1 {
+      font-size: 36px;
+      font-weight: 900;
+    }
 
-		a:hover
-		{
-			text-decoration:none;
-			border-bottom:1px solid $gym-orange;
-		}
+    section {
+      margin-bottom: 0;
+    }
 
-		h1
-		{
-			padding: 10px 0 0px 0;
-			font-family: brandon-grotesque;
-			font-weight: 600;
-		}
+    ol,
+    ul {
+      padding-left: 0;
+    }
 
-		dt
-		{
-			font-family: brandon-grotesque;
-			font-weight: 600;
-		}
-	}
+    ul {
+      ul {
+        list-style: circle;
+        padding-left: 2.1em;
+        margin-left: -0.96em;
+      }
+    }
+
+    li {
+      margin-top: 0.8em;
+    }
+
+    header.hero {
+      p {
+        font-family: brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+        font-size: 1.6em;
+        line-height: 1.5;
+        letter-spacing: 0.01em;
+        word-spacing: 0.02em;
+      }
+    }
+
+    article {
+      border-bottom: none;
+      margin-bottom: 0;
+
+      section {
+        border-top: 1px solid #ddd;
+        margin-top: 1.8em;
+
+        h2 {
+          font: 900 1em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica,
+            sans-serif;
+          color: #222;
+          letter-spacing: 0.06em;
+          word-spacing: 0.04em;
+          text-transform: uppercase;
+          margin-bottom: 1em;
+        }
+
+        h3 {
+          font: bold 1.2em/1.4 brandon-grotesque, "Helvetica Neue", Helvetica,
+            sans-serif;
+          color: #222;
+          letter-spacing: 0.02em;
+          word-spacing: 0.04em;
+          margin-top: 1em;
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+
+  section.handouts {
+    font-size: 12pt;
+    border-radius: 0;
+    padding: 0px 20px;
+    border-left: none;
+    background-color: $gym-light-color;
+
+    a {
+      color: $gym-orange;
+      display: inline;
+    }
+
+    a:hover {
+      text-decoration: none;
+      border-bottom: 1px solid $gym-orange;
+    }
+
+    h1 {
+      padding: 10px 0 0px 0;
+      font-family: brandon-grotesque;
+      font-weight: 600;
+    }
+
+    dt {
+      font-family: brandon-grotesque;
+      font-weight: 600;
+    }
+  }
 }
 
-
 .course-title {
-	background: #777;
-	}
+  background: #777;
+}
 
-#content .course-title header
-{
-	margin-top:0px;
+#content .course-title header {
+  margin-top: 0px;
 }
 
 .course-title h1 {
-	font: 900 1.8em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-	color: #fff;
-	letter-spacing: .05em;
-	word-spacing: .05em;
-	text-transform: uppercase;
-	margin-top:15px;
-	margin-bottom:15px;
-	text-align:left;
+  font: 900 1.8em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+  color: #fff;
+  letter-spacing: 0.05em;
+  word-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: left;
 }
 
-
-.course
-{
-	background: #ebebeb;
+.course {
+  background: #ebebeb;
   padding-top: 0;
   padding-bottom: 0;
 
-	h1,h2,h3,h4,h5,h6
-	{
-		font-family:brandon-grotesque;
-		font-weight:900;
-	}
-	.course-info
-	{
-		border-right: 1px solid #ccc;
-		border-left: 1px solid #ccc;
-		border-top:0;
-		border-bottom:0;
-	}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: brandon-grotesque;
+    font-weight: 900;
+  }
+  .course-info {
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-top: 0;
+    border-bottom: 0;
+  }
 
-	.course-overview
-	{
-		background:white;
-		padding:2.5em;
-	}
+  .course-overview {
+    background: white;
+    padding: 2.5em;
+  }
 
-	.teacher-image
-	{
-		border: 1px solid #999;
+  .teacher-image {
+    border: 1px solid #999;
     height: 115px;
     float: left;
     margin: 0 15px 0px 0;
     overflow: hidden;
     width: 115px;
 
-		img
-		{
-			display: block;
-	    min-height: 100%;
-	    max-width: 100%;
-		}
-	}
+    img {
+      display: block;
+      min-height: 100%;
+      max-width: 100%;
+    }
+  }
 
-	header.hero-title
-	{
-		padding:1.2em;
-	}
+  header.hero-title {
+    padding: 1.2em;
+  }
 
-	.hero-banner
-	{
-		background: #777;
-		border-bottom: 0px;
+  .hero-banner {
+    background: #777;
+    border-bottom: 0px;
 
-		h1
-		{
-			color:white;
-			font-family:brandon-grotesque;
-      text-align:center;
-		}
+    h1 {
+      color: white;
+      font-family: brandon-grotesque;
+      text-align: center;
+    }
 
-		img
-		{
-			max-height:325px;
-		}
-	}
+    img {
+      max-height: 325px;
+    }
+  }
 
-	.course-metabar
-	{
-		background: #444;
-		padding: 2.2em;
+  .course-metabar {
+    background: #444;
+    padding: 2.2em;
 
-		strong
-		{
-			font: 1.4em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-			color: #ccc;
-		}
+    strong {
+      font: 1.4em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+      color: #ccc;
+    }
+  }
 
-	}
-
-	.level strong
-	{
-		font-weight: normal;
-	}
+  .level strong {
+    font-weight: normal;
+  }
 }
 
-.final-exam-status
-{
-	padding: 1.8em;
+.final-exam-status {
+  padding: 1.8em;
   border: 1.2em solid #444;
   border-radius: 2px;
   margin-top: 1.8em;
   margin-bottom: 1.8em;
 
-	h2
-	{
-		font: 900 1.8em/1.1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+  h2 {
+    font: 900 1.8em/1.1 brandon-grotesque, "Helvetica Neue", Helvetica,
+      sans-serif;
     text-transform: uppercase;
-    letter-spacing: .03em;
+    letter-spacing: 0.03em;
     text-align: center;
-    margin-bottom: .6em;
-	}
+    margin-bottom: 0.6em;
+  }
 
-	h2 + p {
+  h2 + p {
     font-size: 1.6em;
-    margin-top: .5em;
-	}
+    margin-top: 0.5em;
+  }
 
-	p
-	{
-		margin-top: 1em;
-		font-family: brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-		font-size: 1.2em;
-		line-height: 1.5;
-	}
+  p {
+    margin-top: 1em;
+    font-family: brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 1.2em;
+    line-height: 1.5;
+  }
 
-	.survey
-	{
-		text-align: center;
+  .survey {
+    text-align: center;
     border-top: 1px solid #ddd;
     margin-top: 1.4em;
-	}
+  }
 }
-
-
 
 /*** COURSE ABOUT SECTION ***/
 
-.course-about-overview
-{
-	.hero
-	{
-		p
-		{
-			font-family: brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-			font-size: 1.6em;
-			line-height: 1.5;
-			letter-spacing: .01em;
-			word-spacing: .02em;
-		}
-	}
+.course-about-overview {
+  .hero {
+    p {
+      font-family: brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+      font-size: 1.6em;
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+      word-spacing: 0.02em;
+    }
+  }
 }
 
 .course-about-overview section {
-	border-top: 1px solid #ddd;
-	margin-top: 1.8em;
+  border-top: 1px solid #ddd;
+  margin-top: 1.8em;
 }
 
 .course-about-overview {
-	border-bottom: 0;
-	border-right: 1px dashed #ccc;
+  border-bottom: 0;
+  border-right: 1px dashed #ccc;
 }
 
-.course-about
-{
-	a,
-	a:link,
-	a:visited
-	{
-		font-family:  "Helvetica Neue", Helvetica, sans-serif;
-	}
+.course-about {
+  a,
+  a:link,
+  a:visited {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+  }
 
-	h2
-	{
-		font: 900 1.2em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-		color: #222;
-		letter-spacing: .06em;
-		word-spacing: .04em;
-		text-transform: uppercase;
-		margin-bottom: 1em;
-		margin-top:1em;
-	}
+  h2 {
+    font: 900 1.2em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica,
+      sans-serif;
+    color: #222;
+    letter-spacing: 0.06em;
+    word-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+    margin-top: 1em;
+  }
 
-	h3
-	{
-		font: bold 1.2em/1.4 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-		color: #222;
-		letter-spacing: .02em;
-		word-spacing: .04em;
-		margin-top: 1em;
-		text-transform:capitalize;
-	}
+  h3 {
+    font: bold 1.2em/1.4 brandon-grotesque, "Helvetica Neue", Helvetica,
+      sans-serif;
+    color: #222;
+    letter-spacing: 0.02em;
+    word-spacing: 0.04em;
+    margin-top: 1em;
+    text-transform: capitalize;
+  }
 
-	ol,
-	ul
-	{
-		padding-left: 0;
-	}
- }
+  ol,
+  ul {
+    padding-left: 0;
+  }
+}
 
 .course-about-overview li {
-	margin-top: .8em;
+  margin-top: 0.8em;
 }
 
-
 #course-preview iframe {
-		margin-top: .6em;
+  margin-top: 0.6em;
 }
 
 .course-about-sidebar {
-	padding: 0 1.1em;
-	border-top: 0;
-	margin: 0;
+  padding: 0 1.1em;
+  border-top: 0;
+  margin: 0;
 
-	h2
-	{
-		margin-top:0
-	}
+  h2 {
+    margin-top: 0;
+  }
 }
 
 /*** END COURSE ABOUT SECTION ***/
 
-
 /*** FORUMS ***/
-.container .discussion-body .blank-slate .label
-{
-	font-size:1.4em;
-	color:black;
+.container .discussion-body .blank-slate .label {
+  font-size: 1.4em;
+  color: black;
 }
 
 span.field-help {
-    font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue";
 }
 
-html
-{
-	 body.discussion
-	 {
-		 .course-tabs .right .new-post-btn
-		 {
-			 	margin-top:0.2em;
-		 }
+html {
+  body.discussion {
+    .course-tabs .right .new-post-btn {
+      margin-top: 0.2em;
+    }
 
-		 .wmd-prompt-dialog, .discussion-module .wmd-prompt-dialog, .discussion-user-threads .wmd-prompt-dialog
-		 {
-			 	height:auto;
-		 }
-	 }
+    .wmd-prompt-dialog,
+    .discussion-module .wmd-prompt-dialog,
+    .discussion-user-threads .wmd-prompt-dialog {
+      height: auto;
+    }
+  }
 }
 
 /* make the links under "materials" inline elements instead of block elements */
 .handouts a,
 .handouts dl dd a {
-    display: inline;
+  display: inline;
 }

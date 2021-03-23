@@ -3,6 +3,7 @@
 <%namespace name='static' file='/static_content.html'/>
 <%
 from django.conf import settings
+cw_env = settings.APPSEMBLER_FEATURES['CLOUDWALL_SERVER_PATH']
 %>
 
 <meta property="og:description" content="Gymnasium offers free online courses on web development, design, user experience, and content creation." />
@@ -33,7 +34,7 @@ from django.conf import settings
 
 ## inject some global variables from configurations
 <script>
-  var CLOUDWALL_ENV = "${settings.APPSEMBLER_FEATURES['CLOUDWALL_SERVER_PATH']}";
+  var CW_ENV = "${cw_env}";
 </script>
 
 <script src="${static.url('js/gymnasium.js')}"> </script>
@@ -135,7 +136,7 @@ from django.conf import settings
 <script>
 
   var __intercom_app_id__;
-  switch (CLOUDWALL_ENV) {
+  switch (CW_ENV) {
     case 'cw-rc':
     case 'cw-beta':
       __intercom_app_id__ = 'jz17y7nd'; // test intercom app id

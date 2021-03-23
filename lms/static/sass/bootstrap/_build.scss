@@ -2,20 +2,20 @@
 // ===============
 
 // LMS theme
-@import 'lms/theme/variables';
+@import "lms/theme/variables";
 
 // Bootstrap
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";
 
 // LMS variables
-@import '../variables';
+@import "../variables";
 
 // Legacy support
-@import 'legacy';
+@import "legacy";
 
 // Base
-@import 'base';
-@import 'variables';
+@import "base";
+@import "variables";
 
 // Cookie Policy Banner
-@import '@edx/cookie-policy-banner/build/_cookie-policy-banner.scss';
+@import "@edx/cookie-policy-banner/build/_cookie-policy-banner.scss";
