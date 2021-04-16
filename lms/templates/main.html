@@ -44,17 +44,6 @@ cw_env = settings.APPSEMBLER_FEATURES['CLOUDWALL_SERVER_PATH']
     <title>${static.get_page_title_breadcrumbs(self.pagetitle())}</title>
   </%block>
 
-  % if not allow_iframing:
-    <script type="text/javascript">
-      /* immediately break out of an iframe if coming from the marketing website */
-      (function(window) {
-        if (window.location !== window.top.location) {
-          window.top.location = window.location;
-        }
-      })(this);
-      </script>
-  % endif
-
   <%
     jsi18n_path = "js/i18n/{language}/djangojs.js".format(language=LANGUAGE_CODE)
     ie11_fix_path = "js/ie11_find_array.js"
