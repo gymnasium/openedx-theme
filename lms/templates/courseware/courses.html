@@ -28,6 +28,10 @@
 </%block>
 % endif
 
+<%block name="headextra">
+	${gymcms.render('courses/meta')}
+</%block>
+
 <%block name="pagetitle">${_("Courses")}</%block>
 
 ${gymcms.render('courses')}
