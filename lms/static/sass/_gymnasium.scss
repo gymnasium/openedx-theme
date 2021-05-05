@@ -365,6 +365,12 @@ body.view-in-course {
   }
 }
 
+#primary-nav, #secondary-nav {
+  .row {
+    display: block; // fix nav overlap issue with discussion board
+  }
+}
+
 #primary-nav,
 #secondary-nav,
 .wrapper-footer {
