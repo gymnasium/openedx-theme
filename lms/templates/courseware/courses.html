@@ -30,89 +30,10 @@
 
 <%block name="pagetitle">${_("Courses")}</%block>
 
-
-<section class="find-courses" id="gym-catalog">
-
-  <header class="course-title">
-    <div class="container">
-      <h1>Catalog</h1>
-    </div>
-  </header>
-
-  <div class="container course-menu">
-    <div class="row">
-      <ul>
-        <li>
-          <a href="#full">Full Courses</a>
-        </li>
-        <li>
-          <a href="#gymshorts">Gym Shorts</a>
-        </li>
-        ${gymcms.render('take5/take5-nav')}
-      </ul>
-    </div>
-  </div>
-
-
-  <main id="main" class="container" aria-label="Content" tabindex="-1">  
-    <div class="catalog-content row">
-      <div class="col-md-9 course-overview">
-        <section class="courses-container">
-
-          ${gymcms.render('courses/full-courses-description')}
-          
-          <ul class="listing-courses">
-            <!-- course card underscore template is loaded here if course_discovery is set to true-->
-            
-            <!-- otherwise we use the following loop -->
-            %for course in courses:
-              <%include file="./catalog-course.html" args="course=course" />
-            %endfor
-          </ul>
-
-          ${gymcms.render('courses/gym-shorts-description')}
-          <ul class="listing-courses" id="gym-shorts-list">
-
-          </ul>
-
-          ${gymcms.render('take5-catalog-module')}
-        </section>
-      </div>
-      <div class="col-md-3 sidebar">
-        <%include file='../jobs/find_jobs.html' />
-
-        ## include sidebar content from cms
-        ${gymcms.render('upcoming-courses')}
-      </div>
-    </div> 
-  </main>
-</section>
+${gymcms.render('courses')}
 
 <script type="text/javascript">
   $(function(){
-    var checkForCourses = setInterval(function(){
-      if ($("li.course-item").length > 0)
-      {
-        clearInterval(checkForCourses);
-        sortCourses();
-      }
-    }, 25);
-
-    var sortCourses = function () {
-      //move courses whose IDs start with a 0 to the Gym Shorts list
-      $("li.course-item[data-course-id^='0']").appendTo('#gym-shorts-list');
-
-      //hide beta Courses
-      $("li.course-item").each(function(idx, elem){
-        var course_title = $(elem).find("h1")[0].innerHTML.toLowerCase().trim();
-
-        if (course_title.indexOf("beta") == 0)
-        {
-          $(elem).remove();
-        }
-      });
-    };
-
     Gymnasium.injectFBTrackingPixel();
   });
 </script>
