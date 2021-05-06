@@ -7,7 +7,7 @@
     # turn the partial url passed in into a fully GET-able url
     # based on which environment we're in
     if templateUrl:
-      ## Temporarily using `static` until we're ready to deploy to stating
+      ## Temporarily using `static` until we're ready to deploy to staging
       fullUrl = 'https://staging.thegymcms.com/static/' + templateUrl
 
       if edx_env == 'production':
