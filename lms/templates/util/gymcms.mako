@@ -8,7 +8,7 @@
     # based on which environment we're in
     if templateUrl:
       ## Temporarily using `static` until we're ready to deploy to staging
-      fullUrl = 'https://staging.thegymcms.com/static/' + templateUrl
+      fullUrl = 'https://staging.thegymcms.com/' + templateUrl
 
       if edx_env == 'production':
         fullUrl = 'https://thegymcms.com/' + templateUrl
@@ -19,7 +19,7 @@
         try:
           renderedContent = urllib2.urlopen(fullUrl).read()
         except:
-          renderedContent = '<div hidden>error loading ' + fullUrl + '</div>'
+          renderedContent = '<!-- Error loading: ' + fullUrl + ' -->'
   %>
 
   %if renderedContent:
