@@ -1,1 +1,2 @@
+<%namespace name="gymcms" file="../util/gymcms.mako" />
 ${gymcms.render('sitemap.xml')}
