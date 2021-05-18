@@ -50,7 +50,7 @@ cw_env = settings.APPSEMBLER_FEATURES['CLOUDWALL_SERVER_PATH']
   %>
 
   % if getattr(settings, 'CAPTURE_CONSOLE_LOG', False):
-    <script type="text/javascript">
+    <script>
       var oldOnError = window.onerror;
       window.localStorage.setItem('console_log_capture', JSON.stringify([]));
 
@@ -65,8 +65,8 @@ cw_env = settings.APPSEMBLER_FEATURES['CLOUDWALL_SERVER_PATH']
       }
     </script>
   % endif
-  <script type="text/javascript" src="${static.url(jsi18n_path)}"></script>
-  <script type="text/javascript" src="${static.url(ie11_fix_path)}"></script>
+  <script src="${static.url(jsi18n_path)}"></script>
+  <script src="${static.url(ie11_fix_path)}"></script>
 
   <link rel="icon" type="image/x-icon" href="${static.url(static.get_value('favicon_path', settings.FAVICON_PATH))}" />
 
@@ -84,9 +84,6 @@ cw_env = settings.APPSEMBLER_FEATURES['CLOUDWALL_SERVER_PATH']
     <%static:css group='${self.attr.main_css}'/>
   % endif
 
-  <!-- local css file for debug purposes -->
-  <link rel="stylesheet" href="http://localhost:8000/test.css" type="text/css" media="all" />
-
   % if disable_courseware_js or uses_pattern_library:
     <%static:js group='base_vendor'/>
     <%static:js group='base_application'/>
@@ -99,7 +96,7 @@ cw_env = settings.APPSEMBLER_FEATURES['CLOUDWALL_SERVER_PATH']
 
   % if uses_bootstrap:
     ## xss-lint: disable=mako-invalid-js-filter
-    <script type="text/javascript" src="${static.url('common/js/vendor/bootstrap.bundle.js')}"></script>
+    <script src="${static.url('common/js/vendor/bootstrap.bundle.js')}"></script>
   % endif
 
   <script>
@@ -110,7 +107,7 @@ cw_env = settings.APPSEMBLER_FEATURES['CLOUDWALL_SERVER_PATH']
       });
     }).call(this, require || RequireJS.require);
   </script>
-  <script type="text/javascript" src="${static.url("lms/js/require-config.js")}"></script>
+  <script src="${static.url("lms/js/require-config.js")}"></script>
   <%block name="js_overrides">
     ${render_require_js_path_overrides(settings.REQUIRE_JS_PATH_OVERRIDES) | n, decode.utf8}
   </%block>
@@ -136,7 +133,7 @@ cw_env = settings.APPSEMBLER_FEATURES['CLOUDWALL_SERVER_PATH']
 
 <% ga_acct = static.get_value("GOOGLE_ANALYTICS_ACCOUNT", settings.GOOGLE_ANALYTICS_ACCOUNT) %>
 % if ga_acct:
-    <script type="text/javascript">
+    <script>
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', '${ga_acct | n, js_escaped_string}']);
     _gaq.push(['_trackPageview']);
@@ -151,7 +148,7 @@ cw_env = settings.APPSEMBLER_FEATURES['CLOUDWALL_SERVER_PATH']
 
 <% branch_key = static.get_value("BRANCH_IO_KEY", settings.BRANCH_IO_KEY) %>
 % if branch_key and not is_from_mobile_app:
-    <script type="text/javascript">
+    <script>
         (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode banner closeBanner creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode".split(" "), 0);
         branch.init('${branch_key | n, js_escaped_string}');
     </script>
@@ -193,9 +190,9 @@ cw_env = settings.APPSEMBLER_FEATURES['CLOUDWALL_SERVER_PATH']
   <%block name="js_extra"/>
 
   <%include file="widgets/segment-io-footer.html" />
-  <script type="text/javascript" src="${static.url('js/vendor/noreferrer.js')}" charset="utf-8"></script>
-  <script type="text/javascript" src="${static.url('js/utils/navigation.js')}" charset="utf-8"></script>
-  <script type="text/javascript" src="${static.url('js/header/header.js')}"></script>
+  <script src="${static.url('js/vendor/noreferrer.js')}" charset="utf-8"></script>
+  <script src="${static.url('js/utils/navigation.js')}" charset="utf-8"></script>
+  <script src="${static.url('js/header/header.js')}"></script>
   <%static:optional_include_mako file="body-extra.html" is_theming_enabled="True" />
 </body>
 </html>
