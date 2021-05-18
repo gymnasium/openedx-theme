@@ -24,7 +24,7 @@ URL of the webpage where the tag is expected to be placed: http://gymnasium.aque
 This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
 Creation Date: 12/02/2015
 -->
-<script type="text/javascript">
+<script>
 var axel = Math.random() + "";
 var a = axel * 10000000000000;
 document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5255816;type=count0;cat=gymna00;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
@@ -116,7 +116,7 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
 
 
 <%block name="js_extra">
-  <script type="text/javascript">
+  <script>
       $(window).on('load',function() {
         if(getParameterByName('next')) {
               $('#login').trigger("click");

@@ -60,8 +60,8 @@ from openedx.features.course_experience import course_home_page_title, COURSE_OU
     <%static:css group='style-student-notes'/>
   % endif
 
-  <script type="text/javascript" src="${static.url('js/jquery.autocomplete.js')}"></script>
-  <script type="text/javascript" src="${static.url('js/src/tooltip_manager.js')}"></script>
+  <script src="${static.url('js/jquery.autocomplete.js')}"></script>
+  <script src="${static.url('js/src/tooltip_manager.js')}"></script>
 
   <link href="${static.url('css/vendor/jquery.autocomplete.css')}" rel="stylesheet" type="text/css">
 
@@ -70,11 +70,11 @@ from openedx.features.course_experience import course_home_page_title, COURSE_OU
 </%block>
 
 <%block name="js_extra">
-  <script type="text/javascript" src="${static.url('common/js/vendor/jquery.scrollTo.js')}"></script>
-  <script type="text/javascript" src="${static.url('js/vendor/flot/jquery.flot.js')}"></script>
+  <script src="${static.url('common/js/vendor/jquery.scrollTo.js')}"></script>
+  <script src="${static.url('js/vendor/flot/jquery.flot.js')}"></script>
 
   ## codemirror
-  <script type="text/javascript" src="${static.url('js/vendor/codemirror-compressed.js')}"></script>
+  <script src="${static.url('js/vendor/codemirror-compressed.js')}"></script>
 
   <%static:js group='courseware'/>
   <%include file="/mathjax_include.html" args="disable_fast_preview=True"/>
@@ -97,13 +97,13 @@ from openedx.features.course_experience import course_home_page_title, COURSE_OU
   	<%include file="xqa_interface.html"/>
   % endif
 
-  <script type="text/javascript">
+  <script>
     var $$course_id = "${course.id | n, js_escaped_string}";
   </script>
 
 
   % if not request.user.is_authenticated:
-      <script type="text/javascript">
+      <script>
         // Disable discussions
         $('.xblock-student_view-discussion button.discussion-show').attr('disabled', true);
 
@@ -171,7 +171,7 @@ ${HTML(fragment.foot_html())}
                         current_score=int(round(entrance_exam_current_score * 100))
                     )}
                 </p>
-                <script type="text/javascript">
+                <script>
                 $(document).ajaxSuccess(function(event, xhr, settings) {
                     if (settings.url.indexOf("xmodule_handler/problem_check") > -1) {
                         var data = JSON.parse(xhr.responseText);
