@@ -4,4 +4,10 @@
 
 <%block name="pagetitle">${_("Privacy Policy")}</%block>
 
+<%block name="headextra">
+  <meta property="og:url" content="https://thegymnasium.com/privacy" />
+  <meta property="og:title" content="Aquent Gymnasium" />
+  <meta property="og:image" content="https://thegymnasium.com${static.url('images/social-share-400.png')}" />
+</%block>
+
 ${gymcms.render('privacy-policy')}
