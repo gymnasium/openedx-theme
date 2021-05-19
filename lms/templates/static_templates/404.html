@@ -1,0 +1,24 @@
+<%! from django.utils.translation import ugettext as _ %>
+<%namespace name='static' file='/static_content.html'/>
+<%inherit file="../main.html" />
+<%namespace name="gymcms" file="../util/gymcms.mako" />
+
+<%block name="pagetitle">${_("Page Not Found")}</%block>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="white-panel">
+        <div class="row">
+          <div class="col-md-9">
+            <h1>404 - Not Found</h1>
+            <p>…or maybe it never even existed in the first place…? Go back to the <a href="/">homepage</a> or let us know about any pages that may have been moved at <a href="mailto:help@thegymnasium.com">help@thegymnasium.com</a>.</p>
+          </div>
+          <div class="col-md-3">
+            ${gymcms.render('partials/sidebar-generic')}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

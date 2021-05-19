@@ -1,18 +1,18 @@
 <%! from django.utils.translation import ugettext as _ %>
+<%namespace name='static' file='/static_content.html'/>
 <%inherit file="../main.html" />
 <%namespace name="gymcms" file="../util/gymcms.mako" />
 
 <%block name="pagetitle">Jobs</%block>
 
-
 <%block name="headextra">
-  ${gymcms.render('jobs/meta/jobs-meta/')}
+  ${gymcms.render('jobs/meta')}
 </%block>
 
 <div class="container">
 	<div class="row">
     <div class="col-md-12">
-      ${gymcms.render('jobs-top')}
+      ${gymcms.render('partials/jobs-top')}
     </div>
   </div>
 
@@ -35,7 +35,7 @@
 
   <div class="row">
     <div class="col-md-12">
-      ${gymcms.render('jobs-bottom')}
+      ${gymcms.render('partials/jobs-bottom')}
     </div>
 	</div>
 </div>

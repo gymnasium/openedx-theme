@@ -5,13 +5,7 @@
 <%block name="pagetitle">${_("Design Systems")}</%block>
 
 <%block name="headextra">
-  ${gymcms.render('/hub-pages/design-systems/meta/')}
+  ${gymcms.render('design-systems/meta')}
 </%block>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 ">
-      ${gymcms.render('design-systems')}
-    </div>
-  </div>
-</div>
+${gymcms.render('design-systems')}

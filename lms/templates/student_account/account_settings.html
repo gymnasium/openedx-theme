@@ -95,7 +95,7 @@ from webpack_loader.templatetags.webpack_loader import render_bundle
     );
 </%static:require_module>
 
-<script type="text/javascript">
+<script>
      window.auth = ${ auth | n, dump_js_escaped_json };
      window.isActive = ${ user.is_active | n, dump_js_escaped_json };
 </script>

@@ -5,13 +5,13 @@
 <%block name="pagetitle">${_("Web Development")}</%block>
 
 <%block name="headextra">
-  ${gymcms.render('/hub-pages/meta/web-development-collection-meta/')}
+  ${gymcms.render('web-development-collection/meta')}
 </%block>
 
 <div class="container">
 	<div class="row">
     <div class="col-md-12">
-      ${gymcms.render('web-development-top')}
+      ${gymcms.render('partials/web-development-top')}
     </div>
   </div>
 
@@ -34,7 +34,7 @@
 
   <div class="row">
     <div class="col-md-12">
-      ${gymcms.render('web-development-bottom')}
+      ${gymcms.render('partials/web-development-bottom')}
     </div>
 	</div>
 </div>
