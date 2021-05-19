@@ -5,13 +5,7 @@
 <%block name="pagetitle">${_("Modern Web Design")}</%block>
 
 <%block name="headextra">
-	##${gymcms.render('courses/full/gym-107/meta')}
+  ${gymcms.render('courses/full/gym-107/meta')}
 </%block>
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-12 ">
-      ##${gymcms.render('courses/full/gym-107')}
-		</div>
-	</div>
-</div>
+${gymcms.render('courses/full/gym-107')}

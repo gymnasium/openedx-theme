@@ -5,13 +5,7 @@
 <%block name="pagetitle">${_("JavaScript Foundations")}</%block>
 
 <%block name="headextra">
-	##${gymcms.render('courses/full/gym-104/meta')}
+  ${gymcms.render('courses/full/gym-104/meta')}
 </%block>
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-12 ">
-      ##${gymcms.render('courses/full/gym-104')}
-		</div>
-	</div>
-</div>
+${gymcms.render('courses/full/gym-104')}
