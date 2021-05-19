@@ -1,9 +1,17 @@
 <%! from django.utils.translation import ugettext as _ %>
+<%namespace name='static' file='/static_content.html'/>
 <%inherit file="../main.html" />
 <%namespace name="gymcms" file="../util/gymcms.mako" />
 
 <%block name="pagetitle">${_("FAQ")}</%block>
-<div class="container ">
+
+<%block name="headextra">
+  <meta property="og:url" content="https://thegymnasium.com/faq" />
+  <meta property="og:title" content="Aquent Gymnasium" />
+  <meta property="og:image" content="https://thegymnasium.com${static.url('images/social-share-400.png')}" />
+</%block>
+
+<div class="container">
 	<div class="row">
 		<div class="col-md-12 ">
       <div class="white-panel">

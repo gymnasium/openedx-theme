@@ -7,10 +7,11 @@
     # turn the partial url passed in into a fully GET-able url
     # based on which environment we're in
     if templateUrl:
-      fullUrl = 'https://staging.thegymcms.com/static/' + templateUrl
+      ## Temporarily using `static` until we're ready to deploy to staging
+      fullUrl = 'https://staging.thegymcms.com/' + templateUrl
 
       if edx_env == 'production':
-        fullUrl = 'https://thegymcms.com/static/' + templateUrl
+        fullUrl = 'https://thegymcms.com/' + templateUrl
 
       # provided the last step worked, use a try block to pull that data from the web
       # render a hidden div if it fails, so it doesn't crash the rest of the page.
@@ -18,7 +19,7 @@
         try:
           renderedContent = urllib2.urlopen(fullUrl).read()
         except:
-          renderedContent = '<div hidden>error loading ' + fullUrl + '</div>'
+          renderedContent = '<!-- Error loading: ' + fullUrl + ' -->'
   %>
 
   %if renderedContent:

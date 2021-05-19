@@ -1,0 +1,11 @@
+<%! from django.utils.translation import ugettext as _ %>
+<%inherit file="../../../main.html" />
+<%namespace name="gymcms" file="../../../util/gymcms.mako" />
+
+<%block name="pagetitle">${_("Conducting Customer Interviews")}</%block>
+
+<%block name="headextra">
+  ${gymcms.render('courses/take5/gym-5007/meta')}
+</%block>
+
+${gymcms.render('courses/take5/GYM-5007')}
