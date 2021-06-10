@@ -176,14 +176,14 @@ cw_env = settings.APPSEMBLER_FEATURES['CLOUDWALL_SERVER_PATH']
     <div class="content-wrapper main-container" id="content">
       ${self.body()}
       <%block name="bodyextra"/>
-    </div>
+    </div><!-- #content.content-wrapper.main-container -->
 
     % if not disable_footer:
         <%include file="${static.get_template_path('footer.html')}" />
     % endif
 
 % if not disable_window_wrap:
-  </div>
+  </div><!-- .window-wrap -->
 % endif
 
   <%block name="footer_extra"/>
