@@ -188,6 +188,8 @@ cw_env = settings.APPSEMBLER_FEATURES['CLOUDWALL_SERVER_PATH']
   <%block name="footer_extra"/>
   <%block name="js_extra"/>
 
+  ${gymcms.render('partials/theme-bottom')}
+
   <%include file="widgets/segment-io-footer.html" />
   <script src="${static.url('js/vendor/noreferrer.js')}"></script>
   <script src="${static.url('js/utils/navigation.js')}"></script>
