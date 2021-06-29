@@ -133,7 +133,7 @@ Gymnasium.prototype.RecordCloudwallRecord = function (jsonData, callback) {
   jsonData.status = "Talent";
   jsonData.referer = "thegymnasium.com";
 
-  $.ajax("https://aquent.com/application/gymnasium-lead.htm", {
+  $.ajax("https://assets.aquent.com/apps/gym/lead-processor", {
     contentType: "application/json",
     dataType: "jsonp",
     data: jsonData,
