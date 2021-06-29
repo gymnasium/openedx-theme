@@ -5,36 +5,7 @@
 <%block name="pagetitle">${_("Web Development")}</%block>
 
 <%block name="headextra">
-  ${gymcms.render('web-development-collection/meta')}
+  ${gymcms.render('web-development/meta')}
 </%block>
 
-<div class="container">
-	<div class="row">
-    <div class="col-md-12">
-      ${gymcms.render('partials/web-development-top')}
-    </div>
-  </div>
-
-  <br /><br />
-  <section id="jobs">
-    <div class="section-content">
-      <div class="row">
-        <div class="col-md-12">
-          <header>
-            <h2 class="all-caps">Web Development</h2>
-            <hr />
-          </header>
-        </div>
-        <div class="col-md-12">
-          <%include file='../jobs/job_table.html' />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="row">
-    <div class="col-md-12">
-      ${gymcms.render('partials/web-development-bottom')}
-    </div>
-	</div>
-</div>
+${gymcms.render('web-development')}

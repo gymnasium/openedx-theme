@@ -6,7 +6,6 @@
 <%namespace name='static' file='static_content.html'/>
 <%namespace name='gymcms' file='./util/gymcms.mako' />
 
-
 <%block name="pagetitle">${_("Free online courses on design and web development")}</%block>
 
 <%block name="headextra">
@@ -20,7 +19,7 @@
 <!--
 Start of DoubleClick Floodlight Tag: Please do not remove
 Activity name of this tag: Gymnasium HP
-URL of the webpage where the tag is expected to be placed: http://gymnasium.aquent.com/
+URL of the webpage where the tag is expected to be placed: https://gymnasium.aquent.com/
 This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
 Creation Date: 12/02/2015
 -->
@@ -34,114 +33,21 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
 </noscript>
 <!-- End of DoubleClick Floodlight Tag: Please do not remove -->
 
-
-<section class="home">
-  ## Show a special hero to authenticated users
-  % if user.is_authenticated():
-    ${gymcms.render('home/hero-auth')}
-  % else:
-    ${gymcms.render('home/hero')}
-  %endif
-
-  <section class="container-fluid subsection">
-    <div class="container">
-      ${gymcms.render('home/how-it-works')}
-
-      <div class="row">
-        <section class="highlighted-courses col-md-12">
-
-          <header class="text-center header-tab">
-            <h1>Featured Courses</h1>
-          </header>
-
-          <section class="courses row">
-            ${gymcms.render('home/featured-courses')}
-          </section>
-        </section>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="container-fluid">
-    <div class="container" id="get-work">
-      <header class="header-tab text-center">
-        <h1>Find Work</h1>
-      </header>
-
-      <div class="col-md-8 col-md-offset-2">
-        <%include file='jobs/find_jobs.html' />
-      </div>
-    </div>
-  </section>
-
-  <section class="container-fluid subsection" id="as-seen-in">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2 class="text-center">As seen in:</h2>
-        </div>
-      </div>
-
-      <div class="row list-inline text-center">
-        <div class="col-xs-12 col-sm-offset-1 col-sm-2">
-          <a href="http://www.fastcompany.com/3024661/innovation-agents/hacking-hack-schools-to-make-them-work" target="_blank">
-            <img src="${static.url('images/as-seen-in/fastco.png')}" alt="Fast Company" class="img-responsive center-block" />
-          </a>
-        </div>
-        <div class="col-xs-12 col-sm-2">
-          <a href="http://www.forbes.com/sites/sap/2015/02/23/hate-formal-career-training-go-guerrilla-on-it/" target="_blank">
-            <img src="${static.url('images/as-seen-in/forbes.png')}" alt="Forbes" class="img-responsive center-block" />
-          </a>
-        </div>
-        <div class="col-xs-12 col-sm-2">
-          <a href="http://www.inc.com/issie-lapowsky/how-moocs-training-tomorrow-workforce.html" target="_blank">
-            <img src="${static.url('images/as-seen-in/inc.png')}" alt="Inc." class="img-responsive  center-block" />
-          </a>
-        </div>
-        <div class="col-xs-12 col-sm-2">
-          <a href="http://www.lemonde.fr/emploi/article/2014/06/30/les-firmes-americaines-recrutent-dans-les-mooc_4448062_1698637.html" target="_blank">
-            <img src="${static.url('images/as-seen-in/le-monde-fr.png')}" alt="Le Monde" class="img-responsive center-block" />
-          </a>
-        </div>
-        <div class="col-xs-12 col-sm-2">
-          <a href="http://www.foxbusiness.com/personal-finance/2014/03/07/training-workers-netflix-way-moocs-in-job-industry/" target="_blank">
-            <img src="${static.url('images/as-seen-in/fox-business.png')}" alt="Fox Business" class="img-responsive center-block" />
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-</section>
-
+## Show a special page to authenticated users
+% if user.is_authenticated():
+  ${gymcms.render('home/index-auth')}
+% else:
+  ${gymcms.render('home/index')}
+%endif
 
 <%block name="js_extra">
   <script>
-      $(window).on('load',function() {
-        if(getParameterByName('next')) {
-              $('#login').trigger("click");
-        }
+    $(window).on('load',function() {
+      if(getParameterByName('next')) {
+        $('#login').trigger("click");
+      }
 
-        Gymnasium.injectFBTrackingPixel();
-
-        //load jobs into the jobs page
-        Gymnasium.LoadJobsForMarket();
-
-        $('#view-jobs-button').click(function(event){
-          event.preventDefault();
-          var market = $('#market').val();
-          var market_label = $('#market option:selected').text();
-
-          // update the "View all jobs in [market]" url to point to this market
-          var viewJobsLinkURL = 'http://aquent.com/find-work/?utm_source=gymnasium&utm_medium=web&utm_campaign=homepagejobs&utm_content=viewall&l=' + market;
-          var viewJobsLink = $('#view-jobs-link')[0];
-          viewJobsLink.href = viewJobsLinkURL;
-
-          Gymnasium.LoadJobsForMarket(market);
-          $('#find-jobs-market-name, .job-location').text(market_label);
-
-
-        });
-      })
+      Gymnasium.injectFBTrackingPixel();
+    })
   </script>
 </%block>

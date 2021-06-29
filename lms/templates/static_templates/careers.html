@@ -3,19 +3,5 @@
 <%namespace name="gymcms" file="../util/gymcms.mako" />
 
 <%block name="pagetitle">${_("Career Center")}</%block>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="white-panel">
-        <div class="row">
-          <div class="col-md-9">
-            ${gymcms.render('jobs')}
-          </div>
-          <div class="col-md-3">
-            <%include file="theme-upcoming-content.html" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+${gymcms.render('jobs')}

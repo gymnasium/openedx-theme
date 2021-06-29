@@ -10,7 +10,6 @@ from openedx.core.lib.courses import course_image_url
 
 from openedx.core.djangoapps.self_paced.models import SelfPacedConfiguration
 from openedx.core.djangolib.markup import HTML, Text
-
 %>
 
 <%block name="pagetitle">${_("{course_name}").format(course_name=course.display_name_with_default)}</%block>
@@ -21,7 +20,7 @@ from openedx.core.djangolib.markup import HTML, Text
   ## OG (Open Graph) title and description added below to give social media info to display
   ## (https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content#tags)
   <meta property="og:title" content="${course.display_name_with_default_escaped} - Gymnasium" />
-  <meta property="og:image" content="http://gymnasium.github.io/static-site-content/artwork/production/courses/gym-${course.display_number_with_default | h}-social.png" />
+  <meta property="og:image" content="https://gymnasium.github.io/static-site-content/artwork/production/courses/gym-${course.display_number_with_default | h}-social.png" />
 </%block>
 
 % if show_enroll_banner:

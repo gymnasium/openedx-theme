@@ -6,36 +6,7 @@
 
 
 <%block name="headextra">
-  ${gymcms.render('ux-design-collection/meta')}
+  ${gymcms.render('ux-design/meta')}
 </%block>
 
-<div class="container">
-	<div class="row">
-    <div class="col-md-12">
-      ${gymcms.render('partials/ux-design-top')}
-    </div>
-  </div>
-
-  <br /><br />
-  <section id="jobs">
-    <div class="section-content">
-      <div class="row">
-        <div class="col-md-12">
-          <header>
-            <h2 class="all-caps">UX Jobs</h2>
-            <hr />
-          </header>
-        </div>
-        <div class="col-md-12">
-          <%include file='../jobs/job_table.html' />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="row">
-    <div class="col-md-12">
-      ${gymcms.render('partials/ux-design-bottom')}
-    </div>
-	</div>
-</div>
+${gymcms.render('ux-design')}
