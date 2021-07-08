@@ -11,6 +11,7 @@ from openedx.core.djangolib.markup import HTML
 </h2>
 <div class="problem-progress" id="${ id }-problem-progress"></div>
 <div class="hidden">
+  <span id="score">${score}</span>
   <span id="attempts-used">${attempts_used}</span> of
   <span id="attempts-allowed">${attempts_allowed}</span> attempts
 </div>
@@ -136,150 +137,153 @@ ${gymcms.render('partials/final-exam-modal-top')}
 ${gymcms.render('final-exam-modal')}
 
 <script>
-  $(function(){
-    Prism.highlightAll();
-  });
-
-  $(function(){
-    let progress_status_check; // this is the interval we'll set to track status on this problem
-
-    // this helper function gets a ton of information about the score for this particular problem
-    // based on information embedded on this page
-    var processScore = () => {
-      const COURSE_TYPES = {
-        FULL_COURSE: 'FULL_COURSE',
-        GYM_SHORT: 'GYM_SHORT',
-      };
-
-      const COURSE_ID = parseInt($('#__course_number__').text(), 10);
-      const COURSE_TYPE = COURSE_ID >= 100 ? COURSE_TYPES.FULL_COURSE : COURSE_TYPES.GYM_SHORT;
-      let PASSING_SCORE = 85;
-
-      if (COURSE_TYPE === COURSE_TYPES.FULL_COURSE) {
-        // full courses have a passing grade of 85
-        PASSING_SCORE = 85;
-      } else {
-        // gym shorts have a passing grade of 80
-        PASSING_SCORE = 80;
+  if (typeof jQuery !== 'undefined' && jQuery !== null) {
+    $(function(){
+      if (typeof Prism !== 'undefined' && Prism !== null) {
+        Prism.highlightAll();
       }
+      
+      let progress_status_check; // this is the interval we'll set to track status on this problem
 
-      // look into the div with a class of .problem-progress for our score
-      // it contains a string that looks like:
-      //    80/100 Points (Graded)
-      // so we use .split(' ') to separate the fraction from the rest
-      var [fraction] = $('.problem-progress').text().split(' ');
+      // this helper function gets a ton of information about the score for this particular problem
+      // based on information embedded on this page
+      var processScore = () => {
+        const COURSE_TYPES = {
+          FULL_COURSE: 'FULL_COURSE',
+          GYM_SHORT: 'GYM_SHORT',
+        };
 
-      // next we split the fraction in half by "/" to get the numerator and denomenator
-      var [numerator, denomenator] = fraction.split('/');
+        const COURSE_ID = parseInt($('#__course_number__').text(), 10);
+        const COURSE_TYPE = COURSE_ID >= 100 ? COURSE_TYPES.FULL_COURSE : COURSE_TYPES.GYM_SHORT;
+        let PASSING_SCORE = 85;
 
-      var attempts_used = Number($('#attempts-used').text());
-      var attempts_total = Number($('#attempts-allowed').text());
-
-      var correct = Number(numerator);
-      var outOf = Number(denomenator);
-
-      return {
-        courseType: COURSE_TYPE,
-        passingScore: PASSING_SCORE,
-        score: Number(numerator / denomenator * 100),
-        correct,
-        outOf,
-        attempts_used,
-        attempts_total,
-        attempts_remaining: attempts_total - attempts_used,
-      };
-    };
-
-    var show_problem_progress = function(){
-      let {
-        attempts_used,
-        attempts_total,
-        attempts_remaining,
-        correct,
-        courseType,
-        outOf,
-        score,
-        passingScore,
-      } = processScore();
-
-      if (!correct || !outOf) {
-        return
-      }
-
-      $('.exam-score-container').text(score);
-
-
-      //we have a score
-      if (score >= passingScore) {
-        //we passed! show passing div for the type of course they took
-        $(".passed_modal." + courseType).removeClass('hidden');
-        $(".try_again_modal").addClass('hidden');
-        $(".failed_modal").addClass('hidden');
-
-        //generate the certificate through the API
-        $.ajax({
-          type:     'POST',
-          url:      '/accredible/request_certificate',
-          async:     false,
-          data:     {'course_id': $$course_id},
-          success:  function(data) {
-          }
-        });
-      } else {
-        //we failed :( see if we have another attempt
-        if (attempts_remaining > 0) {
-          $(".passed_modal").addClass('hidden');
-          $(".try_again_modal." + courseType).removeClass('hidden');
-          $(".failed_modal").addClass('hidden');
+        if (COURSE_TYPE === COURSE_TYPES.FULL_COURSE) {
+          // full courses have a passing grade of 85
+          PASSING_SCORE = 85;
         } else {
-          $(".passed_modal").addClass('hidden');
+          // gym shorts have a passing grade of 80
+          PASSING_SCORE = 80;
+        }
+
+        // look into the div with a class of .problem-progress for our score
+        // it contains a string that looks like:
+        //    80/100 Points (Graded)
+        // so we use .split(' ') to separate the fraction from the rest
+        var [fraction] = $('.problem-progress').text().split(' ');
+
+        // next we split the fraction in half by "/" to get the numerator and denomenator
+        var [numerator, denomenator] = fraction.split('/');
+
+        var attempts_used = Number($('#attempts-used').text());
+        var attempts_total = Number($('#attempts-allowed').text());
+
+        var correct = Number(numerator);
+        var outOf = Number(denomenator);
+
+        return {
+          courseType: COURSE_TYPE,
+          passingScore: PASSING_SCORE,
+          score: Number(numerator / denomenator * 100),
+          correct,
+          outOf,
+          attempts_used,
+          attempts_total,
+          attempts_remaining: attempts_total - attempts_used,
+        };
+      };
+
+      var show_problem_progress = function(){
+        let {
+          attempts_used,
+          attempts_total,
+          attempts_remaining,
+          correct,
+          courseType,
+          outOf,
+          score,
+          passingScore,
+        } = processScore();
+
+        if (!correct || !outOf) {
+          return
+        }
+
+        $('.exam-score-container').text(score);
+
+
+        //we have a score
+        if (score >= passingScore) {
+          //we passed! show passing div for the type of course they took
+          $(".passed_modal." + courseType).removeClass('hidden');
           $(".try_again_modal").addClass('hidden');
-          $(".failed_modal").removeClass('hidden');
+          $(".failed_modal").addClass('hidden');
+
+          //generate the certificate through the API
+          $.ajax({
+            type:     'POST',
+            url:      '/accredible/request_certificate',
+            async:     false,
+            data:     {'course_id': $$course_id},
+            success:  function(data) {
+            }
+          });
+        } else {
+          //we failed :( see if we have another attempt
+          if (attempts_remaining > 0) {
+            $(".passed_modal").addClass('hidden');
+            $(".try_again_modal." + courseType).removeClass('hidden');
+            $(".failed_modal").addClass('hidden');
+          } else {
+            $(".passed_modal").addClass('hidden');
+            $(".try_again_modal").addClass('hidden');
+            $(".failed_modal").removeClass('hidden');
+          }
         }
       }
-    }
 
-    function check_status(){
-      const {
-        attempts_used,
-        correct,
-      } = processScore();
+      function check_status(){
+        const {
+          attempts_used,
+          correct,
+        } = processScore();
 
-      if (attempts_used > 0 || correct > 0) {
-        clearInterval(progress_status_check);
-        show_problem_progress();
-      }
-    }
-
-
-    if ($('.problem-header').text().trim() === "Final Exam") {
-      let observer = new MutationObserver(mutationRecords => {
-        // reset interval if we detect a grade change
-        console.log(mutationRecords);
-        if (typeof progress_status_check !== 'undefined'){
+        if (attempts_used > 0 || correct > 0) {
           clearInterval(progress_status_check);
+          show_problem_progress();
         }
-        // set interval on initial page load
-        progress_status_check = setInterval(check_status, 200);
+      }
+
+
+      if ($('.problem-header').text().trim() === "Final Exam") {
+        let observer = new MutationObserver(mutationRecords => {
+          // reset interval if we detect a grade change
+          console.log(mutationRecords);
+          if (typeof progress_status_check !== 'undefined'){
+            clearInterval(progress_status_check);
+          }
+          // set interval on initial page load
+          progress_status_check = setInterval(check_status, 200);
+        });
+
+        observer.observe(
+          document.getElementById('${ id }-problem-progress'),
+          {
+            characterData: false,
+            attributes: false,
+            childList: true,
+            subtree: false
+          },
+        );
+      } else {
+        return;
+      }
+    
+      // scroll to show the results message
+      $('#check-button').click(function() {
+        $('#course_passed_message')[0].scrollIntoView();
       });
 
-      observer.observe(
-        document.getElementById('${ id }-problem-progress'),
-        {
-          characterData: false,
-          attributes: false,
-          childList: true,
-          subtree: false
-        },
-      );
-    } else {
-      return;
-    }
-  
-    // scroll to show the results message
-    $('#check-button').click(function() {
-      $('#course_passed_message')[0].scrollIntoView();
-    });
+    });  
+  }
 
-  });
 </script>

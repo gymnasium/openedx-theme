@@ -60,8 +60,8 @@ from openedx.features.course_experience import course_home_page_title, COURSE_OU
     <%static:css group='style-student-notes'/>
   % endif
 
-  <script src="${static.url('js/jquery.autocomplete.js')}"></script>
-  <script src="${static.url('js/src/tooltip_manager.js')}"></script>
+  <script defer src="${static.url('js/jquery.autocomplete.js')}"></script>
+  <script defer src="${static.url('js/src/tooltip_manager.js')}"></script>
 
   <link href="${static.url('css/vendor/jquery.autocomplete.css')}" rel="stylesheet" type="text/css">
 
@@ -70,22 +70,24 @@ from openedx.features.course_experience import course_home_page_title, COURSE_OU
 </%block>
 
 <%block name="js_extra">
-  <script src="${static.url('common/js/vendor/jquery.scrollTo.js')}"></script>
-  <script src="${static.url('js/vendor/flot/jquery.flot.js')}"></script>
+  <script defer src="${static.url('common/js/vendor/jquery.scrollTo.js')}"></script>
+  <script defer src="${static.url('js/vendor/flot/jquery.flot.js')}"></script>
 
   ## codemirror
-  <script src="${static.url('js/vendor/codemirror-compressed.js')}"></script>
+  <script defer src="${static.url('js/vendor/codemirror-compressed.js')}"></script>
 
   <%static:js group='courseware'/>
   <%include file="/mathjax_include.html" args="disable_fast_preview=True"/>
   
   % if settings.FEATURES.get('ENABLE_COURSEWARE_SEARCH'):
     <%static:require_module module_name="course_search/js/course_search_factory" class_name="CourseSearchFactory">
+      if (typeof jQuery !== 'undefined' && jQuery !== null) {
         var courseId = $('.courseware-results').data('courseId');
         CourseSearchFactory({
             courseId: courseId,
             searchHeader: $('.search-bar')
         });
+      }
     </%static:require_module>
   % endif
 
@@ -103,17 +105,18 @@ from openedx.features.course_experience import course_home_page_title, COURSE_OU
 
 
   % if not request.user.is_authenticated:
-      <script>
-        // Disable discussions
-        $('.xblock-student_view-discussion button.discussion-show').attr('disabled', true);
+  <script>
+  if (typeof jQuery !== 'undefined' && jQuery !== null) {
+    // Disable discussions
+    $('.xblock-student_view-discussion button.discussion-show').attr('disabled', true);
 
-        // Insert message informing user discussions are only available to logged in users.
-        $('.discussion-module')
-      </script>
+    // Insert message informing user discussions are only available to logged in users.
+    $('.discussion-module')
+  }
+  </script>
   % endif
 
 ${HTML(fragment.foot_html())}
-
 
 </%block>
 
@@ -172,14 +175,16 @@ ${HTML(fragment.foot_html())}
                     )}
                 </p>
                 <script>
-                $(document).ajaxSuccess(function(event, xhr, settings) {
+                if (typeof jQuery !== 'undefined' && jQuery !== null) {
+                  $(document).ajaxSuccess(function(event, xhr, settings) {
                     if (settings.url.indexOf("xmodule_handler/problem_check") > -1) {
-                        var data = JSON.parse(xhr.responseText);
-                        if (data.entrance_exam_passed){
-                            location.reload();
-                        }
+                      var data = JSON.parse(xhr.responseText);
+                      if (data.entrance_exam_passed){
+                        location.reload();
+                      }
                     }
-                });
+                  });
+                }
                 </script>
                 % else:
                   <p class="sequential-status-message">

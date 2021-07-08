@@ -27,8 +27,8 @@ from edxmako.shortcuts import marketing_link
 </%block>
 
 <%block name="js_extra">
-
-  <script>
+<script>
+  if (typeof jQuery !== 'undefined' && jQuery !== null) {
     (function() {
       $(".register").click(function(event) {
         $("#class_enroll_form").submit();
@@ -107,9 +107,10 @@ from edxmako.shortcuts import marketing_link
     $(function(){
       Gymnasium.setBackgroundColorOfElementFromImage('.hero-banner', '#course-image');
     });
-  </script>
+  }
+</script>
 
-  <script src="${static.url('js/course_info.js')}"></script>
+<script defer src="${static.url('js/course_info.js')}"></script>
 </%block>
 
 <%block name="pagetitle">${course.display_name_with_default_escaped}</%block>
@@ -173,7 +174,6 @@ from edxmako.shortcuts import marketing_link
     </article>
   </div>
 </main>
-
 
 ## Need to put this hidden form on the page so that the registration button works.
 ## Since it's no harm to display a hidden form, we display it with the most permissive conditional
