@@ -37,13 +37,11 @@
 ${gymcms.render('courses')}
 
 <script>
-if (typeof jQuery !== 'undefined' && jQuery !== null) {
-  $(function(){
-    if (typeof Gymnasium !== 'undefined' && Gymnasium !== null) {
-      Gymnasium.injectFBTrackingPixel();
-    }
-  });
-}
+document.addEventListener('DOMContentLoaded', (event) => {
+  if (typeof Gymnasium !== 'undefined' && Gymnasium !== null) {
+    Gymnasium.injectFBTrackingPixel();
+  }
+});
 </script>
 
 

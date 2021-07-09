@@ -39,17 +39,15 @@ from student.models import CourseEnrollment
 </%block>
 
 <%block name="js_extra">
-  <script defer src="${static.url('js/commerce/credit.js')}"></script>
-  <%static:js defer group='dashboard'/>
+  <script src="${static.url('js/commerce/credit.js')}"></script>
+  <%static:js group='dashboard'/>
   <script>
   document.addEventListener('DOMContentLoaded', (event) => {
-    if (typeof edx !== 'undefined' && edx !== null) {
-      edx.dashboard.legacy.init({
-        dashboard: "${reverse('dashboard') | n, js_escaped_string}",
-        signInUser: "${reverse('signin_user') | n, js_escaped_string}",
-        changeEmailSettings: "${reverse('change_email_settings') | n, js_escaped_string}"
-      });
-    }
+    edx.dashboard.legacy.init({
+      dashboard: "${reverse('dashboard') | n, js_escaped_string}",
+      signInUser: "${reverse('signin_user') | n, js_escaped_string}",
+      changeEmailSettings: "${reverse('change_email_settings') | n, js_escaped_string}"
+    });
 
     //hide "BETA" from courses that have it in their title,
     //and add .beta class to corresponsing <li> itm
@@ -74,7 +72,7 @@ from student.models import CourseEnrollment
       }
     });
     
-    $('#unenroll-button').click(function(){
+    $('#unenroll-button').on('click', function(){
       var courseNum = $('#unenroll_course_number').text();
       var eventName = 'gym' + courseNum + '-unenroll';
       var metadata = {
@@ -164,7 +162,6 @@ from student.models import CourseEnrollment
     %endif
 
 </div>
-
 
 <main id="main" aria-label="Content" tabindex="-1" class="content-wrapper">
   <div class="container">

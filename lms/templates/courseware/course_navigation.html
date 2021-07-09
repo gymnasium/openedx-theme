@@ -66,11 +66,11 @@ if course is not None:
 %endif
 
 <script>
-  if (typeof jQuery !== 'undefined' && jQuery !== null) {
-    $(function(){
-      Gymnasium.setBackgroundColorOfElementFromImage('#course-title-header', document.getElementById('course-image'));
-    });
+document.addEventListener('DOMContentLoaded', (event) => {
+  if (typeof Gymnasium !== 'undefined' && Gymnasium !== null) {
+    Gymnasium.setBackgroundColorOfElementFromImage('#course-title-header', document.getElementById('course-image'));
   }
+});
 </script>
 
 % if show_preview_menu:

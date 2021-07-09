@@ -28,13 +28,12 @@ from edxmako.shortcuts import marketing_link
 
 <%block name="js_extra">
 <script>
-  if (typeof jQuery !== 'undefined' && jQuery !== null) {
+  document.addEventListener('DOMContentLoaded', (event) => {
     (function() {
       $(".register").click(function(event) {
         $("#class_enroll_form").submit();
         event.preventDefault();
       });
-
 
       ## making the conditional around this entire JS block for sanity
       %if settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
@@ -104,13 +103,12 @@ from edxmako.shortcuts import marketing_link
 
     })(this)
 
-    $(function(){
-      Gymnasium.setBackgroundColorOfElementFromImage('.hero-banner', '#course-image');
-    });
-  }
+    
+    Gymnasium.setBackgroundColorOfElementFromImage('.hero-banner', '#course-image');
+  });
 </script>
 
-<script defer src="${static.url('js/course_info.js')}"></script>
+<script src="${static.url('js/course_info.js')}"></script>
 </%block>
 
 <%block name="pagetitle">${course.display_name_with_default_escaped}</%block>

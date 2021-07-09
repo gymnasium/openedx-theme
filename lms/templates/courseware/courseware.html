@@ -81,13 +81,13 @@ from openedx.features.course_experience import course_home_page_title, COURSE_OU
   
   % if settings.FEATURES.get('ENABLE_COURSEWARE_SEARCH'):
     <%static:require_module module_name="course_search/js/course_search_factory" class_name="CourseSearchFactory">
-      if (typeof jQuery !== 'undefined' && jQuery !== null) {
+      document.addEventListener('DOMContentLoaded', (event) => {
         var courseId = $('.courseware-results').data('courseId');
         CourseSearchFactory({
             courseId: courseId,
             searchHeader: $('.search-bar')
         });
-      }
+      });
     </%static:require_module>
   % endif
 
@@ -106,13 +106,13 @@ from openedx.features.course_experience import course_home_page_title, COURSE_OU
 
   % if not request.user.is_authenticated:
   <script>
-  if (typeof jQuery !== 'undefined' && jQuery !== null) {
+  document.addEventListener('DOMContentLoaded', (event) => {
     // Disable discussions
     $('.xblock-student_view-discussion button.discussion-show').attr('disabled', true);
 
     // Insert message informing user discussions are only available to logged in users.
     $('.discussion-module')
-  }
+  });
   </script>
   % endif
 
@@ -175,7 +175,7 @@ ${HTML(fragment.foot_html())}
                     )}
                 </p>
                 <script>
-                if (typeof jQuery !== 'undefined' && jQuery !== null) {
+                document.addEventListener('DOMContentLoaded', (event) => {
                   $(document).ajaxSuccess(function(event, xhr, settings) {
                     if (settings.url.indexOf("xmodule_handler/problem_check") > -1) {
                       var data = JSON.parse(xhr.responseText);
@@ -184,7 +184,7 @@ ${HTML(fragment.foot_html())}
                       }
                     }
                   });
-                }
+                });
                 </script>
                 % else:
                   <p class="sequential-status-message">

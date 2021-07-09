@@ -164,24 +164,22 @@ ${gymcms.render('system-status')}
 <%include file="help_modal.html"/>
 
 <script>
-  if (typeof jQuery !== 'undefined' && jQuery !== null) {
-    $(function(){
-      var button = document.getElementById("dropdown");
+document.addEventListener('DOMContentLoaded', (event) => {
+  var button = document.getElementById("dropdown");
 
-      $(button).click(function(){
-        var menu = document.getElementById("dropdown-menu");
+  $(button).on('click', function(){
+    var menu = document.getElementById("dropdown-menu");
 
-        var caret=$(button).children('.caret');
+    var caret=$(button).children('.caret');
 
-        if (menu.style.display !== "inline") {
-            menu.style.display = "inline";
-            $(caret).hide();
-        }
-        else {
-          menu.style.display = "none";
-          $(caret).show();
-        }
-      });
-    })
-  }
+    if (menu.style.display !== "inline") {
+        menu.style.display = "inline";
+        $(caret).hide();
+    }
+    else {
+      menu.style.display = "none";
+      $(caret).show();
+    }
+  });
+});
 </script>
