@@ -41,13 +41,15 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
 %endif
 
 <%block name="js_extra">
-  <script>
-    $(window).on('load',function() {
-      if(getParameterByName('next')) {
-        $('#login').trigger("click");
-      }
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+  if(getParameterByName('next')) {
+    $('#login').trigger("click");
+  }
 
-      Gymnasium.injectFBTrackingPixel();
-    })
-  </script>
+  if (typeof Gymnasium !== 'undefined' && Gymnasium !== null) {
+    Gymnasium.injectFBTrackingPixel();
+  }
+});
+</script>
 </%block>
