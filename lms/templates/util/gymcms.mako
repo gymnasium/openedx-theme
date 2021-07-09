@@ -14,7 +14,7 @@
         fullUrl = 'https://thegymcms.com/' + templateUrl
 
       if edx_env == 'development':
-        fullUrl = 'https://deploy-preview-638--thegymcms.netlify.app/' + templateUrl
+        fullUrl = 'https://deploy-preview-640--thegymcms.netlify.app/' + templateUrl
 
       # provided the last step worked, use a try block to pull that data from the web
       # render a hidden div if it fails, so it doesn't crash the rest of the page.

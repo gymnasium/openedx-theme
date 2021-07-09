@@ -6,9 +6,7 @@
 <%block name="pagetitle">${_("Support")}</%block>
 
 <%block name="headextra">
-  <meta property="og:url" content="https://thegymnasium.com/support" />
-  <meta property="og:title" content="Aquent Gymnasium" />
-  <meta property="og:image" content="https://thegymnasium.com${static.url('images/social-share-400.png')}" />
+  ${gymcms.render('support/meta')}
 </%block>
 
 ${gymcms.render('support')}
