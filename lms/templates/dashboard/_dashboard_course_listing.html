@@ -185,21 +185,18 @@ from student.helpers import (
   </article>
 </li>
 
-
 <script>
-  //note: this is legacy code from the original edx template.  Not sure what it does.  -MB
-  $( document ).ready(function() {
+document.addEventListener('DOMContentLoaded', (event) => {
 
-     if("${is_course_blocked}" == "True"){
-         $( "#unregister_block_course" ).click(function() {
-             $('.disable-look-unregister').click();
-         });
-     }
-  });
-</script>
+  //TODO: note: this is legacy code from the original edx template.  Not sure what it does.  -MB
+  if("${is_course_blocked}" == "True"){
+    $( "#unregister_block_course" ).click(function() {
+      $('.disable-look-unregister').click();
+    });
+  }
 
-<script>
-  $(function(){
-    Gymnasium.setBackgroundColorOfElementFromImage('#course-header-${course_overview.number}', '#course-image-${course_overview.number}');
-  });
+  if (typeof gym !== 'undefined' && gym !== null) {
+    gym.setBackgroundColorOfElementFromImage('#course-header-${course_overview.number}', '#course-image-${course_overview.number}');
+  }
+});
 </script>

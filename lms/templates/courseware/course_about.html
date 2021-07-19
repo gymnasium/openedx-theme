@@ -71,7 +71,7 @@ from edxmako.shortcuts import marketing_link
               var email = "${user.email}";
               var courseId = "${course.display_number_with_default}";
 
-              Gymnasium.RecordCourseEnrollment(fname, lname, email, courseId, function(){
+              gym.RecordCourseEnrollment(fname, lname, email, courseId, function(){
                 location.href = "${reverse('dashboard')}";
               });
 
@@ -104,7 +104,7 @@ from edxmako.shortcuts import marketing_link
     })(this)
 
     
-    Gymnasium.setBackgroundColorOfElementFromImage('.hero-banner', '#course-image');
+    gym.setBackgroundColorOfElementFromImage('.hero-banner', '#course-image');
   });
 </script>
 
