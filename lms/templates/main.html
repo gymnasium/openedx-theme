@@ -111,7 +111,7 @@ edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
       }).call(this, require || RequireJS.require);
     });
   </script>
-  <script defer src="${static.url('lms/js/require-config.js')}"></script>
+  <script src="${static.url('lms/js/require-config.js')}"></script>
   <%block name="js_overrides">
     ${render_require_js_path_overrides(settings.REQUIRE_JS_PATH_OVERRIDES) | n, decode.utf8}
   </%block>
@@ -163,7 +163,7 @@ edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
 <%static:optional_include_mako file="body-initial.html" is_theming_enabled="True" />
 <div id="page-prompt"></div>
 % if not disable_window_wrap:
-  ##<div class="window-wrap" dir="${static.dir_rtl()}">
+  <div class="window-wrap" dir="${static.dir_rtl()}">
 % endif
     <a class="nav-skip sr-only sr-only-focusable" href="#main">${_("Skip to main content")}</a>
 
@@ -176,26 +176,26 @@ edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
 
     <div class="marketing-hero"><%block name="marketing_hero"></%block></div>
 
-    ##<div class="content-wrapper main-container" id="content">
+    <div class="content-wrapper main-container" id="content">
       ${self.body()}
       <%block name="bodyextra"/>
-    ##</div><!-- #content.content-wrapper.main-container -->
+    </div><!-- #content.content-wrapper.main-container -->
 
     % if not disable_footer:
         <%include file="${static.get_template_path('footer.html')}" />
     % endif
 
 % if not disable_window_wrap:
-  ##</div><!-- .window-wrap -->
+  </div><!-- .window-wrap -->
 % endif
 
   <%block name="footer_extra"/>
   <%block name="js_extra"/>
 
   <%include file="widgets/segment-io-footer.html" />
-  <script src="${static.url('js/vendor/noreferrer.js')}"></script>
-  <script src="${static.url('js/utils/navigation.js')}"></script>
-  <script src="${static.url('js/header/header.js')}"></script>
+  <script async defer src="${static.url('js/vendor/noreferrer.js')}"></script>
+  <script async defer src="${static.url('js/utils/navigation.js')}"></script>
+  <script async defersrc="${static.url('js/header/header.js')}"></script>
   <%static:optional_include_mako file="body-extra.html" is_theming_enabled="True" />
 </body>
 </html>

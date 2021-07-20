@@ -65,13 +65,13 @@ if course is not None:
   </div>
 %endif
 
+<%block name="js_extra">
 <script>
-document.addEventListener('DOMContentLoaded', (event) => {
-  if (typeof gym !== 'undefined' && gym !== null) {
-    gym.setBackgroundColorOfElementFromImage('#course-title-header', document.getElementById('course-image'));
-  }
-});
+document.getElementById('gymjs').onload = function() {
+  gym.setBackgroundColorOfElementFromImage('#course-title-header', document.getElementById('course-image'));
+}
 </script>
+</%block>
 
 % if show_preview_menu:
     <%

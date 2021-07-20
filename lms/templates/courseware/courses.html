@@ -36,6 +36,9 @@
 
 ${gymcms.render('courses')}
 
+
+
+<%block name="js_extra">
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
   if (typeof gym !== 'undefined' && gym !== null) {
@@ -43,6 +46,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
   }
 });
 </script>
-
-
-
+</%block>

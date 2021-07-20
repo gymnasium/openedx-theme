@@ -27,6 +27,7 @@ cw_env = settings.APPSEMBLER_FEATURES['CLOUDWALL_SERVER_PATH']
 
 ${gymcms.render('partials/theme-head-css')}
 
+<%block name="js_extra">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script async defer src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
 <script async defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/prism.min.js"></script>
@@ -36,13 +37,12 @@ ${gymcms.render('partials/theme-head-css')}
 	data-linkmsg="Privacy Policy."
 	data-moreinfo="/privacy">
 </script>
+</%block>
 
 ## inject some global variables from configurations
 <script>
   var CW_ENV = "${cw_env}";
 </script>
-## This is now loaded at the bottom of the page via gymcms
-##<script defer src="${static.url('js/gymnasium.js')}"></script>
 
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {

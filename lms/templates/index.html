@@ -46,10 +46,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
   if(getParameterByName('next')) {
     $('#login').trigger("click");
   }
-
-  if (typeof gym !== 'undefined' && gym !== null) {
-    gym.injectFBTrackingPixel();
-  }
 });
+
+document.getElementById('gymjs').onload = function() {
+  gym.injectFBTrackingPixel();
+}
 </script>
 </%block>

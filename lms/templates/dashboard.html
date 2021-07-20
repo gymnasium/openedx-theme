@@ -42,53 +42,49 @@ from student.models import CourseEnrollment
   <script src="${static.url('js/commerce/credit.js')}"></script>
   <%static:js group='dashboard'/>
   <script>
-  document.addEventListener('DOMContentLoaded', (event) => {
-    edx.dashboard.legacy.init({
-      dashboard: "${reverse('dashboard') | n, js_escaped_string}",
-      signInUser: "${reverse('signin_user') | n, js_escaped_string}",
-      changeEmailSettings: "${reverse('change_email_settings') | n, js_escaped_string}"
-    });
+    $(document).ready(function() {
+      edx.dashboard.legacy.init({
+        dashboard: "${reverse('dashboard') | n, js_escaped_string}",
+        signInUser: "${reverse('signin_user') | n, js_escaped_string}",
+        changeEmailSettings: "${reverse('change_email_settings') | n, js_escaped_string}"
+      });
 
-    //hide "BETA" from courses that have it in their title,
-    //and add .beta class to corresponsing <li> itm
-    $('.listing-courses li').each(function(idx, obj){
-      var beta_tag = "beta";
-      var beta_class_name="beta";
+      //hide "BETA" from courses that have it in their title,
+      //and add .beta class to corresponsing <li> itm
+      $('.listing-courses li').each(function(idx, obj){
+        var beta_tag = "beta";
+        var beta_class_name="beta";
 
-      var course_title_obj = $(obj).find('h1')
-      var course_title = $(course_title_obj).text().trim();
+        var course_title_obj = $(obj).find('h1')
+        var course_title = $(course_title_obj).text().trim();
 
-      //check to see if this course is a BETA course
-      if (course_title.toLowerCase().indexOf(beta_tag) >= 0)
-      {
-        //this is a beta Course
-        //strip the "BETA" word from the title
-        course_title = course_title.substr(beta_tag.length).trim();
-        console.log('course title is now', course_title);
+        //check to see if this course is a BETA course
+        if (course_title.toLowerCase().indexOf(beta_tag) >= 0) {
+          //this is a beta Course
+          //strip the "BETA" word from the title
+          course_title = course_title.substr(beta_tag.length).trim();
+          console.log('course title is now', course_title);
 
-        course_title_obj.text(course_title);
+          course_title_obj.text(course_title);
 
-        $(obj).addClass(beta_class_name);
-      }
-    });
-    
-    $('#unenroll-button').on('click', function(){
-      var courseNum = $('#unenroll_course_number').text();
-      var eventName = 'gym' + courseNum + '-unenroll';
-      var metadata = {
-        "course_id" : $('#unenroll_course_number').text(),
-        "course_name": $('#unenroll-course-name').text(),
-        "email": "${user.email}",
-        "name": "${user.profile.name}",
-        "username": "${user.username}",
-      };
-
-      if (typeof Intercom !== 'undefined' && Intercom !== null) {
-        Intercom('trackEvent', eventName, metadata);
-      }
+          $(obj).addClass(beta_class_name);
+        }
+      });
       
+      $('#unenroll-button').click(function(){
+        var courseNum = $('#unenroll_course_number').text();
+        var eventName = 'gym' + courseNum + '-unenroll';
+        var metadata = {
+          "course_id" : $('#unenroll_course_number').text(),
+          "course_name": $('#unenroll-course-name').text(),
+          "email": "${user.email}",
+          "name": "${user.profile.name}",
+          "username": "${user.username}",
+        };
+
+        Intercom('trackEvent', eventName, metadata);
+      });
     });
-  });
   </script>
   <%static:webpack entry="UnenrollmentFactory">
     UnenrollmentFactory({
@@ -104,7 +100,7 @@ from student.models import CourseEnrollment
   <%static:webpack entry="EntitlementUnenrollmentFactory">
     ## Wait until the document is fully loaded before initializing the EntitlementUnenrollmentView
     ## to ensure events are setup correctly.
-    document.addEventListener('DOMContentLoaded', (event) => {
+    $(document).ready(function() {
       EntitlementUnenrollmentFactory({
         dashboardPath: "${reverse('dashboard') | n, js_escaped_string}",
         signInPath: "${reverse('signin_user') | n, js_escaped_string}",
@@ -120,11 +116,9 @@ from student.models import CourseEnrollment
   % endif
   % if redirect_message:
     <%static:require_module module_name="js/views/message_banner" class_name="MessageBannerView">
-    document.addEventListener('DOMContentLoaded', (event) => {
-      var banner = new MessageBannerView({urgency: 'low', type: 'warning'});
-      $('#content').prepend(banner.$el);
-      banner.showMessage(${redirect_message | n, dump_js_escaped_json})
-    )};
+        var banner = new MessageBannerView({urgency: 'low', type: 'warning'});
+        $('#content').prepend(banner.$el);
+        banner.showMessage(${redirect_message | n, dump_js_escaped_json})
     </%static:require_module>
   % endif
 </%block>
@@ -162,6 +156,7 @@ from student.models import CourseEnrollment
     %endif
 
 </div>
+
 
 <main id="main" aria-label="Content" tabindex="-1" class="content-wrapper">
   <div class="container">
