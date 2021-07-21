@@ -43,13 +43,17 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
 <%block name="js_extra">
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
-  if(getParameterByName('next')) {
-    $('#login').trigger("click");
+  
+  if (getParameterByName('next')) {
+    document.getElementById('login').click();
+  }
+
+  var gymjs = document.getElementById('gymjs') ? document.getElementById('gymjs') : false;
+  if (gymjs) {
+    gymjs.onload = function() {
+      gym.injectFBTrackingPixel();
+    }
   }
 });
-
-document.getElementById('gymjs').onload = function() {
-  gym.injectFBTrackingPixel();
-}
 </script>
 </%block>
