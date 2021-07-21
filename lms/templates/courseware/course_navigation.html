@@ -67,10 +67,9 @@ if course is not None:
 
 <%block name="js_extra">
 <script>
-var gymjs = document.getElementById('gymjs') ? document.getElementById('gymjs') : false;
-if (gymjs) {
+if (window.gymjs) {
   gymjs.onload = function() {
-    gym.setBackgroundColorOfElementFromImage('#course-title-header', '#course-image');
+    gym.setBgFromImage('#course-title-header', '#course-image');
   }
 }
 </script>

@@ -36,14 +36,12 @@
 
 ${gymcms.render('courses')}
 
-
-
 <%block name="js_extra">
 <script>
-document.addEventListener('DOMContentLoaded', (event) => {
-  if (typeof gym !== 'undefined' && gym !== null) {
+if (window.gymjs) {
+  gymjs.onload = function() {
     gym.injectFBTrackingPixel();
   }
-});
+}
 </script>
 </%block>

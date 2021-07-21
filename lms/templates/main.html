@@ -102,14 +102,12 @@ edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
   % endif
 
   <script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-      window.baseUrl = "${settings.STATIC_URL | n, js_escaped_string}";
-      (function (require) {
-        require.config({
-            baseUrl: window.baseUrl
-        });
-      }).call(this, require || RequireJS.require);
+  window.baseUrl = "${settings.STATIC_URL | n, js_escaped_string}";
+  (function (require) {
+    require.config({
+        baseUrl: window.baseUrl
     });
+  }).call(this, require || RequireJS.require);
   </script>
   <script src="${static.url('lms/js/require-config.js')}"></script>
   <%block name="js_overrides">

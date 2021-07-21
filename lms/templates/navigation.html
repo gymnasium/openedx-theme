@@ -162,27 +162,3 @@ ${gymcms.render('system-status')}
 %endif
 
 <%include file="help_modal.html"/>
-
-<!-- <script>
-document.addEventListener('DOMContentLoaded', (event) => {
-  // Show/hide the caret in the login/dropdown
-  var button = document.getElementById('dropdown');
-  
-  if (typeof button !== 'undefined' && button !== null) {
-    var caret = button.querySelector('.caret');
-    var menu = document.getElementById('dropdown-menu');
-
-    button.addEventListener('click', function(event) {
-      console.log('button clicked ', event);
-
-      if (menu.style.display !== 'inline') {
-        menu.style.display = 'inline';
-        caret.classList.add('hide');
-      } else {
-        menu.style.display = 'none';
-        caret.classList.remove('hide');
-      }
-    }, false);
-  }
-});
-</script> -->
