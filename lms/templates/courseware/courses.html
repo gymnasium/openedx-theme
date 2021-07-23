@@ -38,10 +38,8 @@ ${gymcms.render('courses')}
 
 <%block name="js_extra">
 <script>
-if (window.gymjs) {
-  gymjs.onload = function() {
-    gym.injectFBTrackingPixel();
-  }
+document.getElementById('gymjs').onload = function() {
+  gym.injectFBTrackingPixel();
 }
 </script>
 </%block>

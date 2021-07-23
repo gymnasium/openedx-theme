@@ -48,10 +48,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('login').click();
   }
   
-  if (window.gymjs) {
-    gymjs.onload = function() {
-      gym.injectFBTrackingPixel();
-    }
+  document.getElementById('gymjs').onload = function() {
+    gym.injectFBTrackingPixel();
   }
 });
 </script>

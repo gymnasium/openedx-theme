@@ -71,12 +71,10 @@ from edxmako.shortcuts import marketing_link
               var email = "${user.email}";
               var courseId = "${course.display_number_with_default}";
 
-              if (window.gymjs) {
-                gymjs.onload = function() {
-                  gym.recordCourseEnrollment(fname, lname, email, courseId, function(){
-                    location.href = "${reverse('dashboard')}";
-                  });
-                }
+              document.getElementById('gymjs').onload = function() {
+                gym.recordCourseEnrollment(fname, lname, email, courseId, function(){
+                  location.href = "${reverse('dashboard')}";
+                });
               }
 
               //log the event in Intercom
@@ -107,12 +105,10 @@ from edxmako.shortcuts import marketing_link
 
     })(this)
 
-
-    if (window.gymjs) {
-      gymjs.onload = function() {
-        gym.setBgFromImage('.hero-banner', '#course-image');
-      }
+    document.getElementById('gymjs').onload = function() {
+      gym.setBgFromImage('.hero-banner', '#course-image');
     }
+
   });
 </script>
 

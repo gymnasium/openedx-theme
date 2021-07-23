@@ -189,19 +189,18 @@ from student.helpers import (
 <script>
   
   
-  $(document).ready(function() {
+  document.addEventListener('DOMContentLoaded', (event) => {
     //note: this is legacy code from the original edx template.  Not sure what it does.  -MB
-    if("${is_course_blocked}" == "True"){
+    if("${is_course_blocked}" == "True") {
       $( "#unregister_block_course" ).on('click', function() {
         $('.disable-look-unregister').click();
       });
     }
 
-    if (window.gymjs) {
-      gymjs.onload = function() {
-        gym.setBgFromImage('#course-header-${course_overview.number}', '#course-image-${course_overview.number}');
-      }
-    }
+    // document.getElementById('gymjs').onload = function() {
+    //   console.log('here is a course color thing');
+    //   gym.setBgFromImage('#course-header-${course_overview.number}', '#course-image-${course_overview.number}');
+    // }
 
   });
 </script>
