@@ -48,9 +48,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('login').click();
   }
   
-  document.getElementById('gymjs').onload = function() {
+  document.getElementById('gymjs').onload = setTimeOut(function() {
     gym.injectFBTrackingPixel();
-  }
+  }, 100);
 });
 </script>
 </%block>
