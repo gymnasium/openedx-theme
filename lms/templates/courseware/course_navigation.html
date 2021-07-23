@@ -67,9 +67,11 @@ if course is not None:
 
 <%block name="js_extra">
 <script>
-document.getElementById('gymjs').onload = setTimeout(function() {
-  gym.setBgFromImage('#course-title-header', '#course-image');
-}, 100);
+  document.addEventListener('DOMContentLoaded', (event) => {
+    document.getElementById('gymjs').onload = setTimeout(function() {
+      gym.setBgFromImage('#course-title-header', '#course-image');
+    }, 100);
+  });
 </script>
 </%block>
 
