@@ -2,7 +2,7 @@
 <%! from openedx.core.djangolib.js_utils import js_escaped_string %>
 
 % if settings.LMS_SEGMENT_KEY:
-  <!-- begin segment footer -->
+  <!-- begin segment footer (gym) -->
   <script>
   % if user.is_authenticated:
     document.addEventListener('DOMContentLoaded', (event) => {
@@ -24,5 +24,5 @@
     });
   % endif
   </script>
-  <!-- end segment footer -->
+  <!-- end segment footer (gym) -->
 % endif
