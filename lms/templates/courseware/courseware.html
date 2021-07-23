@@ -111,7 +111,7 @@ from openedx.features.course_experience import course_home_page_title, COURSE_OU
     $('.xblock-student_view-discussion button.discussion-show').attr('disabled', true);
 
     // Insert message informing user discussions are only available to logged in users.
-    $('.discussion-module')
+    console.warn('user is not authenticated! let \'s hide any course content!');
   });
   </script>
   % endif
