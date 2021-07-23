@@ -71,7 +71,7 @@ from edxmako.shortcuts import marketing_link
               var email = "${user.email}";
               var courseId = "${course.display_number_with_default}";
 
-              document.getElementById('gymjs').onload = setTimeOut(function() {
+              document.getElementById('gymjs').onload = setTimeout(function() {
                 gym.recordCourseEnrollment(fname, lname, email, courseId, function(){
                   location.href = "${reverse('dashboard')}";
                 });
@@ -105,7 +105,7 @@ from edxmako.shortcuts import marketing_link
 
     })(this)
 
-    document.getElementById('gymjs').onload = setTimeOut(function() {
+    document.getElementById('gymjs').onload = setTimeout(function() {
       gym.setBgFromImage('.hero-banner', '#course-image');
     }, 100);
 
