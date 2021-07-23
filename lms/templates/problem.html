@@ -15,7 +15,7 @@ from openedx.core.djangolib.markup import HTML
 
 ${gymcms.render('partials/final-exam-modal-top')}
 
-<div id="exam-problem" class="problem" aria-relevant="all">
+<div id="exam-problem" data-id="${ id }" class="problem" aria-relevant="all">
   <div aria-live="polite">
     ${ HTML(problem['html']) }
   </div>
