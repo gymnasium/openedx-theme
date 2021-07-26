@@ -186,7 +186,7 @@ from student.helpers import (
 </li>
 
 <script>
-  document.addEventListener('DOMContentLoaded', (event) => {
+  window.addEventListener('load', (event) => {
     //note: this is legacy code from the original edx template.  Not sure what it does.  -MB
     if("${is_course_blocked}" == "True") {
       $( "#unregister_block_course" ).on('click', function() {

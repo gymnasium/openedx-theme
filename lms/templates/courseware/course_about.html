@@ -28,7 +28,7 @@ from edxmako.shortcuts import marketing_link
 
 <%block name="js_extra">
 <script>
-  document.addEventListener('DOMContentLoaded', (event) => {
+  window.addEventListener('load', (event) => {
     (function() {
       $(".register").click(function(event) {
         $("#class_enroll_form").submit();

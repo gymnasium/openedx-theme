@@ -43,7 +43,7 @@ from student.models import CourseEnrollment
   <%static:js group='dashboard'/>
   <script>
 
-    document.addEventListener('DOMContentLoaded', (event) => {
+    window.addEventListener('load', (event) => {
       edx.dashboard.legacy.init({
         dashboard: "${reverse('dashboard') | n, js_escaped_string}",
         signInUser: "${reverse('signin_user') | n, js_escaped_string}",

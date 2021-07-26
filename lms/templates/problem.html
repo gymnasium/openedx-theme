@@ -134,7 +134,7 @@ ${gymcms.render('partials/final-exam-modal-top')}
 ${gymcms.render('final-exam-modal')}
 
 <script>
-document.addEventListener('DOMContentLoaded', (event) => {
+window.addEventListener('load', (event) => {
   if (typeof Prism !== 'undefined' && Prism !== null) {
     Prism.highlightAll();
   }

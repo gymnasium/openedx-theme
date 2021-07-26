@@ -5,7 +5,7 @@
   <!-- begin segment footer (gym) -->
   <script>
   % if user.is_authenticated:
-    document.addEventListener('DOMContentLoaded', (event) => {
+    window.addEventListener('load', (event) => {
       analytics.identify(
         "${ user.id | n, js_escaped_string }",
         {
