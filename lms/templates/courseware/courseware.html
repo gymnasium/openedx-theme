@@ -51,8 +51,19 @@ from openedx.features.course_experience import course_home_page_title, COURSE_OU
 <%block name="headextra">
   ## OG (Open Graph) title and description added below to give social media info to display
   ## (https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content#tags)
-  <meta property="og:title" content="${course.display_name_with_default_escaped} - Gymnasium" />
-  <meta property="og:image" content="http://gymnasium.github.io/static-site-content/artwork/production/courses/gym-${course.display_number_with_default | h}-social.png" />
+
+  ## Ensure we're pulling in the proper meta path for gym shorts vs full courses
+  %if course.display_number_with_default:
+    %if int(course.display_number_with_default) < 100:
+      ${gymcms.render('courses/gym-shorts/gym-' + course.display_number_with_default + '/meta')}
+    %else:
+      ${gymcms.render('courses/full/gym-' + course.display_number_with_default + '/meta')}
+    %endif
+  %else:
+    <meta property="og:title" content="${course.display_name_with_default_escaped} - Gymnasium" />
+    <meta property="og:image" content="http://gymnasium.github.io/static-site-content/artwork/production/courses/gym-${course.display_number_with_default | h}-social.png" />
+  % endif
+  
   <%static:css group='style-course-vendor'/>
   <%static:css group='style-course'/>
   ## Utility: Notes

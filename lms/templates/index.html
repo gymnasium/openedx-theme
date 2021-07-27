@@ -9,9 +9,7 @@
 <%block name="pagetitle">${_("Free online courses on design and web development")}</%block>
 
 <%block name="headextra">
-  <meta property="og:url" content="https://thegymnasium.com/" />
-  <meta property="og:title" content="Aquent Gymnasium" />
-  <meta property="og:image" content="https://thegymnasium.com${static.url('images/social-share-400.png')}" />
+  ${gymcms.render('home/meta')}
 </%block>
 
 <%block name="bodyclass">gymnasium-home</%block>
