@@ -22,7 +22,7 @@ if course is not None:
 
 % if course: 
 <header class="course-title" id="course-title-header">
-  <img src="${course_image_url(course, 'course_image')}" hidden class="hidden" id="course-image" />
+  <img id="course-image" src="${course_image_url(course, 'course_image')}" hidden class="hide hidden"/>
   <div class="container">
     <h1><span class="provider">${course.display_name_with_default}</span></h1>
     <div class="hidden" style="display:none" id="__course_number__">${course.display_number_with_default}</div>
@@ -64,16 +64,6 @@ if course is not None:
     </div>
   </div>
 %endif
-
-<%block name="js_extra">
-<script>
-  window.addEventListener('load', (event) => {
-    document.getElementById('gymjs').onload = setTimeout(function() {
-      gym.setBgFromImage('#course-title-header', '#course-image');
-    }, 100);
-  });
-</script>
-</%block>
 
 % if show_preview_menu:
     <%
