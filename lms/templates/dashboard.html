@@ -28,6 +28,11 @@ from student.models import CourseEnrollment
 
 
 <%block name="pagetitle">${_("Dashboard")}</%block>
+
+<%block name="headextra">
+  ${gymcms.render('dashboard/meta')}
+</%block>
+
 <%block name="bodyclass">view-dashboard is-authenticated</%block>
 
 <%block name="header_extras">
