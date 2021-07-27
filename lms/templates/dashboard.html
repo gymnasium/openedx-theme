@@ -90,18 +90,6 @@ from student.models import CourseEnrollment
 
         Intercom('trackEvent', eventName, metadata);
       });
-
-      var courses = document.querySelectorAll('article.course');
-
-      document.getElementById('gymjs').onload = setTimeout(function() {
-        courses.forEach(function(el) {
-          var header = el.querySelector('header');
-          var img = el.querySelector('img');
-
-          console.log('processing course image: ', header.id, img.id);
-          gym.setBgFromImage('#' + header.id, '#' + img.id);
-        });
-      }, 100);
     });
   </script>
   <%static:webpack entry="UnenrollmentFactory">
