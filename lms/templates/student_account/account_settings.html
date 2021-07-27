@@ -19,13 +19,14 @@ from webpack_loader.templatetags.webpack_loader import render_bundle
 <%block name="pagetitle">${_("Account Settings")}</%block>
 
 <%block name="headextra">
-  ${gymcms.render('account/meta')}
+  ${gymcms.render('dashboard/meta')}
+  <%static:css group='style-course'/>
 </%block>
 
 % if duplicate_provider:
-    <section>
-        <%include file='/dashboard/_dashboard_third_party_error.html' />
-    </section>
+  <section>
+    <%include file='/dashboard/_dashboard_third_party_error.html' />
+  </section>
 % endif
 
 <header class="course-title">
@@ -37,11 +38,14 @@ from webpack_loader.templatetags.webpack_loader import render_bundle
 <div class="container-fluid account-settings-parent-container">
   <div class="container">
     <div class="row">
-      <div class="wrapper-account-settings"></div>
-    </div>
-  </div>
-</div>
+      <div class="wrapper-account-settings"></div><!-- .wrapper-account-settings -->
+    </div><!-- .row -->
+  </div><!-- .container -->
+</div><!-- .container-fluid.account-settings-parent-container -->
 
+<div class="wrapper-account-settings"></div><!-- .wrapper-account-settings -->
+
+<%block name="js_extra">
 <script>
 window.addEventListener('load', (event) => {
   var hideTab = setInterval(function(){
@@ -52,13 +56,6 @@ window.addEventListener('load', (event) => {
   }, 20);
 });
 </script>
-
-<div class="wrapper-account-settings"></div>
-<%block name="headextra">
-    <%static:css group='style-course'/>
-</%block>
-
-<%block name="js_extra">
 <%static:require_module module_name="gymnasium/js/student_account/views/account_settings_factory" class_name="AccountSettingsFactory">
     var fieldsData = ${ fields | n, dump_js_escaped_json },
         ordersHistoryData = ${ order_history | n, dump_js_escaped_json },
@@ -98,10 +95,9 @@ window.addEventListener('load', (event) => {
 </%static:require_module>
 
 <script>
-     window.auth = ${ auth | n, dump_js_escaped_json };
-     window.isActive = ${ user.is_active | n, dump_js_escaped_json };
+window.auth = ${ auth | n, dump_js_escaped_json };
+window.isActive = ${ user.is_active | n, dump_js_escaped_json };
 </script>
-
 
 <%static:webpack entry="StudentAccountDeletionInitializer">
 </%static:webpack>
