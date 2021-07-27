@@ -16,13 +16,11 @@ cw_env = settings.APPSEMBLER_FEATURES['CLOUDWALL_SERVER_PATH']
 <link rel="preload" href="${static.url('fonts/brandon_blk_it-webfont.woff2')}" as="font" type="font/woff2" crossorigin>
 
 ## insert typekit font references
-<script async src="//use.typekit.net/rhf0qta.js"></script>
+<script async defer src="//use.typekit.net/rhf0qta.js"></script>
 <script>try{Typekit.load();}catch(e){}</script>
 
 ## bootstrap CSS
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-${gymcms.render('partials/theme-head-css')}
 
 <%block name="js_extra">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
