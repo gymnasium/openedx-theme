@@ -23,6 +23,8 @@ from webpack_loader.templatetags.webpack_loader import render_bundle
   <%static:css group='style-course'/>
 </%block>
 
+<%block name="bodyclass">gym-account-settings</%block>
+
 % if duplicate_provider:
   <section>
     <%include file='/dashboard/_dashboard_third_party_error.html' />
@@ -42,8 +44,6 @@ from webpack_loader.templatetags.webpack_loader import render_bundle
     </div><!-- .row -->
   </div><!-- .container -->
 </div><!-- .container-fluid.account-settings-parent-container -->
-
-<div class="wrapper-account-settings"></div><!-- .wrapper-account-settings -->
 
 <%block name="js_extra">
 <script>
@@ -102,7 +102,5 @@ window.isActive = ${ user.is_active | n, dump_js_escaped_json };
 <%static:webpack entry="StudentAccountDeletionInitializer">
 </%static:webpack>
 
-<div id="deletion-helper" class="hide" style="display: none;">
-  ${gymcms.render('partials/account-deletion')}
-</div>
+${gymcms.render('partials/account-deletion')}
 </%block>
