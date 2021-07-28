@@ -11,9 +11,9 @@
       fullUrl = 'https://thegymcms.com/' + templateUrl
 
       if edx_env == 'staging':
-        ## fullUrl = 'https://staging.thegymcms.com/' + templateUrl
+        fullUrl = 'https://staging.thegymcms.com/' + templateUrl
         ## temporarily look at an in-progress build
-        fullUrl = 'https://deploy-preview-650--thegymcms.netlify.app/' + templateUrl
+        ## fullUrl = 'https://deploy-preview-650--thegymcms.netlify.app/' + templateUrl
 
       if edx_env == 'development':
         fullUrl = 'https://deploy-preview-650--thegymcms.netlify.app/' + templateUrl

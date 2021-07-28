@@ -37,6 +37,8 @@ site_status_msg = get_site_status_msg(course_id)
 % endif
 </%block>
 
+<aside id="system-status" class="system-status hide"></aside>
+
 <header class="global" aria-label="${_('Global Navigation')}">
   <nav id="primary-nav" class="black-background container-fluid">
     <div class="container">
@@ -148,8 +150,6 @@ site_status_msg = get_site_status_msg(course_id)
       </div>
   </div>
 </header>
-
-<aside id="system-status" class="system-status hide"></aside>
 
 % if course:
 <!--[if lte IE 8]>
