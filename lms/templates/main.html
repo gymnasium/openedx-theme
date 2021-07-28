@@ -188,7 +188,17 @@ edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
 % endif
 
   <%block name="footer_extra"/>
-  <%block name="js_extra"/>
+  <%block name="js_extra">
+  <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script async defer src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
+  <script async defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/prism.min.js"></script>
+  <script async defer src="${static.url('js/cookiebanner.js')}" id="cookiebanner"
+    data-link="#f89820"
+    data-message="We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies. Find out more about how we use cookies in our"
+    data-linkmsg="Privacy Policy."
+    data-moreinfo="/privacy">
+  </script>
+  </%block>
 
   <%include file="widgets/segment-io-footer.html" />
   <script async defer src="${static.url('js/vendor/noreferrer.js')}"></script>
