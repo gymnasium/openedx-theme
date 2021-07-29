@@ -68,9 +68,9 @@ from student.helpers import (
 
     <% course_target = reverse('info', args=[unicode(course_overview.id)]) %>
 
-    <header id = "course-header-${course_overview.number}">
+    <header data-bg="target" id="course-header-${course_overview.number}">
       <div class="row">
-        <img class="col-md-3 col-xs-12 col-sm-12 image-responsive" src="${course_overview.image_urls['small']}" alt="${_('{course_name} Cover Image').format(course_name=course_overview.display_name_with_default) |h}" id ="course-image-${course_overview.number}" />
+        <img data-bg="source" class="col-md-3 col-xs-12 col-sm-12 image-responsive" src="${course_overview.image_urls['small']}" alt="${_('{course_name} Cover Image').format(course_name=course_overview.display_name_with_default) |h}" id="course-image-${course_overview.number}" />
         <div class="col-md-9 col-xs-12 col-sm-12">
           <h1>${course_overview.display_name_with_default}</h1>
           <div class="row">

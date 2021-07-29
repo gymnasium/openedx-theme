@@ -9,6 +9,9 @@ from edxmako.shortcuts import marketing_link
 %>
 
 <%inherit file="../main.html" />
+
+<%block name="bodyclass">gym-course-about</%block>
+
 <%block name="headextra">
   ## OG (Open Graph) title and description added below to give social media info to display
   ## (https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content#tags)
@@ -105,10 +108,6 @@ from edxmako.shortcuts import marketing_link
 
     })(this)
 
-    document.getElementById('gymjs').onload = setTimeout(function() {
-      gym.setBgFromImage('.hero-banner', '#course-image');
-    }, 100);
-
   });
 </script>
 
@@ -119,8 +118,8 @@ from edxmako.shortcuts import marketing_link
 
 <main class="course container-fluid">
   <div class="course-info container">
-    <section class="hero-banner row">
-      <header class="col-md-12 ">
+    <section data-bg="target" class="hero-banner row">
+      <header data-bg="source" class="col-md-12 ">
         <img src="${course_image_urls['large']}" alt="" class="image-responsive center-block row" id="course-image" />
         <div class="row">
           <h1 class="col-md-12">${course.display_name_with_default_escaped}</h1>
