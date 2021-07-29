@@ -183,7 +183,9 @@ edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
   </div><!-- .window-wrap -->
 % endif
 
-${gymcms.render('partials/footer')}
+% if not disable_footer:
+<%include file="${static.get_template_path('footer.html')}" />
+% endif
 
 <%block name="footer_extra"/>
 <%block name="js_extra"/>
