@@ -118,9 +118,9 @@ from edxmako.shortcuts import marketing_link
 
 <main class="course container-fluid">
   <div class="course-info container">
-    <section data-bg="target" class="hero-banner row">
-      <header data-bg="source" class="col-md-12 ">
-        <img src="${course_image_urls['large']}" alt="" class="image-responsive center-block row" id="course-image" />
+    <section class="hero-banner row">
+      <header data-bg="target" class="col-md-12">
+        <img data-bg="source" src="${course_image_urls['large']}" alt="Course image for ${course.display_name_with_default_escaped}" class="image-responsive center-block row" id="course-image" />
         <div class="row">
           <h1 class="col-md-12">${course.display_name_with_default_escaped}</h1>
         </div>
