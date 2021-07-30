@@ -1,4 +1,5 @@
 <%page expression_filter="h"/>
+<%namespace name='gymcms' file='../util/gymcms.mako' />
 <%inherit file="/main.html" />
 <%namespace name='static' file='/static_content.html'/>
 <%def name="online_help_token()"><% return "courseware" %></%def>
@@ -51,8 +52,19 @@ from openedx.features.course_experience import course_home_page_title, COURSE_OU
 <%block name="headextra">
   ## OG (Open Graph) title and description added below to give social media info to display
   ## (https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content#tags)
-  <meta property="og:title" content="${course.display_name_with_default_escaped} - Gymnasium" />
-  <meta property="og:image" content="http://gymnasium.github.io/static-site-content/artwork/production/courses/gym-${course.display_number_with_default | h}-social.png" />
+
+  ## Ensure we're pulling in the proper meta path for gym shorts vs full courses
+  %if course.display_number_with_default:
+    %if int(course.display_number_with_default) < 100:
+      ${gymcms.render('courses/gym-shorts/gym-' + course.display_number_with_default + '/meta')}
+    %else:
+      ${gymcms.render('courses/full/gym-' + course.display_number_with_default + '/meta')}
+    %endif
+  %else:
+    <meta property="og:title" content="${course.display_name_with_default_escaped} - Gymnasium" />
+    <meta property="og:image" content="https://gymnasium.github.io/static-site-content/artwork/production/courses/gym-${course.display_number_with_default | h}-social.png" />
+  % endif
+  
   <%static:css group='style-course-vendor'/>
   <%static:css group='style-course'/>
   ## Utility: Notes
@@ -81,11 +93,13 @@ from openedx.features.course_experience import course_home_page_title, COURSE_OU
   
   % if settings.FEATURES.get('ENABLE_COURSEWARE_SEARCH'):
     <%static:require_module module_name="course_search/js/course_search_factory" class_name="CourseSearchFactory">
+      window.addEventListener('load', (event) => {
         var courseId = $('.courseware-results').data('courseId');
         CourseSearchFactory({
             courseId: courseId,
             searchHeader: $('.search-bar')
         });
+      });
     </%static:require_module>
   % endif
 
@@ -103,17 +117,18 @@ from openedx.features.course_experience import course_home_page_title, COURSE_OU
 
 
   % if not request.user.is_authenticated:
-      <script>
-        // Disable discussions
-        $('.xblock-student_view-discussion button.discussion-show').attr('disabled', true);
+  <script>
+  window.addEventListener('load', (event) => {
+    // Disable discussions
+    $('.xblock-student_view-discussion button.discussion-show').attr('disabled', true);
 
-        // Insert message informing user discussions are only available to logged in users.
-        $('.discussion-module')
-      </script>
+    // Insert message informing user discussions are only available to logged in users.
+    console.warn('user is not authenticated! let \'s hide any course content!');
+  });
+  </script>
   % endif
 
 ${HTML(fragment.foot_html())}
-
 
 </%block>
 
@@ -172,13 +187,15 @@ ${HTML(fragment.foot_html())}
                     )}
                 </p>
                 <script>
-                $(document).ajaxSuccess(function(event, xhr, settings) {
+                window.addEventListener('load', (event) => {
+                  $(document).ajaxSuccess(function(event, xhr, settings) {
                     if (settings.url.indexOf("xmodule_handler/problem_check") > -1) {
-                        var data = JSON.parse(xhr.responseText);
-                        if (data.entrance_exam_passed){
-                            location.reload();
-                        }
+                      var data = JSON.parse(xhr.responseText);
+                      if (data.entrance_exam_passed){
+                        location.reload();
+                      }
                     }
+                  });
                 });
                 </script>
                 % else:

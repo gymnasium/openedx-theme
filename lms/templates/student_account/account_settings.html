@@ -11,17 +11,24 @@ from openedx.core.djangolib.js_utils import dump_js_escaped_json, js_escaped_str
 from openedx.core.djangolib.markup import HTML
 from webpack_loader.templatetags.webpack_loader import render_bundle
 %>
-
+<%namespace name='gymcms' file='../util/gymcms.mako' />
 <%inherit file="/main.html" />
 <%def name="online_help_token()"><% return "learneraccountsettings" %></%def>
 <%namespace name='static' file='/static_content.html'/>
 
 <%block name="pagetitle">${_("Account Settings")}</%block>
 
+<%block name="headextra">
+  ${gymcms.render('dashboard/meta')}
+  <%static:css group='style-course'/>
+</%block>
+
+<%block name="bodyclass">gym-account-settings</%block>
+
 % if duplicate_provider:
-    <section>
-        <%include file='/dashboard/_dashboard_third_party_error.html' />
-    </section>
+  <section>
+    <%include file='/dashboard/_dashboard_third_party_error.html' />
+  </section>
 % endif
 
 <header class="course-title">
@@ -33,30 +40,22 @@ from webpack_loader.templatetags.webpack_loader import render_bundle
 <div class="container-fluid account-settings-parent-container">
   <div class="container">
     <div class="row">
-      <div class="wrapper-account-settings"></div>
-    </div>
-  </div>
-</div>
-
-<script>
-  $(function(){
-    var hideTab = setInterval(function(){
-      if ($('#orders-tab').length > 0) {
-        $('#orders-tab').hide();
-        clearInterval(hideTab);
-      }
-    }, 20);
-    
-  })
-</script>
-
-<div class="wrapper-account-settings"></div>
-<%block name="headextra">
-    <%static:css group='style-course'/>
-    <link type="text/css" rel="stylesheet" href="${STATIC_URL}paragon/static/paragon.min.css">
-</%block>
+      <div class="wrapper-account-settings"></div><!-- .wrapper-account-settings -->
+    </div><!-- .row -->
+  </div><!-- .container -->
+</div><!-- .container-fluid.account-settings-parent-container -->
 
 <%block name="js_extra">
+<script>
+window.addEventListener('load', (event) => {
+  var hideTab = setInterval(function(){
+    if ($('#orders-tab').length > 0) {
+      $('#orders-tab').hide();
+      clearInterval(hideTab);
+    }
+  }, 20);
+});
+</script>
 <%static:require_module module_name="gymnasium/js/student_account/views/account_settings_factory" class_name="AccountSettingsFactory">
     var fieldsData = ${ fields | n, dump_js_escaped_json },
         ordersHistoryData = ${ order_history | n, dump_js_escaped_json },
@@ -96,17 +95,12 @@ from webpack_loader.templatetags.webpack_loader import render_bundle
 </%static:require_module>
 
 <script>
-     window.auth = ${ auth | n, dump_js_escaped_json };
-     window.isActive = ${ user.is_active | n, dump_js_escaped_json };
+window.auth = ${ auth | n, dump_js_escaped_json };
+window.isActive = ${ user.is_active | n, dump_js_escaped_json };
 </script>
 
-<script>
-$( document ).ready(function() {
-  // replace account deletion text
-  $(".account-deletion-details p").eq(1).html('If you require your account on this site to be deleted, please submit a request via email to <a href="mailto:help@thegymnasium.com?subject=Account Deletion request  on https://courses.gymna.si">help@thegymnasium.com</a>. Please submit your request from the email address linked to your user account, and in the email body, include any other profile details you wish to share to enable us to verify your identity, as well as clearly stating that you wish for your account to be deleted. We will endeavor to action your request within 30 days, and intend to further automate this process in the future for a more immediate response. There is no way to undo this request once it has been actioned, and should only be undertaken if absolutely necessary.')
-});
-
-</script>
 <%static:webpack entry="StudentAccountDeletionInitializer">
 </%static:webpack>
+
+${gymcms.render('partials/account-deletion')}
 </%block>

@@ -8,15 +8,13 @@
     # based on which environment we're in
     if templateUrl:
       ## Temporarily using `static` until we're ready to deploy to staging
-      fullUrl = 'https://thegymcms.com/' + templateUrl
+      fullUrl = 'https://stag-assets.aquent.com/' + templateUrl
 
-      if edx_env == 'staging':
-        fullUrl = 'https://staging.thegymcms.com/' + templateUrl
-        ## temporarily look at an in-progress build
-        ## fullUrl = 'https://deploy-preview-650--thegymcms.netlify.app/' + templateUrl
+      if edx_env == 'production':
+        fullUrl = 'https://assets.aquent.com/' + templateUrl
 
       if edx_env == 'development':
-        fullUrl = 'https://deploy-preview-650--thegymcms.netlify.app/' + templateUrl
+        fullUrl = 'https://dev-assets.aquent.com/' + templateUrl
 
       # provided the last step worked, use a try block to pull that data from the web
       # render a hidden div if it fails, so it doesn't crash the rest of the page.
