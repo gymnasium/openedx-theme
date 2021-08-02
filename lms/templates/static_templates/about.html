@@ -6,43 +6,30 @@
 <%block name="pagetitle">${_("About")}</%block>
 
 <%block name="headextra">
-  <meta property="og:url" content="https://thegymnasium.com/about" />
-  <meta property="og:title" content="Aquent Gymnasium" />
-  <meta property="og:image" content="https://thegymnasium.com${static.url('images/social-share-400.png')}" />
+  ${gymcms.render('about/meta')}
 </%block>
 
-<!--
-Start of DoubleClick Floodlight Tag: Please do not remove
-Activity name of this tag: Gymnasium_About
-URL of the webpage where the tag is expected to be placed: http://gymnasium.aquent.com/about
-This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
-Creation Date: 12/02/2015
--->
+## Start of DoubleClick Floodlight Tag: Please do not remove
+## Activity name of this tag: Gymnasium_About
+## URL of the webpage where the tag is expected to be placed: http://gymnasium.aquent.com/about
+## This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
+## Creation Date: 12/02/2015
+
+<% floodlight_src = "https://5255816.fls.doubleclick.net/activityi;src=5255816;type=count0;cat=gymna000;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=" %>
+
 <script>
 var axel = Math.random() + "";
 var a = axel * 10000000000000;
-document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5255816;type=count0;cat=gymna000;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=' + a + '?" width="1" height="1" style="display:none"></iframe>');
+var iframe = document.createElement('iframe');
+iframe.src = '${floodlight_src}' + a + '?';
+iframe.width = 1;
+iframe.height = 1;
+iframe.style = 'display: none';
+document.body.appendChild(iframe); 
 </script>
 <noscript>
-<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5255816;type=count0;cat=gymna000;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1?" width="1" height="1" style="display:none"></iframe>
+<iframe src="${floodlight_src}1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
 </noscript>
-<!-- End of DoubleClick Floodlight Tag: Please do not remove -->
+## <!-- End of DoubleClick Floodlight Tag: Please do not remove -->
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="white-panel">
-        <div class="row">
-          <div class="col-md-9">
-            ${gymcms.render('about')}
-          </div>
-
-          <div class="col-md-3">
-            ${gymcms.render('partials/sidebar-generic')}
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+${gymcms.render('about')}

@@ -2,6 +2,7 @@
 <%inherit file="../main.html" />
 <%def name="online_help_token()"><% return "courseinfo" %></%def>
 <%namespace name='static' file='../static_content.html'/>
+<%namespace name="gymcms" file="../util/gymcms.mako" />
 <%!
 from django.utils.translation import ugettext as _
 
@@ -17,10 +18,17 @@ from openedx.core.djangolib.markup import HTML, Text
 <%block name="headextra">
   <%static:css group='style-course-vendor'/>
   <%static:css group='style-course'/>
-  ## OG (Open Graph) title and description added below to give social media info to display
-  ## (https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content#tags)
-  <meta property="og:title" content="${course.display_name_with_default_escaped} - Gymnasium" />
-  <meta property="og:image" content="https://gymnasium.github.io/static-site-content/artwork/production/courses/gym-${course.display_number_with_default | h}-social.png" />
+  ## The meta getting pulled in will be for the course about page (course info pages required a logged in user, which makes social sharing redundant)
+  %if course.display_number_with_default:
+    %if int(course.display_number_with_default) < 100:
+      ${gymcms.render('courses/gym-shorts/gym-' + course.display_number_with_default + '/meta')}
+    %else:
+      ${gymcms.render('courses/full/gym-' + course.display_number_with_default + '/meta')}
+    %endif
+  %else:
+    <meta property="og:title" content="${course.display_name_with_default_escaped} - Gymnasium" />
+    <meta property="og:image" content="http://gymnasium.github.io/static-site-content/artwork/production/courses/gym-${course.display_number_with_default | h}-social.png" />
+  % endif
 </%block>
 
 % if show_enroll_banner:
@@ -46,8 +54,8 @@ from openedx.core.djangolib.markup import HTML, Text
 <%static:require_module_async module_name="js/courseware/toggle_element_visibility" class_name="ToggleElementVisibility">
         ToggleElementVisibility();
 </%static:require_module_async>
-<%static:require_module_async module_name="js/courseware/course_home_events" class_name="CourseHomeEvents">
-        CourseHomeEvents();
+<%static:require_module_async module_name="js/courseware/course_info_events" class_name="CourseInfoEvents">
+        CourseInfoEvents();
 </%static:require_module_async>
 
 <%block name="js_extra">

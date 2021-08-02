@@ -1,0 +1,16 @@
+<%! from django.utils.translation import ugettext as _ %>
+<%inherit file="../main.html" />
+<%namespace name="gymcms" file="../util/gymcms.mako" />
+
+<%block name="pagetitle">${_("dev")}</%block>
+
+<%block name="headextra">
+  ${gymcms.render('dev/meta')}
+</%block>
+
+## Show a special dev page to authenticated users
+% if user.is_authenticated():
+  ${gymcms.render('dev/index-auth')}
+% else:
+  ${gymcms.render('dev/index')}
+%endif

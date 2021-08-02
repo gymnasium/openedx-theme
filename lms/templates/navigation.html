@@ -37,6 +37,8 @@ site_status_msg = get_site_status_msg(course_id)
 % endif
 </%block>
 
+<aside id="system-status" class="system-status hide"></aside>
+
 <header class="global" aria-label="${_('Global Navigation')}">
   <nav id="primary-nav" class="black-background container-fluid">
     <div class="container">
@@ -47,7 +49,7 @@ site_status_msg = get_site_status_msg(course_id)
                 % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
                   <a class="gym-button" href="/register"><b>${_("Sign Up")}</b></a>
                 % endif
-              % endif
+            % endif
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -65,8 +67,8 @@ site_status_msg = get_site_status_msg(course_id)
 
               % endif
 
-              <li><a href="https://aquent.com" target="_blank" title="Aquent" class="gym-nav-icon-container"> <i class="gym-nav-icon aquent-icon"></i></a></li>
-              <li><a href="https://vitamintalent.com" target="_blank" title="Vitamin T" class="gym-nav-icon-container"> <i class="gym-nav-icon vitamin-t-icon"></i></a></li>
+              <li><a href="https://aquent.com" rel="noopener" target="_blank" title="Aquent" class="gym-nav-icon-container"> <i class="gym-nav-icon aquent-icon"></i></a></li>
+              <li><a href="https://vitamintalent.com" rel="noopener" target="_blank" title="Vitamin T" class="gym-nav-icon-container"> <i class="gym-nav-icon vitamin-t-icon"></i></a></li>
 
             </ul>
 
@@ -140,16 +142,14 @@ site_status_msg = get_site_status_msg(course_id)
               <h1>Improve your Gymnasium experience</h1>
               <div class="copy">
                   <p>It looks like you’re using an unsupported browser. To get the most out of your Gymnasium experience, we recommend that you use
-                    <a href="https://www.google.com/chrome/index.html" target="_blank">Chrome</a>,
-                    <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>, or
-                    <a href="https://www.apple.com/safari/" target="_blank">Safari</a>.</p>
+                    <a href="https://www.google.com/chrome/index.html" target="_blank" rel="noopener">Chrome</a>,
+                    <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank" rel="noopener">Firefox</a>, or
+                    <a href="https://www.apple.com/safari/" target="_blank" rel="noopener">Safari</a>.</p>
               </div>
           </div>
       </div>
   </div>
 </header>
-
-${gymcms.render('system-status')}
 
 % if course:
 <!--[if lte IE 8]>
@@ -162,24 +162,3 @@ ${gymcms.render('system-status')}
 %endif
 
 <%include file="help_modal.html"/>
-
-<script>
-  $(function(){
-    var button = document.getElementById("dropdown");
-
-    $(button).click(function(){
-      var menu = document.getElementById("dropdown-menu");
-
-      var caret=$(button).children('.caret');
-
-      if (menu.style.display !== "inline") {
-          menu.style.display = "inline";
-          $(caret).hide();
-      }
-      else {
-        menu.style.display = "none";
-        $(caret).show();
-      }
-    });
-  })
-</script>

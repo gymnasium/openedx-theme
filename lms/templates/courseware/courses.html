@@ -36,11 +36,12 @@
 
 ${gymcms.render('courses')}
 
+<%block name="js_extra">
 <script>
-  $(function(){
-    Gymnasium.injectFBTrackingPixel();
+  window.addEventListener('load', (event) => {
+    document.getElementById('gymjs').onload = setTimeout(function() {
+      gym.injectFBTrackingPixel();
+    }, 100);
   });
 </script>
-
-
-
+</%block>

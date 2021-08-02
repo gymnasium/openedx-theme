@@ -1,0 +1,4 @@
+<%! from django.utils.translation import ugettext as _ %>
+<%namespace name="dotcms" file="../../util/dotcms.mako" />
+## <%page cached="True" cache_timeout="3600" />
+${dotcms.render('apps/gym/jobs.json?limit=1500')}
