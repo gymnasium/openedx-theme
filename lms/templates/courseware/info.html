@@ -16,12 +16,6 @@ from openedx.core.djangoapps.self_paced.models import SelfPacedConfiguration
 from openedx.core.djangolib.markup import HTML, Text
 %>
 
-<%def name="login_params()">${
-  u"?next={next}".format(
-    next=urlquote_plus(login_redirect_url if login_redirect_url else request.path)
-  ) if (login_redirect_url or request) else ""
-}</%def>
-
 <%block name="pagetitle">${_("{course_name}").format(course_name=course.display_name_with_default)}</%block>
 
 <%block name="headextra">
@@ -120,6 +114,11 @@ from openedx.core.djangolib.markup import HTML, Text
       </section>
       % else:
       ## Unauthenticated users get a prompt to login.
+      <%def name="login_params()">${
+        u"?next={next}".format(
+          next=urlquote_plus(login_redirect_url if login_redirect_url else request.path)
+        ) if (login_redirect_url or request) else ""
+      }</%def>
       <section class="updates" style="border-right: 0;">
         <h1 class="handouts-header">Whoops!</h1>
         <p>You must be logged in to access this course content. Please <a href="/login${login_params()}">login now</a> to continue, or you will be redirected to the login screen within 10 seconds.</p>
