@@ -1,25 +1,26 @@
 <%page expression_filter="h"/>
-<%!
-from django.utils.http import urlquote_plus
+
 %>
 <%inherit file="../main.html" />
 <%def name="online_help_token()"><% return "courseinfo" %></%def>
-<%def name="login_params()">${
-  u"?next={next}".format(
-    next=urlquote_plus(login_redirect_url if login_redirect_url else request.path)
-  ) if (login_redirect_url or request) else ""
-}</%def>
 <%namespace name='static' file='../static_content.html'/>
 <%namespace name="gymcms" file="../util/gymcms.mako" />
 <%!
 from django.utils.translation import ugettext as _
 
+from django.utils.http import urlquote_plus
 from courseware.courses import get_course_info_section
 from openedx.core.lib.courses import course_image_url
 
 from openedx.core.djangoapps.self_paced.models import SelfPacedConfiguration
 from openedx.core.djangolib.markup import HTML, Text
 %>
+
+<%def name="login_params()">${
+  u"?next={next}".format(
+    next=urlquote_plus(login_redirect_url if login_redirect_url else request.path)
+  ) if (login_redirect_url or request) else ""
+}</%def>
 
 <%block name="pagetitle">${_("{course_name}").format(course_name=course.display_name_with_default)}</%block>
 
