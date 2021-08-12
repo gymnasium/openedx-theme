@@ -27,7 +27,19 @@ from openedx.core.djangolib.markup import HTML, Text
     %endif
   %else:
     <meta property="og:title" content="${course.display_name_with_default_escaped} - Gymnasium" />
-    <meta property="og:image" content="http://gymnasium.github.io/static-site-content/artwork/production/courses/gym-${course.display_number_with_default | h}-social.png" />
+    <meta property="og:image" content="https://gymnasium.github.io/static-site-content/artwork/production/courses/gym-${course.display_number_with_default | h}-social.png" />
+  % endif
+
+  ## If the user isn't logged in, take them where they need to go...
+  % if not user.is_authenticated():
+  <script>
+    var destination = '/login?next=${request.url}';
+    console.log('redirecting user to login screen: ', destination);
+    setTimeout(function(){
+      window.location.href = destination;
+    }, 3000);
+    
+  </script>
   % endif
 </%block>
 
@@ -61,7 +73,7 @@ from openedx.core.djangolib.markup import HTML, Text
 <%block name="js_extra">
   ## CourseTalk widget js script
   % if show_coursetalk_widget:
-      <script src="//d3q6qq2zt8nhwv.cloudfront.net/s/js/widgets/coursetalk-write-reviews.js"></script>
+      <script async defer src="//d3q6qq2zt8nhwv.cloudfront.net/s/js/widgets/coursetalk-write-reviews.js"></script>
   % endif
 </%block>
 
