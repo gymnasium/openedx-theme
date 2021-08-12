@@ -33,7 +33,9 @@ from openedx.core.djangolib.markup import HTML, Text
   ## If the user isn't logged in, take them where they need to go...
   % if not user.is_authenticated():
   <script>
-    window.location.href = '/login?next=' + encodeURIComponent(window.location.href);
+    setTimeout(function() {
+      window.location.href = '/login?next=' + encodeURIComponent(window.location.href);
+    }, 10000);
   </script>
   % endif
 </%block>
@@ -72,51 +74,48 @@ from openedx.core.djangolib.markup import HTML, Text
   % endif
 </%block>
 
-<%block name="bodyclass">view-in-course view-course-info ${course.css_class or ''}</%block>
+<%block name="bodyclass">gym-course-info view-in-course view-course-info ${course.css_class or ''}</%block>
 
 <main id="main" aria-label="Content" tabindex="-1">
-    <div class="container">
-      <div class="last-viewed-section">
-        % if last_accessed_courseware_url:
-          <div class="page-header-secondary">
-              <a href="${last_accessed_courseware_url}" class="last-accessed-link">${_("Resume Course")}</a>
-          </div>
+  <div class="container">
+    <div class="last-viewed-section">
+      % if last_accessed_courseware_url:
+        <div class="page-header-secondary">
+            <a href="${last_accessed_courseware_url}" class="last-accessed-link">${_("Resume Course")}</a>
+        </div>
+      % endif
+    </div>
+    <div class="info-wrapper">
+      % if user.is_authenticated():
+      <section class="updates">
+        % if studio_url is not None and masquerade and masquerade.role == 'staff':
+        <div class="wrap-instructor-info studio-view">
+          <a class="instructor-info-action" href="${studio_url}">
+            ${_("View Updates in Studio")}
+          </a>
+        </div>
         % endif
-      </div>
-      <div class="info-wrapper">
-        % if user.is_authenticated():
-        <section class="updates">
-          % if studio_url is not None and masquerade and masquerade.role == 'staff':
-          <div class="wrap-instructor-info studio-view">
-            <a class="instructor-info-action" href="${studio_url}">
-              ${_("View Updates in Studio")}
-            </a>
-          </div>
-          % endif
 
-          ${HTML(get_course_info_section(request, masquerade_user, course, 'updates'))}
+        ${HTML(get_course_info_section(request, masquerade_user, course, 'updates'))}
 
-          ## CourseTalk widget
-          % if show_coursetalk_widget:
-          <div class="coursetalk-write-reviews">
-            <div id="ct-custom-read-review-widget" data-provider="${platform_key}" data-course="${course_review_key}"></div>
-          </div>
-          % endif
-        </section>
-        <section aria-label="${_('Handout Navigation')}" class="handouts">
-          <h1 class="handouts-header">${_(course.info_sidebar_name)}</h1>
-          ${HTML(get_course_info_section(request, masquerade_user, course, 'handouts'))}
-        </section>
-        % else:
-        <section class="updates">
-          <h1 class="handouts-header">${_("Course Updates and News")}</h1>
-          ${HTML(get_course_info_section(request, masquerade_user, course, 'guest_updates'))}
-        </section>
-        <section aria-label="${_('Handout Navigation')}" class="handouts">
-          <h1 class="handouts-header">${_("Course Handouts")}</h1>
-          ${HTML(get_course_info_section(request, masquerade_user, course, 'guest_handouts'))}
-        </section>
+        ## CourseTalk widget
+        % if show_coursetalk_widget:
+        <div class="coursetalk-write-reviews">
+          <div id="ct-custom-read-review-widget" data-provider="${platform_key}" data-course="${course_review_key}"></div>
+        </div>
         % endif
-      </div>
+      </section>
+      <section aria-label="${_('Handout Navigation')}" class="handouts">
+        <h1 class="handouts-header">${_(course.info_sidebar_name)}</h1>
+        ${HTML(get_course_info_section(request, masquerade_user, course, 'handouts'))}
+      </section>
+      % else:
+      ## Unauthenticated users get a prompt to login.
+      <section class="updates" style="border-right: 0;">
+        <h1 class="handouts-header">Whoops!</h1>
+        <p>You must be logged in to access this course content. Please <a href="/login${login_query()}">login now</a> to continue, or you will be redirected to the login screen within 10 seconds.</p>
+      </section>
+      % endif
+    </div>
   </div>
 </main>
