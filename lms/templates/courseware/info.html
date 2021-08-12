@@ -1,6 +1,11 @@
 <%page expression_filter="h"/>
-<%inherit file="../main.html" import="login_query" />
+<%inherit file="../main.html" />
 <%def name="online_help_token()"><% return "courseinfo" %></%def>
+<%def name="login_query()">${
+  u"?next={next}".format(
+    next=urlquote_plus(login_redirect_url if login_redirect_url else request.path)
+  ) if (login_redirect_url or request) else ""
+}</%def>
 <%namespace name='static' file='../static_content.html'/>
 <%namespace name="gymcms" file="../util/gymcms.mako" />
 <%!
