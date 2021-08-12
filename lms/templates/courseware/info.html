@@ -33,12 +33,7 @@ from openedx.core.djangolib.markup import HTML, Text
   ## If the user isn't logged in, take them where they need to go...
   % if not user.is_authenticated():
   <script>
-    var current = encodeURIComponent(window.location.href);
-    var destination = '/login?next=' + current;
-    console.log('redirecting user to login screen: ', destination);
-    setTimeout(function(){
-      window.location.href = destination;
-    }, 3000);
+    window.location.href = '/login?next=' + encodeURIComponent(window.location.href);
   </script>
   % endif
 </%block>
