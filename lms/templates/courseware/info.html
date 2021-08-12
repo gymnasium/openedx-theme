@@ -1,7 +1,10 @@
 <%page expression_filter="h"/>
+<%!
+from django.utils.http import urlquote_plus
+%>
 <%inherit file="../main.html" />
 <%def name="online_help_token()"><% return "courseinfo" %></%def>
-<%def name="login_query()">${
+<%def name="login_params()">${
   u"?next={next}".format(
     next=urlquote_plus(login_redirect_url if login_redirect_url else request.path)
   ) if (login_redirect_url or request) else ""
@@ -118,7 +121,7 @@ from openedx.core.djangolib.markup import HTML, Text
       ## Unauthenticated users get a prompt to login.
       <section class="updates" style="border-right: 0;">
         <h1 class="handouts-header">Whoops!</h1>
-        <p>You must be logged in to access this course content. Please <a href="/login${login_query()}">login now</a> to continue, or you will be redirected to the login screen within 10 seconds.</p>
+        <p>You must be logged in to access this course content. Please <a href="/login${login_params()}">login now</a> to continue, or you will be redirected to the login screen within 10 seconds.</p>
       </section>
       % endif
     </div>
