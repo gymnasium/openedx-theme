@@ -32,9 +32,16 @@ from openedx.core.djangolib.markup import HTML, Text
   ## If the user isn't logged in, take them where they need to go...
   % if not user.is_authenticated():
   <script>
-    setTimeout(function() {
-      window.location.href = '/login?next=' + encodeURIComponent(window.location.href);
-    }, 10000);
+    var counter = 10;
+    var redirectTimer = setInterval(function() {
+      if(count <= 0){
+        clearInterval(redirectTimer);
+        window.location.href = '/login?next=' + encodeURIComponent(window.location.href);
+      } else {
+        document.getElementById('gym-login-countdown').innerHTML = count;
+      }
+      counter -= 1;
+    }, 1000);
   </script>
   % endif
 </%block>
@@ -117,7 +124,7 @@ from openedx.core.djangolib.markup import HTML, Text
       }</%def>
       <section class="updates" style="border-right: 0;">
         <h1 class="handouts-header">Whoops!</h1>
-        <p>You must be logged in to access this course content. Please <a href="/login${login_params()}">login now</a> to continue, or you will be redirected to the login screen within 10 seconds.</p>
+        <p>You must be logged in to access this course content. Please <a id="gym-course-info-login" href="/login${login_params()}">login</a> to continue, or you will be redirected to the login screen in <span id="gym-login-countdown">10</span> seconds.</p>
       </section>
       % endif
     </div>
