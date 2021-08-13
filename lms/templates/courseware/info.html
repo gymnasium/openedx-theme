@@ -1,17 +1,13 @@
 <%page expression_filter="h"/>
-
-%>
 <%inherit file="../main.html" />
 <%def name="online_help_token()"><% return "courseinfo" %></%def>
 <%namespace name='static' file='../static_content.html'/>
 <%namespace name="gymcms" file="../util/gymcms.mako" />
 <%!
 from django.utils.translation import ugettext as _
-
 from django.utils.http import urlquote_plus
 from courseware.courses import get_course_info_section
 from openedx.core.lib.courses import course_image_url
-
 from openedx.core.djangoapps.self_paced.models import SelfPacedConfiguration
 from openedx.core.djangolib.markup import HTML, Text
 %>
