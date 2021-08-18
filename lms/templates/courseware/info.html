@@ -122,9 +122,9 @@ from openedx.core.djangolib.markup import HTML, Text
           next=urlquote_plus(login_redirect_url if login_redirect_url else request.path)
         ) if (login_redirect_url or request) else ""
       }</%def>
-      <section class="updates" style="border-right: 0;">
+      <section id="gym-course-not-authenticated" class="updates" style="border-right: 0;" data-url-fragment="${login_params()}">
         <h1 class="handouts-header">Whoops!</h1>
-        <p>You must be logged in to access this course content. Please <a id="gym-course-info-login" href="/login${login_params()}">login</a> to continue, or you will be redirected to the login screen in <span id="gym-login-countdown">10</span> seconds.</p>
+        <p>Please <a id="gym-course-info-login" href="/login${login_params()}">login</a> to access this course content. You will be redirected to the login screen in <span id="countdown">10</span> <span id="countdown-time">seconds</span>.</p>
       </section>
       % endif
     </div>
