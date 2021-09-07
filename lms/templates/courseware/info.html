@@ -106,11 +106,11 @@ from openedx.core.djangolib.markup import HTML, Text
           next=urlquote_plus(login_redirect_url if login_redirect_url else request.path)
         ) if (login_redirect_url or request) else ""
       }</%def>
-      <section id="gym-course-not-authenticated" class="updates" style="border-right: 0;" data-url-fragment="${login_params()}">
+      <section id="gym-course-not-authenticated" class="updates" style="border-right: 0;">
         <h1 class="handouts-header">Whoops!</h1>
-        <p>Please <a id="gym-course-info-login" href="/login${login_params()}">login</a> to access this course content. You will be redirected to the login screen in <span data-countdown>10</span> <span data-countdown-text>seconds</span>.</p>
+        <p>Please <a id="gym-course-info-login" href="/login${login_params()}">login</a> to access this course content. You will be redirected to the login screen in <span data-countdown data-redirect-url="/login${login_params()}">10</span> <span data-countdown-text>seconds</span>.</p>
       </section>
       % endif
-    </div>
-  </div>
+    </div><!-- .info-wrapper -->
+  </div><!-- .container -->
 </main>
