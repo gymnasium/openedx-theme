@@ -28,22 +28,6 @@ from openedx.core.djangolib.markup import HTML, Text
     <meta property="og:title" content="${course.display_name_with_default_escaped} - Gymnasium" />
     <meta property="og:image" content="https://gymnasium.github.io/static-site-content/artwork/production/courses/gym-${course.display_number_with_default | h}-social.png" />
   % endif
-
-  ## If the user isn't logged in, take them where they need to go...
-  % if not user.is_authenticated():
-  <script>
-    var counter = 10;
-    var redirectTimer = setInterval(function() {
-      if(counter <= 0){
-        clearInterval(redirectTimer);
-        window.location.href = '/login?next=' + encodeURIComponent(window.location.href);
-      } else {
-        document.getElementById('gym-login-countdown').innerHTML = counter;
-      }
-      counter -= 1;
-    }, 1000);
-  </script>
-  % endif
 </%block>
 
 % if show_enroll_banner:
@@ -124,7 +108,7 @@ from openedx.core.djangolib.markup import HTML, Text
       }</%def>
       <section id="gym-course-not-authenticated" class="updates" style="border-right: 0;" data-url-fragment="${login_params()}">
         <h1 class="handouts-header">Whoops!</h1>
-        <p>Please <a id="gym-course-info-login" href="/login${login_params()}">login</a> to access this course content. You will be redirected to the login screen in <span id="countdown">10</span> <span id="countdown-time">seconds</span>.</p>
+        <p>Please <a id="gym-course-info-login" href="/login${login_params()}">login</a> to access this course content. You will be redirected to the login screen in <span data-countdown>10</span> <span data-countdown-text>seconds</span>.</p>
       </section>
       % endif
     </div>
