@@ -35,13 +35,3 @@
 <%block name="pagetitle">${_("Courses")}</%block>
 
 ${gymcms.render('courses')}
-
-<%block name="js_extra">
-<script>
-  window.addEventListener('load', (event) => {
-    document.getElementById('gymjs').onload = setTimeout(function() {
-      gym.injectFBTrackingPixel();
-    }, 100);
-  });
-</script>
-</%block>
