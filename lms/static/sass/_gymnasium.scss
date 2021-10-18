@@ -81,9 +81,8 @@ $body-font-family: $sans-serif;
 
 $theme-serif-font: "Helvetica Neue";
 $serif: $theme-serif-font;
-p {
-  font: $serif;
-}
+
+
 
 //-----------------
 //  Theme Element Assignments
@@ -211,10 +210,43 @@ $header_image_margin: 0px;
 //FOOTER MARGIN
 $footer_margin: ($baseline/4) 0;
 
+$login-banner-image: none;
+$register-banner-image: none;
+
 //-----------------
-//  CSS BG Images
+//  Mixin Styles
 //-----------------
-// $homepage-bg-image: url('../images/marketing-campaign/homepage_graphic.png');
+@mixin login_register_h1_style {
+  clip: auto !important;
+  height: 50px;
+  width: 550px;
+  top: 0;
+}
+
+@mixin footer_references_style {
+  margin: 0 !important;
+  text-align: right;
+}
+
+/* individual page styles */
+@import "urls";
+@import "about";
+@import "account_settings";
+@import "assessment";
+@import "bookmarks";
+@import "catalog";
+@import "courseware";
+@import "dashboard";
+@import "home";
+// @import "register";
+@import "tertiary_navigation";
+@import "system_status";
+@import "find_work";
+
+@import "prism"; //used for prism.js syntax highlighting
+
+
+// Start rendered output (TODO: to prevent duplication, this stuff should be loaded separately from the variables above, ideally...
 
 /* negate a silly style rule inherited from the platform */
 html {
@@ -266,42 +298,8 @@ div#content.content-wrapper,
   }
 }
 
-$login-banner-image: none;
-$register-banner-image: none;
-
-//-----------------
-//  Mixin Styles
-//-----------------
-@mixin login_register_h1_style {
-  clip: auto !important;
-  height: 50px;
-  width: 550px;
-  top: 0;
-}
-
-@mixin footer_references_style {
-  margin: 0 !important;
-  text-align: right;
-}
-
-/* individual page styles */
-@import "urls";
-@import "about";
-@import "account_settings";
-@import "assessment";
-@import "bookmarks";
-@import "catalog";
-@import "courseware";
-@import "dashboard";
-@import "home";
-@import "register";
-@import "tertiary_navigation";
-@import "system_status";
-@import "find_work";
-
-@import "prism"; //used for prism.js syntax highlighting
-
 p {
+  font-family: $serif;
   font-size: 1.2em/1.6em;
 }
 
