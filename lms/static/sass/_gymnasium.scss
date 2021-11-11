@@ -75,14 +75,11 @@ $white: $gray-1;
 $black: #2e2e2e;
 $black-80: #585858;
 
-$theme-sans-font: "brandon-grotesque";
-$sans-serif: $theme-sans-font;
-$body-font-family: $sans-serif;
+$gym-text-font-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$gym-font-stack: "brandon-grotesque", $gym-text-font-stack;
 
-$theme-serif-font: "Helvetica Neue";
-$serif: $theme-serif-font;
-
-
+$serif: $gym-text-font-stack;
+$sans-serif: $gym-font-stack;
 
 //-----------------
 //  Theme Element Assignments
@@ -299,7 +296,7 @@ div#content.content-wrapper,
 }
 
 p {
-  font-family: $serif;
+  font-family: $gym-text-font-stack;
   font-size: 1.2em/1.6em;
 }
 
@@ -323,7 +320,7 @@ body.register,
   a.gymlink:link,
   a.gymlink:visited {
     color: $gym-orange;
-    font-family: $theme-serif-font;
+    font-family: $gym-text-font-stack;
     border-bottom: none;
   }
 
@@ -404,7 +401,7 @@ body.view-in-course {
   border-radius: 2px;
   padding: 2.2em;
   padding-top: 1em;
-  font: 1.2em/1.5 "Helvetica Neue", Helvetica, sans-serif;
+  font: 1.2em/1.5 $gym-text-font-stack;
   margin-top: 20px;
   margin-bottom: 20px;
 
@@ -412,16 +409,15 @@ body.view-in-course {
     padding-left: 0;
   }
   a {
-    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-family: $gym-text-font-stack;
   }
 
   h2 {
-    font: 900 1em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+    font: 900 1em/1.3 $gym-font-stack;
   }
 
   h3 {
-    font: bold 1.2em/1.4 brandon-grotesque, "Helvetica Neue", Helvetica,
-      sans-serif;
+    font: bold 1.2em/1.4 $gym-font-stack;
     color: #222;
     letter-spacing: 0.02em;
     word-spacing: 0.04em;
@@ -495,8 +491,7 @@ body.view-in-course {
 
   .navbar-right {
     li > a {
-      font: normal 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica,
-        sans-serif;
+      font: normal 1.2em/1 $gym-font-stack;
     }
   }
 
@@ -564,7 +559,7 @@ body.view-in-course {
   a {
     font-size: 1.2em;
     color: $gym-white;
-    font-family: brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+    font-family: $gym-font-stack;
 
     &.gym-button {
       color: white;
@@ -758,7 +753,7 @@ div.wrapper-footer {
         a,
         a:link {
           color: white;
-          font-family: $theme-sans-font;
+          font-family: $gym-font-stack;
         }
         a:hover {
           color: $gym-orange;
@@ -817,7 +812,7 @@ section {
 .gym-button:link,
 .gym-button:visited {
   color: white;
-  font-family: brandon-grotesque;
+  font-family: $gym-font-stack;
 }
 
 body {
@@ -867,23 +862,21 @@ a.gym-button:link,
   font-weight: bold;
   font-size: 1em;
   text-align: center;
-  font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+  font: bold 1.2em/1 $gym-font-stack;
 
   a,
   a:link,
   a:visited,
   a b {
     color: white;
-    font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica,
-      sans-serif;
+    font: bold 1.2em/1 $gym-font-stack;
   }
   a:hover {
     text-decoration: none;
   }
 
   b {
-    font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica,
-      sans-serif;
+    font: bold 1.2em/1 $gym-font-stack;
     letter-spacing: 0.025em;
     color: white;
   }
@@ -927,7 +920,7 @@ body {
     font-weight: bold;
     border: none;
     color: white;
-    font-family: brandon-grotesque;
+    font-family: $gym-font-stack;
 
     a,
     a:link,
@@ -962,7 +955,7 @@ body {
 }
 
 .gym-button b {
-  font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+  font: bold 1.2em/1 $gym-font-stack;
   letter-spacing: 0.025em;
   vertical-align: bottom;
 }
@@ -1014,8 +1007,8 @@ body {
 }
 
 .dialog legend b {
-  font: 900 1.6em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-  color: #222;
+  font: 900 1.6em/1.2 $gym-font-stack;
+  color: $gym-dark-grey;
   letter-spacing: 0.06em;
   word-spacing: 0.05em;
   text-transform: uppercase;
@@ -1034,7 +1027,7 @@ body {
 }
 
 .dialog p {
-  font: 0.9em/1.4 "Helvetica Neue", Helvetica, sans-serif;
+  font: 0.9em/1.4 $gym-text-font-stack;
   color: #444;
   letter-spacing: 0.01em;
 }
@@ -1064,8 +1057,8 @@ body {
 }
 
 .dialog form label {
-  font: 1.1em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
-  color: #222;
+  font: 1.1em/1.2 $gym-font-stack;
+  color: $gym-dark-grey;
   letter-spacing: 0.03em;
   word-spacing: 0.05em;
   text-transform: uppercase;
@@ -1076,7 +1069,7 @@ body {
   border: none;
   box-shadow: none;
 
-  font: 1em/1 "Helvetica Neue", Helvetica, sans-serif;
+  font: 1em/1 $gym-text-font-stack;
   width: 100%;
   padding-top: 0.6em;
   padding-bottom: 0.6em;
@@ -1115,7 +1108,7 @@ body {
 }
 
 .close-modal b {
-  font: bold 0.8em/1.3 "Helvetica Neue", Helvetica, sans-serif;
+  font: bold 0.8em/1.3 $gym-text-font-stack;
   letter-spacing: 0.1em;
   word-spacing: normal;
   text-transform: uppercase;
@@ -1170,7 +1163,7 @@ html {
     h6 {
       text-align: left;
       text-transform: uppercase;
-      font-family: brandon-grotesque;
+      font-family: $gym-font-stack;
     }
 
     h1,
@@ -1188,14 +1181,14 @@ html {
 }
 
 h1 {
-  font: 900 2.4em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+  font: 900 2.4em/1.2 $gym-font-stack;
   letter-spacing: 0.04em;
   word-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 h2 {
-  font: 900 1em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+  font: 900 1em/1.3 $gym-font-stack;
   letter-spacing: 0.06em;
   word-spacing: 0.04em;
   text-transform: uppercase;
@@ -1241,8 +1234,7 @@ div.status,
   box-shadow: none;
 
   .message-title {
-    font: bold 2em/1.25 "brandon-grotesque", "Helvetia Neue", Helvetica,
-      sans-serif;
+    font: bold 2em/1.25 $gym-font-stack;
     color: #fff !important;
     text-transform: capitalize;
     margin-top: 0;
@@ -1254,7 +1246,7 @@ div.status,
   }
 
   div.status p.message-copy {
-    color: #222222 !important;
+    color: $gym-dark-grey !important;
   }
 
   a {
@@ -1272,7 +1264,7 @@ div.status,
   }
 
   li {
-    font: bold 1em/1.5 "Helvetica Neue", Helvetica, sans-serif;
+    font: bold 1em/1.5 $gym-text-font-stack;
     letter-spacing: 0.01em;
     color: #fff;
     margin-top: 1em;
