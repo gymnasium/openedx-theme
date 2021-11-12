@@ -1,7 +1,7 @@
 ## mako
 
-<%namespace name='static' file='/static_content.html'/>
-<%namespace name='gymcms' file='../util/gymcms.mako' />
+<%namespace name='static' file='../static_content.html'/>
+##<%namespace name='gymcms' file='../util/gymcms.mako' />
 
 <%page expression_filter="h"/>
 
@@ -22,9 +22,9 @@ from openedx.core.djangolib.js_utils import dump_js_escaped_json, js_escaped_str
   ## Ensure we're pulling in the proper meta path for gym shorts vs full courses
   %if course.display_number_with_default:
     %if int(course.display_number_with_default) < 100:
-      ${gymcms.render('courses/gym-shorts/gym-' + course.display_number_with_default + '/meta')}
+      ##${gymcms.render('courses/gym-shorts/gym-' + course.display_number_with_default + '/meta')}
     %else:
-      ${gymcms.render('courses/full/gym-' + course.display_number_with_default + '/meta')}
+      ##${gymcms.render('courses/full/gym-' + course.display_number_with_default + '/meta')}
     %endif
   %else:
     <meta property="og:title" content="${course.display_name_with_default_escaped} - Gymnasium" />
