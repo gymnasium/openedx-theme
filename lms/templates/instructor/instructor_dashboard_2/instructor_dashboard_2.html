@@ -1,7 +1,7 @@
 <%page expression_filter="h"/>
 <%inherit file="/main.html" />
 <%namespace name='static' file='/static_content.html'/>
-<%namespace name='gymcms' file='../util/gymcms.mako' />
+<%namespace name='gymcms' file='../../util/gymcms.mako' />
 <%def name="online_help_token()"><% return "instructor" %></%def>
 <%!
 from django.utils.translation import ugettext as _
@@ -11,7 +11,7 @@ from openedx.core.djangolib.markup import HTML
 %>
 <%block name="bodyclass">view-in-course view-instructordash gym-instructor</%block>
 
-## ----- Tips on adding something to the new instructor dashboard ----- ##
+## Tips on adding something to the new instructor dashboard
 ## 1. add your input element, e.g. in instructor_dashboard2/data_download.html
 ##   the input includes a reference like data-endpoint="${ section_data['get_anon_ids_url'] }"
 ## 2. Go to the old dashboard djangoapps/instructor/views/instructor_dashboard.py and
