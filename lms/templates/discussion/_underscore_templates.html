@@ -1,6 +1,9 @@
 <%page expression_filter="h"/>
+<%namespace name='gymcms' file='../util/gymcms.mako' />
 <%namespace name='static' file='../static_content.html'/>
 <%! from openedx.core.djangolib.js_utils import js_escaped_string %>
+
+<!-- GYM: TESTING underscore templates -->
 
 <script type="text/javascript">
   window.PLATFORM_NAME = "${settings.PLATFORM_NAME | n, js_escaped_string}";

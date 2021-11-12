@@ -1,7 +1,6 @@
 ## mako
 <%page expression_filter="h"/>
 <%namespace name='gymcms' file='../util/gymcms.mako' />
-##<%inherit file="/main.html" />
 <%namespace name='static' file='../static_content.html'/>
 
 <%!
@@ -32,9 +31,8 @@ from openedx.core.djangolib.js_utils import dump_js_escaped_json, js_escaped_str
   % endif
 </%block>
 
-<%block name="bodyclass">gym-forum</%block>
-
 <%block name="js_extra">
+<!-- GYM: TESTING js_extra -->
 <%include file="_js_body_dependencies.html" />
 <%static:require_module module_name="discussion/js/discussion_profile_page_factory" class_name="DiscussionProfilePageFactory">
     profile_page_context = {
