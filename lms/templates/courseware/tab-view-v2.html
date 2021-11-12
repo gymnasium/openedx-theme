@@ -1,7 +1,6 @@
 ## mako
 
 <%page expression_filter="h"/>
-<%namespace name='gymcms' file='../util/gymcms.mako' />
 <%! main_css = "style-main-v2" %>
 
 <%!
@@ -13,6 +12,7 @@ from openedx.core.djangolib.markup import HTML
 
 <%inherit file="/main.html" />
 <%namespace name='static' file='/static_content.html'/>
+<%namespace name='gymcms' file='../util/gymcms.mako' />
 
 <%block name="bodyclass">${tab['body_class']} gym-forum</%block>
 
@@ -22,25 +22,22 @@ from openedx.core.djangolib.markup import HTML
 
 <%include file="/courseware/course_navigation.html" args="active_page=active_page" />
 
-<%block name="headextra">
+<%block name="head_extra">
   ## OG (Open Graph) title and description added below to give social media info to display
   ## (https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content#tags)
 
   ## Ensure we're pulling in the proper meta path for gym shorts vs full courses
   %if course.display_number_with_default:
     %if int(course.display_number_with_default) < 100:
-      ##${gymcms.render('courses/gym-shorts/gym-' + course.display_number_with_default + '/meta')}
+      ${gymcms.render('courses/gym-shorts/gym-' + course.display_number_with_default + '/meta')}
     %else:
-      ##${gymcms.render('courses/full/gym-' + course.display_number_with_default + '/meta')}
+      ${gymcms.render('courses/full/gym-' + course.display_number_with_default + '/meta')}
     %endif
   %else:
     <meta property="og:title" content="${course.display_name_with_default_escaped} - Gymnasium" />
     <meta property="og:image" content="https://gymnasium.github.io/static-site-content/artwork/production/courses/gym-${course.display_number_with_default | h}-social.png" />
   % endif
-</%block>
 
-
-<%block name="head_extra">
 ${HTML(fragment.head_html())}
 </%block>
 
