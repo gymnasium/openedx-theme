@@ -13,7 +13,7 @@ from openedx.core.djangolib.markup import HTML
 <%inherit file="/main.html" />
 <%namespace name='static' file='/static_content.html'/>
 
-<%block name="bodyclass">${tab['body_class']}</%block>
+<%block name="bodyclass">${tab['body_class']} gym-tab-view</%block>
 
 <%def name="online_help_token()"><% return "${tab['online_help_token']}" %></%def>
 
