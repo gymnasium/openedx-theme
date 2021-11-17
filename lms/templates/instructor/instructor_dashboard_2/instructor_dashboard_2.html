@@ -1,3 +1,4 @@
+## This serves up the instructor tab on course pages
 <%page expression_filter="h"/>
 <%inherit file="/main.html" />
 <%namespace name='static' file='/static_content.html'/>
@@ -119,7 +120,7 @@ from openedx.core.djangolib.markup import HTML
 <div class="container">
   <div class="instructor-dashboard-wrapper-2">
     <main id="main" aria-label="Content" tabindex="-1">
-      <section class="instructor-dashboard-content-2" id="instructor-dashboard-content">
+      <section id="instructor-dashboard-content" class="instructor-dashboard-content-2 white-panel">
         <h2 class="hd hd-2 instructor-dashboard-title">${_("Instructor Dashboard")}</h2>
         <div class="wrap-instructor-info studio-view">
           %if studio_url:
