@@ -45,11 +45,7 @@ if course is not None:
 
   <div class="container">
     <div class="row">
-        <nav
-            class="${active_page} wrapper-course-material col-md-12"
-            aria-label="${_('Course Material')}"
-            style="margin: 0 15px"
-        >
+        <nav class="${active_page} wrapper-course-material col-md-12" aria-label="${_('Course Material')}" style="margin: 0 15px;">
             <div class="course-material">
                 <%
                 tab_list = get_course_tab_list(request, course)
