@@ -343,10 +343,10 @@ $staff-color: $uxpl-pink-base !default;
 // #TYPOGRAPHY
 // ----------------------------
 $monospace: Monaco, 'Bitstream Vera Sans Mono', 'Lucida Console', monospace !default;
-$serif: $georgia !default;
+$serif: 'Helvetica Neue',Helvetica,Arial,sans-serif !default;
 
 // newer variables/standards
-$f-serif: 'Bree Serif', Georgia, Cambria, 'Times New Roman', Times, serif !default;
+$f-serif: $serif !default;
 $f-monospace: 'Bitstream Vera Sans Mono', Consolas, Courier, monospace !default;
 
 $font-light: 300 !default;
