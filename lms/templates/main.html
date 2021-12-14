@@ -46,21 +46,8 @@ edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
     <title>${static.get_page_title_breadcrumbs(self.pagetitle())}</title>
   </%block>
 
-  <link rel="icon" type="image/x-icon" href="${static.url(static.get_value('favicon_path', settings.FAVICON_PATH))}" />
-
-  <%static:css group='style-vendor'/>
-  % if '/' in self.attr.main_css:
-    % if get_language_bidi():
-      <%
-      rtl_css_file = self.attr.main_css.replace('.css', '-rtl.css')
-      %>
-      <link rel="stylesheet" href="${unicode(static.url(rtl_css_file))}" type="text/css" media="all" />
-    % else:
-      <link rel="stylesheet" href="${static.url(self.attr.main_css)}" type="text/css" media="all" />
-    % endif
-  % else:
-    <%static:css group='${self.attr.main_css}'/>
-  % endif
+## Prepare a block name to load the GYMCMS meta
+  <%block name="gym_head_meta"/>
 
   <%
     jsi18n_path = "js/i18n/{language}/djangojs.js".format(language=LANGUAGE_CODE)
@@ -85,6 +72,22 @@ edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
   % endif
   <script src="${static.url(jsi18n_path)}"></script>
   <script src="${static.url(ie11_fix_path)}"></script>
+
+  <link rel="icon" type="image/x-icon" href="${static.url(static.get_value('favicon_path', settings.FAVICON_PATH))}" />
+
+  <%static:css group='style-vendor'/>
+  % if '/' in self.attr.main_css:
+    % if get_language_bidi():
+      <%
+      rtl_css_file = self.attr.main_css.replace('.css', '-rtl.css')
+      %>
+      <link rel="stylesheet" href="${unicode(static.url(rtl_css_file))}" type="text/css" media="all" />
+    % else:
+      <link rel="stylesheet" href="${static.url(self.attr.main_css)}" type="text/css" media="all" />
+    % endif
+  % else:
+    <%static:css group='${self.attr.main_css}'/>
+  % endif
 
   % if disable_courseware_js or uses_pattern_library:
     <%static:js group='base_vendor'/>
