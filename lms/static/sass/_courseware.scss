@@ -208,7 +208,7 @@ nav.progress.wrapper-course-material {
     }
 
     .accordion {
-      font-family: brandon-grotesque;
+      font-family: $gym-font-stack;
 
       nav.course-navigation .group-heading.active .icon.fa {
         color: $gym-orange;
@@ -218,7 +218,7 @@ nav.progress.wrapper-course-material {
 
       .course-navigation {
         .group-heading {
-          font-family: brandon-grotesque;
+          font-family: $gym-font-stack;
         }
 
         .chapter-content-container {
@@ -229,7 +229,7 @@ nav.progress.wrapper-course-material {
 
             .menu-item {
               .accordion-nav {
-                font-family: brandon-grotesque;
+                font-family: $gym-font-stack;
                 p,
                 h1,
                 h2,
@@ -237,7 +237,7 @@ nav.progress.wrapper-course-material {
                 h4,
                 h5,
                 h6 {
-                  font-family: brandon-grotesque;
+                  font-family: $gym-font-stack;
                 }
               }
 
@@ -326,10 +326,10 @@ nav.progress.wrapper-course-material {
   border-radius: 2px;
   margin-bottom: 0px;
   border: 1px solid #ccc;
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-family: $gym-text-font-stack;
 
   p {
-    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-family: $gym-text-font-stack;
   }
 
   section.updates {
@@ -365,7 +365,7 @@ nav.progress.wrapper-course-material {
 
     header.hero {
       p {
-        font-family: brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+        font-family: $gym-font-stack;
         font-size: 1.6em;
         line-height: 1.5;
         letter-spacing: 0.01em;
@@ -382,8 +382,7 @@ nav.progress.wrapper-course-material {
         margin-top: 1.8em;
 
         h2 {
-          font: 900 1em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica,
-            sans-serif;
+          font: 900 1em/1.3 $gym-font-stack;
           color: #222;
           letter-spacing: 0.06em;
           word-spacing: 0.04em;
@@ -392,8 +391,7 @@ nav.progress.wrapper-course-material {
         }
 
         h3 {
-          font: bold 1.2em/1.4 brandon-grotesque, "Helvetica Neue", Helvetica,
-            sans-serif;
+          font: bold 1.2em/1.4 $gym-font-stack;
           color: #222;
           letter-spacing: 0.02em;
           word-spacing: 0.04em;
@@ -423,12 +421,12 @@ nav.progress.wrapper-course-material {
 
     h1 {
       padding: 10px 0 0px 0;
-      font-family: brandon-grotesque;
+      font-family: $gym-font-stack;
       font-weight: 600;
     }
 
     dt {
-      font-family: brandon-grotesque;
+      font-family: $gym-font-stack;
       font-weight: 600;
     }
   }
@@ -443,7 +441,7 @@ nav.progress.wrapper-course-material {
 }
 
 .course-title h1 {
-  font: 900 1.8em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+  font: 900 1.8em/1.2 $gym-font-stack;
   color: #fff;
   letter-spacing: 0.05em;
   word-spacing: 0.05em;
@@ -464,7 +462,7 @@ nav.progress.wrapper-course-material {
   h4,
   h5,
   h6 {
-    font-family: brandon-grotesque;
+    font-family: $gym-font-stack;
     font-weight: 900;
   }
   .course-info {
@@ -504,7 +502,7 @@ nav.progress.wrapper-course-material {
 
     h1 {
       color: white;
-      font-family: brandon-grotesque;
+      font-family: $gym-font-stack;
       text-align: center;
     }
 
@@ -518,7 +516,7 @@ nav.progress.wrapper-course-material {
     padding: 2.2em;
 
     strong {
-      font: 1.4em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+      font: 1.4em/1.2 $gym-font-stack;
       color: #ccc;
     }
   }
@@ -536,8 +534,7 @@ nav.progress.wrapper-course-material {
   margin-bottom: 1.8em;
 
   h2 {
-    font: 900 1.8em/1.1 brandon-grotesque, "Helvetica Neue", Helvetica,
-      sans-serif;
+    font: 900 1.8em/1.1 $gym-font-stack;
     text-transform: uppercase;
     letter-spacing: 0.03em;
     text-align: center;
@@ -551,7 +548,7 @@ nav.progress.wrapper-course-material {
 
   p {
     margin-top: 1em;
-    font-family: brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+    font-family: $gym-font-stack;
     font-size: 1.2em;
     line-height: 1.5;
   }
@@ -568,7 +565,7 @@ nav.progress.wrapper-course-material {
 .course-about-overview {
   .hero {
     p {
-      font-family: brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+      font-family: $gym-font-stack;
       font-size: 1.6em;
       line-height: 1.5;
       letter-spacing: 0.01em;
@@ -591,12 +588,11 @@ nav.progress.wrapper-course-material {
   a,
   a:link,
   a:visited {
-    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-family: $gym-text-font-stack;
   }
 
   h2 {
-    font: 900 1.2em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica,
-      sans-serif;
+    font: 900 1.2em/1.3 $gym-font-stack;
     color: #222;
     letter-spacing: 0.06em;
     word-spacing: 0.04em;
@@ -606,8 +602,7 @@ nav.progress.wrapper-course-material {
   }
 
   h3 {
-    font: bold 1.2em/1.4 brandon-grotesque, "Helvetica Neue", Helvetica,
-      sans-serif;
+    font: bold 1.2em/1.4 $gym-font-stack;
     color: #222;
     letter-spacing: 0.02em;
     word-spacing: 0.04em;
@@ -648,7 +643,7 @@ nav.progress.wrapper-course-material {
 }
 
 span.field-help {
-  font-family: "Helvetica Neue";
+  font-family: $gym-text-font-stack;
 }
 
 html {

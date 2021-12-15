@@ -1,3 +1,5 @@
+// TODO: This component is likely deprecated as of March 2021
+
 /* --- find work / job board / sidebar --- */
 
 /* find work header */
@@ -8,8 +10,7 @@
     margin-bottom: 0.2em;
 
     h2 {
-      font: 900 1.7em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica,
-        sans-serif;
+      font: 900 1.7em/1.2 $gym-font-stack;
       letter-spacing: 0.06em;
       word-spacing: 0.04em;
       text-transform: uppercase;
@@ -18,8 +19,7 @@
     }
 
     p {
-      font: normal 1.3em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica,
-        sans-serif;
+      font: normal 1.3em/1.3 $gym-font-stack;
       letter-spacing: 0.01em;
       margin-top: 0;
       margin-bottom: 0;
@@ -61,7 +61,7 @@
 
   .job-list {
     .row {
-      font: 1em/1.15 "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font: 1em/1.15 $gym-text-font-stack;
       border-bottom: 1px solid #ccc;
     }
 
@@ -118,7 +118,7 @@
   .job-market {
     display: block;
     font-style: normal;
-    font: bold 0.8125em/1.2 "Helvetica Neue", Helvetica, sans-serif;
+    font: bold 0.8125em/1.2 $gym-text-font-stack;
     letter-spacing: 0.02em;
     margin-top: 0.325em;
     margin-bottom: 0.25em;
@@ -171,7 +171,7 @@
 
   /* viewing jobs in */
   h3.viewing-jobs-in {
-    font: bold 1em/1.3 "Helvetica Neue", Helvetica, sans-serif;
+    font: bold 1em/1.3 $gym-text-font-stack;
     letter-spacing: 0.02em;
     text-transform: none;
     margin-top: 0;

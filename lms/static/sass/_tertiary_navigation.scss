@@ -38,12 +38,12 @@
       }
 
       /* 
-				NOTE TO SELF: 
-					the following rules use !important to override an !important
-					flag that was set in the platform stylesheets.  I apologize
-					in advance for whatever inconvenience this causes you in the 
-					future.  Love, Mike
-			*/
+        NOTE TO SELF: 
+          the following rules use !important to override an !important
+          flag that was set in the platform stylesheets.  I apologize
+          in advance for whatever inconvenience this causes you in the 
+          future.  Love, Mike
+      */
       button.account-nav-link:hover,
       button.account-nav-link.active:hover {
         color: $gym-orange;
