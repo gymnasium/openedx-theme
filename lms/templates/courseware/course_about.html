@@ -18,7 +18,9 @@ from edxmako.shortcuts import marketing_link
 
   ## Ensure we're pulling in the proper meta path for gym shorts vs full courses
   %if course.display_number_with_default:
-    %if int(course.display_number_with_default) < 100:
+    %if int(course.display_number_with_default) >= 700 and int(course.display_number_with_default) < 800:
+      ${gymcms.render('courses/workshops/gym-' + course.display_number_with_default + '/meta')}
+    %elif int(course.display_number_with_default) < 100:
       ${gymcms.render('courses/gym-shorts/gym-' + course.display_number_with_default + '/meta')}
     %else:
       ${gymcms.render('courses/full/gym-' + course.display_number_with_default + '/meta')}
