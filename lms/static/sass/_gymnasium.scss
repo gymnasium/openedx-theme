@@ -210,21 +210,6 @@ $footer_margin: ($baseline/4) 0;
 $login-banner-image: none;
 $register-banner-image: none;
 
-//-----------------
-//  Mixin Styles
-//-----------------
-// @mixin login_register_h1_style {
-//   clip: auto !important;
-//   height: 50px;
-//   width: 550px;
-//   top: 0;
-// }
-
-// @mixin footer_references_style {
-//   margin: 0 !important;
-//   text-align: right;
-// }
-
 /* individual page styles */
 @import "urls";
 @import "about";
@@ -238,6 +223,6 @@ $register-banner-image: none;
 // @import "register";
 @import "tertiary_navigation";
 @import "system_status";
-@import "find_work";
+// @import "find_work";
 
 @import "prism"; //used for prism.js syntax highlighting

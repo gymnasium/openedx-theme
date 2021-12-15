@@ -12,7 +12,7 @@
 .subsection h4,
 .subsection h5,
 .subsection h6 {
-  font-family: brandon-grotesque;
+  font-family: $gym-font-stack;
   letter-spacing: 0.06em;
   word-spacing: 0.04em;
 }
@@ -74,7 +74,7 @@
         font-size: 1.5em;
         font-weight: bold;
         a:link {
-          font: brandon-grotesque;
+          font: $gym-font-stack;
         }
       }
     }
@@ -127,7 +127,7 @@
         text-transform: uppercase;
         font-size: 42pt;
         font-weight: bold;
-        font-family: brandon-grotesque;
+        font-family: $gym-font-stack;
       }
 
       a:hover,
@@ -314,7 +314,7 @@
   .quote {
     display: inline-block;
     position: relative;
-    font-family: brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+    font-family: $gym-font-stack;
     color: #aaa;
     letter-spacing: 0.025em;
     vertical-align: middle;
@@ -326,7 +326,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-family: $gym-text-font-stack;
     font-size: 19em;
     line-height: 0.35;
     color: #ddd;
@@ -371,7 +371,7 @@
   }
 
   .quote figcaption {
-    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-family: $gym-text-font-stack;
     font-size: small;
     font-style: italic;
     font-weight: bold;

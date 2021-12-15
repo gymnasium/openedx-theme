@@ -46,6 +46,9 @@ edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
     <title>${static.get_page_title_breadcrumbs(self.pagetitle())}</title>
   </%block>
 
+## Prepare a block name to load the GYMCMS meta
+  <%block name="gym_head_meta"/>
+
   <%
     jsi18n_path = "js/i18n/{language}/djangojs.js".format(language=LANGUAGE_CODE)
     ie11_fix_path = "js/ie11_find_array.js"

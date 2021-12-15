@@ -44,8 +44,7 @@ section.container.dashboard {
       padding: 2em;
 
       h1 {
-        font: 900 1.8em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica,
-          sans-serif;
+        font: 900 1.8em/1.2 $gym-font-stack;
         color: $gym-dark-gray;
         letter-spacing: 0.02em;
         word-spacing: 0.02em;
@@ -63,8 +62,7 @@ section.container.dashboard {
       }
 
       h1 {
-        font: 900 1.8em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica,
-          sans-serif;
+        font: 900 1.8em/1.2 $gym-font-stack;
         color: $gym-dark-gray;
         letter-spacing: 0.02em;
         word-spacing: 0.02em;
@@ -92,8 +90,7 @@ section.container.dashboard {
       }
 
       h2 {
-        font: 900 1em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica,
-          sans-serif;
+        font: 900 1em/1.3 $gym-font-stack;
         color: $gym-dark-gray;
         letter-spacing: 0.06em;
         word-spacing: 0.04em;
@@ -116,13 +113,12 @@ section.container.dashboard {
         .status,
         .proivder,
         .control {
-          font: 0.96em/1.2 "Helvetica Neue", Helvetica, sans-serif;
+          font: 0.96em/1.2 $gym-text-font-stack;
         }
 
         .title {
           display: block;
-          font: bold 1.2em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica,
-            sans-serif;
+          font: bold 1.2em/1.2 $gym-font-stack;
           color: #222;
           letter-spacing: 0.04em;
           word-spacing: 0.04em;
@@ -295,7 +291,7 @@ body * .modal {
   top: -1.2em;
   left: 1.4em;
   content: "Beta";
-  font: 900 1em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+  font: 900 1em/1.2 $gym-font-stack;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.1em;
