@@ -9,6 +9,7 @@ jobs:
         - develop
         - /feature.*/
         - /bug.*/
+        - hawthorn/dev
     steps: 
       - checkout
       - run: echo '[edxapp-server]' > ~/inventory
