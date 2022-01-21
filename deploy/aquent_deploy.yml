@@ -10,7 +10,7 @@
   - roles/supervisor/defaults/main.yml
   - roles/edxapp/defaults/main.yml
   vars:
-    THEME_BRANCH: "hawthorn/staging"
+    THEME_BRANCH: "hawthorn/dev"
   tasks:        
     - name: checkout comprehensive theme
       git:
