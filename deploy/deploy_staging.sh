@@ -12,5 +12,5 @@ ln -s ~/configuration/playbooks/roles ~/openedx-theme/deploy/roles
 ln -s ~/configuration/playbooks/library ~/openedx-theme/deploy/library
 
 #deploy
-ansible-playbook -i ~/inventory --user $CIRCLE_USER -e THEME_BRANCH=$CIRCLE_BRANCH ~/openedx-theme/deploy/aquent_deploy.yml -vvv
+ansible-playbook -i ~/inventory --user $DEV_INSTANCE_CIRCLE_USER -e THEME_BRANCH=$CIRCLE_BRANCH ~/openedx-theme/deploy/aquent_deploy.yml -vvv
 

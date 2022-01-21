@@ -6,15 +6,12 @@ jobs:
       - image: circleci/python:2.7
     branches:
       only: 
-        - develop
-        - /feature.*/
-        - /bug.*/
         - hawthorn/dev
     steps: 
       - checkout
       - run: echo '[edxapp-server]' > ~/inventory
-      - run: echo $STAGING_SERVER >> ~/inventory
+      - run: echo $DEV_SERVER >> ~/inventory
       - run: 
-          name: Deploy to staging
+          name: Deploy to Dev Instance
           command: ~/openedx-theme/deploy/deploy_staging.sh
           no_output_timeout: 30m
