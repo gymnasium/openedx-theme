@@ -1,17 +1,34 @@
 version: 2
 jobs:
-  build: 
+  build_staging: 
+    working_directory: ~/openedx-theme
+    docker: 
+      - image: circleci/python:2.7
+    branches:
+      only: 
+        - /feature.*/
+        - /bug.*/
+    steps: 
+      - checkout
+      - run: echo '[edxapp-server]' > ~/inventory
+      - run: echo $STAGING_SERVER >> ~/inventory
+      - run: 
+          name: Deploy to staging
+          command: ~/openedx-theme/deploy/deploy_staging.sh
+          no_output_timeout: 30m
+  build_dev: 
     working_directory: ~/openedx-theme
     docker: 
       - image: circleci/python:2.7
     branches:
       only: 
         - hawthorn/dev
+        - /dev.*/
     steps: 
       - checkout
       - run: echo '[edxapp-server]' > ~/inventory
       - run: echo $DEV_SERVER >> ~/inventory
       - run: 
           name: Deploy to Dev Instance
-          command: ~/openedx-theme/deploy/deploy_staging.sh
+          command: ~/openedx-theme/deploy/deploy_dev.sh
           no_output_timeout: 30m
