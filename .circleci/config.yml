@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build_staging: 
+  build-staging: 
     working_directory: ~/openedx-theme
     docker: 
       - image: circleci/python:2.7
@@ -16,7 +16,7 @@ jobs:
           name: Deploy to staging
           command: ~/openedx-theme/deploy/deploy_staging.sh
           no_output_timeout: 30m
-  build_dev: 
+  build-dev: 
     working_directory: ~/openedx-theme
     docker: 
       - image: circleci/python:2.7
