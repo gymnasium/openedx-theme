@@ -37,9 +37,9 @@ workflows:
                 - /bug.*/
   build-dev:
     jobs:
-    - dev:
-        filters:
-          branches:
-            only: 
-              - hawthorn/dev
-              - /dev.*/
+      - dev:
+          filters:
+            branches:
+              only: 
+                - hawthorn/dev
+                - /dev.*/
