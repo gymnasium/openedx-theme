@@ -1,5 +1,5 @@
 ---
-# tmp hack to deploy aquent theme to staging
+# deploy theme to dev instance
 
 - name: Update theme
   hosts: all
@@ -11,7 +11,7 @@
   - roles/edxapp/defaults/main.yml
   vars:
     THEME_BRANCH: "hawthorn/dev"
-  tasks:        
+  tasks:
     - name: checkout comprehensive theme
       git:
         dest: "/edx/var/edxapp/themes/gymnasium"
