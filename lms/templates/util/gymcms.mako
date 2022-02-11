@@ -3,12 +3,10 @@
     import urllib2
     from django.conf import settings
     edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
+    gymcms_env = 'Error: GYMCMS_ENV not defined'
 
-    if settings.APPSEMBLER_FEATURES['GYMCMS_ENV']:
-      try:
-        gymcms_env = settings.APPSEMBLER_FEATURES['GYMCMS_ENV']
-      except:
-        gymcms_env = 'Error: GYMCMS_ENV not defined'
+    if hasattr(settings.APPSEMBLER_FEATURES, 'GYMCMS_ENV'):
+      gymcms_env = settings.APPSEMBLER_FEATURES['GYMCMS_ENV']
 
     # turn the partial url passed in into a fully GET-able url
     # based on which environment we're in
@@ -36,8 +34,6 @@
 
   %if renderedContent:
     ${renderedContent}
-  %endif
-  %if gymcms_env:
     <!-- ${gymcms_env} -->
   %endif
 </%def>
