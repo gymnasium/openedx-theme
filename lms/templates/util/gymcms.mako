@@ -4,6 +4,12 @@
     from django.conf import settings
     edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
 
+    if settings.APPSEMBLER_FEATURES['GYMCMS_ENV']:
+      try:
+        gymcms_env = settings.APPSEMBLER_FEATURES['GYMCMS_ENV']
+      except:
+        gymcms_env = 'Error: GYMCMS_ENV not defined'
+
     # turn the partial url passed in into a fully GET-able url
     # based on which environment we're in
     if templateUrl:
@@ -30,5 +36,8 @@
 
   %if renderedContent:
     ${renderedContent}
+  %endif
+  %if gymcms_env:
+    <!-- ${gymcms_env} -->
   %endif
 </%def>
