@@ -3,11 +3,13 @@
     import urllib2
     from django.conf import settings
     edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
-    gymcms_url = 'Error: GYMCMS_URL not defined'
 
-    if 'GYMCMS_URL' in globals():
+    if settings.APPSEMBLER_FEATURES['GYMCMS_URL'] is None:
+      gymcms_url = 'Error: GYMCMS_URL not defined'
+    else:
       gymcms_url = settings.APPSEMBLER_FEATURES['GYMCMS_URL']
 
+    # this does nothing right now
     if request.GET.get('buildid'):
       gymcms_url = 'https://deploy-preview-' + request.GET.get('buildid') + '--thegymcms.netlify.app/'
 
