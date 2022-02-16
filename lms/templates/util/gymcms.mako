@@ -4,13 +4,12 @@
     from django.conf import settings
     edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
     gymcms_url = 'Error: GYMCMS_URL not defined'
-    build_id = request.GET.get('buildid')
 
-    if hasattr(settings.APPSEMBLER_FEATURES, 'GYMCMS_URL'):
+    if 'GYMCMS_URL' in globals():
       gymcms_url = settings.APPSEMBLER_FEATURES['GYMCMS_URL']
 
-    if (build_id is not None):
-      gymcms_url = 'https://deploy-preview-' + build_id + '--thegymcms.netlify.app/'
+    if request.GET.get('buildid'):
+      gymcms_url = 'https://deploy-preview-' + request.GET.get('buildid') + '--thegymcms.netlify.app/'
 
     # turn the partial url passed in into a fully GET-able url
     # based on which environment we're in
