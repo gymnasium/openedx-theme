@@ -5,7 +5,7 @@
     edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
 
     if settings.APPSEMBLER_FEATURES['GYMCMS_URL'] is None:
-      gymcms_url = 'Error: GYMCMS_URL not defined'
+      gymcms_url = None
     else:
       gymcms_url = settings.APPSEMBLER_FEATURES['GYMCMS_URL']
 
@@ -24,9 +24,9 @@
         ## temporarily look at an in-progress build
         ## fullUrl = 'https://deploy-preview-650--thegymcms.netlify.app/' + templateUrl
 
-      if edx_env == 'development':
-        fullUrl = 'https://staging.thegymcms.com/' + templateUrl
-        ## fullUrl = 'https://deploy-preview-650--thegymcms.netlify.app/' + templateUrl
+      ## use GYMCMS_URL defined in settings
+      if gymcms_url is not None:
+        fullUrl = gymcms_url + templateUrl
 
       # provided the last step worked, use a try block to pull that data from the web
       # render a hidden div if it fails, so it doesn't crash the rest of the page.
