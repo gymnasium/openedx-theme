@@ -24,8 +24,8 @@
         ## fullUrl = 'https://deploy-preview-650--thegymcms.netlify.app/' + templateUrl
 
       ## use GYMCMS_URL defined in settings
-      if gymcms_url:
-        fullUrl = gymcms_url + templateUrl
+      ## if gymcms_url:
+      ##   fullUrl = gymcms_url + templateUrl
 
       ## provided the last step worked, use a try block to pull that data from the web render a hidden div if it fails, so it doesn't crash the rest of the page.
       if fullUrl:
