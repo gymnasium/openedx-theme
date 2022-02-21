@@ -26,7 +26,7 @@
 
       ## use GYMCMS_URL defined in settings
       if gymcms_url is not None:
-        fullUrl = gymcms_url + templateUrl
+        fullUrl = '{{ gymcms_url }} {{ templateUrl }}'
 
       # provided the last step worked, use a try block to pull that data from the web
       # render a hidden div if it fails, so it doesn't crash the rest of the page.
