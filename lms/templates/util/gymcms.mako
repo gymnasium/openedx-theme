@@ -5,16 +5,15 @@
     edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
 
     if settings.APPSEMBLER_FEATURES['GYMCMS_URL'] is None:
-      gymcms_url = None
+      gymcms_url = False
     else:
       gymcms_url = settings.APPSEMBLER_FEATURES['GYMCMS_URL']
 
-    # this does nothing right now
-    if request.GET.get('buildid'):
-      gymcms_url = 'https://deploy-preview-' + request.GET.get('buildid') + '--thegymcms.netlify.app/'
+    ## this does nothing right now
+    ## if request.GET.get('buildid'):
+    ##   gymcms_url = 'https://deploy-preview-' + request.GET.get('buildid') + '--thegymcms.netlify.app/'
 
-    # turn the partial url passed in into a fully GET-able url
-    # based on which environment we're in
+    ## turn the partial url passed in into a fully GET-able url based on which environment we're in
     if templateUrl:
       ## Temporarily using `static` until we're ready to deploy to staging
       fullUrl = 'https://thegymcms.com/' + templateUrl
@@ -25,11 +24,10 @@
         ## fullUrl = 'https://deploy-preview-650--thegymcms.netlify.app/' + templateUrl
 
       ## use GYMCMS_URL defined in settings
-      if gymcms_url is not None:
-        fullUrl = "{{ gymcms_url }} {{ templateUrl }}"
+      if gymcms_url:
+        fullUrl = gymcms_url + templateUrl
 
-      # provided the last step worked, use a try block to pull that data from the web
-      # render a hidden div if it fails, so it doesn't crash the rest of the page.
+      ## provided the last step worked, use a try block to pull that data from the web render a hidden div if it fails, so it doesn't crash the rest of the page.
       if fullUrl:
         try:
           renderedContent = urllib2.urlopen(fullUrl).read()
