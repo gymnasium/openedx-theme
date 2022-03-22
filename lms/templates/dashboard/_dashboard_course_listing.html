@@ -66,6 +66,11 @@ from student.helpers import (
 
   <article class="course${mode_class}">
 
+    <%
+      course_target = reverse('info', args=[unicode(course_overview.id)]) 
+      course_about  = reverse('about_course', args=[unicode(course_overview.id)])
+    %>
+
     <header data-bg="target" id="course-header-${course_overview.number}">
       <div class="row">
         <img data-bg="source" class="col-md-3 col-xs-12 col-sm-12 image-responsive" src="${course_overview.image_urls['small']}" alt="${_('{course_name} Cover Image').format(course_name=course_overview.display_name_with_default) |h}" id="course-image-${course_overview.number}" />
@@ -109,16 +114,12 @@ from student.helpers import (
         <div class="col-md-3">
           % if show_courseware_link:
             % if course_overview.has_ended():
-              # Course target to about page if the course enrollment date has lapsed
-              course_about  = reverse('about_course', args=[unicode(course_overview.id)])
               % if not is_course_blocked:
-                <a href="${course_target}" class="gym-button enter-course archived">${_('View Archived Course')}</a>
+                <a href="${course_about}" class="gym-button enter-course archived">${_('View Archived Course')}</a>
               % else:
                 <a class="gym-button enter-course-blocked archived">${_('View Archived Course')}</a>
               % endif
             % else:
-              # Course target is /info (courseware) by default
-              course_target = reverse('info', args=[unicode(course_overview.id)]) 
               % if not is_course_blocked:
                 <a href="${course_target}" class="gym-button"><b>${_('Go to Class')}</b></a>
               % else:
