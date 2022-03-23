@@ -144,9 +144,11 @@ from edxmako.shortcuts import marketing_link
         <span class="text-center">
           %if user.is_authenticated() and registered:
             %if show_courseware_link:
+              % if not course_overview.has_ended():
               <a href="${course_target}" class="gym-button get-started text-center">
                 <b>${_("Go to Class")}</b>
               </a>
+              %endif
             %endif
           % elif invitation_only and not can_enroll:
             <span class="register disabled">${_("Enrollment in this course is by invitation only")}</span>
