@@ -110,16 +110,18 @@ from student.helpers import (
           % if show_courseware_link:
             % if course_overview.has_ended():
               % if not is_course_blocked:
-                # course target changes to about page for archived courses
-                % course_target = reverse('about_course', args=[unicode(course_overview.id)]) %
+                <% ## course target changes to about page for archived courses
+                course_target = reverse('about_course', args=[unicode(course_overview.id)])
+                %>
                 <a href="${course_target}" class="gym-button enter-course archived">${_('View Archived Course')}</a>
               % else:
                 <a class="gym-button enter-course-blocked archived">${_('View Archived Course')}</a>
               % endif
             % else:
-              # course target default is the info page
-              % course_target = reverse('info', args=[unicode(course_overview.id)]) %
               % if not is_course_blocked:
+                <% ## course target default is the info page
+                course_target = reverse('info', args=[unicode(course_overview.id)])
+                %>
                 <a href="${course_target}" class="gym-button"><b>${_('Go to Class')}</b></a>
               % else:
                 <a class="gym-button enter-course-blocked"><b>${_('Go to Class')}</b></a>
@@ -127,7 +129,7 @@ from student.helpers import (
             % endif
           % endif
         </div>
-        <ul class="col-md-9 dashboard-listing-links">        
+        <ul class="col-md-9 dashboard-listing-links">
           % if cert_status['status'] == 'downloadable' and enrollment.mode in CourseMode.NON_VERIFIED_MODES:
               <li class="action action-certificate">
                 <a class="btn" href="${cert_status['download_url']}"
@@ -154,8 +156,7 @@ from student.helpers import (
           % if not is_course_blocked:
             <li>
               <a href="#unenroll-modal" class="btn" rel="leanModal" data-course-id="${course_overview.id | h}" data-course-number="${course_overview.number | h}"
-                onclick="
-                  document.getElementById('track-info').innerHTML='${_("Are you sure you want to unenroll from")}';
+                onclick="document.getElementById('track-info').innerHTML='${_("Are you sure you want to unenroll from")}';
                   document.getElementById('refund-info').innerHTML='';
                   document.getElementById('unenroll-course-name').innerHTML='${course_overview.display_name_with_default | h}';
                   document.getElementById('unenroll_course_number').innerHTML='${course_overview.number | h}';
