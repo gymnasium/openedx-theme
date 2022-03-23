@@ -111,7 +111,7 @@ from student.helpers import (
             % if course_overview.has_ended():
               % if not is_course_blocked:
                 # course target changes to about page for archived courses
-                % course_target = reverse('about_course', args=[unicode(course_overview.id)]) %
+                <% course_target = reverse('about_course', args=[unicode(course_overview.id)]) %>
                 <a href="${course_target}" class="gym-button enter-course archived">${_('View Archived Course')}</a>
               % else:
                 <a class="gym-button enter-course-blocked archived">${_('View Archived Course')}</a>
@@ -119,7 +119,7 @@ from student.helpers import (
             % else:
               % if not is_course_blocked:
                 # course target default is the info page
-                % course_target = reverse('info', args=[unicode(course_overview.id)]) %
+                <% course_target = reverse('info', args=[unicode(course_overview.id)]) %>
                 <a href="${course_target}" class="gym-button"><b>${_('Go to Class')}</b></a>
               % else:
                 <a class="gym-button enter-course-blocked"><b>${_('Go to Class')}</b></a>
