@@ -162,7 +162,12 @@ ${HTML(fragment.foot_html())}
 
           <div class="accordion">
             <nav class="course-navigation" aria-label="${_('Course')}">
-              % if accordion.strip():
+              % if course.has_ended():
+                <header class="hero">
+                  <h1>This course has been retired</h1>
+                  <p>You will be redirected in <span data-countdown data-redirect-url="/courses/${course.id | n, js_escaped_string}/about">5</span> <span data-countdown-text>seconds</span>.</p>
+                </header>
+              % elif accordion.strip():
                 ${HTML(accordion)}
               % else:
                 <div class="chapter">${_("No content has been added to this course")}</div>
