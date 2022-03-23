@@ -66,11 +66,6 @@ from student.helpers import (
 
   <article class="course${mode_class}">
 
-    <%
-      course_target = reverse('info', args=[unicode(course_overview.id)]) 
-      course_about  = reverse('about_course', args=[unicode(course_overview.id)])
-    %>
-
     <header data-bg="target" id="course-header-${course_overview.number}">
       <div class="row">
         <img data-bg="source" class="col-md-3 col-xs-12 col-sm-12 image-responsive" src="${course_overview.image_urls['small']}" alt="${_('{course_name} Cover Image').format(course_name=course_overview.display_name_with_default) |h}" id="course-image-${course_overview.number}" />
@@ -115,12 +110,16 @@ from student.helpers import (
           % if show_courseware_link:
             % if course_overview.has_ended():
               % if not is_course_blocked:
-                <a href="${course_about}" class="gym-button enter-course archived">${_('View Archived Course')}</a>
+                # course target changes to about page for archived courses
+                % course_target = reverse('about_course', args=[unicode(course_overview.id)]) %
+                <a href="${course_target}" class="gym-button enter-course archived">${_('View Archived Course')}</a>
               % else:
                 <a class="gym-button enter-course-blocked archived">${_('View Archived Course')}</a>
               % endif
             % else:
               % if not is_course_blocked:
+                # course target default is the info page
+                % course_target = reverse('info', args=[unicode(course_overview.id)]) %
                 <a href="${course_target}" class="gym-button"><b>${_('Go to Class')}</b></a>
               % else:
                 <a class="gym-button enter-course-blocked"><b>${_('Go to Class')}</b></a>
@@ -155,8 +154,7 @@ from student.helpers import (
           % if not is_course_blocked:
             <li>
               <a href="#unenroll-modal" class="btn" rel="leanModal" data-course-id="${course_overview.id | h}" data-course-number="${course_overview.number | h}"
-                onclick="
-                  document.getElementById('track-info').innerHTML='${_("Are you sure you want to unenroll from")}';
+                onclick="document.getElementById('track-info').innerHTML='${_("Are you sure you want to unenroll from")}';
                   document.getElementById('refund-info').innerHTML='';
                   document.getElementById('unenroll-course-name').innerHTML='${course_overview.display_name_with_default | h}';
                   document.getElementById('unenroll_course_number').innerHTML='${course_overview.number | h}';
