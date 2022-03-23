@@ -144,7 +144,7 @@ from edxmako.shortcuts import marketing_link
         <span class="text-center">
           %if user.is_authenticated() and registered:
             %if show_courseware_link:
-              % if not course_overview.has_ended():
+              % if not course.has_ended():
               <a href="${course_target}" class="gym-button get-started text-center">
                 <b>${_("Go to Class")}</b>
               </a>
