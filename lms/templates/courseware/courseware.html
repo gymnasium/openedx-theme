@@ -159,39 +159,42 @@ ${HTML(fragment.foot_html())}
   >
   <div class="row">
     <div class="course-wrapper">
+      % if not course.has_ended():
+        <div class="${left_col_class}">
+          <div class="course-index">
+            <!-- 
+              <div class="wrapper-course-modes">
+                <div class="courseware-bookmarks-button" data-bookmarks-api-url="${bookmarks_api_url}">
+                    <a type="button" aria-pressed="false" class="bookmarks-list-button" href="${reverse('openedx.course_bookmarks.home', args=[course.id])}">
+                        ${_('Bookmarks')}
+                    </button>
+                </div>
+              </div> 
+            -->
 
-      <div class="${left_col_class}">
-        <div class="course-index">
-          <!-- 
-            <div class="wrapper-course-modes">
-              <div class="courseware-bookmarks-button" data-bookmarks-api-url="${bookmarks_api_url}">
-                  <a type="button" aria-pressed="false" class="bookmarks-list-button" href="${reverse('openedx.course_bookmarks.home', args=[course.id])}">
-                      ${_('Bookmarks')}
-                  </button>
-              </div>
-            </div> 
-          -->
-
-          <div class="accordion">
-            <nav class="course-navigation" aria-label="${_('Course')}">
-              % if accordion.strip():
-                ${HTML(accordion)}
-              % else:
-                ##<div class="chapter">${_("No content has been added to this course")}</div>
-              % endif
-            </nav>
-          </div>
+            <div class="accordion">
+              <nav class="course-navigation" aria-label="${_('Course')}">
+                % if accordion.strip():
+                  ${HTML(accordion)}
+                % else:
+                  ##<div class="chapter">${_("No content has been added to this course")}</div>
+                % endif
+              </nav>
+            </div><!-- .accordion -->
+          </div><!-- .course-index -->
         </div>
-      </div>
+      % endif
 
       <section class="${right_col_class}">
+        % if course.has_ended():
+          <div class="white-panel">
+            <h1>This course has been retired</h1>
+            <p>You will be redirected in <span data-countdown data-redirect-url="/courses/${course.id | n, js_escaped_string}/about">3000</span> <span data-countdown-text>seconds</span>.</p>
+          </div><!-- .white-panel -->
+        % endif
+
         <div class="course-content" id="course-content">
           <main id="main" aria-label="Content" tabindex="-1">
-
-            % if course.has_ended():
-              <h1>This course has been retired</h1>
-              <p>You will be redirected in <span data-countdown data-redirect-url="/courses/${course.id | n, js_escaped_string}/about">3000</span> <span data-countdown-text>seconds</span>.</p>
-            % endif
 
             % if getattr(course, 'entrance_exam_enabled') and \
               getattr(course, 'entrance_exam_minimum_score_pct') and \
@@ -231,11 +234,11 @@ ${HTML(fragment.foot_html())}
       </section>
 
       <section class="courseware-results-wrapper col-md-9">
-          <div id="loading-message" aria-live="polite" aria-relevant="all"></div>
-          <div id="error-message" aria-live="polite"></div>
-          <div class="courseware-results search-results col-md-12" data-course-id="${course.id}" data-lang-code="${language_preference}"></div>
+        <div id="loading-message" aria-live="polite" aria-relevant="all"></div>
+        <div id="error-message" aria-live="polite"></div>
+        <div class="courseware-results search-results col-md-12" data-course-id="${course.id}" data-lang-code="${language_preference}"></div>
       </section>
 
-    </div>
-  </div>
-</div>
+    </div><!-- .course-wrapper -->
+  </div><!-- .row -->
+</div><!-- .container -->
