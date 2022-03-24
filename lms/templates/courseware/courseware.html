@@ -134,17 +134,25 @@ ${HTML(fragment.foot_html())}
 
 <div class="message-banner" aria-live="polite"></div>
 
-% if not course.has_ended():
+%if not course.has_ended():
   % if default_tab:
     <%include file="/courseware/course_navigation.html" />
   % else:
     <%include file="/courseware/course_navigation.html" args="active_page='courseware'" />
   % endif
-% endif
+  <%
+    visibility_class = ""
+  %>
+%else
+  <%
+    visibility_class = " hide"
+  %>
+%endif
 <% ## Redirect link for retired courses
-  redirect_url = '/courses/${course.id | n, js_escaped_string}/about'
+  redirect_url = "/courses/${course.id | n, js_escaped_string}/about"
 %>
 
+<!-- ${course} -->
 <div class="container"
   % if getattr(course, 'language'):
     lang="${course.language}"
@@ -162,7 +170,7 @@ ${HTML(fragment.foot_html())}
         </div><!-- .white-panel -->
       </div><!-- .col-md-12 -->
     % endif
-    <div class="course-wrapper % if course.has_ended(): hide % endif">
+    <div class="course-wrapper ${visibility_class}">
 
       <div class="col-sm-3 no-right-pad">
         <div class="course-index">
