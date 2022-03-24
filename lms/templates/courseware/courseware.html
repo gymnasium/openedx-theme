@@ -133,12 +133,14 @@ ${HTML(fragment.foot_html())}
 </%block>
 
 <div class="message-banner" aria-live="polite"></div>
-
-% if default_tab:
-  <%include file="/courseware/course_navigation.html" />
-% else:
-  <%include file="/courseware/course_navigation.html" args="active_page='courseware'" />
+% if not course.has_ended():
+  % if default_tab:
+    <%include file="/courseware/course_navigation.html" />
+  % else:
+    <%include file="/courseware/course_navigation.html" args="active_page='courseware'" />
+  % endif
 % endif
+% redirect_url = "/courses/${course.id | n, js_escaped_string}/about"
 
 <div class="container"
   % if getattr(course, 'language'):
@@ -148,11 +150,10 @@ ${HTML(fragment.foot_html())}
   <div class="row">
     <div class="course-wrapper">
       % if course.has_ended():
-        <% redirect_url = "/courses/${course.id | n, js_escaped_string}/about" %>
         <div class="course-index">
           <main>
             <h1>This course has been retired</h1>
-            <p>You will be redirected in <span data-countdown data-redirect-url="${redirect_url}">300</span> <span data-countdown-text>seconds</span>.</p>
+            <p>You will be redirected in <span data-countdown data-redirect-url="${redirect_url}">3000</span> <span data-countdown-text>seconds</span>.</p>
           </main>
         </div><!-- .course-index -->
       % else:
