@@ -134,12 +134,22 @@ ${HTML(fragment.foot_html())}
 
 <div class="message-banner" aria-live="polite"></div>
 
-% if not course.has_ended():
+% if course.has_ended():
+  <%
+    left_col_class = "course-ended"
+    right_col_class = "course-ended"
+  %>
+% else:
+  <%
+    left_col_class = "course-active"
+    right_col_class = "course-active"
+  %>
   % if default_tab:
     <%include file="/courseware/course_navigation.html" />
   % else:
     <%include file="/courseware/course_navigation.html" args="active_page='courseware'" />
   % endif
+
 % endif
 
 <div class="container"
@@ -150,7 +160,7 @@ ${HTML(fragment.foot_html())}
   <div class="row">
     <div class="course-wrapper">
 
-      <div class="col-sm-3 no-right-pad">
+      <div class="col-sm-3 no-right-pad ${left_col_class}">
         <div class="course-index">
           <!-- 
             <div class="wrapper-course-modes">
@@ -167,16 +177,25 @@ ${HTML(fragment.foot_html())}
               % if accordion.strip():
                 ${HTML(accordion)}
               % else:
-                <div class="chapter">${_("No content has been added to this course")}</div>
+                ##<div class="chapter">${_("No content has been added to this course")}</div>
               % endif
             </nav>
           </div>
         </div>
       </div>
 
-      <section class="col-sm-9 no-left-pad">
+      <section class="col-sm-9 no-left-pad ${right_col_class}">
         <div class="course-content" id="course-content">
           <main id="main" aria-label="Content" tabindex="-1">
+
+            % if course.has_ended():
+              <% ## Redirect link for retired courses
+                redirect_url = "/courses/${course.id | n, js_escaped_string}/about"
+              %>
+              <h1>This course has been retired</h1>
+              <p>You will be redirected in <span data-countdown data-redirect-url="${redirect_url}">3000</span> <span data-countdown-text>seconds</span>.</p>
+            % endif
+
             % if getattr(course, 'entrance_exam_enabled') and \
               getattr(course, 'entrance_exam_minimum_score_pct') and \
               entrance_exam_current_score is not UNDEFINED:
@@ -214,7 +233,7 @@ ${HTML(fragment.foot_html())}
         </div>
       </section>
 
-      <section class="courseware-results-wrapper col-md-9">
+      <section class="courseware-results-wrapper col-md-9 ${right_col_class}">
           <div id="loading-message" aria-live="polite" aria-relevant="all"></div>
           <div id="error-message" aria-live="polite"></div>
           <div class="courseware-results search-results col-md-12" data-course-id="${course.id}" data-lang-code="${language_preference}"></div>
