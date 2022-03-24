@@ -14,10 +14,9 @@ jobs:
           no_output_timeout: 30m
   dev: 
     working_directory: ~/openedx-theme
-    docker:
+    docker: 
       - image: circleci/python:2.7
-    parallelism: 4
-    steps:
+    steps: 
       - checkout
       - run: echo '[edxapp-server]' > ~/inventory
       - run: echo $DEV_SERVER >> ~/inventory
@@ -25,6 +24,7 @@ jobs:
           name: Deploy to Dev Instance
           command: ~/openedx-theme/deploy/deploy_dev.sh
           no_output_timeout: 30m
+
 
 workflows:
   build-staging:
