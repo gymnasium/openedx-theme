@@ -113,9 +113,9 @@ from student.helpers import (
                 <% ## course target changes to about page for archived courses
                 course_target = reverse('about_course', args=[unicode(course_overview.id)])
                 %>
-                <a href="${course_target}" class="gym-button enter-course archived">${_('View Archived Course')}</a>
+                <a href="${course_target}" class="gym-button enter-course archived">${_('View Retired Course')}</a>
               % else:
-                <a class="gym-button enter-course-blocked archived">${_('View Archived Course')}</a>
+                <a class="gym-button enter-course-blocked archived">${_('View Retired Course')}</a>
               % endif
             % else:
               % if not is_course_blocked:
