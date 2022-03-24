@@ -136,11 +136,13 @@ ${HTML(fragment.foot_html())}
 
 % if course.has_ended():
   <%
+    course_content_class = "course-content hide"
     left_col_class = "col-sm-12 course-ended"
     right_col_class = "col-sm-12 course-ended"
   %>
 % else:
   <%
+    course_content_class = "course-content"
     left_col_class = "col-sm-3 no-right-pad course-active"
     right_col_class = "col-sm-9 no-left-pad course-active"
   %>
@@ -189,11 +191,11 @@ ${HTML(fragment.foot_html())}
         % if course.has_ended():
           <div class="white-panel">
             <h1>This course has been retired</h1>
-            <p>You will be redirected in <span data-countdown data-redirect-url="/courses/${course.id | n, js_escaped_string}/about">3000</span> <span data-countdown-text>seconds</span>.</p>
+            <p>You will be redirected in <span data-countdown data-redirect-url="/courses/${course.id | n, js_escaped_string}/about">5</span> <span data-countdown-text>seconds</span>.</p>
           </div><!-- .white-panel -->
         % endif
 
-        <div class="course-content" id="course-content">
+        <div id="course-content" class="${course_content_class}">
           <main id="main" aria-label="Content" tabindex="-1">
 
             % if getattr(course, 'entrance_exam_enabled') and \
