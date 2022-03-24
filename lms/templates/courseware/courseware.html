@@ -164,7 +164,7 @@ ${HTML(fragment.foot_html())}
       % if not course.has_ended():
         <div class="${left_col_class}">
           <div class="course-index">
-            <%doc> ## This was originally commented out in the theme using HTML comments
+            <!-- 
               <div class="wrapper-course-modes">
                 <div class="courseware-bookmarks-button" data-bookmarks-api-url="${bookmarks_api_url}">
                     <a type="button" aria-pressed="false" class="bookmarks-list-button" href="${reverse('openedx.course_bookmarks.home', args=[course.id])}">
@@ -172,14 +172,14 @@ ${HTML(fragment.foot_html())}
                     </button>
                 </div>
               </div> 
-            <%/doc>
+            -->
 
             <div class="accordion">
               <nav class="course-navigation" aria-label="${_('Course')}">
                 % if accordion.strip():
                   ${HTML(accordion)}
                 % else:
-                  <div class="chapter">${_("No content has been added to this course")}</div>
+                  ##<div class="chapter">${_("No content has been added to this course")}</div>
                 % endif
               </nav>
             </div><!-- .accordion -->
