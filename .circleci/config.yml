@@ -32,7 +32,8 @@ workflows:
       - staging:
           filters:
             branches:
-              only: 
+              only:
+                - hawthorn/staging
                 - /feature.*/
                 - /bug.*/
   build-dev:
@@ -40,6 +41,6 @@ workflows:
       - dev:
           filters:
             branches:
-              only: 
+              only:
                 - hawthorn/dev
                 - /dev.*/

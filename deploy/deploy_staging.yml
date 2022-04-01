@@ -17,7 +17,8 @@
         dest: "/edx/var/edxapp/themes/gymnasium"
         repo: "https://github.com/gymnasium/openedx-theme"
         version: "{{ THEME_BRANCH }}"
-        accept_hostkey: yes 
+        accept_hostkey: yes
+        force: yes
       become_user: "{{ edxapp_user }}"
       register: edxapp_theme_checkout
       tags:
