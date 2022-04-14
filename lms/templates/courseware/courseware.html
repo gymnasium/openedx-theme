@@ -113,8 +113,14 @@ ${HTML(fragment.head_html())}
 
   <script>
     var $$course_id = "${course.id | n, js_escaped_string}";
-  </script>
 
+    window.addEventListener('load', (event) => {
+      if (typeof Prism !== 'undefined' && Prism !== null) {
+        Prism.highlightAll();
+      }
+    });
+  </script>
+  ${gymcms.render('partials/final-exam-js')}
 
   % if not request.user.is_authenticated:
   <script>

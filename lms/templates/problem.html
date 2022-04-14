@@ -1,11 +1,9 @@
 <%page expression_filter="h"/>
 <%!
 from django.utils.translation import ungettext, ugettext as _
-from django.core.urlresolvers import reverse
 from openedx.core.djangolib.markup import HTML
 %>
 
-<%inherit file="main.html" />
 <%namespace name="gymcms" file="./util/gymcms.mako" />
 <%namespace name='static' file='static_content.html'/>
 
@@ -135,17 +133,5 @@ ${gymcms.render('partials/final-exam-modal-top')}
 </div><!-- #exam-problem -->
 
 ${gymcms.render('partials/final-exam-modal')}
-
-<%block name="js_extra">
-<script>
-window.addEventListener('load', (event) => {
-  console.log('this is loaded on the "problem" page');
-  if (typeof Prism !== 'undefined' && Prism !== null) {
-    Prism.highlightAll();
-  }
-});
-</script>
-${gymcms.render('partials/final-exam-js')}
-</%block>
 
 
