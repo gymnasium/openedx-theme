@@ -137,13 +137,14 @@ ${gymcms.render('partials/final-exam-modal')}
 
 <%block name="js_extra">
 <script>
-  window.addEventListener('load', (event) => {
-    console.log('this is loaded on the "problem" page');
-    if (typeof Prism !== 'undefined' && Prism !== null) {
-      Prism.highlightAll();
-    }
-  });
-  </script>
+window.addEventListener('load', (event) => {
+  console.log('this is loaded on the "problem" page');
+  if (typeof Prism !== 'undefined' && Prism !== null) {
+    Prism.highlightAll();
+  }
+});
+</script>
+${gymcms.render('partials/final-exam-js')}
 </%block>
 
 
