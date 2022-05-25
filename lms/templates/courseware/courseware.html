@@ -48,7 +48,6 @@ from openedx.features.course_experience import course_home_page_title, COURSE_OU
 
 </%block>
 
-
 <%block name="headextra">
 ${HTML(fragment.head_html())}
 
@@ -132,7 +131,7 @@ ${HTML(fragment.foot_html())}
 
 </%block>
 
-<div class="message-banner container" aria-live="polite">
+<div class="message-banner" aria-live="polite">
 %if int(course.display_number_with_default) >= 700 and int(course.display_number_with_default) < 800:
   ${gymcms.render('courses/workshops/gym-' + course.display_number_with_default + '/announcement')}
 %elif int(course.display_number_with_default) < 100:
