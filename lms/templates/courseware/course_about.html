@@ -118,7 +118,7 @@ from edxmako.shortcuts import marketing_link
 
 <%block name="pagetitle">${course.display_name_with_default_escaped}</%block>
 
-<div class="message-banner container" aria-live="polite">
+<div class="message-banner" aria-live="polite">
   %if int(course.display_number_with_default) >= 700 and int(course.display_number_with_default) < 800:
     ${gymcms.render('courses/workshops/gym-' + course.display_number_with_default + '/announcement')}
   %elif int(course.display_number_with_default) < 100:
