@@ -12,16 +12,20 @@ from openedx.core.djangoapps.self_paced.models import SelfPacedConfiguration
 from openedx.core.djangolib.markup import HTML, Text
 %>
 
+<% 
+  if int(course.display_number_with_default) >= 700 and int(course.display_number_with_default) < 800:
+    course_type = "workshops"
+  elif int(course.display_number_with_default) < 100:
+    course_type = "gym-shorts"
+  else:
+    course_type = "full"
+  endif
+%>
+
 <%block name="pagetitle">${_("{course_name}").format(course_name=course.display_name_with_default)}</%block>
 
 <div class="message-banner" aria-live="polite">
-  %if int(course.display_number_with_default) >= 700 and int(course.display_number_with_default) < 800:
-    ${gymcms.render('courses/workshops/gym-' + course.display_number_with_default + '/announcement')}
-  %elif int(course.display_number_with_default) < 100:
-    ${gymcms.render('courses/gym-shorts/gym-' + course.display_number_with_default + '/announcement')}
-  %else:
-    ${gymcms.render('courses/full/gym-' + course.display_number_with_default + '/announcement')}
-  %endif
+  ${gymcms.render('courses/' + course_type + '/gym-' + course.display_number_with_default + '/announcement')}
 </div>
 
 <%block name="headextra">
@@ -29,13 +33,7 @@ from openedx.core.djangolib.markup import HTML, Text
   <%static:css group='style-course'/>
   ## The meta getting pulled in will be for the course about page (course info pages required a logged in user, which makes social sharing redundant)
   %if course.display_number_with_default:
-    %if int(course.display_number_with_default) >= 700 and int(course.display_number_with_default) < 800:
-      ${gymcms.render('courses/workshops/gym-' + course.display_number_with_default + '/meta')}
-    %elif int(course.display_number_with_default) < 100:
-      ${gymcms.render('courses/gym-shorts/gym-' + course.display_number_with_default + '/meta')}
-    %else:
-      ${gymcms.render('courses/full/gym-' + course.display_number_with_default + '/meta')}
-    %endif
+    ${gymcms.render('courses/' + course_type + '/gym-' + course.display_number_with_default + '/meta')}
   %else:
     <meta property="og:title" content="${course.display_name_with_default_escaped} - Gymnasium" />
     <meta property="og:image" content="https://gymnasium.github.io/static-site-content/artwork/production/courses/gym-${course.display_number_with_default | h}-social.png" />
