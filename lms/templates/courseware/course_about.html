@@ -10,13 +10,13 @@ from edxmako.shortcuts import marketing_link
 
 <%inherit file="../main.html" />
 
-%if int(course.display_number_with_default) >= 700 and int(course.display_number_with_default) < 800:
+% if int(course.display_number_with_default) >= 700 and int(course.display_number_with_default) < 800:
   <% course_type = "workshops" %>
-%elif int(course.display_number_with_default) < 100:
+% elif int(course.display_number_with_default) < 100:
   <% course_type = "gym-shorts" %>
-%else:
+% else:
   <% course_type = "full" %>
-%endif
+% endif
 
 <%block name="bodyclass">gym-course-about</%block>
 
