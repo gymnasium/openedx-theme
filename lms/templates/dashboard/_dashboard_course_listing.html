@@ -72,7 +72,7 @@ from student.helpers import (
         <div class="col-md-9 col-xs-12 col-sm-12">
           <h1>${course_overview.display_name_with_default}</h1>
           % if course_overview.has_ended():
-            <span class="msg course-retired">This course has been retired.</span>
+            <p class="msg course-retired"><strong>This course has been retired.</strong></p>
           % endif
           <div class="row">
             <section class="info col-md-12">
