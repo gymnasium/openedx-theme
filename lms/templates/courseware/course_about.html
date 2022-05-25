@@ -125,6 +125,15 @@ from edxmako.shortcuts import marketing_link
         <img data-bg="source" src="${course_image_urls['large']}" alt="Course image for ${course.display_name_with_default_escaped}" class="image-responsive center-block row" id="course-image" />
         <div class="row">
           <h1 class="col-md-12">${course.display_name_with_default_escaped}</h1>
+            % if course.has_ended():
+              %if int(course.display_number_with_default) >= 700 and int(course.display_number_with_default) < 800:
+                ${gymcms.render('courses/workshops/gym-' + course.display_number_with_default + '/announcement')}
+              %elif int(course.display_number_with_default) < 100:
+                ${gymcms.render('courses/gym-shorts/gym-' + course.display_number_with_default + '/announcement')}
+              %else:
+                ${gymcms.render('courses/full/gym-' + course.display_number_with_default + '/announcement')}
+              %endif
+            %endif
         </div>
       </header>
     </section>
