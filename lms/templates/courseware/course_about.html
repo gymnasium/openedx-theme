@@ -118,6 +118,16 @@ from edxmako.shortcuts import marketing_link
 
 <%block name="pagetitle">${course.display_name_with_default_escaped}</%block>
 
+<div class="message-banner" aria-live="polite">
+  %if int(course.display_number_with_default) >= 700 and int(course.display_number_with_default) < 800:
+    ${gymcms.render('courses/workshops/gym-' + course.display_number_with_default + '/announcement')}
+  %elif int(course.display_number_with_default) < 100:
+    ${gymcms.render('courses/gym-shorts/gym-' + course.display_number_with_default + '/announcement')}
+  %else:
+    ${gymcms.render('courses/full/gym-' + course.display_number_with_default + '/announcement')}
+  %endif
+</div>
+
 <main class="course container-fluid">
   <div class="course-info container">
     <section class="hero-banner row">
@@ -132,11 +142,13 @@ from edxmako.shortcuts import marketing_link
       <div class="meta level col-md-5">
         <span>
           <strong>
-            % if course.display_number_with_default and course.display_number_with_default.startswith("0"):
+            %if course.display_number_with_default and course.display_number_with_default.startswith("7"):
+              ${_("Workshop")}
+            %elif course.display_number_with_default and course.display_number_with_default.startswith("0"):
               ${_("Gym Short")}
-            % else:
+            %else:
               ${_("Full Course")}
-            % endif
+            %endif
           </strong>
         </span>
       </div>
@@ -144,24 +156,36 @@ from edxmako.shortcuts import marketing_link
         <span class="text-center">
           %if user.is_authenticated() and registered:
             %if show_courseware_link:
-              % if not course.has_ended():
-              <a href="${course_target}" class="gym-button get-started text-center">
-                <b>${_("Go to Class")}</b>
-              </a>
+              %if int(course.display_number_with_default) == 100 or int(course.display_number_with_default) == 105:
+                <!-- This course is retired and hidden. -->
+              %else:
+                %if course.has_ended():
+                  <a href="${course_target}" class="gym-button get-started text-center">
+                    <b>${_("View Retired Course")}</b>
+                  </a>
+                %else:
+                  <a href="${course_target}" class="gym-button get-started text-center">
+                    <b>${_("Go to Class")}</b>
+                  </a>
+                %endif
               %endif
             %endif
-          % elif invitation_only and not can_enroll:
+          %elif invitation_only and not can_enroll:
             <span class="register disabled">${_("Enrollment in this course is by invitation only")}</span>
           ## Shib courses need the enrollment button to be displayed even when can_enroll is False,
           ## because AnonymousUsers cause can_enroll for shib courses to be False, but we need them to be able to click
           ## so that they can register and become a real user that can enroll.
-          % elif not is_shib_course and not can_enroll:
+          %elif not is_shib_course and not can_enroll:
             <span class="register disabled">${_("Enrollment is Closed")}</span>
           %else:
-            <a href="#" class="gym-button register">
-              <b>${_("Get Started")}</b>
-            </a>
-            <div id="register_error"></div>
+            %if int(course.display_number_with_default) == 100 or int(course.display_number_with_default) == 105:
+              <!-- This course is retired and hidden. -->
+            %else:
+              <a href="#" class="gym-button register">
+                <b>${_("Get Started")}</b>
+              </a>
+              <div id="register_error"></div>
+            %endif
           %endif
         </span>
       </div>

@@ -71,6 +71,9 @@ from student.helpers import (
         <img data-bg="source" class="col-md-3 col-xs-12 col-sm-12 image-responsive" src="${course_overview.image_urls['small']}" alt="${_('{course_name} Cover Image').format(course_name=course_overview.display_name_with_default) |h}" id="course-image-${course_overview.number}" />
         <div class="col-md-9 col-xs-12 col-sm-12">
           <h1>${course_overview.display_name_with_default}</h1>
+          % if course_overview.has_ended():
+            <p class="msg course-retired"><strong>This course has been retired.</strong></p>
+          % endif
           <div class="row">
             <section class="info col-md-12">
               <hgroup>

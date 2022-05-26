@@ -48,7 +48,6 @@ from openedx.features.course_experience import course_home_page_title, COURSE_OU
 
 </%block>
 
-
 <%block name="headextra">
 ${HTML(fragment.head_html())}
 
@@ -132,15 +131,23 @@ ${HTML(fragment.foot_html())}
 
 </%block>
 
-<div class="message-banner" aria-live="polite"></div>
+<div class="message-banner" aria-live="polite">
+%if int(course.display_number_with_default) >= 700 and int(course.display_number_with_default) < 800:
+  ${gymcms.render('courses/workshops/gym-' + course.display_number_with_default + '/announcement')}
+%elif int(course.display_number_with_default) < 100:
+  ${gymcms.render('courses/gym-shorts/gym-' + course.display_number_with_default + '/announcement')}
+%else:
+  ${gymcms.render('courses/full/gym-' + course.display_number_with_default + '/announcement')}
+%endif
+</div>
 
-% if course.has_ended():
+%if int(course.display_number_with_default) == 100 or int(course.display_number_with_default) == 105:
   <%
     course_content_class = "course-content hide"
-    left_col_class = "col-sm-12 course-ended"
-    right_col_class = "col-sm-12 course-ended"
+    left_col_class = "col-sm-3 no-right-pad course-ended"
+    right_col_class = "col-sm-9 no-left-pad course-ended"
   %>
-% else:
+%else:
   <%
     course_content_class = "course-content"
     left_col_class = "col-sm-3 no-right-pad course-active"
@@ -151,7 +158,6 @@ ${HTML(fragment.foot_html())}
   % else:
     <%include file="/courseware/course_navigation.html" args="active_page='courseware'" />
   % endif
-
 % endif
 
 <div class="container"
@@ -161,39 +167,31 @@ ${HTML(fragment.foot_html())}
   >
   <div class="row">
     <div class="course-wrapper">
-      % if not course.has_ended():
-        <div class="${left_col_class}">
-          <div class="course-index">
-            <!-- 
-              <div class="wrapper-course-modes">
-                <div class="courseware-bookmarks-button" data-bookmarks-api-url="${bookmarks_api_url}">
-                    <a type="button" aria-pressed="false" class="bookmarks-list-button" href="${reverse('openedx.course_bookmarks.home', args=[course.id])}">
-                        ${_('Bookmarks')}
-                    </button>
-                </div>
-              </div> 
-            -->
+      <div class="${left_col_class}">
+        <div class="course-index">
+          <!-- 
+            <div class="wrapper-course-modes">
+              <div class="courseware-bookmarks-button" data-bookmarks-api-url="${bookmarks_api_url}">
+                  <a type="button" aria-pressed="false" class="bookmarks-list-button" href="${reverse('openedx.course_bookmarks.home', args=[course.id])}">
+                      ${_('Bookmarks')}
+                  </button>
+              </div>
+            </div> 
+          -->
 
-            <div class="accordion">
-              <nav class="course-navigation" aria-label="${_('Course')}">
-                % if accordion.strip():
-                  ${HTML(accordion)}
-                % else:
-                  ##<div class="chapter">${_("No content has been added to this course")}</div>
-                % endif
-              </nav>
-            </div><!-- .accordion -->
-          </div><!-- .course-index -->
-        </div>
-      % endif
+          <div class="accordion">
+            <nav class="course-navigation" aria-label="${_('Course')}">
+              % if accordion.strip():
+                ${HTML(accordion)}
+              % else:
+                ##<div class="chapter">${_("No content has been added to this course")}</div>
+              % endif
+            </nav>
+          </div><!-- .accordion -->
+        </div><!-- .course-index -->
+      </div>
 
       <section class="${right_col_class}">
-        % if course.has_ended():
-          <div class="white-panel">
-            <h1>This course has been retired</h1>
-            <p>You will be redirected in <span data-countdown data-redirect-url="/courses/${course.id | n, js_escaped_string}/about">5</span> <span data-countdown-text>seconds</span>.</p>
-          </div><!-- .white-panel -->
-        % endif
 
         <div id="course-content" class="${course_content_class}">
           <main id="main" aria-label="Content" tabindex="-1">
