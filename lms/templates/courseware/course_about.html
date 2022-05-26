@@ -180,9 +180,7 @@ from edxmako.shortcuts import marketing_link
           %else:
             %if int(course.display_number_with_default) == 100 or int(course.display_number_with_default) == 105:
               <!-- This course is retired and hidden. -->
-            %elif not can_enroll:
-              <!-- Enrollment for this course is closed. -->
-            %else:
+            %elif user.is_authenticated() and can_enroll:
               <a href="#" class="gym-button register">
                 <b>${_("Get Started")}</b>
               </a>
