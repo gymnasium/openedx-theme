@@ -147,13 +147,13 @@ ${gymcms.render('partials/final-exam-js')}
 %endif
 </div>
 
-% if course.has_ended():
+%if int(course.display_number_with_default) == 100 or int(course.display_number_with_default) == 105:
   <%
     course_content_class = "course-content hide"
     left_col_class = "col-sm-12 course-ended"
     right_col_class = "col-sm-12 course-ended"
   %>
-% else:
+%else:
   <%
     course_content_class = "course-content"
     left_col_class = "col-sm-3 no-right-pad course-active"
@@ -164,7 +164,6 @@ ${gymcms.render('partials/final-exam-js')}
   % else:
     <%include file="/courseware/course_navigation.html" args="active_page='courseware'" />
   % endif
-
 % endif
 
 <div class="container"
