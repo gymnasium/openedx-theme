@@ -141,13 +141,13 @@ ${HTML(fragment.foot_html())}
 %endif
 </div>
 
-% if course.has_ended():
+%if int(course.display_number_with_default) == 100 or int(course.display_number_with_default) == 105:
   <%
     course_content_class = "course-content hide"
-    left_col_class = "col-sm-12 course-ended"
-    right_col_class = "col-sm-12 course-ended"
+    left_col_class = "col-sm-3 no-right-pad course-ended"
+    right_col_class = "col-sm-9 no-left-pad course-ended"
   %>
-% else:
+%else:
   <%
     course_content_class = "course-content"
     left_col_class = "col-sm-3 no-right-pad course-active"
@@ -158,7 +158,6 @@ ${HTML(fragment.foot_html())}
   % else:
     <%include file="/courseware/course_navigation.html" args="active_page='courseware'" />
   % endif
-
 % endif
 
 <div class="container"
@@ -168,31 +167,29 @@ ${HTML(fragment.foot_html())}
   >
   <div class="row">
     <div class="course-wrapper">
-      % if not course.has_ended():
-        <div class="${left_col_class}">
-          <div class="course-index">
-            <!-- 
-              <div class="wrapper-course-modes">
-                <div class="courseware-bookmarks-button" data-bookmarks-api-url="${bookmarks_api_url}">
-                    <a type="button" aria-pressed="false" class="bookmarks-list-button" href="${reverse('openedx.course_bookmarks.home', args=[course.id])}">
-                        ${_('Bookmarks')}
-                    </button>
-                </div>
-              </div> 
-            -->
+      <div class="${left_col_class}">
+        <div class="course-index">
+          <!-- 
+            <div class="wrapper-course-modes">
+              <div class="courseware-bookmarks-button" data-bookmarks-api-url="${bookmarks_api_url}">
+                  <a type="button" aria-pressed="false" class="bookmarks-list-button" href="${reverse('openedx.course_bookmarks.home', args=[course.id])}">
+                      ${_('Bookmarks')}
+                  </button>
+              </div>
+            </div> 
+          -->
 
-            <div class="accordion">
-              <nav class="course-navigation" aria-label="${_('Course')}">
-                % if accordion.strip():
-                  ${HTML(accordion)}
-                % else:
-                  ##<div class="chapter">${_("No content has been added to this course")}</div>
-                % endif
-              </nav>
-            </div><!-- .accordion -->
-          </div><!-- .course-index -->
-        </div>
-      % endif
+          <div class="accordion">
+            <nav class="course-navigation" aria-label="${_('Course')}">
+              % if accordion.strip():
+                ${HTML(accordion)}
+              % else:
+                ##<div class="chapter">${_("No content has been added to this course")}</div>
+              % endif
+            </nav>
+          </div><!-- .accordion -->
+        </div><!-- .course-index -->
+      </div>
 
       <section class="${right_col_class}">
 
