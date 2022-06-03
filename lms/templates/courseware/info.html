@@ -93,27 +93,29 @@ from openedx.core.djangolib.markup import HTML, Text
         <h1 class="handouts-header">${_(course.info_sidebar_name)}</h1>
         ${HTML(get_course_info_section(request, masquerade_user, course, 'handouts'))}
       </section>
-      % elif show_enroll_banner:
-      <section id="gym-course-not-authenticated" class="updates" style="border-right: 0;">
-        <h1 class="title">${_("You are not enrolled yet")}</h1>
-        <p class="enroll-message">
-          ${Text(_("You are not currently enrolled in this course. {link_start}Sign up now!{link_end}")).format(
-                link_start=HTML("<a href={}>").format(url_to_enroll),
-                link_end=HTML("</a>")
-          )}
-        </p>
-      </section>
       % else:
-      ## Unauthenticated users get a prompt to login.
-      <%def name="login_params()">${
-        u"?next={next}".format(
-          next=urlquote_plus(login_redirect_url if login_redirect_url else request.path)
-        ) if (login_redirect_url or request) else ""
-      }</%def>
-      <section id="gym-course-not-authenticated" class="updates" style="border-right: 0;">
-        <h1 class="handouts-header">Whoops!</h1>
-        <p>Please <a id="gym-course-info-login" href="/login${login_params()}">login</a> to access this course content. You will be redirected to the login screen in <span data-countdown data-redirect-url="/login${login_params()}">10</span> <span data-countdown-text>seconds</span>.</p>
-      </section>
+        %if show_enroll_banner:
+          <section id="gym-course-not-authenticated" class="updates" style="border-right: 0;">
+            <h1 class="title">${_("You are not enrolled yet")}</h1>
+            <p class="enroll-message">
+              ${Text(_("You are not currently enrolled in this course. {link_start}Sign up now!{link_end}")).format(
+                    link_start=HTML("<a href={}>").format(url_to_enroll),
+                    link_end=HTML("</a>")
+              )}
+            </p>
+          </section>
+        %else: 
+          ## Unauthenticated users get a prompt to login.
+          <%def name="login_params()">${
+            u"?next={next}".format(
+              next=urlquote_plus(login_redirect_url if login_redirect_url else request.path)
+            ) if (login_redirect_url or request) else ""
+          }</%def>
+          <section id="gym-course-not-authenticated" class="updates" style="border-right: 0;">
+            <h1 class="handouts-header">Whoops!</h1>
+            <p>Please <a id="gym-course-info-login" href="/login${login_params()}">login</a> to access this course content. You will be redirected to the login screen in <span data-countdown data-redirect-url="/login${login_params()}">10</span> <span data-countdown-text>seconds</span>.</p>
+          </section>
+        % endif
       % endif
     </div><!-- .info-wrapper -->
   </div><!-- .container -->
