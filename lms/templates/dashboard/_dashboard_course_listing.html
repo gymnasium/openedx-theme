@@ -156,18 +156,22 @@ from student.helpers import (
               </li>
             % endif
 
-          % if not is_course_blocked and cert_status['status'] != 'downloadable':
+          % if not is_course_blocked:
+            % if not cert_status['status'] == 'downloadable':
+              <li>
+                <a href="#unenroll-modal" class="btn" rel="leanModal" data-course-id="${course_overview.id | h}" data-course-number="${course_overview.number | h}"
+                  onclick="document.getElementById('track-info').innerHTML='${_("Are you sure you want to unenroll from")}';
+                    document.getElementById('refund-info').innerHTML='';
+                    document.getElementById('unenroll-course-name').innerHTML='${course_overview.display_name_with_default | h}';
+                    document.getElementById('unenroll_course_number').innerHTML='${course_overview.number | h}';
+                    $('#unenroll_course_id').val('${course_overview.id | h}');
+                  ">
+                  ${_('Unenroll')}
+                </a>
+              </li>
+            % endif
+          % else:
             <li>
-              <a href="#unenroll-modal" class="btn" rel="leanModal" data-course-id="${course_overview.id | h}" data-course-number="${course_overview.number | h}"
-                onclick="document.getElementById('track-info').innerHTML='${_("Are you sure you want to unenroll from")}';
-                  document.getElementById('refund-info').innerHTML='';
-                  document.getElementById('unenroll-course-name').innerHTML='${course_overview.display_name_with_default | h}';
-                  document.getElementById('unenroll_course_number').innerHTML='${course_overview.number | h}';
-                  $('#unenroll_course_id').val('${course_overview.id | h}');
-                ">
-                ${_('Unenroll')}
-              </a>
-              % else:
               <a class="disable-look-unregister btn" data-course-id="${course_overview.id | h}" data-course-number="${course_overview.number | h}" onclick="document.getElementById('track-info').innerHTML='${_("Are you sure you want to unenroll from")}'; document.getElementById('refund-info').innerHTML=''">
                 ${_('Unenroll')}
               </a>
