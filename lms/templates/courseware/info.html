@@ -42,7 +42,7 @@ from openedx.core.djangolib.markup import HTML, Text
   % endif
 </%block>
 
-% if show_enroll_banner:
+% if show_enroll_banner and can_enroll:
 <div class="wrapper-msg urgency-low" id="failed-verification-banner">
   <div class="msg msg-reverify is-dismissable">
     <div class="msg-content">
