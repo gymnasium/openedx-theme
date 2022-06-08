@@ -15,6 +15,18 @@ from openedx.core.djangolib.markup import HTML, Text
 <%block name="pagetitle">${_("{course_name}").format(course_name=course.display_name_with_default)}</%block>
 
 % if not course.has_ended() and show_enroll_banner:
+<!-- DEBUG
+  can_enroll:           ${can_enroll} 
+  show_courseware_link: ${show_courseware_link} 
+  active_reg_button:    ${active_reg_button}
+  registered:           ${registered}
+  is_shib_course:       ${is_shib_course}
+  invitation_only:      ${invitation_only}
+  is_course_full:       ${s_course_full}
+  course_details:       ${course_details}
+  course:               ${course}
+-->
+
   %if not can_enroll:
     <div class="wrapper-msg urgency-low" id="failed-verification-banner">
       <div class="msg msg-reverify is-dismissable">
