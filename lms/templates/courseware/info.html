@@ -16,13 +16,49 @@ from openedx.core.djangolib.markup import HTML, Text
 
 % if not course.has_ended() and show_enroll_banner:
 
-<!-- 
-  %if can_enroll:
-    can_enroll is true
-  %else:
-    can_enroll is false
-  %endif
--->
+<pre>
+%if can_enroll:
+  can_enroll is true
+%else:
+  can_enroll is false
+%endif
+
+%if show_courseware_link:
+  show_courseware_link is true
+%else:
+  show_courseware_link is false
+%endif
+
+%if active_reg_button:
+  active_reg_button is true
+%else:
+  active_reg_button is false
+%endif
+
+%if registered:
+  registered is true
+%else:
+  registered is false
+%endif
+
+%if is_shib_course:
+  is_shib_course is true
+%else:
+  is_shib_course is false
+%endif
+
+%if invitation_only:
+  invitation_only is true
+%else:
+  invitation_only is false
+%endif
+
+%if is_course_full:
+  is_course_full is true
+%else:
+  is_course_full is false
+%endif
+</pre>
 
   %if not can_enroll:
     <div class="wrapper-msg urgency-low" id="failed-verification-banner">
