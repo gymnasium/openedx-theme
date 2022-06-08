@@ -14,12 +14,6 @@ from openedx.core.djangolib.markup import HTML, Text
 
 <%block name="pagetitle">${_("{course_name}").format(course_name=course.display_name_with_default)}</%block>
 
-%if course_open_for_self_enrollment(course.id):
-  course_open_for_self_enrollment: yes
-%else:
-  course_open_for_self_enrollment: nope
-%endif
-
 %if not course.has_ended() and show_enroll_banner:
   %if course_open_for_self_enrollment(course.id):
     <div class="wrapper-msg urgency-low" id="failed-verification-banner">
