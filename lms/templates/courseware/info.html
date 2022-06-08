@@ -16,13 +16,7 @@ from openedx.core.djangolib.markup import HTML, Text
 
 % if not course.has_ended() and show_enroll_banner:
 <!-- DEBUG
-  can_enroll           ${can_enroll} 
-  show_courseware_link ${show_courseware_link} 
-  active_reg_button    ${active_reg_button}
-  registered           ${registered}
-  is_shib_course       ${is_shib_course}
-  invitation_only      ${invitation_only}
-  is_course_full       ${is_course_full}
+  can enroll           ${can_enroll}
 -->
 
   %if not can_enroll:
