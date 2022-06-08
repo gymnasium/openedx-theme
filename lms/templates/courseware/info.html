@@ -6,7 +6,7 @@
 <%!
 from django.utils.translation import ugettext as _
 from django.utils.http import urlquote_plus
-from courseware.courses import get_course_info_section
+from courseware.courses import get_course_info_section, course_open_for_self_enrollment
 from openedx.core.lib.courses import course_image_url
 from openedx.core.djangoapps.self_paced.models import SelfPacedConfiguration
 from openedx.core.djangolib.markup import HTML, Text
@@ -17,6 +17,12 @@ from openedx.core.djangolib.markup import HTML, Text
 % if not course.has_ended() and show_enroll_banner:
 
 <pre>
+%if course_open_for_self_enrollment(course.display_number_with_default):
+  course_open_for_self_enrollment: true
+%else:
+  course_open_for_self_enrollment: false
+%endif
+
 %if can_enroll:
   can_enroll is true
 %else:
