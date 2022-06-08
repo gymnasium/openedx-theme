@@ -6,7 +6,7 @@
 <%!
 from django.utils.translation import ugettext as _
 from django.utils.http import urlquote_plus
-from courseware.courses import get_course_info_section, course_open_for_self_enrollment, get_course_about_section
+from courseware.courses import get_course_info_section, course_open_for_self_enrollment
 from openedx.core.lib.courses import course_image_url
 from openedx.core.djangoapps.self_paced.models import SelfPacedConfiguration
 from openedx.core.djangolib.markup import HTML, Text
@@ -14,58 +14,9 @@ from openedx.core.djangolib.markup import HTML, Text
 
 <%block name="pagetitle">${_("{course_name}").format(course_name=course.display_name_with_default)}</%block>
 
-% if not course.has_ended() and show_enroll_banner:
-
-<pre>
-%if course_open_for_self_enrollment(course.id):
-  course_open_for_self_enrollment: true
-%else:
-  course_open_for_self_enrollment: false
-%endif
-
-%if can_enroll:
-  can_enroll is true
-%else:
-  can_enroll is false
-%endif
-
-%if show_courseware_link:
-  show_courseware_link is true
-%else:
-  show_courseware_link is false
-%endif
-
-%if active_reg_button:
-  active_reg_button is true
-%else:
-  active_reg_button is false
-%endif
-
-%if registered:
-  registered is true
-%else:
-  registered is false
-%endif
-
-%if is_shib_course:
-  is_shib_course is true
-%else:
-  is_shib_course is false
-%endif
-
-%if invitation_only:
-  invitation_only is true
-%else:
-  invitation_only is false
-%endif
-
-%if is_course_full:
-  is_course_full is true
-%else:
-  is_course_full is false
-%endif
-</pre>
-
+## To turn enrollment off properly, remove the enrollment start & end dates!
+## Hawthorn evidently doesn't properly disable enrollment buttons/options based on the dates set
+%if not course.has_ended() and show_enroll_banner:
   %if course_open_for_self_enrollment(course.id):
     <div class="wrapper-msg urgency-low" id="failed-verification-banner">
       <div class="msg msg-reverify is-dismissable">
@@ -83,7 +34,7 @@ from openedx.core.djangolib.markup import HTML, Text
       </div>
     </div>
   % endif
-% endif
+%endif
 
 <div class="message-banner" aria-live="polite">
   %if int(course.display_number_with_default) >= 700 and int(course.display_number_with_default) < 800:
