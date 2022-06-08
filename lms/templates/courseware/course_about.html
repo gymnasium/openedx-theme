@@ -118,6 +118,12 @@ from edxmako.shortcuts import marketing_link
 
 <%block name="pagetitle">${course.display_name_with_default_escaped}</%block>
 
+%if course_open_for_self_enrollment(course.id):
+  course_open_for_self_enrollment: yes
+%else:
+  course_open_for_self_enrollment: nope
+%endif
+
 <div class="message-banner" aria-live="polite">
   %if int(course.display_number_with_default) >= 700 and int(course.display_number_with_default) < 800:
     ${gymcms.render('courses/workshops/gym-' + course.display_number_with_default + '/announcement')}
@@ -154,8 +160,6 @@ from edxmako.shortcuts import marketing_link
       </div>
       <div class="action col-md-2">
         <span class="text-center">
-          ## To turn enrollment off properly, remove the enrollment start & end dates!
-          ## Hawthorn evidently doesn't properly disable enrollment buttons/options based on the dates set
           %if user.is_authenticated() and registered:
             %if show_courseware_link:
               %if int(course.display_number_with_default) == 100 or int(course.display_number_with_default) == 105:
@@ -165,7 +169,7 @@ from edxmako.shortcuts import marketing_link
                   <a href="${course_target}" class="gym-button get-started text-center">
                     <b>${_("View Retired Course")}</b>
                   </a>
-                %elif course_open_for_self_enrollment(course.id):
+                %else:
                   <a href="${course_target}" class="gym-button get-started text-center">
                     <b>${_("Go to Class")}</b>
                   </a>
@@ -179,14 +183,18 @@ from edxmako.shortcuts import marketing_link
           ## so that they can register and become a real user that can enroll.
           %elif not is_shib_course and not can_enroll:
             <span class="register disabled">${_("Enrollment is Closed")}</span>
-          %elif course_open_for_self_enrollment(course.id):         
+          %else:
             %if int(course.display_number_with_default) == 100 or int(course.display_number_with_default) == 105:
               <!-- This course is retired and hidden. -->
             %else:
-              <a href="#" class="gym-button register">
-                <b>${_("Get Started")}</b>
-              </a>
-              <div id="register_error"></div>
+              %if course_open_for_self_enrollment(course.id):
+                <a href="#" class="gym-button register">
+                  <b>${_("Get Started")}</b>
+                </a>
+                <div id="register_error"></div>
+              %else:
+                <span class="register disabled">${_("Enrollment is Closed")}</span>
+              %endif
             %endif
           %endif
         </span>
