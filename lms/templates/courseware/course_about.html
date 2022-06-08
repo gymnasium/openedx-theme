@@ -119,7 +119,7 @@ from edxmako.shortcuts import marketing_link
 <%block name="pagetitle">${course.display_name_with_default_escaped}</%block>
 
 <pre>
-  %if course_open_for_self_enrollment(course.display_number_with_default):
+  %if course_open_for_self_enrollment(course.id):
     course_open_for_self_enrollment: true
   %else:
     course_open_for_self_enrollment: false

@@ -17,7 +17,7 @@ from openedx.core.djangolib.markup import HTML, Text
 % if not course.has_ended() and show_enroll_banner:
 
 <pre>
-%if course_open_for_self_enrollment(course.display_number_with_default):
+%if course_open_for_self_enrollment(course.id):
   course_open_for_self_enrollment: true
 %else:
   course_open_for_self_enrollment: false
