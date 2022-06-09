@@ -186,10 +186,6 @@ from edxmako.shortcuts import marketing_link
                   <b>${_("Get Started")}</b>
                 </a>
                 <div id="register_error"></div>
-              %elif course.has_ended() and not course_open_for_self_enrollment(course.id):
-                <a href="${course_target}" class="gym-button get-started text-center">
-                  <b>${_("View Retired Course")}</b>
-                </a>
               %else:
                 <span class="register disabled">${_("Enrollment is Closed")}</span>
               %endif
