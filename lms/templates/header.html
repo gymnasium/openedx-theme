@@ -1,5 +1,11 @@
 ## mako
-<%! from django.core.urlresolvers import reverse %>
+<%! from django.core.urlresolvers import reverse 
+from django.conf import settings
+if settings.APPSEMBLER_FEATURES['GYMCMS_URL'] is None:
+  gymcms_url = 'https://thegymcms.com/'
+else:
+  gymcms_url = settings.APPSEMBLER_FEATURES['GYMCMS_URL']
+%>
 <%namespace name='static' file='/static_content.html'/>
 <%inherit file="/navigation.html"/>
 
@@ -7,8 +13,8 @@
 <%block name="navigation_logo">
   <img
     class="gymnasium-logo"
-    src="https://thegymcms.com/img/brand/svg/gymnasium-logo-white.svg"
-    srcset="https://thegymcms.com/img/brand/svg/gymnasium-logo-white.svg"
+    src="${gymcms_url}img/brand/png/gymnasium-logo-white-4x.png"
+    srcset="${gymcms_url}img/brand/svg/gymnasium-logo-white.svg"
     width="200"
     height="23"
     alt="Aquent Gymnasium home page"
