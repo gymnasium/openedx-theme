@@ -6,13 +6,33 @@
 <%!
 from django.utils.translation import ugettext as _
 from django.utils.http import urlquote_plus
-from courseware.courses import get_course_info_section
+from courseware.courses import get_course_info_section, course_open_for_self_enrollment
 from openedx.core.lib.courses import course_image_url
 from openedx.core.djangoapps.self_paced.models import SelfPacedConfiguration
 from openedx.core.djangolib.markup import HTML, Text
 %>
 
 <%block name="pagetitle">${_("{course_name}").format(course_name=course.display_name_with_default)}</%block>
+
+%if not course.has_ended() and show_enroll_banner:
+  %if course_open_for_self_enrollment(course.id):
+    <div class="wrapper-msg urgency-low" id="failed-verification-banner">
+      <div class="msg msg-reverify is-dismissable">
+        <div class="msg-content">
+          <h2 class="title">${_("You are not enrolled yet")}</h2>
+          <div class="copy">
+            <p class='enroll-message'>
+              ${Text(_("You are not currently enrolled in this course. {link_start}Sign up now!{link_end}")).format(
+                    link_start=HTML("<a href={}>").format(url_to_enroll),
+                    link_end=HTML("</a>")
+              )}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  % endif
+%endif
 
 <div class="message-banner" aria-live="polite">
   %if int(course.display_number_with_default) >= 700 and int(course.display_number_with_default) < 800:
@@ -41,24 +61,6 @@ from openedx.core.djangolib.markup import HTML, Text
     <meta property="og:image" content="https://gymnasium.github.io/static-site-content/artwork/production/courses/gym-${course.display_number_with_default | h}-social.png" />
   % endif
 </%block>
-
-% if show_enroll_banner:
-<div class="wrapper-msg urgency-low" id="failed-verification-banner">
-  <div class="msg msg-reverify is-dismissable">
-    <div class="msg-content">
-      <h2 class="title">${_("You are not enrolled yet")}</h2>
-      <div class="copy">
-        <p class='enroll-message'>
-          ${Text(_("You are not currently enrolled in this course. {link_start}Sign up now!{link_end}")).format(
-                link_start=HTML("<a href={}>").format(url_to_enroll),
-                link_end=HTML("</a>")
-          )}
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-% endif
 
 <%include file="/courseware/course_navigation.html" args="active_page='info'" />
 
