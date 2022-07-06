@@ -78,14 +78,15 @@ edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
   <%static:css group='style-vendor'/>
   % if '/' in self.attr.main_css:
     % if get_language_bidi():
-      <% ## rtl_css_file = self.attr.main_css.replace('.css', '-rtl.css')
+      <%
+      ## rtl_css_file = self.attr.main_css.replace('.css', '-rtl.css')
       %>
       <!-- <link rel="stylesheet" href="${unicode(static.url(rtl_css_file))}" type="text/css" media="all" /> -->
     % else:
       <!-- <link rel="stylesheet" href="${static.url(self.attr.main_css)}" type="text/css" media="all" /> -->
     % endif
   % else:
-    <% ## static:css group='${self.attr.main_css}'/>
+    <%static:css group='${self.attr.main_css}'/>
   % endif
 
   % if disable_courseware_js or uses_pattern_library:
@@ -99,8 +100,8 @@ edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
   <%static:webpack entry="commons"/>
 
   % if uses_bootstrap:
-    ## xss-lint: disable=mako-invalid-js-filter
-    ## <script src="${static.url('common/js/vendor/bootstrap.bundle.js')}"></script>
+    xss-lint: disable=mako-invalid-js-filter
+    <script src="${static.url('common/js/vendor/bootstrap.bundle.js')}"></script>
   % endif
 
   <script>
