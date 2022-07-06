@@ -51,8 +51,6 @@ from openedx.features.course_experience import course_home_page_title, COURSE_OU
 <%block name="headextra">
 ${HTML(fragment.head_html())}
 
-  <%static:css group='style-course-vendor'/>
-  <%static:css group='style-course'/>
   ## Utility: Notes
   % if is_edxnotes_enabled(course, request.user):
     <%static:css group='style-student-notes'/>

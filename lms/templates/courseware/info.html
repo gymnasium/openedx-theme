@@ -45,8 +45,6 @@ from openedx.core.djangolib.markup import HTML, Text
 </div>
 
 <%block name="headextra">
-  <%static:css group='style-course-vendor'/>
-  <%static:css group='style-course'/>
   ## The meta getting pulled in will be for the course about page (course info pages required a logged in user, which makes social sharing redundant)
   %if course.display_number_with_default:
     %if int(course.display_number_with_default) >= 700 and int(course.display_number_with_default) < 800:
