@@ -58,7 +58,7 @@ except:
     ${compressed_css(group, raw=raw) | n, decode.utf8}
   % else:
     % for filename in settings.PIPELINE_CSS[group]['source_filenames']:
-      <link rel="stylesheet" href="${staticfiles_storage.url(filename.replace('.scss', '.css'))}${"?raw" if raw else ""}" type="text/css" media="all" / >
+      <link data-test rel="stylesheet" href="${staticfiles_storage.url(filename.replace('.scss', '.css'))}${"?raw" if raw else ""}" type="text/css" media="all" / >
     % endfor
   %endif
 </%def>
@@ -68,7 +68,7 @@ except:
     ${compressed_js(group) | n, decode.utf8}
   % else:
     % for filename in settings.PIPELINE_JS[group]['source_filenames']:
-      <script type="text/javascript" src="${staticfiles_storage.url(filename.replace('.coffee', '.js'))}"></script>
+      <script data-test type="text/javascript" src="${staticfiles_storage.url(filename.replace('.coffee', '.js'))}"></script>
     % endfor
   %endif
 </%def>
