@@ -8,11 +8,11 @@
 // Load the RTL version of the edX Pattern Library
 $pattern-library-path: "../edx-pattern-library" !default;
 
-// @import "edx-pattern-library/pattern-library/sass/edx-pattern-library-ltr";
+@import "edx-pattern-library/pattern-library/sass/edx-pattern-library-ltr";
 
-// // Load the shared build
-// @import "build-lms-v2";
+// Load the shared build
+@import "build-lms-v2";
 
-// // Load overrides
-// @import "urls";
-// @import "gymnasium";
+// Load overrides
+@import "urls";
+@import "gymnasium";
