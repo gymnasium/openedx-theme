@@ -55,6 +55,7 @@ except:
   %>
 
   % if settings.PIPELINE_ENABLED:
+    <!-- CSS via PIPELINE  -->
     ${compressed_css(group, raw=raw) | n, decode.utf8}
   % else:
     % for filename in settings.PIPELINE_CSS[group]['source_filenames']:
@@ -65,6 +66,7 @@ except:
 
 <%def name='js(group)'>
   % if settings.PIPELINE_ENABLED:
+    <!-- JS via PIPELINE -->
     ${compressed_js(group) | n, decode.utf8}
   % else:
     % for filename in settings.PIPELINE_JS[group]['source_filenames']:
