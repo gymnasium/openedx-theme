@@ -59,6 +59,7 @@ except:
     ${compressed_css(group, raw=raw) | n, decode.utf8}
   % else:
     % for filename in settings.PIPELINE_CSS[group]['source_filenames']:
+      <!-- CSS: component  -->
       <link data-test rel="stylesheet" href="${staticfiles_storage.url(filename.replace('.scss', '.css'))}${"?raw" if raw else ""}" type="text/css" media="all" / >
     % endfor
   %endif
@@ -70,6 +71,7 @@ except:
     ${compressed_js(group) | n, decode.utf8}
   % else:
     % for filename in settings.PIPELINE_JS[group]['source_filenames']:
+      <!-- JS: component -->
       <script data-test type="text/javascript" src="${staticfiles_storage.url(filename.replace('.coffee', '.js'))}"></script>
     % endfor
   %endif
