@@ -56,16 +56,16 @@ $bg-color: #f7fe81; //Selected Content BG Color, ie. calendar          ***Custom
 //Main BG Color Variables
 $main-bg: #f22537;
 $main-bg-60: $gym-light-grey; //Main Border/HR Color
-$main-bg-25: lighten($main-bg, 25%);
+$main-bg-25: $main-bg;
 
 //Secondary Color Variables
 $secondary: #b5a4b7;
-$secondary-50: lighten($secondary, 9%);
-$secondary-25: lighten($secondary, 20%); //Important Heading BG Color
+$secondary-50: $secondary;
+$secondary-25: $secondary; //Important Heading BG Color
 
 //Gray Color Variables
 $gray: #3f3f3f; //Main Text Color
-$gray-75: lighten($gray, 18.25%); //Lighter Text Color
+$gray-75: $gray; //Lighter Text Color
 
 $gray-3: #e9e9e9; //Block/Course BG Color
 $gray-2: #f2f2f2;
@@ -89,10 +89,10 @@ $container-bg: transparent;
 $login-register-bg: $gray-1;
 $content-wrapper-bg: $gray-1;
 $header-image: none;
-$header-bg: $gym-grey-dark; //transparentize(lighten($secondary, 18.5%), .25);
+$header-bg: $gym-grey-dark;
 
 $courseware-header-image: none;
-$courseware-header-bg: transparentize(lighten($secondary, 18.5%), 0.25);
+$courseware-header-bg: transparentize($secondary, 18.5%);
 $footer-bg: $secondary-25;
 $courseware-footer-border: 1px solid $main-bg-60;
 $courseware-footer-shadow: box-shadow(2px 1px 0 rgba(0, 0, 0, 0.1));

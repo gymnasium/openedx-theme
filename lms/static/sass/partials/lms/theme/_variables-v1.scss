@@ -155,7 +155,7 @@ $uxpl-green-base: rgb(0, 129, 0) !default; // wcag2a compliant
 $uxpl-green-hover-active: rgb(0, 155, 0) !default; // wcag2a compliant
 
 $uxpl-pink-base: rgb(194, 56, 125) !default; // wcag2a compliant
-$uxpl-pink-hover-active: lighten($uxpl-pink-base, 7%) !default; // wcag2a compliant
+$uxpl-pink-hover-active: $uxpl-pink-base !default; // wcag2a compliant
 
 $uxpl-grayscale-x-back: rgb(245, 245, 245) !default; // UXPL grayscale, x-back
 
@@ -205,27 +205,27 @@ $confirm-color: rgb(0, 132, 1) !default;
 $active-color: $blue !default;
 $highlight-color: rgb(255, 255, 0) !default;
 $alert-color: rgb(212, 64, 64) !default;
-$success-color-hover: darken($success, 15%) !default;
+$success-color-hover: $success !default;
 
 // ----------------------------
 // #COLORS- Bootstrap-style
 // ----------------------------
 $state-success-text: $black !default;
 $state-success-bg: #dff0d8 !default;
-$state-success-border: darken($state-success-bg, 5%) !default;
+$state-success-border: $state-success-bg !default;
 
 $state-info-text: #31708f !default;
 $state-info-text-link: #245269 !default;
 $state-info-bg: #d9edf7 !default;
-$state-info-border: darken($state-info-bg, 7%) !default;
+$state-info-border: $state-info-bg !default;
 
 $state-warning-text: $black !default;
 $state-warning-bg: #fcf8e3 !default;
-$state-warning-border: darken($state-warning-bg, 5%) !default;
+$state-warning-border: $state-warning-bg !default;
 
 $state-danger-text: $black !default;
 $state-danger-bg: #f2dede !default;
-$state-danger-border: darken($state-danger-bg, 5%) !default;
+$state-danger-border: $state-danger-bg !default;
 
 // ----------------------------
 // #COLORS- EDX-SPECIFIC
@@ -486,9 +486,9 @@ $courseware-hover-color: rgb(51, 52, 53) !default;
 $courseware-navigation-color: theme-color("primary") !default;
 
 // homepage, onboarding, and course discovery
-$homepage__header--gradient__color--alpha: lighten($gray, 15%) !default;
+$homepage__header--gradient__color--alpha: $gray !default;
 $homepage__header--gradient__color--bravo: saturate($gray, 30%) !default;
-$homepage__header--background: lighten($gray, 15%) !default;
+$homepage__header--background: $gray !default;
 $homepage-background: rgb(252, 252, 252) !default;
 $course-card-height: ($baseline*18) !default;
 $course-image-height: ($baseline*8) !default;
