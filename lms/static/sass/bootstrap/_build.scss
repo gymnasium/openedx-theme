@@ -1,21 +1,21 @@
-// Open edX: build
-// ===============
+// // Open edX: build
+// // ===============
 
-// LMS theme
-@import "lms/theme/variables";
+// // LMS theme
+// @import "lms/theme/variables";
 
-// Bootstrap
-@import "bootstrap/scss/bootstrap";
+// // Bootstrap
+// @import "bootstrap/scss/bootstrap";
 
-// LMS variables
-@import "../variables";
+// // LMS variables
+// @import "../variables";
 
-// Legacy support
-@import "legacy";
+// // Legacy support
+// @import "legacy";
 
-// Base
-@import "base";
-@import "variables";
+// // Base
+// @import "base";
+// @import "variables";
 
-// Cookie Policy Banner
-@import "@edx/cookie-policy-banner/build/_cookie-policy-banner.scss";
+// // Cookie Policy Banner
+// @import "@edx/cookie-policy-banner/build/_cookie-policy-banner.scss";

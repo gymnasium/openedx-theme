@@ -210,19 +210,19 @@ $footer_margin: ($baseline/4) 0;
 $login-banner-image: none;
 $register-banner-image: none;
 
-/* individual page styles */
-@import "urls";
-@import "about";
-@import "account_settings";
-@import "assessment";
-@import "bookmarks";
-@import "catalog";
-@import "courseware";
-@import "dashboard";
-@import "home";
-// @import "register";
-@import "tertiary_navigation";
-@import "system_status";
-// @import "find_work";
+// /* individual page styles */
+// @import "urls";
+// @import "about";
+// @import "account_settings";
+// @import "assessment";
+// @import "bookmarks";
+// @import "catalog";
+// @import "courseware";
+// @import "dashboard";
+// @import "home";
+// // @import "register";
+// @import "tertiary_navigation";
+// @import "system_status";
+// // @import "find_work";
 
-@import "prism"; //used for prism.js syntax highlighting
+// @import "prism"; //used for prism.js syntax highlighting

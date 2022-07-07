@@ -1,78 +1,78 @@
-/** 
-	NOTE:
+// /** 
+// 	NOTE:
 	
-	Relative URLs must be split out into separate files at each tier of the 
-	Theme that uses SASS because _gymnasium.scss is used by lms-main-v1.scss, 
-	lms-main-v2.scss, AND /discussion/lms-discussion-main.scss.  
+// 	Relative URLs must be split out into separate files at each tier of the 
+// 	Theme that uses SASS because _gymnasium.scss is used by lms-main-v1.scss, 
+// 	lms-main-v2.scss, AND /discussion/lms-discussion-main.scss.  
 
-	Notice that the relative urls in the _urls.scss file on the /sass level
-	are different from the ones in /sass/discussion (there's an extra `/static/`
-	on the /sass/discussion urls).
+// 	Notice that the relative urls in the _urls.scss file on the /sass level
+// 	are different from the ones in /sass/discussion (there's an extra `/static/`
+// 	on the /sass/discussion urls).
 
-	This is not a great fix, but it is working.
+// 	This is not a great fix, but it is working.
 
-	Love,
-	Mike 
-**/
+// 	Love,
+// 	Mike 
+// **/
 
-//-----------------
-//  Font Assignment
-//-----------------
+// //-----------------
+// //  Font Assignment
+// //-----------------
 
-/* --- regular --- */
+// /* --- regular --- */
 
-@font-face {
-  font-family: brandon-grotesque;
-  src: url("https://thegymcms.com/fonts/brandon_reg-webfont.woff2") format("woff2"),
-    url("https://thegymcms.com/fonts/brandon_reg-webfont.woff") format("woff");
-  font-style: normal;
-  font-weight: normal;
-}
+// @font-face {
+//   font-family: brandon-grotesque;
+//   src: url("https://thegymcms.com/fonts/brandon_reg-webfont.woff2") format("woff2"),
+//     url("https://thegymcms.com/fonts/brandon_reg-webfont.woff") format("woff");
+//   font-style: normal;
+//   font-weight: normal;
+// }
 
-@font-face {
-  font-family: brandon-grotesque;
-  src: url("https://thegymcms.com/fonts/brandon_reg_it-webfont.woff2") format("woff2"),
-    url("https://thegymcms.com/fonts/brandon_reg_it-webfont.woff") format("woff");
-  font-style: italic;
-  font-weight: normal;
-}
+// @font-face {
+//   font-family: brandon-grotesque;
+//   src: url("https://thegymcms.com/fonts/brandon_reg_it-webfont.woff2") format("woff2"),
+//     url("https://thegymcms.com/fonts/brandon_reg_it-webfont.woff") format("woff");
+//   font-style: italic;
+//   font-weight: normal;
+// }
 
-/* --- bold --- */
+// /* --- bold --- */
 
-@font-face {
-  font-family: brandon-grotesque;
-  src: url("https://thegymcms.com/fonts/brandon_bld-webfont.woff2") format("woff2"),
-    url("https://thegymcms.com/fonts/brandon_bld-webfont.woff") format("woff");
-  font-style: normal;
-  font-weight: bold;
-}
+// @font-face {
+//   font-family: brandon-grotesque;
+//   src: url("https://thegymcms.com/fonts/brandon_bld-webfont.woff2") format("woff2"),
+//     url("https://thegymcms.com/fonts/brandon_bld-webfont.woff") format("woff");
+//   font-style: normal;
+//   font-weight: bold;
+// }
 
-@font-face {
-  font-family: brandon-grotesque;
-  src: url("https://thegymcms.com/fonts/brandon_bld_it-webfont.woff2") format("woff2"),
-    url("https://thegymcms.com/fonts/brandon_bld_it-webfont.woff") format("woff");
-  font-style: italic;
-  font-weight: bold;
-}
+// @font-face {
+//   font-family: brandon-grotesque;
+//   src: url("https://thegymcms.com/fonts/brandon_bld_it-webfont.woff2") format("woff2"),
+//     url("https://thegymcms.com/fonts/brandon_bld_it-webfont.woff") format("woff");
+//   font-style: italic;
+//   font-weight: bold;
+// }
 
-/* --- black --- */
+// /* --- black --- */
 
-@font-face {
-  font-family: brandon-grotesque;
-  src: url("https://thegymcms.com/fonts/brandon_blk-webfont.woff2") format("woff2"),
-    url("https://thegymcms.com/fonts/brandon_blk-webfont.woff") format("woff");
-  font-style: normal;
-  font-weight: 900;
-}
+// @font-face {
+//   font-family: brandon-grotesque;
+//   src: url("https://thegymcms.com/fonts/brandon_blk-webfont.woff2") format("woff2"),
+//     url("https://thegymcms.com/fonts/brandon_blk-webfont.woff") format("woff");
+//   font-style: normal;
+//   font-weight: 900;
+// }
 
-@font-face {
-  font-family: brandon-grotesque;
-  src: url("https://thegymcms.com/fonts/brandon_blk_it-webfont.woff2") format("woff2"),
-    url("https://thegymcms.com/fonts/brandon_blk_it-webfont.woff") format("woff");
-  font-style: italic;
-  font-weight: 900;
-}
+// @font-face {
+//   font-family: brandon-grotesque;
+//   src: url("https://thegymcms.com/fonts/brandon_blk_it-webfont.woff2") format("woff2"),
+//     url("https://thegymcms.com/fonts/brandon_blk_it-webfont.woff") format("woff");
+//   font-style: italic;
+//   font-weight: 900;
+// }
 
-$video-thumb-url: "/static/gymnasium/images/gymnasiumLogo.png";
-$aquent-icon-image: url("/static/gymnasium/images/aquent-icon.png");
-$vitamin-t-icon-image: url("/static/gymnasium/images/vitamin-t-icon.png");
+// $video-thumb-url: "/static/gymnasium/images/gymnasiumLogo.png";
+// $aquent-icon-image: url("/static/gymnasium/images/aquent-icon.png");
+// $vitamin-t-icon-image: url("/static/gymnasium/images/vitamin-t-icon.png");
