@@ -1,212 +1,212 @@
-// // TODO: This component is likely deprecated as of March 2021
+// TODO: This component is likely deprecated as of March 2021
 
-// /* --- find work / job board / sidebar --- */
+/* --- find work / job board / sidebar --- */
 
-// /* find work header */
+/* find work header */
 
-// #find-work {
-//   header {
-//     margin-top: 0.875em;
-//     margin-bottom: 0.2em;
+#find-work {
+  header {
+    margin-top: 0.875em;
+    margin-bottom: 0.2em;
 
-//     h2 {
-//       font: 900 1.7em/1.2 $gym-font-stack;
-//       letter-spacing: 0.06em;
-//       word-spacing: 0.04em;
-//       text-transform: uppercase;
-//       margin-top: 0;
-//       margin-bottom: 0.4em;
-//     }
+    h2 {
+      font: 900 1.7em/1.2 $gym-font-stack;
+      letter-spacing: 0.06em;
+      word-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-top: 0;
+      margin-bottom: 0.4em;
+    }
 
-//     p {
-//       font: normal 1.3em/1.3 $gym-font-stack;
-//       letter-spacing: 0.01em;
-//       margin-top: 0;
-//       margin-bottom: 0;
-//     }
-//   }
+    p {
+      font: normal 1.3em/1.3 $gym-font-stack;
+      letter-spacing: 0.01em;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
 
-//   /* find work select */
-//   #field-market {
-//     margin: 0;
-//   }
+  /* find work select */
+  #field-market {
+    margin: 0;
+  }
 
-//   #market {
-//     display: block;
-//     width: 100%;
-//     font-size: 1em;
-//     margin: 1.2em 0;
-//   }
+  #market {
+    display: block;
+    width: 100%;
+    font-size: 1em;
+    margin: 1.2em 0;
+  }
 
-//   /* find work loading message */
-//   .loading-find-work {
-//     color: #fff;
-//     text-align: center;
-//     background: #a6a6a6;
-//     padding: 1.2em;
+  /* find work loading message */
+  .loading-find-work {
+    color: #fff;
+    text-align: center;
+    background: #a6a6a6;
+    padding: 1.2em;
 
-//     b {
-//       letter-spacing: 0.03em;
-//     }
-//   }
+    b {
+      letter-spacing: 0.03em;
+    }
+  }
 
-//   /* find work listings */
-//   .job-list-container {
-//     margin: 1.2em 1em 0;
+  /* find work listings */
+  .job-list-container {
+    margin: 1.2em 1em 0;
 
-//     a {
-//       font-weight: bold;
-//     }
-//   }
+    a {
+      font-weight: bold;
+    }
+  }
 
-//   .job-list {
-//     .row {
-//       font: 1em/1.15 $gym-text-font-stack;
-//       border-bottom: 1px solid #ccc;
-//     }
+  .job-list {
+    .row {
+      font: 1em/1.15 $gym-text-font-stack;
+      border-bottom: 1px solid #ccc;
+    }
 
-//     .row::first-child {
-//       border-top: 1px solid #ccc;
-//     }
+    .row::first-child {
+      border-top: 1px solid #ccc;
+    }
 
-//     a {
-//       display: block;
-//       position: relative;
-//       color: #f8971d;
-//       height: auto;
-//       padding: 0.6em 1.2em 0.6em 0.6em;
-//       overflow: hidden;
-//       transition: 0.2s padding-left ease-in-out;
-//     }
+    a {
+      display: block;
+      position: relative;
+      color: #f8971d;
+      height: auto;
+      padding: 0.6em 1.2em 0.6em 0.6em;
+      overflow: hidden;
+      transition: 0.2s padding-left ease-in-out;
+    }
 
-//     a:hover,
-//     a:focus {
-//       padding-left: 1.2em;
-//     }
+    a:hover,
+    a:focus {
+      padding-left: 1.2em;
+    }
 
-//     a:hover:before {
-//       display: inline-block;
-//       position: absolute;
-//       top: 0;
-//       bottom: 0;
-//       right: 0;
-//       font: 1em/1 monospace, monospace;
-//       color: #444;
-//       content: "→";
-//       height: 0;
-//       line-height: 0;
-//       margin: auto;
-//     }
-//   }
+    a:hover:before {
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      font: 1em/1 monospace, monospace;
+      color: #444;
+      content: "→";
+      height: 0;
+      line-height: 0;
+      margin: auto;
+    }
+  }
 
-//   a:hover .job-title,
-//   a:focus .job-title,
-//   .view-all-jobs:hover,
-//   .view-all-jobs:focus {
-//     text-decoration: underline;
-//   }
+  a:hover .job-title,
+  a:focus .job-title,
+  .view-all-jobs:hover,
+  .view-all-jobs:focus {
+    text-decoration: underline;
+  }
 
-//   .job-post {
-//     line-height: 1.2;
-//   }
+  .job-post {
+    line-height: 1.2;
+  }
 
-//   .job-title {
-//     line-height: 1.3;
-//     text-transform: capitalize;
-//   }
+  .job-title {
+    line-height: 1.3;
+    text-transform: capitalize;
+  }
 
-//   .job-market {
-//     display: block;
-//     font-style: normal;
-//     font: bold 0.8125em/1.2 $gym-text-font-stack;
-//     letter-spacing: 0.02em;
-//     margin-top: 0.325em;
-//     margin-bottom: 0.25em;
-//   }
+  .job-market {
+    display: block;
+    font-style: normal;
+    font: bold 0.8125em/1.2 $gym-text-font-stack;
+    letter-spacing: 0.02em;
+    margin-top: 0.325em;
+    margin-bottom: 0.25em;
+  }
 
-//   .view-all-jobs {
-//     padding: 0;
-//   }
-// }
+  .view-all-jobs {
+    padding: 0;
+  }
+}
 
-// #find-jobs-job-list {
-//   list-style: none;
-//   padding-left: 0;
-//   margin-top: 1.2em;
-// }
+#find-jobs-job-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1.2em;
+}
 
-// /* resets / overrides */
-// .find-courses .sidebar #find-work .job-board {
-//   padding: 0;
-//   border-top: 0;
-//   margin: 1.2em 0;
-// }
+/* resets / overrides */
+.find-courses .sidebar #find-work .job-board {
+  padding: 0;
+  border-top: 0;
+  margin: 1.2em 0;
+}
 
-// #find-work-search {
-//   a:hover,
-//   a:focus {
-//     border-bottom: 0;
-//   }
-// }
+#find-work-search {
+  a:hover,
+  a:focus {
+    border-bottom: 0;
+  }
+}
 
-// #find-work {
-//   b.col-xs-8 {
-//     width: auto;
-//     padding: 0;
-//   }
+#find-work {
+  b.col-xs-8 {
+    width: auto;
+    padding: 0;
+  }
 
-//   em.col-xs-4 {
-//     width: 100%;
-//     padding: 0;
-//   }
-//   em.text-right {
-//     text-align: left;
-//   }
+  em.col-xs-4 {
+    width: 100%;
+    padding: 0;
+  }
+  em.text-right {
+    text-align: left;
+  }
 
-//   .job-board,
-//   .job-list {
-//     margin-top: 1em;
-//     margin-bottom: 1em;
-//   }
+  .job-board,
+  .job-list {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
 
-//   /* viewing jobs in */
-//   h3.viewing-jobs-in {
-//     font: bold 1em/1.3 $gym-text-font-stack;
-//     letter-spacing: 0.02em;
-//     text-transform: none;
-//     margin-top: 0;
-//   }
-// }
+  /* viewing jobs in */
+  h3.viewing-jobs-in {
+    font: bold 1em/1.3 $gym-text-font-stack;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    margin-top: 0;
+  }
+}
 
-// /* view jobs button */
-// #view-jobs-button {
-//   font-size: 85%;
-//   max-width: 32em;
-//   width: 100%;
-//   border: 0;
-//   padding: 1em;
-//   cursor: pointer;
+/* view jobs button */
+#view-jobs-button {
+  font-size: 85%;
+  max-width: 32em;
+  width: 100%;
+  border: 0;
+  padding: 1em;
+  cursor: pointer;
 
-//   b {
-//     font-size: 1.8em;
-//   }
-// }
+  b {
+    font-size: 1.8em;
+  }
+}
 
-// /* footer / optional */
-// #find-work {
-//   .note {
-//     padding-top: 1em;
-//     border-top: 1px dashed #ccc;
-//     margin-top: 1em;
+/* footer / optional */
+#find-work {
+  .note {
+    padding-top: 1em;
+    border-top: 1px dashed #ccc;
+    margin-top: 1em;
 
-//     p {
-//       line-height: 1.2;
-//       margin-top: 0;
-//       margin-bottom: 0;
-//     }
+    p {
+      line-height: 1.2;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
 
-//     small {
-//       font-size: 0.8125em;
-//     }
-//   }
-// }
+    small {
+      font-size: 0.8125em;
+    }
+  }
+}

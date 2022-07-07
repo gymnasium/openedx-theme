@@ -1,531 +1,531 @@
-// .home.jumbotron {
-//   padding: 10px 0;
-
-//   p {
-//     font-size: 16pt;
-//   }
-// }
-
-// .subsection h1,
-// .subsection h2,
-// .subsection h3,
-// .subsection h4,
-// .subsection h5,
-// .subsection h6 {
-//   font-family: $gym-font-stack;
-//   letter-spacing: 0.06em;
-//   word-spacing: 0.04em;
-// }
-
-// .home {
-//   position: relative;
-
-//   > header {
-//     background: none;
-//     box-shadow: none;
-
-//     .header-title {
-//       border: 0px;
-//       background-color: $gym-textblock-color;
-//       color: $gym-white;
-//       margin: 0;
-//       width: auto;
-//       height: auto;
-//       min-height: 0px;
-//       margin-top: 4em;
-//       margin-bottom: 4em;
-//       padding: 25px;
-//       box-sizing: border-box;
-//       margin-right: 0;
-//       margin-left: 0;
-
-//       &.header-title-sm {
-//         margin-top: 1em;
-//         margin-bottom: 1em;
-//       }
-
-//       h1 {
-//         text-shadow: none;
-//         color: $gym-white;
-//         text-transform: uppercase;
-//         margin: 0;
-//         padding: 0;
-//         text-align: left;
-//         font-size: 28px;
-//       }
-
-//       h2 {
-//         color: $gym-white;
-//         margin: 0;
-//         padding: 0;
-//         padding-bottom: 1.5em;
-//         text-transform: none;
-//         font-size: 11pt;
-//         text-align: left;
-//         font-weight: normal;
-//       }
-
-//       //augmenting the style defined in _gymnasium.scss
-//       .gym-button {
-//         text-transform: none;
-//         padding: 15px 20px;
-//         display: inline-block;
-//         color: white;
-//         font-size: 1.5em;
-//         font-weight: bold;
-//         a:link {
-//           font: $gym-font-stack;
-//         }
-//       }
-//     }
-//   }
-
-//   header {
-//     border-bottom: $gym-white;
-//     .outer-wrapper {
-//       padding: 150px 10px 0px 740px;
-//     }
-
-//     .media {
-//       border: 0px;
-//       background: $gym-textblock-color;
-//     }
-//   }
-
-//   .how-gymnasium-works {
-//     p {
-//       font-size: 1.3em;
-//       line-height: 1.4em;
-//     }
-//   }
-
-//   .container#get-work {
-//     article {
-//       h1 {
-//         color: $gym-orange;
-//         text-align: left;
-//         text-transform: none;
-//       }
-//     }
-
-//     hr {
-//       border-top-color: $gym-dark-grey;
-//       color: $gym-medium-grey;
-//     }
-//   }
-
-//   #join-gymnasium {
-//     em {
-//       margin-bottom: 10px;
-//       display: block;
-//       font-style: inherit;
-
-//       a,
-//       a:link,
-//       a:link:visited {
-//         color: $gym-orange;
-//         text-transform: uppercase;
-//         font-size: 42pt;
-//         font-weight: bold;
-//         font-family: $gym-font-stack;
-//       }
-
-//       a:hover,
-//       a:link:hover {
-//         text-decoration: none;
-//       }
-//     }
-
-//     p {
-//       color: inherit; //$gym-dark-grey;
-
-//       a,
-//       a:link,
-//       a:link:visited {
-//         color: $gym-orange;
-//         font-weight: bold;
-//       }
-//     }
-
-//     a.gym-button {
-//       color: $gym-white;
-//       display: block;
-//       margin: 20px 0 5px 0;
-//       padding: 19px;
-//       font-size: 2.3em;
-//       font-weight: 900;
-//     }
-//   }
-
-//   #share-panel {
-//   }
-
-//   #as-seen-in {
-//     h2 {
-//       padding-bottom: 30px;
-//     }
-
-//     ul {
-//       box-sizing: border-box;
-//     }
-//     li {
-//       width: 18%;
-//     }
-//   }
-
-//   .container {
-//     header {
-//       display: block;
-//     }
-//     .header-tab {
-//       text-align: center;
-
-//       h1:before {
-//         display: inline-block;
-//         width: 100%;
-//         height: 0;
-//         content: " ";
-//         line-height: 0;
-//         padding-right: 1em;
-//         padding-left: 1em;
-//         border-right: 1.4em dashed transparent;
-//         border-left: 1.4em dashed transparent;
-//         -moz-box-sizing: border-box;
-//         -webkit-box-sizing: border-box;
-//         box-sizing: border-box;
-//         vertical-align: top;
-//         position: relative;
-//         z-index: 100;
-//       }
-
-//       h1 {
-//         display: inline-block;
-//         font-size: 1.75em;
-//         line-height: 1.2;
-//         text-transform: uppercase;
-//         vertical-align: 1.2em;
-//         margin-top: -1em;
-//         text-align: center;
-//       }
-//     }
-//   }
-
-//   .container.grey {
-//     @extend .container;
-
-//     background-color: $gym-medium-grey;
-//   }
-
-//   .container-fluid {
-//     padding-bottom: 4em;
-
-//     h1 {
-//       text-transform: uppercase;
-//       font-size: 18px;
-//       font-weight: bold;
-//     }
-
-//     h2 {
-//       font-size: 24px;
-//       text-transform: none;
-//       font-weight: bold;
-//     }
-//   }
-
-//   //special rule for the "join us / share" panels on the home
-//   // page, which are white and don't follow the every other rule
-//   .container-fluid:nth-of-type(odd).white-panel {
-//     background-color: #fff;
-
-//     .header-tab {
-//       h1:before {
-//         border-bottom: 1.4em solid white;
-//       }
-//     }
-//   }
-
-//   .container-fluid:nth-of-type(odd) {
-//     background-color: $gym-white;
-
-//     header.header-tab {
-//       h1:before {
-//         border-bottom: 1.4em solid $gym-white;
-//       }
-//     }
-
-//     * {
-//       color: $gym-medium-grey;
-//     }
-
-//     .gym-button,
-//     .gym-button b {
-//       color: $gym-white;
-//     }
-
-//     p {
-//       color: $gym-light-grey;
-
-//       a {
-//         color: $gym-orange;
-//       }
-//     }
-
-//     h1 {
-//       color: $gym-medium-grey;
-//       background-color: transparent;
-//     }
-//     h1:before,
-//     h1:after {
-//       color: $gym-white;
-//     }
-
-//     hr {
-//       background-color: $gym-medium-grey;
-//     }
-//   }
-
-//   .container-fluid:nth-of-type(even) {
-//     background-color: $gym-medium-grey;
-//     * {
-//       color: $gym-white;
-//     }
-
-//     header.header-tab {
-//       h1:before {
-//         border-bottom: 1.4em solid $gym-medium-grey;
-//       }
-//     }
-
-//     h1,
-//     h1:before,
-//     h1:after {
-//       color: $gym-white;
-//       background-color: transparent;
-//     }
-//     hr {
-//       background-color: $gym-white;
-//     }
-//   }
-
-//   .testimonial {
-//     text-align: center;
-//   }
-
-//   .quote {
-//     display: inline-block;
-//     position: relative;
-//     font-family: $gym-font-stack;
-//     color: #aaa;
-//     letter-spacing: 0.025em;
-//     vertical-align: middle;
-//     margin: 1em 0;
-//   }
-
-//   .quote::before,
-//   .quote::after {
-//     position: absolute;
-//     top: 0;
-//     bottom: 0;
-//     font-family: $gym-text-font-stack;
-//     font-size: 19em;
-//     line-height: 0.35;
-//     color: #ddd;
-//     color: rgba(221, 221, 221, 0.5);
-//     height: 0;
-//     margin-top: auto;
-//     margin-bottom: auto;
-//   }
-
-//   .quote::before {
-//     left: 0;
-//     content: "“";
-//   }
-
-//   .quote::after {
-//     right: 0;
-//     content: "”";
-//   }
-
-//   .quote blockquote {
-//     position: relative;
-//     font-size: 1.5em;
-//     padding-right: 2.5em;
-//     padding-left: 2.5em;
-//     margin: 0;
-//     z-index: 1;
-//     border-left: none;
-//   }
-
-//   .quote p {
-//     font-style: italic;
-//     font-weight: bold;
-//     line-height: 1.2;
-//     margin-top: 0.25em;
-//     margin-bottom: 0.25em;
-//   }
-
-//   .quote strong {
-//     font-size: 150%;
-//     font-weight: 900;
-//     line-height: 0.9;
-//   }
-
-//   .quote figcaption {
-//     font-family: $gym-text-font-stack;
-//     font-size: small;
-//     font-style: italic;
-//     font-weight: bold;
-//     text-align: right;
-//     margin-top: 1em;
-//     margin-right: 25%;
-//   }
-
-//   .quote figcaption::before {
-//     content: "— ";
-//     font-weight: normal;
-//   }
-
-//   .highlighted-courses {
-//     padding-top: 3em;
-
-//     .header-tab {
-//       border-top: 2px solid #ccc;
-
-//       h1 {
-//         position: relative;
-//         top: -0.75em;
-//         background: #ebebeb;
-//         margin-bottom: -0.75em;
-//       }
-//     }
-//   }
-
-//   .courses {
-//     #view-all-courses {
-//       font-size: 1.5em;
-//       padding: 0.5em;
-//       margin-top: 1em;
-//     }
-
-//     .gym-course a:hover {
-//       text-decoration: underline;
-//     }
-
-//     padding-top: 0px;
-
-//     .course-list {
-//       list-style: none;
-//     }
-
-//     .course-list-item {
-//       margin-bottom: 1.5em;
-
-//       h2 {
-//         color: $gym-medium-grey;
-//         text-align: center;
-//       }
-
-//       .cover-image {
-//         img {
-//           height: 100%;
-//           width: 100%;
-//         }
-//       }
-
-//       .course-preview {
-//         background: $gym-medium-grey;
-//         padding: 1em;
-//         margin-top: 0;
-
-//         h2 {
-//           height: 4.5em;
-//           color: $gym-orange;
-//           text-align: left;
-//           margin: 0;
-//           padding: 0;
-//           text-transform: uppercase;
-//           font-weight: bolder;
-//           font-size: 16pt;
-//         }
-//       }
-//     }
-
-//     p {
-//       color: $gym-orange;
-//     }
-//   }
-// }
-
-// #get-work {
-//   .header-tab {
-//     height: 2.5em;
-//   }
-
-//   .tagline {
-//     margin-bottom: 1em;
-//     margin-top: 1.5em;
-
-//     h2 {
-//       margin-top: 0;
-//       padding-top: 0;
-//       font-weight: normal;
-//     }
-//   }
-
-//   .viewing-jobs-in {
-//     margin-top: 1.5em;
-//     font-weight: bold;
-//     font-size: 14pt;
-//   }
-
-//   select#market {
-//     margin-top: 0.5em;
-//     color: black;
-//   }
-
-//   ul#find-jobs-job-list {
-//     margin-top: 1em;
-//     border-top: 2px solid #777;
-//     list-style: none;
-//     padding: 0;
-
-//     li {
-//       padding: 1.5em 2em;
-//       border-bottom: 2px solid #777;
-
-//       a {
-//         font-size: 17pt;
-//         margin-top: 0.5em;
-//         margin-bottom: 0.5em;
-
-//         padding-top: 0.5em;
-//         padding-bottom: 0.5em;
-
-//         .job-title {
-//           color: $gym-orange;
-//         }
-
-//         .job-market {
-//           font-size: 12pt;
-//           font-style: normal;
-//           font-weight: bold;
-//         }
-//       }
-//       a:hover,
-//       a:active,
-//       a:hover:active {
-//         .job-title,
-//         .job-market {
-//           text-decoration: underline;
-//         }
-//       }
-//     }
-//   }
-
-//   .view-all-jobs {
-//     margin-top: 1.5em;
-//     color: $gym-orange;
-//     font-size: 16pt;
-//     font-weight: bold;
-//   }
-// }
+.home.jumbotron {
+  padding: 10px 0;
+
+  p {
+    font-size: 16pt;
+  }
+}
+
+.subsection h1,
+.subsection h2,
+.subsection h3,
+.subsection h4,
+.subsection h5,
+.subsection h6 {
+  font-family: $gym-font-stack;
+  letter-spacing: 0.06em;
+  word-spacing: 0.04em;
+}
+
+.home {
+  position: relative;
+
+  > header {
+    background: none;
+    box-shadow: none;
+
+    .header-title {
+      border: 0px;
+      background-color: $gym-textblock-color;
+      color: $gym-white;
+      margin: 0;
+      width: auto;
+      height: auto;
+      min-height: 0px;
+      margin-top: 4em;
+      margin-bottom: 4em;
+      padding: 25px;
+      box-sizing: border-box;
+      margin-right: 0;
+      margin-left: 0;
+
+      &.header-title-sm {
+        margin-top: 1em;
+        margin-bottom: 1em;
+      }
+
+      h1 {
+        text-shadow: none;
+        color: $gym-white;
+        text-transform: uppercase;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        font-size: 28px;
+      }
+
+      h2 {
+        color: $gym-white;
+        margin: 0;
+        padding: 0;
+        padding-bottom: 1.5em;
+        text-transform: none;
+        font-size: 11pt;
+        text-align: left;
+        font-weight: normal;
+      }
+
+      //augmenting the style defined in _gymnasium.scss
+      .gym-button {
+        text-transform: none;
+        padding: 15px 20px;
+        display: inline-block;
+        color: white;
+        font-size: 1.5em;
+        font-weight: bold;
+        a:link {
+          font: $gym-font-stack;
+        }
+      }
+    }
+  }
+
+  header {
+    border-bottom: $gym-white;
+    .outer-wrapper {
+      padding: 150px 10px 0px 740px;
+    }
+
+    .media {
+      border: 0px;
+      background: $gym-textblock-color;
+    }
+  }
+
+  .how-gymnasium-works {
+    p {
+      font-size: 1.3em;
+      line-height: 1.4em;
+    }
+  }
+
+  .container#get-work {
+    article {
+      h1 {
+        color: $gym-orange;
+        text-align: left;
+        text-transform: none;
+      }
+    }
+
+    hr {
+      border-top-color: $gym-dark-grey;
+      color: $gym-medium-grey;
+    }
+  }
+
+  #join-gymnasium {
+    em {
+      margin-bottom: 10px;
+      display: block;
+      font-style: inherit;
+
+      a,
+      a:link,
+      a:link:visited {
+        color: $gym-orange;
+        text-transform: uppercase;
+        font-size: 42pt;
+        font-weight: bold;
+        font-family: $gym-font-stack;
+      }
+
+      a:hover,
+      a:link:hover {
+        text-decoration: none;
+      }
+    }
+
+    p {
+      color: inherit; //$gym-dark-grey;
+
+      a,
+      a:link,
+      a:link:visited {
+        color: $gym-orange;
+        font-weight: bold;
+      }
+    }
+
+    a.gym-button {
+      color: $gym-white;
+      display: block;
+      margin: 20px 0 5px 0;
+      padding: 19px;
+      font-size: 2.3em;
+      font-weight: 900;
+    }
+  }
+
+  #share-panel {
+  }
+
+  #as-seen-in {
+    h2 {
+      padding-bottom: 30px;
+    }
+
+    ul {
+      box-sizing: border-box;
+    }
+    li {
+      width: 18%;
+    }
+  }
+
+  .container {
+    header {
+      display: block;
+    }
+    .header-tab {
+      text-align: center;
+
+      h1:before {
+        display: inline-block;
+        width: 100%;
+        height: 0;
+        content: " ";
+        line-height: 0;
+        padding-right: 1em;
+        padding-left: 1em;
+        border-right: 1.4em dashed transparent;
+        border-left: 1.4em dashed transparent;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        vertical-align: top;
+        position: relative;
+        z-index: 100;
+      }
+
+      h1 {
+        display: inline-block;
+        font-size: 1.75em;
+        line-height: 1.2;
+        text-transform: uppercase;
+        vertical-align: 1.2em;
+        margin-top: -1em;
+        text-align: center;
+      }
+    }
+  }
+
+  .container.grey {
+    @extend .container;
+
+    background-color: $gym-medium-grey;
+  }
+
+  .container-fluid {
+    padding-bottom: 4em;
+
+    h1 {
+      text-transform: uppercase;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    h2 {
+      font-size: 24px;
+      text-transform: none;
+      font-weight: bold;
+    }
+  }
+
+  //special rule for the "join us / share" panels on the home
+  // page, which are white and don't follow the every other rule
+  .container-fluid:nth-of-type(odd).white-panel {
+    background-color: #fff;
+
+    .header-tab {
+      h1:before {
+        border-bottom: 1.4em solid white;
+      }
+    }
+  }
+
+  .container-fluid:nth-of-type(odd) {
+    background-color: $gym-white;
+
+    header.header-tab {
+      h1:before {
+        border-bottom: 1.4em solid $gym-white;
+      }
+    }
+
+    * {
+      color: $gym-medium-grey;
+    }
+
+    .gym-button,
+    .gym-button b {
+      color: $gym-white;
+    }
+
+    p {
+      color: $gym-light-grey;
+
+      a {
+        color: $gym-orange;
+      }
+    }
+
+    h1 {
+      color: $gym-medium-grey;
+      background-color: transparent;
+    }
+    h1:before,
+    h1:after {
+      color: $gym-white;
+    }
+
+    hr {
+      background-color: $gym-medium-grey;
+    }
+  }
+
+  .container-fluid:nth-of-type(even) {
+    background-color: $gym-medium-grey;
+    * {
+      color: $gym-white;
+    }
+
+    header.header-tab {
+      h1:before {
+        border-bottom: 1.4em solid $gym-medium-grey;
+      }
+    }
+
+    h1,
+    h1:before,
+    h1:after {
+      color: $gym-white;
+      background-color: transparent;
+    }
+    hr {
+      background-color: $gym-white;
+    }
+  }
+
+  .testimonial {
+    text-align: center;
+  }
+
+  .quote {
+    display: inline-block;
+    position: relative;
+    font-family: $gym-font-stack;
+    color: #aaa;
+    letter-spacing: 0.025em;
+    vertical-align: middle;
+    margin: 1em 0;
+  }
+
+  .quote::before,
+  .quote::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    font-family: $gym-text-font-stack;
+    font-size: 19em;
+    line-height: 0.35;
+    color: #ddd;
+    color: rgba(221, 221, 221, 0.5);
+    height: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .quote::before {
+    left: 0;
+    content: "“";
+  }
+
+  .quote::after {
+    right: 0;
+    content: "”";
+  }
+
+  .quote blockquote {
+    position: relative;
+    font-size: 1.5em;
+    padding-right: 2.5em;
+    padding-left: 2.5em;
+    margin: 0;
+    z-index: 1;
+    border-left: none;
+  }
+
+  .quote p {
+    font-style: italic;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+  }
+
+  .quote strong {
+    font-size: 150%;
+    font-weight: 900;
+    line-height: 0.9;
+  }
+
+  .quote figcaption {
+    font-family: $gym-text-font-stack;
+    font-size: small;
+    font-style: italic;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 1em;
+    margin-right: 25%;
+  }
+
+  .quote figcaption::before {
+    content: "— ";
+    font-weight: normal;
+  }
+
+  .highlighted-courses {
+    padding-top: 3em;
+
+    .header-tab {
+      border-top: 2px solid #ccc;
+
+      h1 {
+        position: relative;
+        top: -0.75em;
+        background: #ebebeb;
+        margin-bottom: -0.75em;
+      }
+    }
+  }
+
+  .courses {
+    #view-all-courses {
+      font-size: 1.5em;
+      padding: 0.5em;
+      margin-top: 1em;
+    }
+
+    .gym-course a:hover {
+      text-decoration: underline;
+    }
+
+    padding-top: 0px;
+
+    .course-list {
+      list-style: none;
+    }
+
+    .course-list-item {
+      margin-bottom: 1.5em;
+
+      h2 {
+        color: $gym-medium-grey;
+        text-align: center;
+      }
+
+      .cover-image {
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+
+      .course-preview {
+        background: $gym-medium-grey;
+        padding: 1em;
+        margin-top: 0;
+
+        h2 {
+          height: 4.5em;
+          color: $gym-orange;
+          text-align: left;
+          margin: 0;
+          padding: 0;
+          text-transform: uppercase;
+          font-weight: bolder;
+          font-size: 16pt;
+        }
+      }
+    }
+
+    p {
+      color: $gym-orange;
+    }
+  }
+}
+
+#get-work {
+  .header-tab {
+    height: 2.5em;
+  }
+
+  .tagline {
+    margin-bottom: 1em;
+    margin-top: 1.5em;
+
+    h2 {
+      margin-top: 0;
+      padding-top: 0;
+      font-weight: normal;
+    }
+  }
+
+  .viewing-jobs-in {
+    margin-top: 1.5em;
+    font-weight: bold;
+    font-size: 14pt;
+  }
+
+  select#market {
+    margin-top: 0.5em;
+    color: black;
+  }
+
+  ul#find-jobs-job-list {
+    margin-top: 1em;
+    border-top: 2px solid #777;
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding: 1.5em 2em;
+      border-bottom: 2px solid #777;
+
+      a {
+        font-size: 17pt;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+
+        .job-title {
+          color: $gym-orange;
+        }
+
+        .job-market {
+          font-size: 12pt;
+          font-style: normal;
+          font-weight: bold;
+        }
+      }
+      a:hover,
+      a:active,
+      a:hover:active {
+        .job-title,
+        .job-market {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .view-all-jobs {
+    margin-top: 1.5em;
+    color: $gym-orange;
+    font-size: 16pt;
+    font-weight: bold;
+  }
+}
