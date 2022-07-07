@@ -20,7 +20,7 @@ $grid-breakpoints-lg: 992px !default;
 $gray: $gray-600 !default;
 $lms-container-background-color: theme-color("inverse") !default;
 $lms-preview-menu-color: $gray-400 !default;
-$success-color-hover: $success !default;
+$success-color-hover: darken($success, 15%) !default;
 $lms-hero-color: #005e90 !default;
 
 $button-bg-hover-color: $white !default;
@@ -76,16 +76,16 @@ $alert-color: rgb(212, 64, 64) !default;
 
 $state-success-text:             $black !default;
 $state-success-bg:               #dff0d8 !default;
-$state-success-border:           $state-success-bg !default;
+$state-success-border:           darken($state-success-bg, 5%) !default;
 
 $state-info-text:                $black !default;
 $state-info-bg:                  #d9edf7 !default;
-$state-info-border:              $state-info-bg !default;
+$state-info-border:              darken($state-info-bg, 7%) !default;
 
 $state-warning-text:             $black !default;
 $state-warning-bg:               #fcf8e3 !default;
-$state-warning-border:           $state-warning-bg !default;
+$state-warning-border:           darken($state-warning-bg, 5%) !default;
 
 $state-danger-text:              $black !default;
 $state-danger-bg:                #f2dede !default;
-$state-danger-border:            $state-danger-bg !default;
+$state-danger-border:            darken($state-danger-bg, 5%) !default;

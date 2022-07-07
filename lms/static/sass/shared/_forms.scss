@@ -47,8 +47,8 @@
 //   }
 
 //   &:focus {
-//     border-color: $button-archive-color;
-//     box-shadow: 0 0 6px 0 $button-archive-color, inset 0 0 4px 0 rgba(0, 0, 0, 0.15);
+//     border-color: darken($button-archive-color, 50%);
+//     box-shadow: 0 0 6px 0 darken($button-archive-color, 50%), inset 0 0 4px 0 rgba(0, 0, 0, 0.15);
 //   }
 // }
 
