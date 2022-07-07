@@ -27,24 +27,24 @@ $static-path: '../..' !default;
 
 // Discussion styling
 @import 'mixins';
-@import 'discussion'; // Process old file after definitions but before everything else, partial is deprecated.
-@import 'layouts';
-@import 'elements/actions';
-@import 'elements/editor';
-@import 'elements/labels';
-@import 'elements/navigation';
-@import 'views/home';
-@import 'views/thread';
-@import 'views/create-edit-post';
-@import 'views/response';
-@import 'views/search';
-@import 'views/inline';
-@import 'utilities/developer';
-@import 'utilities/shame';
+// @import 'discussion'; // Process old file after definitions but before everything else, partial is deprecated.
+// @import 'layouts';
+// @import 'elements/actions';
+// @import 'elements/editor';
+// @import 'elements/labels';
+// @import 'elements/navigation';
+// @import 'views/home';
+// @import 'views/thread';
+// @import 'views/create-edit-post';
+// @import 'views/response';
+// @import 'views/search';
+// @import 'views/inline';
+// @import 'utilities/developer';
+// @import 'utilities/shame';
 
 // Site status banner
-@import '../notifications';
+// @import '../notifications';
 
 // Extra theme-specific rules
-@import 'lms/theme/extras';
-@import 'lms/theme/extras-v2';
+// @import 'lms/theme/extras';
+// @import 'lms/theme/extras-v2';
