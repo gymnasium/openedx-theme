@@ -6,12 +6,7 @@
 
 // Load the LTR version of the edX Pattern Library
 // $pattern-library-path: '../../edx-pattern-library' !default;
-@import "edx-pattern-library/pattern-library/sass/edx-pattern-library-ltr";
 
-// Configure LTR variables
-@import "base/variables-ltr";
-
-// Load the shared build
-// @import "../discussion/_build.scss";
-
-// @import "../gymnasium";
+.dummy {
+  background-color: transparent;
+}
