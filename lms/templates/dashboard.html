@@ -166,7 +166,7 @@ from student.models import CourseEnrollment
 
 <main id="main" aria-label="Content" tabindex="-1" class="content-wrapper">
   <div class="container">
-    <section class="dashboard-main course-content white-panel" id="dashboard-main">
+    <section id="dashboard-main" class="dashboard-main white-panel">
       <div class="row">
         <div class="col-md-9">
           <section class="my-courses" id="my-courses">
@@ -180,7 +180,7 @@ from student.models import CourseEnrollment
             </header>
 
           % if len(course_entitlements + course_enrollments) > 0:
-            <ul class="listing-courses">
+            <ul class="list-unstyled">
             <%
                 share_settings = configuration_helpers.get_value(
                     'SOCIAL_SHARING_SETTINGS',
