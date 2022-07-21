@@ -6,8 +6,8 @@
     "underscore",
     "common/js/components/views/tabbed_view",
     "edx-ui-toolkit/js/utils/html-utils",
-    "gymnasium/js/student_account/views/account_section_view",
-    "text!templates/student_account/account_settings.underscore",
+    "gymnasium/lms/static/js/student_account/views/account_section_view",
+    "gymnasium/lms/templates/student_account/account_settings.underscore",
   ], function (
     gettext,
     $,
@@ -18,26 +18,26 @@
     accountSettingsTemplate
   ) {
     var AccountSettingsView = TabbedView.extend({
-      navLink: ".account-nav-link",
+      navLink: ".account-nav-link hidden",
       activeTab: "aboutTabSections",
       accountSettingsTabs: [
-        {
-          name: "aboutTabSections",
-          id: "about-tab",
-          label: gettext("Account Information"),
-          class: "active",
-          tabindex: 0,
-          selected: true,
-          expanded: true,
-        },
-        {
-          name: "accountsTabSections",
-          id: "accounts-tab",
-          label: gettext("Linked Accounts"),
-          tabindex: -1,
-          selected: false,
-          expanded: false,
-        },
+        // {
+        //   name: "aboutTabSections",
+        //   id: "about-tab",
+        //   label: gettext("Account Information"),
+        //   class: "active",
+        //   tabindex: 0,
+        //   selected: true,
+        //   expanded: true,
+        // },
+        // {
+        //   name: "accountsTabSections",
+        //   id: "accounts-tab",
+        //   label: gettext("Linked Accounts"),
+        //   tabindex: -1,
+        //   selected: false,
+        //   expanded: false,
+        // },
         // {
         //     name: 'ordersTabSections',
         //     id: 'orders-tab',
