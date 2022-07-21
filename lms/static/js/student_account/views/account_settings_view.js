@@ -18,18 +18,18 @@
     accountSettingsTemplate
   ) {
     var AccountSettingsView = TabbedView.extend({
-      navLink: ".account-nav-link hidden",
+      navLink: ".account-nav-link",
       activeTab: "aboutTabSections",
       accountSettingsTabs: [
-        // {
-        //   name: "aboutTabSections",
-        //   id: "about-tab",
-        //   label: gettext("Account Information"),
-        //   class: "active",
-        //   tabindex: 0,
-        //   selected: true,
-        //   expanded: true,
-        // },
+        {
+          name: "aboutTabSections",
+          id: "about-tab",
+          label: gettext("Account Information"),
+          class: "active",
+          tabindex: 0,
+          selected: true,
+          expanded: true,
+        },
         // {
         //   name: "accountsTabSections",
         //   id: "accounts-tab",
