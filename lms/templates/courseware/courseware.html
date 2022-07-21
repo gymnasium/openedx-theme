@@ -167,16 +167,6 @@ ${HTML(fragment.foot_html())}
     <div class="course-wrapper">
       <div class="${left_col_class}">
         <div class="course-index">
-          <!-- 
-            <div class="wrapper-course-modes">
-              <div class="courseware-bookmarks-button" data-bookmarks-api-url="${bookmarks_api_url}">
-                  <a type="button" aria-pressed="false" class="bookmarks-list-button" href="${reverse('openedx.course_bookmarks.home', args=[course.id])}">
-                      ${_('Bookmarks')}
-                  </button>
-              </div>
-            </div> 
-          -->
-
           <div class="accordion">
             <nav class="course-navigation" aria-label="${_('Course')}">
               % if accordion.strip():
