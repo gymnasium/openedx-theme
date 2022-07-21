@@ -7,7 +7,7 @@
     "common/js/components/views/tabbed_view",
     "edx-ui-toolkit/js/utils/html-utils",
     "gymnasium/js/student_account/views/account_section_view",
-    "text!/gymnasium/templates/student_account/account_settings.underscore",
+    "text!templates/student_account/account_settings.underscore",
   ], function (
     gettext,
     $,
