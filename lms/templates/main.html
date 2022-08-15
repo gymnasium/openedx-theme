@@ -86,7 +86,7 @@ edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
   <%static:webpack entry="commons"/>
 
   % if uses_bootstrap:
-    ## xss-lint: disable=mako-invalid-js-filter
+    xss-lint: disable=mako-invalid-js-filter
     <script src="${static.url('common/js/vendor/bootstrap.bundle.js')}"></script>
   % endif
 

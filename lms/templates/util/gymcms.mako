@@ -10,6 +10,10 @@
     else:
       gymcms_url = settings.APPSEMBLER_FEATURES['GYMCMS_URL']
 
+    ## this does nothing right now
+    ## if request.GET.get('buildid'):
+    ##   gymcms_url = 'https://deploy-preview-' + request.GET.get('buildid') + '--thegymcms.netlify.app/'
+
     ## turn the partial url passed in into a fully GET-able url based on which environment we're in
     if templateUrl:
       ## use GYMCMS_URL defined in settings

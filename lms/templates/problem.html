@@ -130,14 +130,8 @@ ${gymcms.render('partials/final-exam-modal-top')}
       notification_message=_('Answers are displayed within the problem'),
       is_hidden=True"
     />
-</div>
+</div><!-- #exam-problem -->
 
 ${gymcms.render('partials/final-exam-modal')}
 
-<script>
-window.addEventListener('load', (event) => {
-  if (typeof Prism !== 'undefined' && Prism !== null) {
-    Prism.highlightAll();
-  }
-});
-</script>
+
