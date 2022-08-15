@@ -12,8 +12,6 @@ from openedx.core.djangolib.markup import HTML
 <%namespace name='static' file='/static_content.html'/>
 
 <%block name="head_extra">
-<%static:css group='style-course-vendor'/>
-<%static:css group='style-course'/>
 ${HTML(fragment.head_html())}
 </%block>
 

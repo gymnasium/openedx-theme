@@ -1,64 +1,64 @@
-// Rules for Bookmarks Button
-.courseware-bookmarks-button {
-  width: inherit;
-  margin: 1em 0;
-  vertical-align: top;
+// // Rules for Bookmarks Button
+// .courseware-bookmarks-button {
+//   width: inherit;
+//   margin: 1em 0;
+//   vertical-align: top;
 
-  .bookmarks-list-button {
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
+//   .bookmarks-list-button {
+//     padding-top: 0.5em;
+//     padding-bottom: 0.5em;
 
-    &.is-active {
-      color: #fff;
-    }
+//     &.is-active {
+//       color: #fff;
+//     }
 
-    &:before {
-      content: "\f02e";
-      font-family: FontAwesome;
-    }
-  }
-}
+//     &:before {
+//       content: "\f02e";
+//       font-family: FontAwesome;
+//     }
+//   }
+// }
 
-// Rules for bookmark icon shown on each sequence nav item
-.course-content {
-  .bookmark-button {
-    border: 0;
-    background: $gym-orange;
-    font-family: $gym-font-stack;
-    font-weight: bold;
-    font-size: 1em;
-    color: #fff;
-    vertical-align: baseline;
+// // Rules for bookmark icon shown on each sequence nav item
+// .course-content {
+//   .bookmark-button {
+//     border: 0;
+//     background: $gym-orange;
+//     font-family: $gym-font-stack;
+//     font-weight: bold;
+//     font-size: 1em;
+//     color: #fff;
+//     vertical-align: baseline;
 
-    b {
-      vertical-align: baseline;
-    }
+//     b {
+//       vertical-align: baseline;
+//     }
 
-    &:before {
-      content: "\f097"; /* outlined bookmark */
-      font-family: FontAwesome;
-    }
+//     &:before {
+//       content: "\f097"; /* outlined bookmark */
+//       font-family: FontAwesome;
+//     }
 
-    &.bookmarked {
-      background: $gym-orange;
-    }
+//     &.bookmarked {
+//       background: $gym-orange;
+//     }
 
-    &.bookmarked:before {
-      color: white;
-      content: "\f02e"; /* filled in bookmark */
-    }
+//     &.bookmarked:before {
+//       color: white;
+//       content: "\f02e"; /* filled in bookmark */
+//     }
 
-    &:hover,
-    &.bookmarked:hover {
-      border: none;
-      background-color: $gym-button-background-hover;
-      &:before {
-        color: $gym-orange;
-      }
-    }
+//     &:hover,
+//     &.bookmarked:hover {
+//       border: none;
+//       background-color: $gym-button-background-hover;
+//       &:before {
+//         color: $gym-orange;
+//       }
+//     }
 
-    &.is-active:before {
-      color: $gym-orange;
-    }
-  }
-}
+//     &.is-active:before {
+//       color: $gym-orange;
+//     }
+//   }
+// }

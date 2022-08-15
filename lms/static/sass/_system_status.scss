@@ -1,40 +1,40 @@
-/* styling for the systemwide status message container imported from github */
+// /* styling for the systemwide status message container imported from github */
 
-body {
-  .system-status-container {
-    background-color: $gym-orange;
-    color: black;
+// body {
+//   .system-status-container {
+//     background-color: $gym-orange;
+//     color: black;
 
-    > .container > .row > .col-md-12 {
-      min-height: 0px;
-    }
+//     > .container > .row > .col-md-12 {
+//       min-height: 0px;
+//     }
 
-    .system-status {
-      margin-top: 1em;
-      margin-bottom: 1em;
+//     .system-status {
+//       margin-top: 1em;
+//       margin-bottom: 1em;
 
-      h1 {
-        text-transform: uppercase;
-        margin-top: 0;
-      }
+//       h1 {
+//         text-transform: uppercase;
+//         margin-top: 0;
+//       }
 
-      p {
-        font-size: 1.2em;
-        margin-bottom: 0;
+//       p {
+//         font-size: 1.2em;
+//         margin-bottom: 0;
 
-        strong {
-          font-weight: bold;
-        }
-        a,
-        a:link {
-          color: #fff;
-        }
+//         strong {
+//           font-weight: bold;
+//         }
+//         a,
+//         a:link {
+//           color: #fff;
+//         }
 
-        a:hover,
-        a:link:hover {
-          border-bottom: 1px solid white;
-        }
-      }
-    }
-  }
-}
+//         a:hover,
+//         a:link:hover {
+//           border-bottom: 1px solid white;
+//         }
+//       }
+//     }
+//   }
+// }
