@@ -132,64 +132,66 @@ from student.helpers import (
             % endif
           % endif
         </div>
-        <ul class="col-md-9 dashboard-listing-links">
-          % if cert_status['status'] == 'downloadable' and enrollment.mode in CourseMode.NON_VERIFIED_MODES:
+        <div class="col-md-9">
+          <ul class="dashboard-listing-links">
+            % if cert_status['status'] == 'downloadable' and enrollment.mode in CourseMode.NON_VERIFIED_MODES:
               <li class="action action-certificate">
                 <a href="${cert_status['download_url']}"
-                   title="${_('This link will open/download a PDF document')}">
+                    title="${_('This link will open/download a PDF document')}">
                   ${_("My {cert_name_short}").format(cert_name_short=credential_type)}
                 </a>
               </li>
             % elif cert_status['status'] == 'downloadable' and enrollment.mode == 'verified' and cert_status['mode'] == 'honor':
               <li class="action">
                 <a href="${cert_status['download_url']}"
-                   title="${_('This link will open/download a PDF document')}">
+                    title="${_('This link will open/download a PDF document')}">
                   ${_("My {cert_name_short}").format(cert_name_short=credential_type)}
                 </a>
               </li>
             % elif cert_status['status'] == 'downloadable' and enrollment.mode in CourseMode.VERIFIED_MODES:
               <li class="action">
                 <a href="${cert_status['download_url']}"
-                   title="${_('This link will open/download a PDF document of your verified {cert_name_long}.').format(cert_name_long=cert_name_long)}">
+                    title="${_('This link will open/download a PDF document of your verified {cert_name_long}.').format(cert_name_long=cert_name_long)}">
                   ${_("My ID Verified {cert_name_short}").format(cert_name_short=credential_type)}
                 </a>
               </li>
             % endif
-
-          % if not is_course_blocked:
-            % if not cert_status['status'] == 'downloadable':
-              <li>
-                <a href="#unenroll-modal" rel="leanModal" data-course-id="${course_overview.id | h}" data-course-number="${course_overview.number | h}"
-                  onclick="document.getElementById('track-info').innerHTML='${_("Are you sure you want to unenroll from")}';
-                    document.getElementById('refund-info').innerHTML='';
-                    document.getElementById('unenroll-course-name').innerHTML='${course_overview.display_name_with_default | h}';
-                    document.getElementById('unenroll_course_number').innerHTML='${course_overview.number | h}';
-                    $('#unenroll_course_id').val('${course_overview.id | h}');
-                  ">
-                  ${_('Unenroll')}
-                </a>
-              </li>
-            % endif
-          % else:
-            <li>
-              <a class="disable-look-unregister btn" data-course-id="${course_overview.id | h}" data-course-number="${course_overview.number | h}" onclick="document.getElementById('track-info').innerHTML='${_("Are you sure you want to unenroll from")}'; document.getElementById('refund-info').innerHTML=''">
-                ${_('Unenroll')}
-              </a>
-            </li> 
-          % endif
-
-          % if show_email_settings:
+  
             % if not is_course_blocked:
-              <li>
-                <a href="#email-settings-modal" class="email-settings" rel="leanModal" data-course-id="${course_overview.id | h}" data-course-number="${course_overview.display_name_with_default | h}" data-optout="${unicode(course_overview.id) in course_optouts}">${_('Email Settings')}</a>
-              </li>
+              % if not cert_status['status'] == 'downloadable':
+                <li>
+                  <a href="#unenroll-modal" rel="leanModal" data-course-id="${course_overview.id | h}" data-course-number="${course_overview.number | h}"
+                    onclick="document.getElementById('track-info').innerHTML='${_("Are you sure you want to unenroll from")}';
+                      document.getElementById('refund-info').innerHTML='';
+                      document.getElementById('unenroll-course-name').innerHTML='${course_overview.display_name_with_default | h}';
+                      document.getElementById('unenroll_course_number').innerHTML='${course_overview.number | h}';
+                      $('#unenroll_course_id').val('${course_overview.id | h}');
+                    ">
+                    ${_('Unenroll')}
+                  </a>
+                </li>
+              % endif
             % else:
               <li>
-                <a class="disable-look-settings" data-course-id="${course_overview.id| h}" data-course-number="${course_overview.number | h}" data-optout="${unicode(course_overview.id) in course_optouts}">${_('Email Settings')}</a>
-              </li>
+                <a class="disable-look-unregister btn" data-course-id="${course_overview.id | h}" data-course-number="${course_overview.number | h}" onclick="document.getElementById('track-info').innerHTML='${_("Are you sure you want to unenroll from")}'; document.getElementById('refund-info').innerHTML=''">
+                  ${_('Unenroll')}
+                </a>
+              </li> 
             % endif
-          % endif
-        </ul>
+  
+            % if show_email_settings:
+              % if not is_course_blocked:
+                <li>
+                  <a href="#email-settings-modal" class="email-settings" rel="leanModal" data-course-id="${course_overview.id | h}" data-course-number="${course_overview.display_name_with_default | h}" data-optout="${unicode(course_overview.id) in course_optouts}">${_('Email Settings')}</a>
+                </li>
+              % else:
+                <li>
+                  <a class="disable-look-settings" data-course-id="${course_overview.id| h}" data-course-number="${course_overview.number | h}" data-optout="${unicode(course_overview.id) in course_optouts}">${_('Email Settings')}</a>
+                </li>
+              % endif
+            % endif
+          </ul>
+        </div>
       </div>
     </div>
   </article>
