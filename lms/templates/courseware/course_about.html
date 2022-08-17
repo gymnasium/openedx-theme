@@ -139,7 +139,7 @@ from edxmako.shortcuts import marketing_link
       </header>
     </section>
     <div class="course-metabar row">
-      <div class="meta level col-md-5">
+      <div class="meta level col-md-4">
         <span>
           <strong>
             %if course.display_number_with_default and course.display_number_with_default.startswith("7"):
@@ -152,7 +152,7 @@ from edxmako.shortcuts import marketing_link
           </strong>
         </span>
       </div>
-      <div class="action col-md-2">
+      <div class="action col-md-4">
         <span class="text-center">
           %if user.is_authenticated() and registered:
             %if show_courseware_link:
@@ -193,7 +193,7 @@ from edxmako.shortcuts import marketing_link
           %endif
         </span>
       </div>
-      <div class="meta time col-md-5">
+      <div class="meta time col-md-4">
         % if staff_access and studio_url is not None:
           <div class="wrap-instructor-info studio-view pull-right">
             <a class="instructor-info-action gym-button" href="${studio_url}">${_("View About Page in studio")}</a>
