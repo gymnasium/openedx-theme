@@ -571,11 +571,9 @@ from student.models import CourseEnrollment
         <input name="enrollment_action" type="hidden" value="unenroll" />
 
         <div class="row">
-          <button class="gym-button col-md-4 col-md-offset-4" tabindex="2" name="submit" type="submit" id="unenroll-button">
-            <b>
-              ${_("Unenroll")}
-            </b>
-          </button>
+          <div class="col-md-4 col-md-offset-4">
+            <button class="gym-button " tabindex="2" name="submit" type="submit" id="unenroll-button">${_("Unenroll")}</button>
+          </div>
         </div>
 
       </fieldset>
