@@ -1,18 +1,4 @@
-// ------------------------------
-// LMS main styling
-// Version 2 - introduces the Pattern Library
-
-// NOTE: This is the left-to-right (LTR) configured style compile.
-// It should mirror lms-main-v2-rtl w/ the exception of bi-app references.
-
-// Load the RTL version of the edX Pattern Library
-$pattern-library-path: "../edx-pattern-library" !default;
-
-@import "edx-pattern-library/pattern-library/sass/edx-pattern-library-ltr";
-
-// Load the shared build
-@import "build-lms-v2";
-
-// Load overrides
-@import "urls";
-@import "gymnasium";
+// "Hack" to output almost nothing for the main v2 CSS
+._d {
+  all: unset;
+}

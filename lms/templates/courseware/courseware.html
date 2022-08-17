@@ -51,8 +51,6 @@ from openedx.features.course_experience import course_home_page_title, COURSE_OU
 <%block name="headextra">
 ${HTML(fragment.head_html())}
 
-  <%static:css group='style-course-vendor'/>
-  <%static:css group='style-course'/>
   ## Utility: Notes
   % if is_edxnotes_enabled(course, request.user):
     <%static:css group='style-student-notes'/>
@@ -171,20 +169,10 @@ ${gymcms.render('partials/final-exam-js')}
     lang="${course.language}"
   % endif
   >
-  <div class="row">
-    <div class="course-wrapper">
+  <div class="course-wrapper">
+    <div class="row">
       <div class="${left_col_class}">
         <div class="course-index">
-          <!-- 
-            <div class="wrapper-course-modes">
-              <div class="courseware-bookmarks-button" data-bookmarks-api-url="${bookmarks_api_url}">
-                  <a type="button" aria-pressed="false" class="bookmarks-list-button" href="${reverse('openedx.course_bookmarks.home', args=[course.id])}">
-                      ${_('Bookmarks')}
-                  </button>
-              </div>
-            </div> 
-          -->
-
           <div class="accordion">
             <nav class="course-navigation" aria-label="${_('Course')}">
               % if accordion.strip():
@@ -245,6 +233,6 @@ ${gymcms.render('partials/final-exam-js')}
         <div class="courseware-results search-results col-md-12" data-course-id="${course.id}" data-lang-code="${language_preference}"></div>
       </section>
 
-    </div><!-- .course-wrapper -->
-  </div><!-- .row -->
+    </div><!-- .row -->
+  </div><!-- .course-wrapper -->
 </div><!-- .container -->

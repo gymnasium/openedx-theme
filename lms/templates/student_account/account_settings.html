@@ -20,7 +20,6 @@ from webpack_loader.templatetags.webpack_loader import render_bundle
 
 <%block name="headextra">
   ${gymcms.render('dashboard/meta')}
-  <%static:css group='style-course'/>
 </%block>
 
 <%block name="bodyclass">gym-account-settings</%block>
@@ -37,16 +36,14 @@ from webpack_loader.templatetags.webpack_loader import render_bundle
   </div>
 </header>
 
-<div class="container-fluid account-settings-parent-container">
-  <div class="container">
-    <div class="row">
-      <div class="wrapper-account-settings"></div><!-- .wrapper-account-settings -->
-    </div><!-- .row -->
-  </div><!-- .container -->
-</div><!-- .container-fluid.account-settings-parent-container -->
+<div class="container">
+  <div class="wrapper-account-settings white-panel">
+
+  </div><!-- .wrapper-account-settings.white-panel -->
+</div><!-- .container -->
 
 <%block name="js_extra">
-<script>
+<!-- <script>
 window.addEventListener('load', (event) => {
   var hideTab = setInterval(function(){
     if ($('#orders-tab').length > 0) {
@@ -55,43 +52,43 @@ window.addEventListener('load', (event) => {
     }
   }, 20);
 });
-</script>
+</script> -->
 <%static:require_module module_name="gymnasium/js/student_account/views/account_settings_factory" class_name="AccountSettingsFactory">
-    var fieldsData = ${ fields | n, dump_js_escaped_json },
-        ordersHistoryData = ${ order_history | n, dump_js_escaped_json },
-        authData = ${ auth | n, dump_js_escaped_json },
-        platformName = '${ static.get_platform_name() | n, js_escaped_string }',
-        contactEmail = '${ static.get_contact_email_address() | n, js_escaped_string }',
-        allowEmailChange = ${ bool(settings.FEATURES['ALLOW_EMAIL_ADDRESS_CHANGE']) | n, dump_js_escaped_json },
-        socialPlatforms = ${ settings.SOCIAL_PLATFORMS | n, dump_js_escaped_json },
+  var fieldsData = ${ fields | n, dump_js_escaped_json },
+    ordersHistoryData = ${ order_history | n, dump_js_escaped_json },
+    authData = ${ auth | n, dump_js_escaped_json },
+    platformName = '${ static.get_platform_name() | n, js_escaped_string }',
+    contactEmail = '${ static.get_contact_email_address() | n, js_escaped_string }',
+    allowEmailChange = ${ bool(settings.FEATURES['ALLOW_EMAIL_ADDRESS_CHANGE']) | n, dump_js_escaped_json },
+    socialPlatforms = ${ settings.SOCIAL_PLATFORMS | n, dump_js_escaped_json },
 
-        syncLearnerProfileData = ${ bool(sync_learner_profile_data) | n, dump_js_escaped_json },
-        enterpriseName = '${ enterprise_name | n, js_escaped_string }',
-        enterpriseReadonlyAccountFields = ${ enterprise_readonly_account_fields | n, dump_js_escaped_json },
-        edxSupportUrl = '${ edx_support_url | n, js_escaped_string }',
-        extendedProfileFields = ${ extended_profile_fields | n, dump_js_escaped_json },
-        displayAccountDeletion = ${ enable_account_deletion | n, dump_js_escaped_json};
+    syncLearnerProfileData = ${ bool(sync_learner_profile_data) | n, dump_js_escaped_json },
+    enterpriseName = '${ enterprise_name | n, js_escaped_string }',
+    enterpriseReadonlyAccountFields = ${ enterprise_readonly_account_fields | n, dump_js_escaped_json },
+    edxSupportUrl = '${ edx_support_url | n, js_escaped_string }',
+    extendedProfileFields = ${ extended_profile_fields | n, dump_js_escaped_json },
+    displayAccountDeletion = ${ enable_account_deletion | n, dump_js_escaped_json};
 
-    AccountSettingsFactory(
-        fieldsData,
-        ordersHistoryData,
-        authData,
-        '${ password_reset_support_link | n, js_escaped_string }',
-        '${ user_accounts_api_url | n, js_escaped_string }',
-        '${ user_preferences_api_url | n, js_escaped_string }',
-        ${ user.id | n, dump_js_escaped_json },
-        platformName,
-        contactEmail,
-        allowEmailChange,
-        socialPlatforms,
+  AccountSettingsFactory(
+    fieldsData,
+    ordersHistoryData,
+    authData,
+    '${ password_reset_support_link | n, js_escaped_string }',
+    '${ user_accounts_api_url | n, js_escaped_string }',
+    '${ user_preferences_api_url | n, js_escaped_string }',
+    ${ user.id | n, dump_js_escaped_json },
+    platformName,
+    contactEmail,
+    allowEmailChange,
+    socialPlatforms,
 
-        syncLearnerProfileData,
-        enterpriseName,
-        enterpriseReadonlyAccountFields,
-        edxSupportUrl,
-        extendedProfileFields,
-        displayAccountDeletion
-    );
+    syncLearnerProfileData,
+    enterpriseName,
+    enterpriseReadonlyAccountFields,
+    edxSupportUrl,
+    extendedProfileFields,
+    displayAccountDeletion
+  );
 </%static:require_module>
 
 <script>

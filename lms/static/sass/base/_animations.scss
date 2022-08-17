@@ -1,11 +1,11 @@
 // home-header-pop-up animation
 //************************************************************************//
 
-.animation-home-header-pop-up {
-  @include animation(home-header-pop-up 1.15s ease-in-out);
-  @include animation-fill-mode(both);
-  @include animation-delay(1s);
-}
+// .animation-home-header-pop-up {
+//   @include animation(home-header-pop-up 1.15s ease-in-out);
+//   @include animation-fill-mode(both);
+//   @include animation-delay(1s);
+// }
 
 @mixin home-header-pop-up-keyframes {
   0% {
@@ -41,11 +41,11 @@
 // title appear animation
 //************************************************************************//
 
-.animation-title-appear {
-  @include animation(title-appear 4.65s ease-out);
-  @include animation-fill-mode(both);
-  @include animation-delay(1s);
-}
+// .animation-title-appear {
+//   @include animation(title-appear 4.65s ease-out);
+//   @include animation-fill-mode(both);
+//   @include animation-delay(1s);
+// }
 
 @mixin title-appear-keyframes {
   0% {
@@ -86,11 +86,11 @@
 // home appear animation
 //************************************************************************//
 
-.animation-home-appear {
-  @include animation(home-appear 4.25s ease-out);
-  @include animation-fill-mode(both);
-  @include animation-delay(1s);
-}
+// .animation-home-appear {
+//   @include animation(home-appear 4.25s ease-out);
+//   @include animation-fill-mode(both);
+//   @include animation-delay(1s);
+// }
 
 @mixin home-appear-keyframes {
   0% {
@@ -134,11 +134,11 @@
 // edx animation
 //************************************************************************//
 
-.animation-edx-appear {
-  @include animation(edx-appear 1.25s ease-in);
-  @include animation-fill-mode(both);
-  @include animation-delay(2.15s);
-}
+// .animation-edx-appear {
+//   @include animation(edx-appear 1.25s ease-in);
+//   @include animation-fill-mode(both);
+//   @include animation-delay(2.15s);
+// }
 
 @mixin edx-appear-keyframes {
   0% {
@@ -159,11 +159,11 @@
 // mit animation
 //************************************************************************//
 
-.animation-mit-slide {
-  @include animation(mit-slide 1.15s ease-out);
-  @include animation-fill-mode(both);
-  @include animation-delay(2s);
-}
+// .animation-mit-slide {
+//   @include animation(mit-slide 1.15s ease-out);
+//   @include animation-fill-mode(both);
+//   @include animation-delay(2s);
+// }
 
 @mixin mit-slide-keyframes {
   0% {
@@ -184,11 +184,11 @@
 // harvard animation
 //************************************************************************//
 
-.animation-harvard-slide {
-  @include animation(harvard-slide 1.15s ease-out);
-  @include animation-fill-mode(both);
-  @include animation-delay(2s);
-}
+// .animation-harvard-slide {
+//   @include animation(harvard-slide 1.15s ease-out);
+//   @include animation-fill-mode(both);
+//   @include animation-delay(2s);
+// }
 
 @mixin harvard-slide-keyframes {
   0% {
@@ -209,11 +209,11 @@
 // divider left animation
 //************************************************************************//
 
-.animation-divider-left-slide {
-  @include animation(divider-left-slide 1.1s ease-out);
-  @include animation-fill-mode(both);
-  @include animation-delay(2s);
-}
+// .animation-divider-left-slide {
+//   @include animation(divider-left-slide 1.1s ease-out);
+//   @include animation-fill-mode(both);
+//   @include animation-delay(2s);
+// }
 
 @mixin divider-left-slide-keyframes {
   0% {
@@ -234,11 +234,11 @@
 // divider right animation
 //************************************************************************//
 
-.animation-divider-right-slide {
-  @include animation(divider-right-slide 1.1s ease-out);
-  @include animation-fill-mode(both);
-  @include animation-delay(2s);
-}
+// .animation-divider-right-slide {
+//   @include animation(divider-right-slide 1.1s ease-out);
+//   @include animation-fill-mode(both);
+//   @include animation-delay(2s);
+// }
 
 @mixin divider-right-slide-keyframes {
   0% {
@@ -259,11 +259,11 @@
 // video appear animation
 //************************************************************************//
 
-.animation-video-appear {
-  @include animation(video-appear 1.25s ease-out);
-  @include animation-fill-mode(both);
-  @include animation-delay(4.4s);
-}
+// .animation-video-appear {
+//   @include animation(video-appear 1.25s ease-out);
+//   @include animation-fill-mode(both);
+//   @include animation-delay(4.4s);
+// }
 
 @mixin video-appear-keyframes {
   0% {
@@ -289,9 +289,9 @@
 // quick fade-in animation to get user attention
 //************************************************************************//
 
-.is-fading-in {
-  @include animation(fade-in-animation 0.8s);
-}
+// .is-fading-in {
+//   @include animation(fade-in-animation 0.8s);
+// }
 
 @mixin fade-in-keyframes {
   0% {
