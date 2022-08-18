@@ -46,6 +46,8 @@ edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
     <title>${static.get_page_title_breadcrumbs(self.pagetitle())}</title>
   </%block>
 
+  <link rel="icon" type="image/x-icon" href="${static.url(static.get_value('favicon_path', settings.FAVICON_PATH))}" />
+
 ## Prepare a block name to load the GYMCMS meta
   <%block name="gym_head_meta"/>
 
@@ -54,26 +56,24 @@ edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
     ie11_fix_path = "js/ie11_find_array.js"
   %>
 
-  % if getattr(settings, 'CAPTURE_CONSOLE_LOG', False):
-    <script>
-      var oldOnError = window.onerror;
-      window.localStorage.setItem('console_log_capture', JSON.stringify([]));
+% if getattr(settings, 'CAPTURE_CONSOLE_LOG', False):
+  <script>
+    var oldOnError = window.onerror;
+    window.localStorage.setItem('console_log_capture', JSON.stringify([]));
 
-      window.onerror = function (message, url, lineno, colno, error) {
-        if (oldOnError) {
-          oldOnError.apply(this, arguments);
-        }
-
-        var messages = JSON.parse(window.localStorage.getItem('console_log_capture'));
-        messages.push([message, url, lineno, colno, (error || {}).stack]);
-        window.localStorage.setItem('console_log_capture', JSON.stringify(messages));
+    window.onerror = function (message, url, lineno, colno, error) {
+      if (oldOnError) {
+        oldOnError.apply(this, arguments);
       }
-    </script>
-  % endif
+
+      var messages = JSON.parse(window.localStorage.getItem('console_log_capture'));
+      messages.push([message, url, lineno, colno, (error || {}).stack]);
+      window.localStorage.setItem('console_log_capture', JSON.stringify(messages));
+    }
+  </script>
+% endif
   <script src="${static.url(jsi18n_path)}"></script>
   <script src="${static.url(ie11_fix_path)}"></script>
-
-  <link rel="icon" type="image/x-icon" href="${static.url(static.get_value('favicon_path', settings.FAVICON_PATH))}" />
 
   % if disable_courseware_js or uses_pattern_library:
     <%static:js group='base_vendor'/>
@@ -84,11 +84,6 @@ edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
   % endif
 
   <%static:webpack entry="commons"/>
-
-  % if uses_bootstrap:
-    ## xss-lint: disable=mako-invalid-js-filter
-    <script src="${static.url('common/js/vendor/bootstrap.bundle.js')}"></script>
-  % endif
 
   <script>
   window.baseUrl = "${settings.STATIC_URL | n, js_escaped_string}";
