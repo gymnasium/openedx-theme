@@ -15,15 +15,9 @@ from openedx.core.djangolib.markup import HTML
 <%namespace name='static' file='../static_content.html'/>
 <%namespace name='gymcms' file='../util/gymcms.mako' />
 
-<%block name="bodyclass">${tab['body_class']} gym-forum</%block>
-
-<%def name="online_help_token()"><% return "${tab['online_help_token']}" %></%def>
-
 <%block name="pagetitle">${_(tab['name'])} | ${course.display_number_with_default}</%block>
 
-<%include file="/courseware/course_navigation.html" args="active_page=active_page" />
-
-<%block name="head_extra">
+<%block name="gym_head_meta">
 ${HTML(fragment.head_html())}
   ## OG (Open Graph) title and description added below to give social media info to display
   ## (https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content#tags)
@@ -41,14 +35,19 @@ ${HTML(fragment.head_html())}
     <meta property="og:title" content="${course.display_name_with_default_escaped} - Gymnasium" />
     <meta property="og:image" content="https://gymnasium.github.io/static-site-content/artwork/production/courses/gym-${course.display_number_with_default | h}-social.png" />
   % endif
+</%block>
 
+<%block name="bodyclass">${tab['body_class']} gym-forum</%block>
+
+<%def name="online_help_token()"><% return "${tab['online_help_token']}" %></%def>
+
+<%include file="/courseware/course_navigation.html" args="active_page=active_page" />
+
+<%block name="content">
+  ${HTML(fragment.body_html())}
 </%block>
 
 <%block name="footer_extra">
 <%include file="/mathjax_include.html" args="disable_fast_preview=True"/>
 ${HTML(fragment.foot_html())}
-</%block>
-
-<%block name="content">
-    ${HTML(fragment.body_html())}
 </%block>
