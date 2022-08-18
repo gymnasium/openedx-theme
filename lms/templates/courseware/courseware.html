@@ -49,7 +49,6 @@ from openedx.features.course_experience import course_home_page_title, COURSE_OU
 </%block>
 
 <%block name="gym_head_meta">
-${HTML(fragment.head_html())}
 ## OG (Open Graph) title and description added below to give social media info to display
 ## (https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content#tags)
 
@@ -69,6 +68,7 @@ ${HTML(fragment.head_html())}
 </%block>
 
 <%block name="headextra">
+${HTML(fragment.head_html())}
   ## Utility: Notes
   % if is_edxnotes_enabled(course, request.user):
     <%static:css group='style-student-notes'/>
@@ -84,7 +84,7 @@ ${HTML(fragment.head_html())}
   <script defer async src="${static.url('js/vendor/flot/jquery.flot.js')}"></script>
 
   ## codemirror
-  <script defer async src="${static.url('js/vendor/codemirror-compressed.js')}"></script>
+  <script src="${static.url('js/vendor/codemirror-compressed.js')}"></script>
 
   <%static:js group='courseware'/>
   <%include file="/mathjax_include.html" args="disable_fast_preview=True"/>
