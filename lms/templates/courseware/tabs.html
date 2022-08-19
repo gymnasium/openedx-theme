@@ -18,6 +18,7 @@ def url_class(is_active):
     tab_is_active = tab.tab_id in (active_page, default_tab)
     tab_class = url_class(tab_is_active)
   %>
+  <!-- tab: ${tab} -->
   <li class="tab">
     <a href="${tab.link_func(course, reverse)}" class="${tab_class}">
     ${_(tab.name)}
