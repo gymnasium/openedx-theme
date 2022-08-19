@@ -17,12 +17,13 @@ def url_class(is_active):
   <%
     tab_is_active = tab.tab_id in (active_page, default_tab)
     tab_class = url_class(tab_is_active)
-    tab_name = "${_(tab.name)}"
+    tab_name = tab.name
+    tab_id = tab.tab_id
   %>
   ## Hide Progress Tab
-  <!-- ${tab.name} -->
-  %if tab_name is not "Progress":
-  <li class="tab" id="${tab.tab_id}">
+  <!-- ${tab_name} | ${tab_id}-->
+  %if tab_id is not "progress":
+  <li class="tab" id="${tab_id}">
     <a href="${tab.link_func(course, reverse)}" class="${tab_class}">${tab_name}
     % if tab_is_active:
       <span class="sr">, current location</span>
