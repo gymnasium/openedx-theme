@@ -22,8 +22,6 @@ from openedx.features.course_experience import course_home_page_title, COURSE_OU
  <% return _("{course_name} Courseware").format(course_name=course.display_name_with_default) %>
 </%def>
 
-<%block name="bodyclass">view-in-course view-courseware courseware ${course.css_class or ''}</%block>
-
 <%block name="title">
 <title data-base-title="${static.get_page_title_breadcrumbs(section_title, course_name())}">
   ${static.get_page_title_breadcrumbs(sequence_title, course_name())}
@@ -127,6 +125,8 @@ ${HTML(fragment.head_html())}
 
 ${HTML(fragment.foot_html())}
 </%block>
+
+<%block name="bodyclass">view-in-course view-courseware courseware ${course.css_class or ''}</%block>
 
 <div class="message-banner" aria-live="polite">
 %if int(course.display_number_with_default) >= 700 and int(course.display_number_with_default) < 800:

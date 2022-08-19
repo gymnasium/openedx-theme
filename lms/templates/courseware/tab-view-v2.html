@@ -18,7 +18,6 @@ from openedx.core.djangolib.markup import HTML
 <%block name="pagetitle">${_(tab['name'])} | ${course.display_number_with_default}</%block>
 
 <%block name="gym_head_meta">
-${HTML(fragment.head_html())}
   ## OG (Open Graph) title and description added below to give social media info to display
   ## (https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content#tags)
 
@@ -35,6 +34,10 @@ ${HTML(fragment.head_html())}
     <meta property="og:title" content="${course.display_name_with_default_escaped} - Gymnasium" />
     <meta property="og:image" content="https://gymnasium.github.io/static-site-content/artwork/production/courses/gym-${course.display_number_with_default | h}-social.png" />
   % endif
+</%block>
+
+<%block name="headextra">
+  ${HTML(fragment.head_html())}
 </%block>
 
 <%block name="bodyclass">${tab['body_class']} gym-forum</%block>
