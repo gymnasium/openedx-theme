@@ -10,8 +10,8 @@
 <%
 def url_class(is_active):
   if is_active:
-    return "active"
-  return ""
+    return "link active"
+  return "link"
 %>
 <%
 tab_links = []
@@ -43,9 +43,9 @@ tab_links = []
     endif
     sr_link = ""
     if tab_is_active:
-      sr_link = '<span class="sr">, current location</span>'
+      sr_link = "<span class=\"sr\">, current location</span>"
     endif
-    list_item = '<li><a href="${tab_url}" class="link ${tab_class}">${tab_name}${sr_link}</a></li>'
+    list_item = "<li><a href=\"${tab_url}\" class=\"${tab_class}\">${tab_name}${sr_link}</a></li>"
     tab_link.append(order)
     tab_link.append(tab_id)
     tab_link.append(tab_class)
