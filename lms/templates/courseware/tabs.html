@@ -41,10 +41,10 @@ tab_links = []
       order = 4
     endif
     tab_link.append(order)
-    tab_link.append(tab_id)
-    tab_link.append(tab_class)
-    tab_link.append(tab_name)
-    tab_link.append(tab.link_func(course, reverse))
+    tab_link.append("${tab_id}")
+    tab_link.append("${tab_class}")
+    tab_link.append("${tab_name}")
+    tab_link.append("${tab.link_func(course, reverse)}")
     tab_link.append(tab_is_active)
     tab_links.append(tab_link)
   %>
