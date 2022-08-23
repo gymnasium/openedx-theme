@@ -13,6 +13,9 @@ def url_class(is_active):
     return "active"
   return ""
 %>
+<%
+tab_links = []
+%>
 % for tab in tab_list:
   <%
     tab_is_active = tab.tab_id in (active_page, default_tab)
@@ -21,8 +24,31 @@ def url_class(is_active):
     tab_id = tab.tab_id
   %>
   ## Hide Progress Tab
-  <!-- ${tab_name} | ${tab_id}-->
   %if tab_id is not "progress":
+  ## Add to tab_links
+  <%
+    tab = []
+    if tab_id is "info":
+      order = 2
+      tab_name = "Syllabus"
+    elif tab_id is "courseware":
+      order = 1
+      tab_name = "Lessons"
+    elif tab_id is "discussion":
+      order = 3
+      tab_name = "Forum"
+    elif tab_id is "instructor":
+      order = 4
+    endif
+    tab.append(order)
+    tab.append(tab_id)
+    tab.append(tab_class)
+    tab.append(tab_name)
+    tab.append(tab.link_func(course, reverse))
+    tab.append(tab_is_active)
+    tab_links.append(tab)
+  %>
+
   <li class="tab" id="${tab_id}">
     <a href="${tab.link_func(course, reverse)}" class="${tab_class}">${tab_name}
     % if tab_is_active:
@@ -36,4 +62,8 @@ def url_class(is_active):
     </a>
   </li>
   %endif
+% endfor
+
+% for tab in tab_links:
+  <!-- ${tab} -->
 % endfor
