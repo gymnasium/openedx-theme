@@ -64,7 +64,7 @@ tab_links = []
   %endif
 % endfor
 <%
-tab_links.sort(key=lambda element: element['order'])
+tab_links.sort(key=lambda item: item[0])
 %>
 % for tab in tab_links:
   <!-- ${tab[0]} -->
