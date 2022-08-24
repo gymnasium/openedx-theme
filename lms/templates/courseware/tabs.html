@@ -26,41 +26,29 @@ tab_links = []
   %>
   ## Hide Progress Tab
   %if tab_id is not "progress":
-  ## Add to tab_links
-  <%
-    tab_link = []
-    if tab_id is "info":
-      order = 2
-      tab_name = "Syllabus"
-    elif tab_id is "courseware":
-      order = 1
-      tab_name = "Lessons"
-    elif tab_id is "discussion":
-      order = 3
-      tab_name = "Forum"
-    elif tab_id is "instructor":
-      order = 4
-    endif
-    tab_link.append(order)
-    tab_link.append(tab_id)
-    tab_link.append(tab_class)
-    tab_link.append(tab_name)
-    tab_link.append(tab.link_func(course, reverse))
-    tab_link.append(tab_is_active)
-    tab_links.append(tab_link)
-  %>
-  <li class="tab" id="${tab_id}">
-    <a href="${tab_url}" class="${tab_class}">${tab_name}
-    %if tab_is_active:
-      <span class="sr">, current location</span>
-    % endif
-    % if tab_image:
-      ## Translators: 'needs attention' is an alternative string for the
-      ## notification image that indicates the tab "needs attention".
-      <img src="${tab_image}" alt="${_('needs attention')}" />
-    %endif
-    </a>
-  </li>
+    ## Add to tab_links
+    <%
+      tab_link = []
+      if tab_id is "info":
+        order = 2
+        tab_name = "Syllabus"
+      elif tab_id is "courseware":
+        order = 1
+        tab_name = "Lessons"
+      elif tab_id is "discussion":
+        order = 3
+        tab_name = "Forum"
+      elif tab_id is "instructor":
+        order = 4
+      endif
+      tab_link.append(order)
+      tab_link.append(tab_id)
+      tab_link.append(tab_class)
+      tab_link.append(tab_name)
+      tab_link.append(tab.link_func(course, reverse))
+      tab_link.append(tab_is_active)
+      tab_links.append(tab_link)
+    %>
   %endif
 % endfor
 <%
@@ -75,12 +63,11 @@ tab_links.sort(key=lambda item: item[0])
   tab_is_active = tab[5]
   %>
   <!-- order: ${tab[0]} -->
-  <!-- tab_id: ${tab[1]} -->
-  <!-- tab_class: ${tab[2]} -->
-  <!-- tab_name: ${tab[3]} -->
-  <!-- tab_url: ${tab[4]} -->
-  <!-- tab_is_active: ${tab[5]} -->
-<!--
+  <!-- tab_id: ${tab_id} -->
+  <!-- tab_class: ${tab_class} -->
+  <!-- tab_name: ${tab_name} -->
+  <!-- tab_url: ${tab_url} -->
+  <!-- tab_is_active: ${tab_is_active} -->
   <li class="tab" id="${tab[1]}">
     <a href="${tab[4]}" class="${tab[2]}">${tab[3]}
     %if tab_is_active:
@@ -88,5 +75,4 @@ tab_links.sort(key=lambda item: item[0])
     % endif
     </a>
   </li>
--->
 % endfor
