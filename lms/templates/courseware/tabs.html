@@ -13,17 +13,21 @@ def url_class(is_active):
     return "link active"
   return "link"
 %>
-<% ## Customize Course Tabs
+<%
 tab_links = []
-for tab in tab_list:
-  tab_is_active = tab.tab_id in (active_page, default_tab)
-  tab_class = url_class(tab_is_active)
-  tab_name = tab.name
-  tab_id = tab.tab_id
-  tab_url = tab.link_func(course, reverse)
-
+%>
+% for tab in tab_list:
+  <%
+    tab_is_active = tab.tab_id in (active_page, default_tab)
+    tab_class = url_class(tab_is_active)
+    tab_name = tab.name
+    tab_id = tab.tab_id
+    tab_url = tab.link_func(course, reverse)
+  %>
+  ## Hide Progress Tab
+  %if tab_id is not "progress":
   ## Add to tab_links
-  if tab_id is not "progress":
+  <%
     tab_link = []
     if tab_id is "info":
       order = 2
@@ -44,23 +48,29 @@ for tab in tab_list:
     tab_link.append(tab.link_func(course, reverse))
     tab_link.append(tab_is_active)
     tab_links.append(tab_link)
-  endif
-endfor
-
-tab_links.sort(key=lambda item: item[0])
-
-for tab in tab_links:
-  tab_id = tab[1]
-  tab_class = tab[2]
-  tab_name = tab[3]
-  tab_url = tab[4]
-  tab_active = tab[5]
+  %>
   <li class="tab" id="${tab_id}">
     <a href="${tab_url}" class="${tab_class}">${tab_name}
-    %if tab_active:
+    %if tab_is_active:
       <span class="sr">, current location</span>
     % endif
+    % if tab_image:
+      ## Translators: 'needs attention' is an alternative string for the
+      ## notification image that indicates the tab "needs attention".
+      <img src="${tab_image}" alt="${_('needs attention')}" />
+    %endif
     </a>
   </li>
-endfor
+  %endif
+% endfor
+<%
+tab_links.sort(key=lambda item: item[0])
 %>
+% for tab in tab_links:
+  <!-- ${tab[0]} -->
+  <!-- ${tab[1]} -->
+  <!-- ${tab[2]} -->
+  <!-- ${tab[3]} -->
+  <!-- ${tab[4]} -->
+  <!-- ${tab[5]} -->
+% endfor
