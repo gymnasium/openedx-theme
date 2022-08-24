@@ -75,20 +75,19 @@ if (typeof jQuery !== "undefined" && jQuery !== null) {
     // Accessibility keyboard controls for user dropdown and mobile menu
     $(".mobile-menu, .global-header").on("keydown", function (e) {
       "use strict";
-      var isNext,
-        nextLink,
-        loopFirst,
-        loopLast,
-        $curTarget = $(e.target),
-        isLastItem = $curTarget.parent().is(":last-child"),
-        isToggle = $curTarget.hasClass("toggle-user-dropdown"),
-        isHamburgerMenu = $curTarget.hasClass("hamburger-menu"),
-        isMobileOption = $curTarget.parent().hasClass("mobile-nav-link"),
-        isDropdownOption =
-          !isMobileOption && $curTarget.parent().hasClass("dropdown-item"),
-        $userDropdown = $(".global-header .user-dropdown"),
-        $hamburgerMenu = $(".global-header .hamburger-menu"),
-        $toggleUserDropdown = $(".global-header .toggle-user-dropdown");
+      var isNext;
+      var nextLink;
+      var loopFirst;
+      var loopLast;
+      var $curTarget = $(e.target);
+      var isLastItem = $curTarget.parent().is(":last-child");
+      var isToggle = $curTarget.hasClass("toggle-user-dropdown");
+      var isHamburgerMenu = $curTarget.hasClass("hamburger-menu");
+      var isMobileOption = $curTarget.parent().hasClass("mobile-nav-link");
+      var isDropdownOption = !isMobileOption && $curTarget.parent().hasClass("dropdown-item");
+      var $userDropdown = $(".global-header .user-dropdown");
+      var $hamburgerMenu = $(".global-header .hamburger-menu");
+      var $toggleUserDropdown = $(".global-header .toggle-user-dropdown");
 
       // Open or close relevant menu on enter or space click and focus on first element.
       if (
