@@ -12,20 +12,19 @@ def url_class(is_active):
   if is_active:
     return "link active"
   return "link"
-%>
-<%
+
 tab_links = []
 %>
 %for tab in tab_list:
   ## Hide Progress Tab
   %if tab.tab_id is not "progress":
-    <% ## Process tabs
+    <%
+      ## Process tabs
       tab_id = tab.tab_id
       tab_class = url_class(tab_is_active)
       tab_name = tab.name
       tab_url = tab.link_func(course, reverse)
       tab_is_active = tab.tab_id in (active_page, default_tab)
-      ## Add to tab_links
       tab_link = []
       if tab_id is "info":
         order = 2
@@ -61,9 +60,9 @@ tab_links = []
     tab_is_active = tab[5]
   %>
   <li class="tab">
-    <a href="${tab_url}" id="${tab_id}" class="${tab_class}">${tab_name}\
+    <a href="${tab_url}" id="${tab_id}" class="${tab_class}">${tab_name}
     %if tab_is_active:
-      <span class="sr">, current location</span>\
+      <span class="sr">, current location</span>
     % endif
     </a>
   </li>
