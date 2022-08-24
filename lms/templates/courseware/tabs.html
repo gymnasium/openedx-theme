@@ -67,10 +67,26 @@ tab_links = []
 tab_links.sort(key=lambda item: item[0])
 %>
 % for tab in tab_links:
-  <!-- ${tab[0]} -->
-  <!-- ${tab[1]} -->
-  <!-- ${tab[2]} -->
-  <!-- ${tab[3]} -->
-  <!-- ${tab[4]} -->
-  <!-- ${tab[5]} -->
+  <%
+  tab_id = tab[1]
+  tab_class = tab[2]
+  tab_name = tab[3]
+  tab_url = tab[4]
+  tab_is_active = tab[5]
+  %>
+  <!-- order: ${tab[0]} -->
+  <!-- tab_id: ${tab[1]} -->
+  <!-- tab_class: ${tab[2]} -->
+  <!-- tab_name: ${tab[3]} -->
+  <!-- tab_url: ${tab[4]} -->
+  <!-- tab_is_active: ${tab[5]} -->
+<!--
+  <li class="tab" id="${tab[1]}">
+    <a href="${tab[4]}" class="${tab[2]}">${tab[3]}
+    %if tab_is_active:
+      <span class="sr">, current location</span>
+    % endif
+    </a>
+  </li>
+-->
 % endfor
