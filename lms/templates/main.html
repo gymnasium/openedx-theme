@@ -51,6 +51,11 @@ edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
 ## Prepare a block name to load the GYMCMS meta
   <%block name="gym_head_meta"/>
 
+  <%
+    jsi18n_path = "js/i18n/{language}/djangojs.js".format(language=LANGUAGE_CODE)
+    ie11_fix_path = "js/ie11_find_array.js"
+  %>
+
 % if getattr(settings, 'CAPTURE_CONSOLE_LOG', False):
   <script>
     var oldOnError = window.onerror;
@@ -67,13 +72,6 @@ edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
     }
   </script>
 % endif
-
-## Put all the openedx stuff behind the login
-% if user.is_authenticated:
-  <%
-  jsi18n_path = "js/i18n/{language}/djangojs.js".format(language=LANGUAGE_CODE)
-  ie11_fix_path = "js/ie11_find_array.js"
-  %>
   <script src="${static.url(jsi18n_path)}"></script>
   <script src="${static.url(ie11_fix_path)}"></script>
 
@@ -99,7 +97,6 @@ edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
   <%block name="js_overrides">
     ${render_require_js_path_overrides(settings.REQUIRE_JS_PATH_OVERRIDES) | n, decode.utf8}
   </%block>
-% endif
 
   <%block name="headextra"/>
   <%block name="head_extra"/>
@@ -178,9 +175,9 @@ edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
 <%block name="js_extra"/>
 
 <%include file="widgets/segment-io-footer.html" />
-## <script async defer src="${static.url('js/vendor/noreferrer.js')}"></script>
-## <script async defer src="${static.url('js/utils/navigation.js')}"></script>
-## <script async defer src="${static.url('js/header/header.js')}"></script>
+<script async defer src="${static.url('js/vendor/noreferrer.js')}"></script>
+<script async defer src="${static.url('js/utils/navigation.js')}"></script>
+<script async defer src="${static.url('js/header/header.js')}"></script>
 <%static:optional_include_mako file="body-extra.html" is_theming_enabled="True" />
 </body>
 </html>
