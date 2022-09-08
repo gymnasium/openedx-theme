@@ -172,9 +172,8 @@ edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
   </div><!-- .window-wrap -->
 % endif
 
-% if not disable_footer:
+## Unconditionally add footer
 <%include file="${static.get_template_path('footer.html')}" />
-% endif
 
 <%block name="footer_extra"/>
 <%block name="js_extra"/>

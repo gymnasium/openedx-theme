@@ -16,10 +16,4 @@
   <%include file="widgets/segment-io-footer.html" />
 % endif
 
-% if footer_css_urls:
-  % for url in footer_css_urls:
-    <link rel="stylesheet" type="text/css" href="${url}"></link>
-  % endfor
-% endif
-
 ${gymcms.render('partials/footer')}
