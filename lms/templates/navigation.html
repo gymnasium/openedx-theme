@@ -44,34 +44,11 @@ site_status_msg = get_site_status_msg(course_id)
     <div class="container">
       <div class="row">
         <div class="navbar">
-          <div class="nav navbar navbar-nav navbar-left">
-            % if not user.is_authenticated():
-                % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
-                  <a class="gym-button" href="/register"><b>${_("Sign Up")}</b></a>
-                % endif
-            % endif
-          </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-
-              % if user.is_authenticated():
-
-                <li>
-                  <a href="#" id="dropdown" class="logged-in-username">
-                    ${user.username} <span class="caret"></span>
-                  </a>
-                  <ul class="" id="dropdown-menu">
-                    <li><a href="${reverse('logout')}" role="menuitem">${_("Log Out")}</a></li>
-                  </ul>
-                </li>
-
-              % endif
-
               <li><a href="https://aquent.com" rel="noopener" target="_blank" title="Aquent" class="gym-nav-icon-container"> <i class="gym-nav-icon aquent-icon"></i></a></li>
               <li><a href="https://vitamintalent.com" rel="noopener" target="_blank" title="Vitamin T" class="gym-nav-icon-container"> <i class="gym-nav-icon vitamin-t-icon"></i></a></li>
-
             </ul>
-
           </div>
         </div>
       </div>
@@ -109,11 +86,11 @@ site_status_msg = get_site_status_msg(course_id)
 
                 <%block name="navigation_global_links_authenticated">
                   % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
-                    <li class="nav-global-01">
+                    <li>
                       <a href="/dashboard">${_('Dashboard')}</a>
                     </li>
-                    <li class="visible-xs">
-                      <a href="/logout">Log out</a>
+                    <li>
+                      <a href="${reverse('logout')}">Log out</a>
                     </li>
                   % endif
                 </%block>
@@ -122,9 +99,9 @@ site_status_msg = get_site_status_msg(course_id)
                 <li>
                   % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
                       % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
-                      <a class="cta cta-login" href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}"><b>${_("Log In")}</b></a>
+                        <a class="cta cta-login" href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}"><b>${_("Log In/Sign Up")}</b></a>
                       % else:
-                      <a class="gym-button" href="/login${login_query()}"><b>${_("Log In")}</b></a>
+                        <a class="gym-button" href="/login${login_query()}"><b>${_("Log In/Sign Up")}</b></a>
                       % endif
                   % endif
                 </li>
