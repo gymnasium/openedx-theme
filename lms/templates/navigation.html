@@ -44,11 +44,12 @@ site_status_msg = get_site_status_msg(course_id)
   <nav id="main-nav" class="main-nav" aria-label="Main Navigation">
     <div class="container">
 
-      <a class="navbar-brand" href="${marketing_link('ROOT')}">
-        <%block name="navigation_logo">
-          <img src="${static.url(branding.get_logo_url())}" alt="Gymnasium"/>
-        </%block>
+      <a class="site-logo" href="${marketing_link('ROOT')}">
+        <img src="${static.url(branding.get_logo_url())}" alt="Gymnasium">
       </a>
+
+      ##<input type="checkbox" id="mobile-menu">
+      ##<label for="mobile-menu" aria-label="Menu"></label>
 
       <ul>
         <li><a href="/courses">Courses</a></li>
@@ -56,37 +57,22 @@ site_status_msg = get_site_status_msg(course_id)
         <li><a href="/about">About</a></li>
 
         % if user.is_authenticated():
-
-          <%block name="navigation_global_links_authenticated">
-            % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
-              <li>
-                <a href="/dashboard">${_('Dashboard')}</a>
-              </li>
-              <li>
-                <a href="${reverse('logout')}">Log out</a>
-              </li>
-            % endif
-          </%block>
-
+          % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
+            <li><a href="/dashboard">${_('Dashboard')}</a></li>
+            <li><a href="${reverse('logout')}">Log Out</a></li>
+          % endif
         % else:
           <li>
             % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
                 % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
-                  <a class="cta cta-login" href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}"><b>${_("Log In/Sign Up")}</b></a>
+                  <a class="gym-button" href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}">${_("Log In/Sign Up")}</a>
                 % else:
-                  <a class="gym-button" href="/login${login_query()}"><b>${_("Log In/Sign Up")}</b></a>
+                  <a class="gym-button" href="/login${login_query()}">${_("Log In/Sign Up")}</a>
                 % endif
             % endif
           </li>
         % endif
       </ul>
-
-      <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#secondary-nav-items">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button> -->
     </div>
   </nav>
 
@@ -100,22 +86,22 @@ site_status_msg = get_site_status_msg(course_id)
   </nav>
 
   <div class="wrapper-msg urgency-high" id="browserWarning" style="display:none;">
-      <div class="msg">
-          <div class="msg-content">
-              <h1>Improve your Gymnasium experience</h1>
-              <div class="copy">
-                  <p>It looks like you’re using an unsupported browser. To get the most out of your Gymnasium experience, we recommend that you use
-                    <a href="https://www.google.com/chrome/index.html" target="_blank" rel="noopener">Chrome</a>,
-                    <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank" rel="noopener">Firefox</a>, or
-                    <a href="https://www.apple.com/safari/" target="_blank" rel="noopener">Safari</a>.</p>
-              </div>
-          </div>
+    <div class="msg">
+      <div class="msg-content">
+        <h1>Improve your Gymnasium experience</h1>
+        <div class="copy">
+          <p>It looks like you’re using an unsupported browser. To get the most out of your Gymnasium experience, we recommend that you use
+            <a href="https://www.google.com/chrome/index.html" target="_blank" rel="noopener">Chrome</a>,
+            <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank" rel="noopener">Firefox</a>, or
+            <a href="https://www.apple.com/safari/" target="_blank" rel="noopener">Safari</a>.</p>
+        </div>
       </div>
+    </div>
   </div>
 </header>
 
 % if course:
-<!--[if lte IE 8]>
+<!--[if lte IE 9]>
 <div class="ie-banner" aria-hidden="true">${_('<strong>Warning:</strong> Your browser is not fully supported. We strongly recommend using {chrome_link} or {ff_link}.').format(chrome_link='<a href="https://www.google.com/intl/en/chrome/browser/" target="_blank">Chrome</a>', ff_link='<a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>')}</div>
 <![endif]-->
 % endif
