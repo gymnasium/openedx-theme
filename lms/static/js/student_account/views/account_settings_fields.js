@@ -404,7 +404,7 @@
             linkClass = "social-field-linked";
             subTitle = StringUtils.interpolate(
               gettext(
-                "You can use your {accountName} account to sign in to your {platformName} account."
+                "You can use your {accountName} account to log in to your {platformName} account."
               ), // eslint-disable-line max-len
               {
                 accountName: this.options.title,
@@ -420,7 +420,7 @@
             linkClass = "social-field-unlinked";
             subTitle = StringUtils.interpolate(
               gettext(
-                "Link your {accountName} account to your {platformName} account and use {accountName} to sign in to {platformName}."
+                "Link your {accountName} account to your {platformName} account and use {accountName} to log in to {platformName}."
               ), // eslint-disable-line max-len
               {
                 accountName: this.options.title,

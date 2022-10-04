@@ -1,26 +1,26 @@
 <div class="js-form-feedback" aria-live="assertive" tabindex="-1"></div>
 
 <form id="login" class="login-form course-content" tabindex="-1">
-  <h1><span class="text">Sign In</span></h1>
+  <h1><span class="text">Log In</span></h1>
 
   <p class="sr sr-only">
     <% if ( context.providers.length > 0 && !context.currentProvider || context.hasSecondaryProviders ) { %>
-      <%- gettext("Sign in here using your email address and password, or use one of the providers listed below.") %>
+      <%- gettext("Log in here using your email address and password, or use one of the providers listed below.") %>
     <% } else { %>
-      <%- gettext("Sign in here using your email address and password.") %>
+      <%- gettext("Log in here using your email address and password.") %>
     <% } %>
     <%- gettext("If you do not yet have an account, use the button below to register.") %>
   </p>
 
   <%= context.fields %>
 
-  <button type="submit" class="gym-button js-login logistration-button"><%- gettext("Sign in") %></button>
+  <button type="submit" class="gym-button js-login logistration-button"><%- gettext("Log In") %></button>
 
   <% if ( context.providers.length > 0 && !context.currentProvider || context.hasSecondaryProviders ) { %>
   <div class="login-providers">
 
     <div class="section-title lines">
-      <h2><span class="text"><%- gettext("or sign in with") %></span></h2>
+      <h2><span class="text"><%- gettext("or log in with") %></span></h2>
     </div>
 
     <% _.each( context.providers, function( provider ) {
@@ -32,7 +32,7 @@
               <% } %>
           </div>
           <span aria-hidden="true"><%- provider.name %></span>
-          <span class="sr"><%- _.sprintf( gettext("Sign in with %(providerName)s"), {providerName: provider.name} ) %></span>
+          <span class="sr"><%- _.sprintf( gettext("Log in with %(providerName)s"), {providerName: provider.name} ) %></span>
         </button>
       <% }
     }); %>

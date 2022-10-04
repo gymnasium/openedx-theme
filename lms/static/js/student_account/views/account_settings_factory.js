@@ -100,7 +100,7 @@
 
       emailFieldData = {
         model: userAccountModel,
-        title: gettext("Email Address (Sign In)"),
+        title: gettext("Email Address (Log In)"),
         valueAttribute: "email",
         helpMessage: StringUtils.interpolate(
           gettext(
