@@ -60,7 +60,6 @@
     <%= context.fields %>
 
     <button type="submit" class="gym-button js-register logistration-button"><%- gettext("Create your account") %></button>
-    <p class="note">* <%- gettext("Required field") %></p>
 </form>
 
 <br />
