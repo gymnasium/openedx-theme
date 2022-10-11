@@ -15,11 +15,11 @@ from openedx.core.djangolib.markup import HTML
 
 <%block name="pagetitle">${_("Learner Profile")}</%block>
 
-<%block name="bodyclass">gym-view-profile view-profile</%block>
-
-<%block name="headextra">
-${gymcms.render('dashboard/meta')}
+<%block name="gym_head_meta">
+  ${gymcms.render('dashboard/meta')}
 </%block>
+
+<%block name="bodyclass">gym-view-profile view-profile</%block>
 
 <div class="message-banner" aria-live="polite"></div>
 <main id="main" aria-label="Content" tabindex="-1">

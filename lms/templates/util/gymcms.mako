@@ -16,7 +16,7 @@
       if gymcms_url:
         fullUrl = gymcms_url + templateUrl
         ## temporarily look at an in-progress build
-        ## fullUrl = 'https://deploy-preview-772--thegymcms.netlify.app/' + templateUrl
+        ##fullUrl = 'https://deploy-preview-804--thegymcms.netlify.app/' + templateUrl
       else:
         ## Fallback if GYMCMS_URL is not defined in settings
         if edx_env == 'staging':
