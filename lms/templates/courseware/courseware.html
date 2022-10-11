@@ -22,8 +22,6 @@ from openedx.features.course_experience import course_home_page_title, COURSE_OU
  <% return _("{course_name} Courseware").format(course_name=course.display_name_with_default) %>
 </%def>
 
-<%block name="bodyclass">view-in-course view-courseware courseware ${course.css_class or ''}</%block>
-
 <%block name="title">
 <title data-base-title="${static.get_page_title_breadcrumbs(section_title, course_name())}">
   ${static.get_page_title_breadcrumbs(sequence_title, course_name())}
@@ -48,39 +46,40 @@ from openedx.features.course_experience import course_home_page_title, COURSE_OU
 
 </%block>
 
+<%block name="gym_head_meta">
+## OG (Open Graph) title and description added below to give social media info to display
+## (https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content#tags)
+
+## Ensure we're pulling in the proper meta path for gym shorts vs full courses
+%if course.display_number_with_default:
+  %if int(course.display_number_with_default) >= 700 and int(course.display_number_with_default) < 800:
+    ${gymcms.render('courses/workshops/gym-' + course.display_number_with_default + '/meta')}
+  %elif int(course.display_number_with_default) < 100:
+    ${gymcms.render('courses/gym-shorts/gym-' + course.display_number_with_default + '/meta')}
+  %else:
+    ${gymcms.render('courses/full/gym-' + course.display_number_with_default + '/meta')}
+  %endif
+%else:
+  <meta property="og:title" content="${course.display_name_with_default_escaped} - Gymnasium" />
+  <meta property="og:image" content="https://gymnasium.github.io/static-site-content/artwork/production/courses/gym-${course.display_number_with_default | h}-social.png" />
+% endif
+</%block>
+
 <%block name="headextra">
 ${HTML(fragment.head_html())}
-
   ## Utility: Notes
   % if is_edxnotes_enabled(course, request.user):
     <%static:css group='style-student-notes'/>
   % endif
 
   <link href="${static.url('css/vendor/jquery.autocomplete.css')}" rel="stylesheet" type="text/css">
-  ## OG (Open Graph) title and description added below to give social media info to display
-  ## (https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content#tags)
-
-  ## Ensure we're pulling in the proper meta path for gym shorts vs full courses
-  %if course.display_number_with_default:
-    %if int(course.display_number_with_default) >= 700 and int(course.display_number_with_default) < 800:
-      ${gymcms.render('courses/workshops/gym-' + course.display_number_with_default + '/meta')}
-    %elif int(course.display_number_with_default) < 100:
-      ${gymcms.render('courses/gym-shorts/gym-' + course.display_number_with_default + '/meta')}
-    %else:
-      ${gymcms.render('courses/full/gym-' + course.display_number_with_default + '/meta')}
-    %endif
-  %else:
-    <meta property="og:title" content="${course.display_name_with_default_escaped} - Gymnasium" />
-    <meta property="og:image" content="https://gymnasium.github.io/static-site-content/artwork/production/courses/gym-${course.display_number_with_default | h}-social.png" />
-  % endif
-
-  <script src="${static.url('js/jquery.autocomplete.js')}"></script>
-  <script src="${static.url('js/src/tooltip_manager.js')}"></script>
 </%block>
 
 <%block name="js_extra">
-  <script src="${static.url('common/js/vendor/jquery.scrollTo.js')}"></script>
-  <script src="${static.url('js/vendor/flot/jquery.flot.js')}"></script>
+  <script defer async src="${static.url('js/jquery.autocomplete.js')}"></script>
+  <script defer async src="${static.url('js/src/tooltip_manager.js')}"></script>
+  <script defer async src="${static.url('common/js/vendor/jquery.scrollTo.js')}"></script>
+  <script defer async src="${static.url('js/vendor/flot/jquery.flot.js')}"></script>
 
   ## codemirror
   <script src="${static.url('js/vendor/codemirror-compressed.js')}"></script>
@@ -112,7 +111,6 @@ ${HTML(fragment.head_html())}
     var $$course_id = "${course.id | n, js_escaped_string}";
   </script>
 
-
   % if not request.user.is_authenticated:
   <script>
   window.addEventListener('load', (event) => {
@@ -126,8 +124,9 @@ ${HTML(fragment.head_html())}
   % endif
 
 ${HTML(fragment.foot_html())}
-
 </%block>
+
+<%block name="bodyclass">view-in-course view-courseware courseware ${course.css_class or ''}</%block>
 
 <div class="message-banner" aria-live="polite">
 %if int(course.display_number_with_default) >= 700 and int(course.display_number_with_default) < 800:

@@ -2,9 +2,9 @@
 <%! from openedx.core.djangolib.js_utils import js_escaped_string %>
 
 % if settings.LMS_SEGMENT_KEY:
+  % if user.is_authenticated:
   <!-- begin segment footer (gym) -->
   <script>
-  % if user.is_authenticated:
     window.addEventListener('load', (event) => {
       analytics.identify(
         "${ user.id | n, js_escaped_string }",
@@ -22,7 +22,7 @@
         }
       );
     });
-  % endif
   </script>
   <!-- end segment footer (gym) -->
+  % endif
 % endif
