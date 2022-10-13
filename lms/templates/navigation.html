@@ -50,28 +50,32 @@ site_status_msg = get_site_status_msg(course_id)
       </%block>
       </a>
 
-      <!-- <input type="checkbox" id="mobile-menu">
-      <label for="mobile-menu" aria-label="Menu"></label> -->
+      ##<input type="checkbox" id="mobile-menu">
+      ##<label for="mobile-menu" aria-label="Menu"></label>
+      % if user.is_authenticated():
+        <% menu_class = "logged-in" %>
+        <% dash_btn_class = "" %>
+      % else:
+        <% menu_class = "logged-out" %>
+        <% dash_btn_class = "gym-button" %>
+      % endif
 
-      <ul>
+      <ul class="${menu_class}">
         <li><a href="/courses">Courses</a></li>
         <li><a href="/jobs">Jobs</a></li>
         <li><a href="/about">About</a></li>
-
         % if user.is_authenticated():
           <%block name="navigation_global_links_authenticated">
-            % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
-              <li><a href="/dashboard">${_('Dashboard')}</a></li>
-              <li><a href="${reverse('logout')}">Log Out</a></li>
-            % endif
+          <li><a class="${dash_btn_class}" href="/dashboard">${_('Account')}</a></li>
+          <li><a href="${reverse('logout')}">Log Out</a></li>
           </%block>
         % else:
           <li>
             % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
               % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
-                <a class="gym-button" href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}">${_("Log In/Sign Up")}</a>
+                <a class="${dash_btn_class}" href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}">${_("Account")}</a>
               % else:
-                <a class="gym-button" href="/login${login_query()}">${_("Log In/Sign Up")}</a>
+                <li><a class="${dash_btn_class}" href="/dashboard">${_('Account')}</a></li>
               % endif
             % endif
           </li>
