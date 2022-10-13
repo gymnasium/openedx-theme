@@ -54,7 +54,7 @@ site_status_msg = get_site_status_msg(course_id)
       ##<label for="mobile-menu" aria-label="Menu"></label>
       % if user.is_authenticated():
         <% menu_class = "logged-in" %>
-        <% dash_btn_class = "" %>
+        <% dash_btn_class = "text-link" %>
       % else:
         <% menu_class = "logged-out" %>
         <% dash_btn_class = "gym-button" %>
