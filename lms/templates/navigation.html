@@ -39,12 +39,12 @@ site_status_msg = get_site_status_msg(course_id)
 
 <aside id="system-status" class="system-status hide"></aside>
 
-<header class="site-header" aria-label="${_('Site Header')}">
+<header class="site-header" aria-label="Site Header">
 
   <nav id="main-nav" class="main-nav" aria-label="Main Navigation">
     <div class="container">
 
-      <a class="site-logo" href="${marketing_link('ROOT')}">
+      <a class="site-logo" href="/">
       <%block name="navigation_logo">
         <img src="${static.url(branding.get_logo_url())}" alt="Gymnasium">
       </%block>
@@ -52,6 +52,7 @@ site_status_msg = get_site_status_msg(course_id)
 
       ##<input type="checkbox" id="mobile-menu">
       ##<label for="mobile-menu" aria-label="Menu"></label>
+
       % if user.is_authenticated():
         <% menu_class = "logged-in" %>
         <% dash_btn_class = "text-link" %>
@@ -66,19 +67,19 @@ site_status_msg = get_site_status_msg(course_id)
         <li><a href="/about">About</a></li>
         % if user.is_authenticated():
           <%block name="navigation_global_links_authenticated">
-          <li><a class="${dash_btn_class}" href="/dashboard">${_('Account')}</a></li>
+          % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
+          <li><a class="${dash_btn_class}" href="/dashboard">Account</a></li>
           <li><a href="${reverse('logout')}">Log Out</a></li>
+          % endif
           </%block>
         % else:
-          <li>
-            % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
-              % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
-                <a class="${dash_btn_class}" href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}">${_("Account")}</a>
-              % else:
-                <li><a class="${dash_btn_class}" href="/dashboard">${_('Account')}</a></li>
-              % endif
+          % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
+            % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
+            <li><a class="${dash_btn_class}" href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}">Account</a></li>
+            % else:
+            <li><a class="${dash_btn_class}" href="/dashboard">Account</a></li>
             % endif
-          </li>
+          % endif
         % endif
       </ul>
     </div>
