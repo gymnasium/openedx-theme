@@ -55,10 +55,8 @@ site_status_msg = get_site_status_msg(course_id)
 
       % if user.is_authenticated():
         <% menu_class = "logged-in" %>
-        <% dash_btn_class = "text-link" %>
       % else:
         <% menu_class = "logged-out" %>
-        <% dash_btn_class = "gym-button" %>
       % endif
 
       <ul class="${menu_class}">
@@ -67,17 +65,17 @@ site_status_msg = get_site_status_msg(course_id)
         <li><a href="/about">About</a></li>
         % if user.is_authenticated():
           <%block name="navigation_global_links_authenticated">
-          % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
-          <li><a class="${dash_btn_class}" href="/dashboard">Account</a></li>
-          <li><a href="${reverse('logout')}">Log Out</a></li>
-          % endif
+            % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
+              <li><a href="/dashboard">Account</a></li>
+              <li><a href="/logout">Log Out</a></li>
+            % endif
           </%block>
         % else:
           % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
             % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
-            <li><a class="${dash_btn_class}" href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}">Account</a></li>
+            <li><a class="gym-button" href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}">Account</a></li>
             % else:
-            <li><a class="${dash_btn_class}" href="/dashboard">Account</a></li>
+            <li><a class="gym-button" href="/dashboard">Account</a></li>
             % endif
           % endif
         % endif
