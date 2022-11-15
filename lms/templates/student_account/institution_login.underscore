@@ -2,7 +2,7 @@
     <div class="section-title lines">
         <h2>
             <span class="text">
-                <%- gettext("Log in with Institution/Campus Credentials") %>
+                <%- gettext("Sign In With Institution/Campus Credentials") %>
             </span>
         </h2>
     </div>
@@ -26,6 +26,6 @@
     </div>
 
     <div class="toggle-form">
-        <button class="nav-btn form-toggle" data-type="login"><%- gettext("Back to log in") %></button>
+        <button class="nav-btn form-toggle" data-type="login"><%- gettext("Back to sign in") %></button>
     </div>
 </div>

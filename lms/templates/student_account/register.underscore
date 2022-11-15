@@ -70,5 +70,5 @@
         <span class="text"><%- gettext("Already have an account?") %></span>
       </h2>
     </div>
-    <button class="gym-button form-toggle logistration-button" data-type="login"><%- gettext("Log In") %></button>
+    <button class="gym-button form-toggle logistration-button" data-type="login"><%- gettext("Sign In") %></button>
 </div>
