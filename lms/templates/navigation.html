@@ -40,18 +40,31 @@ site_status_msg = get_site_status_msg(course_id)
 <aside id="system-status" class="system-status hide"></aside>
 
 <header class="site-header" aria-label="Site Header">
+  <nav id="utility-nav" class="utility-nav" aria-label="Affiliated Brands Navigation">
+    <div class="container">
+      <ul class="list">
+        <li>
+          <a href="https://aquent.com" class="grayscale" rel="noopener" target="_blank" aria-label="Aquent website.">
+            <img class="icon-aquent" alt="Aquent “A” logo." src="https://deploy-preview-809--thegymcms.netlify.app/img/gym-aquent-logos/png/aquent-a-logo-orange.png" srcset="https://deploy-preview-809--thegymcms.netlify.app/img/gym-aquent-logos/svg/aquent-a-logo-orange.svg" width="23" height="25" decoding="async" fetchpriority="high">
+          </a>
+        </li>
+        <li>
+          <a href="https://aquenttalent.com" class="grayscale opacity" rel="noopener" target="_blank" aria-label="Aquent Talent website.">
+            <img class="icon-aquent-talent" alt="Aquent Talent “T” (inside a teardrop) logo." src="https://deploy-preview-809--thegymcms.netlify.app/img/gym-aquent-logos/png/aquent-talent-t-logo-white.png" srcset="https://deploy-preview-809--thegymcms.netlify.app/img/gym-aquent-logos/svg/aquent-talent-t-logo-white.svg" width="26" height="29" decoding="async" fetchpriority="high">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
   <nav id="main-nav" class="main-nav" aria-label="Main Navigation">
     <div class="container">
 
       <a class="site-logo" href="/">
       <%block name="navigation_logo">
-        <img src="${static.url(branding.get_logo_url())}" alt="Gymnasium">
+        <img class="gymnasium-logo" alt="Aquent Gymnasium homepage" src="https://thegymcms.com/img/brand/png/gymnasium-logo-white-4x.png" srcset="https://thegymcms.com/img/brand/svg/gymnasium-logo-white.svg" width="200" height="23" decoding="async" fetchpriority="high">
       </%block>
       </a>
-
-      ##<input type="checkbox" id="mobile-menu">
-      ##<label for="mobile-menu" aria-label="Menu"></label>
 
       % if user.is_authenticated():
         <% menu_class = "logged-in" %>
@@ -59,10 +72,10 @@ site_status_msg = get_site_status_msg(course_id)
         <% menu_class = "logged-out" %>
       % endif
 
-      <ul class="${menu_class}">
+      <ul class="${menu_class}" role="list">
         <li><a href="/courses">Courses</a></li>
         <li><a href="/jobs">Jobs</a></li>
-        <li><a href="/about">About</a></li>
+        <li class="vbar"><a href="/about">About</a></li>
         % if user.is_authenticated():
           <%block name="navigation_global_links_authenticated">
             % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
@@ -81,15 +94,6 @@ site_status_msg = get_site_status_msg(course_id)
             % endif
           % endif
         % endif
-      </ul>
-    </div>
-  </nav>
-
-  <nav id="utility-nav" class="utility-nav" aria-label="Affiliated Brands Navigation">
-    <div class="container">
-      <ul>
-        <li><a href="https://aquent.com" rel="noopener" target="_blank" title="Aquent" class="gym-nav-icon-container"> <i class="gym-nav-icon aquent-icon"></i></a></li>
-        <li><a href="https://vitamintalent.com" rel="noopener" target="_blank" title="Vitamin T" class="gym-nav-icon-container"> <i class="gym-nav-icon vitamin-t-icon"></i></a></li>
       </ul>
     </div>
   </nav>
