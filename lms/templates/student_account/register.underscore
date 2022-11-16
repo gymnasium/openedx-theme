@@ -21,7 +21,7 @@
         <div class="login-providers">
             <br />
             <h1>
-              <span class="text">Create an account using</span>
+              <span class="text">Sign up using</span>
             </h1>
             <%
             _.each( context.providers, function( provider) {
@@ -59,7 +59,7 @@
 
     <%= context.fields %>
 
-    <button type="submit" class="gym-button js-register logistration-button"><%- gettext("Create your account") %></button>
+    <button type="submit" class="gym-button js-register logistration-button"><%- gettext("Sign Up") %></button>
 </form>
 
 <br />
