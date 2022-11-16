@@ -52,7 +52,7 @@
     <% } else { %>
         <div class="section-title lines">
             <h2>
-                <span class="text"><%- gettext("Create a new account") %></span>
+                <span class="text"><%- gettext("Create an account") %></span>
             </h2>
         </div>
     <% } %>
@@ -67,7 +67,7 @@
 <div class="toggle-form course-content logistration-bottom">
     <div class="section-title">
       <h2>
-        <span class="text"><%- gettext("Already have an account?") %></span>
+        <span class="text"><%- gettext("Already a student?") %></span>
       </h2>
     </div>
     <button class="gym-button form-toggle logistration-button" data-type="login"><%- gettext("Sign In") %></button>
