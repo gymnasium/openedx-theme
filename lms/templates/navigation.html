@@ -5,6 +5,11 @@
 <%!
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
+from django.conf import settings
+if settings.APPSEMBLER_FEATURES['GYMCMS_URL'] is None:
+  gymcms_url = 'https://thegymcms.com/'
+else:
+  gymcms_url = settings.APPSEMBLER_FEATURES['GYMCMS_URL']
 
 # App that handles subdomain specific branding
 import branding
@@ -45,12 +50,12 @@ site_status_msg = get_site_status_msg(course_id)
       <ul class="list">
         <li>
           <a href="https://aquent.com" class="grayscale" rel="noopener" target="_blank" aria-label="Aquent website.">
-            <img class="icon-aquent" alt="Aquent “A” logo." src="https://thegymcms.com/img/brand/png/aquent-a-logo-orange.png" srcset="https://thegymcms.com/img/brand/svg/aquent-a-logo-orange.svg" width="23" height="25" decoding="async" fetchpriority="high">
+            <img class="icon-aquent" alt="Aquent “A” logo." src="${gymcms_url}img/brand/png/aquent-a-logo-orange.png" srcset="${gymcms_url}img/brand/svg/aquent-a-logo-orange.svg" width="23" height="25" decoding="async" fetchpriority="high">
           </a>
         </li>
         <li>
           <a href="https://aquenttalent.com" class="grayscale opacity" rel="noopener" target="_blank" aria-label="Aquent Talent website.">
-            <img class="icon-aquent-talent" alt="Aquent Talent “T” (inside a teardrop) logo." src="https://thegymcms.com/img/brand/png/aquent-talent-t-logo-white.png" srcset="https://thegymcms.com/img/brand/svg/aquent-talent-t-logo-white.svg" width="26" height="29" decoding="async" fetchpriority="high">
+            <img class="icon-aquent-talent" alt="Aquent Talent “T” (inside a teardrop) logo." src="${gymcms_url}img/brand/png/aquent-talent-t-logo-white.png" srcset="${gymcms_url}img/brand/svg/aquent-talent-t-logo-white.svg" width="26" height="29" decoding="async" fetchpriority="high">
           </a>
         </li>
       </ul>
@@ -62,7 +67,7 @@ site_status_msg = get_site_status_msg(course_id)
 
       <a class="site-logo" href="/">
       <%block name="navigation_logo">
-        <img class="gymnasium-logo" alt="Aquent Gymnasium homepage" src="https://thegymcms.com/img/brand/png/gymnasium-logo-white-4x.png" srcset="https://thegymcms.com/img/brand/svg/gymnasium-logo-white.svg" width="200" height="23" decoding="async" fetchpriority="high">
+        <img class="gymnasium-logo" alt="Aquent Gymnasium homepage" src="${gymcms_url}img/brand/png/gymnasium-logo-white-4x.png" srcset="${gymcms_url}img/brand/svg/gymnasium-logo-white.svg" width="200" height="23" decoding="async" fetchpriority="high">
       </%block>
       </a>
 
