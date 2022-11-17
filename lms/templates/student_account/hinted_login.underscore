@@ -1,7 +1,7 @@
 <div class="wrapper-other-login">
     <div class="section-title lines">
         <h2>
-            <span class="text"><%- gettext("Sign in") %></span>
+            <span class="text"><%- gettext("Sign In") %></span>
         </h2>
     </div>
 
