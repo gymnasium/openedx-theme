@@ -21,7 +21,7 @@
         <div class="login-providers">
             <br />
             <h1>
-              <span class="text">Create an account using</span>
+              <span class="text">Sign up using</span>
             </h1>
             <%
             _.each( context.providers, function( provider) {
@@ -52,24 +52,23 @@
     <% } else { %>
         <div class="section-title lines">
             <h2>
-                <span class="text"><%- gettext("Create a new account") %></span>
+                <span class="text"><%- gettext("Create an account") %></span>
             </h2>
         </div>
     <% } %>
 
     <%= context.fields %>
 
-    <button type="submit" class="gym-button js-register logistration-button"><%- gettext("Create your account") %></button>
-    <p class="note">* <%- gettext("Required field") %></p>
+    <button type="submit" class="gym-button js-register logistration-button"><%- gettext("Sign Up") %></button>
 </form>
 
 <br />
 
 <div class="toggle-form course-content logistration-bottom">
     <div class="section-title">
-        <h2>
-            <span class="text"><%- gettext("Already have an account?") %></span>
-        </h2>
+      <h2>
+        <span class="text"><%- gettext("Already a student?") %></span>
+      </h2>
     </div>
-    <button class="gym-button form-toggle logistration-button" data-type="login"><%- gettext("Sign in") %></button>
+    <button class="gym-button form-toggle logistration-button" data-type="login"><%- gettext("Sign In") %></button>
 </div>

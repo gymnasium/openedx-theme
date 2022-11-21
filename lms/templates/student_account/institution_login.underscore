@@ -2,7 +2,7 @@
     <div class="section-title lines">
         <h2>
             <span class="text">
-                <%- gettext("Sign in with Institution/Campus Credentials") %>
+                <%- gettext("Sign In With Institution/Campus Credentials") %>
             </span>
         </h2>
     </div>

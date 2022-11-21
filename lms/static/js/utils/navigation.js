@@ -16,13 +16,11 @@ var Navigation = (function () {
       },
   
       getActiveIndex: function () {
-        var index = $(".accordion .button-chapter:has(.active)").index(
-            ".accordion .button-chapter"
-          ),
-          button = null;
+        var index = $(".accordion .button-chapter:has(.active)").index(".accordion .button-chapter");
+        var button = null;
   
         if (index > -1) {
-          button = $(".accordion .button-chapter:eq(" + index + ")");
+          button = $(`.accordion .button-chapter:eq(${index})`);
         }
   
         return button;
@@ -42,8 +40,8 @@ var Navigation = (function () {
         $(".accordion").on("click", ".button-chapter", function (event) {
           event.preventDefault();
   
-          var $button = $(event.currentTarget),
-            section = $button.next(".chapter-content-container");
+          var $button = $(event.currentTarget);
+          var section = $button.next(".chapter-content-container");
   
           navigation.closeAccordions($button, section);
           navigation.openAccordion($button, section);
@@ -55,7 +53,7 @@ var Navigation = (function () {
           // because we're changing the role of the toggle from an 'a' to a 'button'
           // we need to ensure it has the same keyboard use cases as a real button.
           // this is useful for screenreader users primarily.
-          if (event.which == 32) {
+          if (event.which === 32) {
             // spacebar
             event.preventDefault();
             $(event.currentTarget).trigger("click");
@@ -66,8 +64,8 @@ var Navigation = (function () {
       },
   
       closeAccordions: function (button, section) {
-        var menu = $(section).find(".chapter-menu"),
-          toggle;
+        var menu = $(section).find(".chapter-menu");
+        var toggle;
   
         $(".accordion .button-chapter").each(function (index, element) {
           $toggle = $(element);
@@ -98,9 +96,9 @@ var Navigation = (function () {
       },
   
       openAccordion: function (button, section) {
-        var $sectionEl = $(section),
-          firstLink = $sectionEl.find(".menu-item").first(),
-          $buttonEl = $(button);
+        var $sectionEl = $(section);
+        var firstLink = $sectionEl.find(".menu-item").first();
+        var $buttonEl = $(button);
   
         $buttonEl.addClass("is-open").attr("aria-expanded", "true");
   
