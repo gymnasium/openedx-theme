@@ -1,0 +1,11 @@
+<%! from django.utils.translation import ugettext as _ %>
+<%inherit file="../main.html" />
+<%namespace name="gymcms" file="../util/gymcms.mako" />
+
+<%block name="pagetitle">${_("Holiday Card")}</%block>
+
+<%block name="gym_head_meta">
+  ${gymcms.render('holiday-card/meta')}
+</%block>
+
+${gymcms.render('holiday-card')}
