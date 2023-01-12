@@ -12,4 +12,4 @@ ln -s ~/configuration/playbooks/roles ~/openedx-theme/deploy/roles
 ln -s ~/configuration/playbooks/library ~/openedx-theme/deploy/library
 
 #deploy
-ansible-playbook -i ~/inventory --user $CIRCLE_USER -e THEME_BRANCH=$CIRCLE_BRANCH ~/openedx-theme/deploy/deploy_staging.yml -vvv
+ANSIBLE_SCP_IF_SSH=y ansible-playbook -i ~/inventory --user $CIRCLE_USER -e THEME_BRANCH=$CIRCLE_BRANCH ~/openedx-theme/deploy/deploy_staging.yml -vvv
