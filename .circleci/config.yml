@@ -36,6 +36,7 @@ workflows:
                 - hawthorn/staging
                 - /feature.*/
                 - /bug.*/
+                - /chore.*/
   build-dev:
     jobs:
       - dev:
@@ -44,3 +45,4 @@ workflows:
               only:
                 - hawthorn/dev
                 - /dev.*/
+                - /chore.*/
