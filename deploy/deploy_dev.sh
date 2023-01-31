@@ -4,6 +4,9 @@ cd ~
 git clone https://github.com/appsembler/configuration 
 cd configuration 
 git checkout appsembler/gymnasium/hawthorn/master
+# install python 2.7, pip and python virtualenv
+sudo apt-get update
+sudo apt-get install python2.7 python-pip python-virtualenv -y
 sudo pip install -r requirements.txt 
 cd playbooks  
 
