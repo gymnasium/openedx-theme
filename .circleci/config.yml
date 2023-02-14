@@ -3,7 +3,7 @@ jobs:
   staging: 
     working_directory: ~/openedx-theme
     docker: 
-      - image: circleci/python:2.7
+      - image: cimg/python:2.7
     steps: 
       - checkout
       - run: echo '[edxapp-server]' > ~/inventory
@@ -15,7 +15,7 @@ jobs:
   dev: 
     working_directory: ~/openedx-theme
     docker: 
-      - image: circleci/python:2.7
+      - image: cimg/python:2.7
     steps: 
       - checkout
       - run: echo '[edxapp-server]' > ~/inventory
@@ -36,6 +36,7 @@ workflows:
                 - hawthorn/staging
                 - /feature.*/
                 - /bug.*/
+                - /chore.*/
   build-dev:
     jobs:
       - dev:
@@ -44,3 +45,4 @@ workflows:
               only:
                 - hawthorn/dev
                 - /dev.*/
+                - /chore.*/
