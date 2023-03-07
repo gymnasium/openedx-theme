@@ -129,6 +129,16 @@ edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
   })();
   </script>
 % endif
+## GA4 Tag
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5YHKPKTFD2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5YHKPKTFD2');
+</script>
 
 <% branch_key = static.get_value("BRANCH_IO_KEY", settings.BRANCH_IO_KEY) %>
 % if branch_key and not is_from_mobile_app:
