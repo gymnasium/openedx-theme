@@ -78,13 +78,29 @@ site_status_msg = get_site_status_msg(course_id)
       % endif
 
       <ul class="${menu_class}" role="list">
-        <li><a href="/courses">Courses</a></li>
-        <li><a href="/jobs">Jobs</a></li>
-        <li class="vbar"><a href="/about">About</a></li>
+        % if "/courses" in request.path or "/collections" in request.path:
+          <li class="active"><a href="/courses" aria-current="page">Courses</a></li>
+        % else:
+          <li><a href="/courses">Courses</a></li>
+        % endif
+        % if "/jobs" in request.path:
+          <li class="active"><a href="/jobs" aria-current="page">Jobs</a></li>
+        % else:
+          <li><a href="/jobs">Jobs</a></li>
+        % endif
+        % if "/about" in request.path:
+          <li class="vbar active"><a href="/about" aria-current="page">About</a></li>
+        % else:
+          <li class="vbar"><a href="/about">About</a></li>
+        % endif
         % if user.is_authenticated():
           <%block name="navigation_global_links_authenticated">
             % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
-              <li><a href="/dashboard">Dashboard</a></li>
+              % if "/dashboard" in request.path or "/account/" in request.path:
+                <li class="active"><a href="/dashboard" aria-current="page">Dashboard</a></li>
+              % else:
+                <li><a href="/dashboard">Dashboard</a></li>
+              % endif
               <li><a href="/logout">Log Out</a></li>
             % endif
           </%block>
