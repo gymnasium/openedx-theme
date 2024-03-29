@@ -2,13 +2,13 @@
   <%
     import urllib2
     from django.conf import settings
-    edx_env = settings.APPSEMBLER_FEATURES['ENVIRONMENT']
+    edx_env = settings.ENVIRONMENT
 
     ## Check if we have GYMCMS_URL defined in settings
-    if settings.APPSEMBLER_FEATURES['GYMCMS_URL'] is None:
+    if settings.GYMCMS_URL is None:
       gymcms_url = False
     else:
-      gymcms_url = settings.APPSEMBLER_FEATURES['GYMCMS_URL']
+      gymcms_url = settings.GYMCMS_URL
 
     ## turn the partial url passed in into a fully GET-able url based on which environment we're in
     if templateUrl:

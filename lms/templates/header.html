@@ -1,10 +1,10 @@
 ## mako
 <%! from django.core.urlresolvers import reverse 
 from django.conf import settings
-if settings.APPSEMBLER_FEATURES['GYMCMS_URL'] is None:
+if settings.GYMCMS_URL is None:
   gymcms_url = 'https://thegymcms.com/'
 else:
-  gymcms_url = settings.APPSEMBLER_FEATURES['GYMCMS_URL']
+  gymcms_url = settings.GYMCMS_URL
 %>
 <%namespace name='static' file='/static_content.html'/>
 <%inherit file="/navigation.html"/>
